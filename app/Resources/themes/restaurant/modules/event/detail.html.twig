@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' -%}
+
+{% block SEO %}
+    {{ generateEventSEO( item ) }}
+{% endblock -%}
+
+{% block topbanner -%} {# No banners for this page -#} {% endblock -%}
+
+{# enables autocomplete in phpstorm -#}
+{# @var item \ArcaSolutions\EventBundle\Entity\Event #}
+{# @var level \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures #}
+
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}

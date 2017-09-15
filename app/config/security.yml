@@ -1,0 +1,15 @@
+security:
+    providers:
+        api_user_provider:
+            id: api.security.api_user_provider
+
+    firewalls:
+        secured_area:
+            pattern: ^/api
+            stateless: true
+            simple_preauth:
+                authenticator: api.security.apikey_authenticator
+            provider: api_user_provider
+
+    access_control:
+        - { path: ^/api, roles: ROLE_API }

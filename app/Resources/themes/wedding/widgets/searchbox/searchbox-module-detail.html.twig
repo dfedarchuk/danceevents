@@ -1,0 +1,34 @@
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+<div class="top-search {{ item.coverImage.id != 0 ? 'top-coverimage' : 'top-mainimage' }}">
+    {# General Background Image -#}
+    {{ UtilityDetail.coverImage(item.coverImage) }}
+
+    <div class="well well-translucid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-4 col-sm-12 text-center-sm">
+                    <h6 class="search-title" data-trans="{{ 'Explore Listings'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Events'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore Classifieds'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore Articles'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore Deals'|trans({}, 'widgets') }}">{{ content.labelExploreModule|trans({}, 'widgets')}}</h6>
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-12">
+                    <div id="search-responsive" class="search-collapse collapse">
+                        <div class="well well-translucid form-inline text-center">
+                            {{ addJSTwigParameter("searchBoxModule", module) }}
+                            {% if "event" in module -%}
+                                {{ include("::blocks/search/search-fields-date.html.twig", { 'dateFilter' : dateFilter }) }}
+                            {% elseif "article" in module or "blog" in module -%}
+                                {{ include("::blocks/search/search-fields-small.html.twig") }}
+                            {% else -%}
+                                {{ include("::blocks/search/search-fields.html.twig") }}
+                            {% endif -%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

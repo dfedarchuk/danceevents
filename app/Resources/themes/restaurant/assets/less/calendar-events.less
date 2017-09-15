@@ -1,0 +1,304 @@
+//
+// Calendar Events
+// --------------------------------------------------
+
+// List Calendar Date
+// -------------------------
+
+.list-calendar {
+    ul {
+        display: table;
+        width: 100%;
+        margin: 0 0 -7px 0;
+        li {
+            display: table-cell;
+            background-color: @brand-success;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            font-size: .8em;
+            b {
+                display: block;
+                color: white;
+                text-transform: uppercase;
+            }
+            &.active, &:hover, &:focus {
+                background-color: @brand-info;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// Calendar Carousel
+// Calendar list
+.calendar-carousel {
+    margin: @grid-gutter-width 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+}
+
+.calendar-dates {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    mark {
+        background-color: rgba(255, 255, 255, 0.95);
+        text-transform: uppercase;
+        padding: 10px 12px 10px 10px;
+        font-weight: 300;
+        display: block;
+        font-size: 1.3em;
+        line-height: 1;
+    }
+    em {
+        color: white;
+        display: block;
+        font-style: normal;
+        font-size: 1.5em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.1;
+        padding: 6px 10px 2px;
+        span {
+            font-weight: 500;
+            font-size: 1.6em;
+            line-height: 1.8;
+        }
+    }
+    .date-item {
+        border: 1px solid @gray-light;
+        display: inline-block;
+        margin: 0 @grid-gutter-width/2.1;
+        text-align: center;
+        background-color: @brand-primary;
+        white-space: nowrap;
+        padding: 0;
+        .transition(all ease 0.3s);
+        &.active {
+            background-color: @brand-success;
+            text-decoration: none;
+            mark {
+                background-color: rgba(0, 0, 0, 0.15);
+                color: white;
+            }
+        }
+        &:disabled {
+            &, &:hover {
+                cursor: default;
+                border-color: @gray-light;
+            }
+        }
+        &:hover, &:focus {
+            text-decoration: none;
+            border-color: @gray-dark;
+            cursor: pointer;
+        }
+
+        @media (max-width: @screen-xs) {
+            margin: 0;
+        }
+    }
+
+}
+
+
+// WIDGET EVENTS CALENDAR
+.event-calendar {
+    position: relative;
+    .well.well-translucid {
+        padding: 80px 0;
+    }
+    .event-header-navigation {
+        text-align: center;
+        width: ~"calc(100% - 130px)";
+        margin: 0 auto 30px;
+        @media (max-width: 500px) {
+            width: ~"calc(100% - 40px)" !important;
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -o-transition: .5s;
+            transition: .5s;
+            &.event-prev-year {
+                float: left;
+            }
+            &.event-next-year {
+                float: right;
+            }
+            &.event-view-year {
+                font-size: 24px;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .event-navigation {
+        button {
+            position: absolute;
+            top: ~"calc(50% - 25px)";
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            font-size: 24px;
+            line-height: 50px;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -o-transition: .5s;
+            transition: .5s;
+            &.prev {
+                left: 0px;
+            }
+            &.next {
+                right: 0px;
+            }
+            &:hover {
+                background-color: @btn-success-bg;
+            }
+            @media (max-width: 500px) {
+                top: ~"calc(50% - 15px)";
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+                line-height: 28px;
+            }
+        }
+        #event-calendar {
+            width: ~"calc(100% - 130px)" !important;
+            margin: 0 auto;
+            @media (max-width: 500px) {
+                width: ~"calc(100% - 70px)" !important;
+            }
+            .cal-row-head {
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 16px;
+                line-height: 50px;
+                border-top: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                &:hover {
+                    background-color: transparent;
+                }
+                .cal-cell1 {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+            .cal-month-box {
+                border: 0;
+                .cal-before-eventlist {
+                    border: 0;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                    .cal-cell1 {
+                        border: 0;
+                        text-align: center;
+                        min-height: initial;
+                        padding: 15px 0;
+                        &:hover {
+                            background-color: transparent;
+                        }
+                        .cal-month-day {
+                            height: 30px;
+                            width: 30px;
+                            margin: 0 auto;
+                            font-size: 18px;
+                            &.cal-day-today {
+                                background-color: @btn-success-bg;
+                            }
+                            span {
+                                color: #fff;
+                                margin: 0;
+                                opacity: 1;
+                                font-size: 18px;
+                                height: 30px;
+                                display: block;
+                                line-height: 30px;
+                                &.event-occurs {
+                                    border-color: #f8e81c;
+                                }
+                                a {
+                                    color: #fff;
+                                    -webkit-transition: .5s;
+                                    -moz-transition: .5s;
+                                    -o-transition: .5s;
+                                    transition: .5s;
+                                    text-decoration: none;
+                                    display: block;
+                                    line-height: 30px;
+                                    cursor: pointer;
+                                    &:hover {
+                                        background-color: rgba(255, 255, 255, 0.2);
+                                    }
+                                }
+                            }
+                        }
+                        .cal-day-outmonth {
+                            span {
+                                opacity: .3;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cal-year-box {
+            border: 0;
+            .cal-before-eventlist {
+                border: 0;
+                text-align: center;
+                color: #fff;
+                &:hover {
+                    background-color: transparent;
+                }
+                .cal-cell {
+                    border:0;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                    span {
+                        background-color: rgba(255, 255, 255, 0.2);
+                        -webkit-transition: .5s;
+                        -moz-transition: .5s;
+                        -o-transition: .5s;
+                        transition: .5s;
+                        cursor: pointer;
+                        margin: 0 0 15px;
+                        line-height: 60px;
+                        width: 100%;
+                        &:hover {
+                            background-color: @btn-success-bg;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    h2.theme-title {
+        text-align: center;
+        color: #fff;
+        border: 0;
+        margin-bottom: 60px;
+        padding: 0;
+    }
+}
+
+

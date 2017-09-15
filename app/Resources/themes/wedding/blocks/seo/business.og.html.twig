@@ -1,0 +1,29 @@
+{% extends "::blocks/seo/base.og.html.twig" %}
+
+{% block metaOG %}
+
+    {{ parent() }}
+
+    {% if og.business.contact.streetAddress %}<meta property="business:contact_data:street_address" content="{{ og.business.contact.streetAddress }}"/>{% endif %}
+
+    {% if og.business.contact.locality %}<meta property="business:contact_data:locality" content="{{ og.business.contact.locality }}"/>{% endif %}
+
+    {% if og.business.contact.region %}<meta property="business:contact_data:region" content="{{ og.business.contact.region }}"/>{% endif %}
+
+    {% if og.business.contact.postalCode %}<meta property="business:contact_data:postal_code" content="{{ og.business.contact.postalCode }}"/>{% endif %}
+
+    {% if og.business.contact.countryName %}<meta property="business:contact_data:country_name" content="{{ og.business.contact.countryName }}"/>{% endif %}
+
+    {% if og.business.contact.email %}<meta property="business:contact_data:email" content="{{ og.business.contact.email }}"/>{% endif %}
+
+    {% if og.business.contact.phoneNumber %}<meta property="business:contact_data:phone_number" content="{{ og.business.contact.phoneNumber }}"/>{% endif %}
+
+    {% if og.business.contact.faxNumber %}<meta property="business:contact_data:fax_number" content="{{ og.business.contact.faxNumber }}"/>{% endif %}
+
+    {% if og.business.contact.website %}<meta property="business:contact_data:website" content="{{ og.business.contact.website }}"/>{% endif %}
+
+    {#<meta property="business:hours:day" content="{{ og.business.hours.day }}"/>#}
+    {#<meta property="business:hours:start" content="{{ og.business.hours.start }}"/>#}
+    {#<meta property="business:hours:end" content="{{ og.business.hours.end }}"/>#}
+
+{% endblock %}

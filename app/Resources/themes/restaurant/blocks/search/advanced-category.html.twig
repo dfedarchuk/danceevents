@@ -1,0 +1,21 @@
+<div class="advanced-search-box hidden-xs">
+    <div class="well well-sm">
+        {% for name, module in modules -%}
+            <div class="list-group">
+                <h5 class="item-group-title">{{ name|trans|capitalize }}</h5>
+
+                {% for category in module -%}
+                    {# item \ArcaSolutions\SearchBundle\Entity\Elasticsearch\Category -#}
+                    {% set item = category.item -%}
+                    {% set documentCount = category.documentCount -%}
+
+                    <a href="#" class="list-group-item whatAdvancedSuggestionOption" data-friendlyurl="{{ item.friendlyUrl }}" data-title="{{ item.title }}" data-module="{{ item.module }}">
+                        {% if documentCount -%}<span class="badge">{{ documentCount < 1000 ? documentCount : "999+" }}</span>{% endif -%}
+                        {{ item.title }}
+                    </a>
+                {% endfor -%}
+
+            </div>
+        {% endfor -%}
+    </div>
+</div>

@@ -1,0 +1,17 @@
+{# Special -#}
+{% set specialsEventBlock = specialsEvent(4, 'col-md-3 col-sm-6') %}
+{% if specialsEventBlock %}
+    <section class="block featured">
+        <div class="container">
+            {% if specialsEventBlock %}
+                <h2 class="theme-title"
+                    data-trans="{{ 'Special Events'|trans({}, 'widgets') }}">{{ content.labelSpecialEvents|trans({}, 'widgets') }}
+                </h2>
+                <div class="row">
+                    {{ specialsEventBlock|raw }}
+                </div>
+            {% endif %}
+            {{ contentBottom|raw }}
+        </div>
+    </section>
+{% endif %}

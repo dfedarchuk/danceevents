@@ -1,0 +1,46 @@
+{#  Newsletter Block -#}
+{% set newsletter = getSetting('arcamailer_enable_list') -%}
+
+{% if newsletter -%}
+    {{ addJSFile("assets/js/newsletter/newsletter.js") -}}
+
+    <section class="block block-bg-newsletter">
+        <h6 class="sr-only">{{ "Newsletter"|trans({}, 'widgets') }} </h6>
+
+        {# General Background Image -#}
+        {{ include("::blocks/background-image-newsletter.html.twig") }}
+
+        <div class="container">
+            {# Newsletter Begin -#}
+            <div id="formNewsletter" class="newsletter newsletter-rest">
+                <div class="row">
+                    <div class="col-md-6 col-md-push-6">
+                        <h3 data-trans="{{ 'Sign up for our newsletter'|trans({}, 'widgets') }}">{{ content.labelSignupFor|trans({}, 'widgets') }}</h3>
+                        <p data-trans="{{ 'Sign up for our monthly newsletter. No spams, just product updates.'|trans({}, 'widgets') }}">{{ content.labelNewsletterDesc|trans({}, 'widgets') }}</p>
+                    </div>
+                    <div class="col-md-6 col-md-pull-6">
+                        <form class="form well well-translucid well-lg">
+                            <fieldset>
+                                <span class="showmessage"></span>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                           placeholder="{{ 'Your Name'|trans }}" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control"
+                                           placeholder="{{ 'Your e-mail'|trans }}"
+                                           name="email">
+                                </div>
+                                <button data-loading-text="{{ 'Please, wait...'|trans }}"
+                                        class="btn btn-success action-save btn-lg btn-block">{{ "Sign Up"|trans }}
+                                </button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endif -%}

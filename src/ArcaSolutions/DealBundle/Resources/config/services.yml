@@ -1,0 +1,50 @@
+parameters:
+    deal.search.configuration.class: ArcaSolutions\DealBundle\Search\DealConfiguration
+    deal.synchronization.configuration.class: ArcaSolutions\DealBundle\Services\Synchronization\DealSynchronizable
+    deal.blocks.twig.extension.class: ArcaSolutions\DealBundle\Twig\Extension\BlocksExtension
+    deal.seo.twig.extension.class: ArcaSolutions\DealBundle\Twig\Extension\SeoExtension
+    deal.helper.twig.extension.class: ArcaSolutions\DealBundle\Twig\Extension\HelperExtension
+    deal.handler.class: ArcaSolutions\DealBundle\Services\DealHandler
+
+services:
+    deal.search:
+        class: "%deal.search.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    deal.blocks:
+        class: "%deal.blocks.twig.extension.class%"
+        arguments:
+            - "@service_container"
+        tags:
+            - { name: twig.extension }
+
+    seo.deal:
+        class: "%deal.seo.twig.extension.class%"
+        arguments:
+            - "@service_container"
+            - "@settings"
+        tags:
+            - { name: twig.extension }
+
+    deal.twig.helper:
+        class: "%deal.helper.twig.extension.class%"
+        arguments: ["@modules", "@doctrine.orm.domain_entity_manager", "@deal.handler"]
+        tags: [{ name: twig.extension }]
+
+    deal.synchronization:
+        class: "%deal.synchronization.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    redeem.handler:
+        class: ArcaSolutions\DealBundle\Services\RedeemHandler
+        arguments:
+            - "@doctrine"
+            - "@email.notification.service"
+
+    deal.handler:
+        class: "%deal.handler.class%"
+        arguments:
+            - "@doctrine"
+            - "@settings"

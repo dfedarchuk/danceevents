@@ -1,0 +1,29 @@
+{% set skyScraperBanner = include('::widgets/banners/skyscraper-ad.html.twig') -%}
+{% set colClass = 'col-md-12 col-sm-12' -%}
+{% if skyScraperBanner is not empty -%}
+    {% set colClass = 'col-md-9 col-sm-8' -%}
+    {% set banner = '<div class="col-md-3 col-sm-4">'~skyScraperBanner~'</div>' -%}
+{% endif %}
+
+<section class="block featured deal popular">
+    <div class="container">
+        <div class="row">
+            <div class="{{ colClass }}">
+                <!-- Popular Deals -->
+                {% set popular = popularDeal(3,'col-md-12 col-sm-4','horizontal') -%}
+                {% if popular is not empty -%}
+                    <h2 class="theme-title"
+                    data-trans="{{ "Popular Deals"|trans({},'widgets') }}">{{ content.labelPopularDeals|trans({}, 'widgets') }}
+                        <a href="{{ path("deal_homepage") }}" class="view-more"
+                        data-trans="{{ "View more deals"|trans({},'widgets') }}">{{ content.labelViewMoreDeals|trans({}, 'widgets') }}</a>
+                    </h2>
+
+                    <div class="row">
+                        {{ popular|raw }}
+                    </div>
+                {% endif -%}
+            </div>
+            {{ banner|raw }}
+        </div>
+    </div>
+</section>

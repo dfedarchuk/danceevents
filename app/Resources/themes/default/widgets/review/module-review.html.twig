@@ -1,0 +1,50 @@
+{% import "::blocks/utility/review.html.twig" as Review -%}
+
+{% set module = getModule() %}
+{% set locationsTitle = '%s %s %s'|format(country ? ','~country.name : '', state ? ','~state.name : '', city ? ','~city.name : '') %}
+{% set reviewTitle = 'Review'|trans ~ ' %s %s'|format(review.title, locationsTitle) %}
+
+<div class="container well well-light">
+    <section id="reviews">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-6 break-sm text-center-sm">
+                           <span class="rate">
+                               <span class="rate-stars">
+                                   <span class="stars-rating large">
+                                       <span class="rate-{{ review.avgReview }}"></span></span>
+                               </span>
+                           </span>
+                        {{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviews_total[1], {"%count%":reviews_total[1]}) }}
+                    </div>
+                    <span class="break-sm"></span>
+
+                    <div class="col-sm-6 text-right text-center-sm">
+                        <button class="btn btn-success reviewButtonTrigger"
+                                data-title="{{ reviewTitle }}"
+                                data-info="{{ encrypt( {module: module, id: review.id} ) }}">
+                            {{ 'Write a review'|trans }}
+                        </button>
+                    </div>
+                </div>
+
+                {% for _review in pagination -%}
+                    {{ Review.detail(_review) }}
+                {% endfor -%}
+
+                <nav class="text-center">
+                    {{ knp_pagination_render(pagination, null, {}, {'small': true}) }}
+                </nav>
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
+{# Adding requirements -#}
+{{ addJSFile('assets/js/lib/js.cookie.js') }}
+{{ addJSFile("assets/js/utility/modal.js") }}
+{{ addJSFile("assets/js/review/like-deslike.js") }}
+{{ addJSTwig("::js/reviews.js.twig") }}

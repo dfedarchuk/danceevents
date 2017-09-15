@@ -1,0 +1,65 @@
+api:
+    type: rest
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api/
+
+web:
+    resource: "@WebBundle/Resources/config/routing.yml"
+    prefix:   /
+
+banners:
+    resource: "@BannersBundle/Resources/config/routing.yml"
+    prefix:   /ads/
+
+liip_theme:
+    resource: "@LiipThemeBundle/Resources/config/routing.xml"
+    prefix: /theme
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+classified:
+    resource: "@ClassifiedBundle/Resources/config/routing.yml"
+    prefix:   /%alias_classified_module%
+
+listing:
+   resource: "@ListingBundle/Resources/config/routing.yml"
+   prefix:   /%alias_listing_module%/
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /%alias_event_module%/
+
+article:
+    resource: "@ArticleBundle/Resources/config/routing.yml"
+    prefix:   /%alias_article_module%/
+
+deal:
+    resource: "@DealBundle/Resources/config/routing.yml"
+    prefix:   /%alias_promotion_module%/
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /%alias_blog_module%/
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+search:
+   resource: "@SearchBundle/Resources/config/routing.yml"
+   prefix:   /
+
+remove_trailing_slash:
+    path: /{url}
+    defaults: { _controller: WebBundle:FinalSlash:removeTrailingSlash }
+    requirements:
+        url: .+/$
+    methods: [GET]
+
+last_route:
+    path: /{url}
+    defaults: { _controller: WebBundle:FinalSlash:lastRoute }
+    requirements:
+        url: .+
+    methods: [GET]
+

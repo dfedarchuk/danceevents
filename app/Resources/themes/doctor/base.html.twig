@@ -1,0 +1,105 @@
+{% import "::blocks/utility/banners.html.twig" as banners %}
+
+<!DOCTYPE html>
+<html lang="{{ getISOLang(getDomainParameter('locale')) }}">
+
+    <head>
+        {% block head -%}
+
+            {% include '::head.html.twig' -%}
+
+            {% block SEO %}
+                {{ generateSEOFromPage( pageTitle, metaDescription, metaKeywords ) }}
+            {% endblock %}
+
+            <link rel="icon" type="image/x-icon" href="{{ asset(getParameter('domain.favicon') ?: 'favicon.ico') }}"/>
+
+            {% spaceless %}
+                {% block stylesheets %}
+                    {% stylesheets
+                    filter='cssrewrite'
+                    output='assets/doctor/css/style.css'
+                    '%kernel.root_dir%/Resources/themes/doctor/assets/less/theme.less'
+                    'assets/js/lib/owl-carousel/*.css'
+                    'assets/css/smartbanner/*.css'
+                    '%kernel.root_dir%/Resources/themes/doctor/css/*.css' %}
+                    <link href="{{ asset_url }}" rel="stylesheet"/>
+                    {% endstylesheets %}
+                {% endblock -%}
+            {% endspaceless %}
+
+            <link href="{{ asset(getDomainParameter('path') ~ 'theme/doctor/colorscheme.css') }}" rel="stylesheet"/>
+
+            {% if file_exists(getDomainParameter('path') ~ 'theme/doctor/csseditor.css') -%}
+                <link href="{{ asset(getDomainParameter('path') ~ 'theme/doctor/csseditor.css') }}" rel="stylesheet"/>
+            {% endif -%}
+
+            {{ googleTagAnalytics() }}
+
+            {% if customTag %}
+                {{ customTag | raw }}
+            {% endif %}
+
+        {% endblock -%}
+    </head>
+
+    <body class="{{ isSitemgrSession()? "pd-t" : "" }}">
+
+        {# Invisible tags for body content -#}
+        {% include '::body.html.twig' -%}
+
+        {% if isSitemgrSession() %}
+            <div class="admin-bar">
+                <a target="_blank" href="/{{ getParameter('alias_sitemgr_module') ~ "/design/page-editor/custom.php?id=" ~ pageId}}">
+                    <i class="fa fa-pencil"></i> {{ "Edit this page"|trans({},'widgets') }}
+                </a>
+            </div>
+        {% endif %}
+
+        {% block body -%}
+            {# Main Content -#}
+            {{ renderPage(pageId) }}
+        {% endblock -%}
+
+        {# Scripts -#}
+        {% block scripts -%}
+
+            {% javascripts
+            output='js/minified.js'
+            'assets/js/scripts.js'
+            'assets/js/*.js' -%}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts -%}
+
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
+            <script>
+
+                {# uncomment it if you wanna debug in jsrender
+                $.views.tags({
+                    debug: function(obj) {
+                        console.log(obj);
+                    }
+                });-#}
+
+                {# changes JsRender delimiters -#}
+                $.views.settings.delimiters('<%', '%>');
+            </script>
+
+            {{ smartBannerAndroid() }}
+            {{ addJSFile('assets/js/lib/smartbanner/jquery.smartbanner.js') }}
+
+            {{ renderJS() }}
+        {% endblock -%}
+
+        {#Messages Templating-#}
+        <script id="alert-message" type="text/x-jsrender">
+            <span class="alert alert-<%:type%>" role="alert">
+                <i class="fa fa-warning"></i>
+                <%:message%>
+            </span>
+        </script>
+    </body>
+
+</html>

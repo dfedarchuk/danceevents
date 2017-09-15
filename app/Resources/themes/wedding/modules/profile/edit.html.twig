@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' -%}
+
+{% block body -%}
+    <div class="well">
+        <div class="member-form">
+            <div id="change-email">
+
+                <h3>Account Username</h3>
+                <p>You can change your e-mail access at any time. This is also the contact e-mail we use to reach you.</p>
+                <br>
+
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 well">
+                        <div class="form-group">
+                            <label>E-mail</label>
+
+                            <div class="checking input-group">
+
+                                <input class="form-control" type="text" name="username" value="demo@demodirectory.com" maxlength="80" onblur="checkUsername(this.value, 'http://local.edirectoryx', 'members', 22); populateField(this.value,'email');">
+                                <span class="input-group-addon "> <span class="fa fa-check" data-toggle="tooltip" title=" Activated"></span></span>
+                                <span id="loadingEmail" style="display: none;"><span class="fa fa-spinner fa-spin"></span></span>
+
+                            </div>
+                            <label id="checkUsername">&nbsp;</label>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+            </div>
+        </div>
+    </div>
+{% endblock -%}

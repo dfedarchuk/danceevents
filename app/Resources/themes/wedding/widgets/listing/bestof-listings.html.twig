@@ -1,0 +1,10 @@
+{# Best Of by location and category -#}
+{% set best_of = bestOfListing(3, 3, 'col-sm-4') %}
+{% if best_of is not empty %}
+    <section class="block bestof">
+        <div class="container">
+            <h2 class="theme-title" data-trans="{{ 'Best of'|trans({}, 'widgets') }}"><b>{{ content.labelBestOf|trans({}, 'widgets') }}</b></h2>
+            {{ best_of|raw }}
+        </div>
+    </section>
+{% endif %}

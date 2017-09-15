@@ -1,0 +1,28 @@
+{% set flags = 0 %}
+
+{% set flags = 0 +
+( facebook ? 64  : 0 ) +
+( linkedin ? 128 : 0 ) +
+( twitter  ? 256 : 0 ) +
+( instagram ? 512 : 0 ) +
+( googleplus ? 1024 : 0 ) +
+( pinterest  ? 2048 : 0 ) %}
+
+{% if flags b-and 4032 %}
+    <div class="footer-contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <ul class="list-unstyled flex flex-container">
+                        {% if flags b-and 64 -%}<li class="flex-unit"><a target="_blank" href="{{ facebook }}" class="social-links"><span class="fa fa-facebook"></span> <span class="sr-only">Facebook </span></a></li>{%- endif %}
+                        {% if flags b-and 128 -%}<li class="flex-unit"><a target="_blank" href="{{ linkedin }}" class="social-links"><span class="fa fa-linkedin"></span> <span class="sr-only">Linkedin </span></a></li>{%- endif %}
+                        {% if flags b-and 256 -%}<li class="flex-unit"><a target="_blank" href="{{ twitter }}" class="social-links"><span class="fa fa-twitter"></span> <span class="sr-only">Twitter</span></a></li>{%- endif %}
+                        {% if flags b-and 512 -%}<li class="flex-unit"><a target="_blank" href="{{ instagram }}" class="social-links"><span class="fa fa-instagram"></span> <span class="sr-only">Instagram</span></a></li>{%- endif %}
+                        {% if flags b-and 1024 -%}<li class="flex-unit"><a target="_blank" href="{{ googleplus }}" class="social-links"><span class="fa fa-google"></span> <span class="sr-only">Google Plus</span></a></li>{%- endif %}
+                        {% if flags b-and 2048 -%}<li class="flex-unit"><a target="_blank" href="{{ pinterest }}" class="social-links"><span class="fa fa-pinterest"></span> <span class="sr-only">Pinterest</span></a></li>{%- endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

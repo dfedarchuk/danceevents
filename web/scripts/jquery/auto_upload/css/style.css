@@ -1,0 +1,35 @@
+/**************************************************************
+* This script is brought to you by Vasplus Programming Blog
+* Website: www.vasplus.info
+* Email: info@vasplus.info
+****************************************************************/
+
+
+/*Uploader Wrapper*/
+.vpb_main_wrapper
+{
+	width:400px;
+	margin: 0 auto;
+	border: solid 1px #cbcbcb;
+	 background-color: #FFF;
+	 box-shadow: 0 0 15px #cbcbcb;
+	-moz-box-shadow: 0 0 15px #cbcbcb;
+	-webkit-box-shadow: 0 0 15px #cbcbcb;
+	-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;
+	padding:10px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+}
+
+/*Error Message Style*/
+.info { border: 1px solid #999; padding:12px 20px 12px 20px; font: bold 12px verdana;-moz-box-shadow: 0 0 5px #888; -webkit-box-shadow: 0 0 5px#888;box-shadow: 0 0 5px #888;text-shadow: 2px 2px 2px #ccc;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;font-family:Verdana, Geneva, sans-serif; font-size:11px; line-height:20px;font-weight:normal;color: black;background: #BDE5F8;}
+
+
+/*Upload button Style*/
+.vasplusfile_adds{ font-weight:bold; font-size:12px;font-family:Arial, Helvetica, sans-serif;text-align:center;background:#f2f2f2 url('../images/addfile.png') no-repeat 12px 9px;color:green;border:1px solid #ccc;height:30px;cursor: default;width:106px;-moz-border-radius:5px; -webkit-border-radius:5px;float:left;}
+
+
+/*Uploaded image wrapper*/
+span.uploadeFileWrapper { margin:auto; text-align:left; }
+span.uploadeFileWrapper img { display:inline; border:6px solid #E2E2E2;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; }
+span.uploadeFileWrapper a:hover img { border:6px solid #CCC;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px; }

@@ -1,0 +1,17 @@
+{% if (pagination.totalItemCount > 0 and pagination.totalItemCount < 1000) and map -%}
+<script>
+    $(document).ready(function () {
+        eDirectorySummaryMap = new eDirectory.Search.Map(
+            "{{ path("search_map_summary")|raw }}",
+            {{ mapJsVariable }},
+            {{ mapJsVariable }}_container,
+            {{ clustererJSVariable }},
+            '#summaryViewMapButton',
+            '#mapMarkerSummaryBox',
+            30
+        );
+
+        eDirectorySummaryMap.initialize();
+    });
+</script>
+{% endif %}

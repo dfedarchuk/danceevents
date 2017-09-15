@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" -%}
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{% block SEO %}
+    {{ generateSEOFromPage( pageTitle, metaDescription, metaKeywords ) }}
+{% endblock -%}
+
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}

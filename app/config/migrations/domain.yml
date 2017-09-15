@@ -1,0 +1,4 @@
+name: Application Domain Migrations
+migrations_namespace: Application\Migrations
+migrations_directory: "./app/DoctrineMigrations/Domain"
+table_name: migration_versions

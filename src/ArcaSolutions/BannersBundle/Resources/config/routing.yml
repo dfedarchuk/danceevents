@@ -1,0 +1,3 @@
+banners_reports:
+    path:     /click.ads/{bannerId}
+    defaults: { _controller: BannersBundle:Reports:redirect }

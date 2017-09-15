@@ -1,0 +1,25 @@
+{% set featured_classified = featuredClassified(6,'col-sm-6','horizontal') -%}
+
+{% if featured_classified is not empty -%}
+    {% set squareBanner1 = include('::widgets/banners/square-ad-bar.html.twig') -%}
+    {% set squareBanner2 = include('::widgets/banners/square-ad-bar.html.twig') -%}
+    {% set colClass = 'col-md-12' -%}
+    {% if squareBanner1 is not empty or squareBanner2 is not empty -%}
+        {% set colClass = 'col-md-9' -%}
+        {% set squareBanner = '<div class="col-md-3">'~squareBanner1~'<div class="clearfix"></div>'~squareBanner2~'</div>' -%}
+    {% endif %}
+    <section class="block featured classified">
+        <div class="container">
+            <h2 class="theme-title"
+            data-trans="{{ 'Featured Classifieds'|trans({}, 'widgets') }}">{{ content.labelFeaturedClassifieds|trans({}, 'widgets') }}
+                <a href="{{ path("classified_homepage") }}" class="view-more" data-trans="{{ 'more classifieds'|trans({}, 'widgets') }}">{{ content.labelMoreClassifieds|trans({}, 'widgets') }}</a>
+            </h2>
+            <div class="row">
+                <div class="{{ colClass }} no-padding">
+                    {{ featured_classified|raw }}
+                </div>
+                {{ squareBanner|raw }}
+            </div>
+        </div>
+    </section>
+{% endif -%}

@@ -1,0 +1,24 @@
+{# titles string #}
+{# summaries array #}
+
+<div class="media map-box">
+    <div class="media-left">
+        <!-- Nav tabs -->
+        <ul class="nav nav-pills nav-stacked" role="tablist">
+            {% for title in titles %}
+                <li role="presentation" class="{{ loop.first ? "active" }}"><a href="#summaryTab{{ title|regexFilter("/[^A-Za-z0-9]/") }}" aria-controls="summaryTab{{ title|regexFilter("/[^A-Za-z0-9]/") }}" role="tab" data-toggle="tab">{{ title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="media-body">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            {% for title, summary in summaries %}
+                <div role="tabpanel" class="tab-pane {{ loop.first ? "active" }}" id="summaryTab{{ title|regexFilter("/[^A-Za-z0-9]/") }}">
+                    {{ summary|raw }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

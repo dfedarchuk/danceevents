@@ -1,0 +1,72 @@
+{# reviews array #}
+
+{% import "::blocks/utility/review.html.twig" as Review -%}
+{% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+<div class="row flex flex-container flex-left flex-columns">
+    {% for item in reviews %}
+
+        {# review \ArcaSolutions\WebBundle\Entity\Review #}
+        {# module \ArcaSolutions\ListingBundle\Entity\Listing #}
+        {% set review = item.review %}
+        {% set module = item.module %}
+        {% set listingLink = path('listing_detail', {friendlyUrl: module.friendlyUrl, _format: 'html'}) -%}
+
+        <div class="flex-unit col-md-4 col-sm-6 col-xs-12">
+            <div class="theme-box theme-box-reviews">
+                <div class="theme-box-content">
+                    <div class="text-center">
+                        {% if review.profile.accountId != 0 %}
+                            {% if review.profile.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                                {% set urlProfile = Profile.friendlyUrl(review.profile) %}
+                                <a rel="nofollow" href="{{ urlProfile }}">
+                                    {{ Profile.photo(review.profile) }}
+                                </a>
+                            {% else %}
+                                {{ Profile.photo(review.profile) }}
+                            {% endif %}
+                        {% else %}
+                            {{ Profile.photo() }}
+                        {% endif %}
+                        <p>
+                            <i>
+                                {% if review.profile.accountId != 0 %}
+                                    {% if urlProfile %}
+                                        <a rel="nofollow"
+                                           href="{{ urlProfile }}">{{ review.profile.firstName }} {{ review.profile.lastName }}</a>,
+                                    {% else %}
+                                        {{ review.profile.firstName }} {{ review.profile.lastName }},
+                                    {% endif %}
+                                {% else %}
+                                    {{ review.reviewerName|length > 30 ? review.reviewerName|slice(0,28) ~ '...' : review.reviewerName }},
+                                {% endif %}
+                                {{ review.reviewerLocation|length > 30 ? review.reviewerLocation|slice(0,28) ~ '...' : review.reviewerLocation }}
+                            </i>
+                        </p>
+                        <span class="stars-rating">
+                            <span class="rate-{{ review.rating }}"></span>
+                        </span>
+                    </div>
+                    <div class="text-left">
+                        <h4><a href="{{ listingLink }}">{{ module.title|length > 30 ? module.title|slice(0,28) ~ '...' : module.title }}</a></h4>
+                        {% if module.categories -%}
+                            <p>
+                                {% for item in module.categories -%}
+                                    {% if item.status == 'a' %}
+                                    <a class="text-muted" href="{{ path('global_search_1',{a0: item.category.friendlyUrl}) }}">
+                                        <em>{{ item.category.title }}</em>
+                                        </a>{% if not loop.last and loop.length > 1 -%}, {% endif -%}
+                                    {% endif %}
+                                {% endfor -%}
+                            </p>
+                        {% endif -%}
+                        <h5>{{ review.reviewTitle|length > 30 ? review.reviewTitle|slice(0,28) ~ '...' : review.reviewTitle}}</h5>
+                        <q class="review">{{ review.review|length > 120 ? review.review|slice(0,118) ~ '...' : review.review }}</q>
+                        <p><em>{{ review.added|localized_date('MMMM yyyy') }}</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+</div>

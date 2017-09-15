@@ -1,0 +1,157 @@
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{% if contact.address
+or contact.city
+or contact.state
+or contact.country
+or contact.zipcode
+or contact.email
+or contact.phone
+or map %}
+
+    {% set boxContact = 'y' -%}
+    {% set colBox = '8' -%}
+
+{% else -%}
+
+    {% set boxContact = 'n' -%}
+    {% set colBox = '12' -%}
+
+{% endif -%}
+
+<div class="container well well-light">
+
+    <!-- Generic Form -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 data-trans="{{ 'Contact Us'|trans({}, 'widgets') }}">{{ content.labelContactUs|trans({}, 'widgets') }}</h1>
+            <p data-trans="{{ 'Need help with something? Get in touch with us and we\'ll do our best to answer your question as soon as possible.'|trans({}, 'widgets') }}">{{ content.labelNeedHelp|trans({}, 'widgets') }}</p>
+            <br>
+        </div>
+        {% if app.session.flashbag.has('notice') -%}
+            {% include '::blocks/alert.html.twig' -%}
+        {% endif -%}
+        <div class="col-sm-{{ colBox }}">
+            <form role="form" action="{{ path('web_contactus') }}" method="POST" {{ form_enctype(form) }}>
+                {{ form_row(form._token) }}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.firstname) }}
+                                {{ form_widget(form.firstname, { 'attr': { 'class': 'form-control'} }) }}
+                                {{ form_errors(form.firstname) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.lastname) }}
+                                {{ form_widget(form.lastname, { 'attr': { 'class': 'form-control'} }) }}
+                                {{ form_errors(form.lastname) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email, { 'attr': { 'class': 'form-control'} }) }}
+                                {{ form_errors(form.email) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {{ form_label(form.phone) }}
+                                {{ form_widget(form.phone, { 'attr': { 'class': 'form-control'} }) }}
+                                {{ form_errors(form.phone) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.subject) }}
+                        {{ form_widget(form.subject, { 'attr': { 'class': 'form-control'} }) }}
+                        {{ form_errors(form.subject) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.message) }}
+                        {{ form_widget(form.message, { 'attr': { 'class': 'form-control', 'rows': 10} }) }}
+                        {{ form_errors(form.message) }}
+                    </div>
+                    <div>
+                        {{- block('form_custom') -}}
+                    </div>
+                    <div class="row">
+                        {% if form.captcha is defined %}
+                            <div class="col-md-6 col-sm-7">
+
+                                {% block edirectory_captcha_widget -%}
+                                    {% spaceless -%}
+                                        {{ form_widget(form.captcha) }}
+                                        {{ form_errors(form.captcha) }}
+                                    {% endspaceless -%}
+                                {% endblock -%}
+                            </div>
+                            <span class="break-sm"></span>
+                        {% endif %}
+
+                        <div class="col-md-6 col-sm-5 {{ form.captcha is not defined ? 'col-md-offset-3':'' }}">
+                            <button type="submit"
+                                    class="btn btn-lg btn-block btn-primary">{{ "Send"|trans }}</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <span class="break-sm"></span>
+
+        {% if boxContact == 'y' %}
+
+            <div class="col-sm-4">
+                <div class="well well-bordered">
+                    <address>
+                        {% if contact.address or contact.city or contact.state or contact.zipcode or contact.country %}
+                            <b>{{ 'Address'|trans }}</b>
+                            <p>{{ contact.address }}{{ contact.address ? "<br>" }}{{ contact.city }}{{ contact.city and contact.state ? "," }} {{ contact.state }} {{ contact.zipcode }}
+                                <br>{{ contact.country }}</p>
+                        {% endif -%}
+
+                        {% if contact.email %}
+                            <br>
+                            <b>{{ "E-mail"|trans }}</b>
+                            <p>{{ contact.email }}</p>
+                            <br>
+                        {% endif -%}
+
+                        {% if contact.phone %}
+                            <b>{{ "Phone"|trans }}</b>
+                            <p>{{ contact.phone }}</p>
+                        {% endif -%}
+                    </address>
+
+                    {% if map -%} {{ google_map(map) }} {% endif -%}
+                </div>
+            </div>
+
+        {% endif -%}
+    </div>
+
+</div>
+<!--container well well-light-->
+
+{%- block form_custom -%}
+    {% for field in form.children if field.rendered == false -%}
+        {% set prefix = field.vars.block_prefixes|length > 3 ? field.vars.block_prefixes.3 : field.vars.block_prefixes.2 -%}
+        {% if 'custom' in prefix -%}
+            {% set attr_field = {'class': 'form-control'} -%}
+            {% if field.children|length > 0 -%}
+                {% set attr_field = {} -%}
+            {% endif -%}
+
+            <div class="form-group">
+                {{ form_label(field) }}
+                {{ form_widget(field, { 'attr': attr_field }) }}
+                {{ form_errors(field) }}
+            </div>
+        {% endif -%}
+    {% endfor -%}
+{%- endblock -%}

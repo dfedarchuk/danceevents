@@ -1,0 +1,73 @@
+<!-- Upcoming Events -->
+{% set isEventAvailable = isEventAvailable() -%}
+
+{% if isEventAvailable -%}
+
+    {{ addJSFile("assets/js/modules/event/upcoming/event.upcoming.js") -}}
+    {{ addJSFile("assets/js/modules/event/upcoming/upcoming.auto.js") -}}
+
+    {# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+    {% set dateFilter = getDateFilter() -%}
+
+    {# thisWeek \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+    {% set thisWeek = dateFilter.weekFilterOption -%}
+    {# thisMonth \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+    {% set thisMonth = dateFilter.monthFilterOption -%}
+    {# customDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+    {% set customDate = dateFilter.customDateFilterOption -%}
+
+    <section class="block block-inverse" id="upcoming-events" data-today="{{ 'now'|date('Y-m-d') }}" data-success="{{ content.limit }}">
+        <div class="container">
+            <div class="col-sm-12 theme-title theme-title-inverse">
+                <h2 class="pull-left"
+                data-trans="{{ 'Upcoming Events'|trans({}, 'widgets') }}"> {{ content.labelUpcomingEvents|trans({}, 'widgets') }}
+                </h2>
+
+                <div class="pull-right btn-toolbar">
+                    <a href="{{ thisWeek.searchPageUrl }}" class="btn btn-primary">{{ 'this week'|trans }}</a>
+                    <a href="{{ thisMonth.searchPageUrl }}" class="btn btn-primary">{{ 'this month'|trans }}</a>
+                    <button id="upcomingEventsCalendarButton" type="button" class="btn btn-primary btn-date" data-urlformat="{{ customDate.searchPageUrl }}">{{ 'more dates'|trans }}</button>
+                </div>
+            </div>
+
+            <div class="row">{#Events here-#}</div>
+        </div>
+    </section>
+
+    {# Event block that is rendered below -#}
+    <script id="upcoming-event-box" type="text/x-jsrender">
+    <div class="col-lg-2 col-md-4 col-sm-6">
+        <div class="theme-box theme-box-inverse">
+            <div class="theme-box-content">
+                <a href="<%:link%>" class="image">
+                    <%if image %>
+                        <img src="<%:image%>" alt="<%:title%>">
+                    <%else %>
+                         {{ utility_getNoImage(title) }}
+                    <%/if%>
+                </a>
+                <p><strong><span class="text-uppercase"><%:month%> </span> <span class="day"><%:day%></span></strong></p>
+                <p>{{ 'in'|trans }}
+                    <%for categories %>
+                        <%if #index >= 1%>,<%/if%>
+                        <a href="<%>link%>"><%>title%></a>
+                    <%/for%>
+                </p>
+                <h4><a href="<%:link%>"><%:title%></a></h4>
+            </div>
+        </div>
+    </div>
+
+    </script>
+
+    {{ addJSFile("assets/js/lib/datepicker/bootstrap-datepicker.min.js") -}}
+
+    {% if dateFilter.bootstrapDatepickerLanguage != "en" -%}
+        {{ addJSFile("assets/js/lib/datepicker/locales/bootstrap-datepicker."~ dateFilter.bootstrapDatepickerLanguage ~".min.js") }}
+    {% endif -%}
+
+    {{ addJSFile("assets/js/search/upcomingEvents.js") -}}
+
+    {{ addJSTwig("::js/blocks/upcoming-events.js.twig") -}}
+    {{ addJSTwigParameter("UpcomingEvents.dateFilter", dateFilter) -}}
+{% endif -%}

@@ -1,0 +1,64 @@
+{#      Description:                                         -#}
+{# This page represents the Deal Filter HTML on Search pages -#}
+
+{#      Resources:                                           -#}
+
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+
+{# anyDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set anyDate = dateFilter.anyDateFilterOption -%}
+{# today \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set today = dateFilter.todayFilterOption -%}
+{# thisWeek \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set thisWeek = dateFilter.weekFilterOption -%}
+{# thisWeekend \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set thisWeekend = dateFilter.weekendFilterOption -%}
+{# thisMonth \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set thisMonth = dateFilter.monthFilterOption -%}
+{# customDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set customDate = dateFilter.customDateFilterOption -%}
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#dateFilterBox" aria-expanded="true" aria-controls="dateFilterBox">
+    <span class="fa fa-caret pull-right"></span>{{ "Date"|trans }}
+</h4>
+
+<div id="dateFilterBox" class="panel-collapse collapse in" role="tabpanel">
+    <ul class="list-group list-categorytree">
+
+        <li class="list-group-item {{ anyDate.isSelected ? "active" }}">
+            <a href="{{ anyDate.searchPageUrl }}" class="{{ anyDate.isSelected ? "active" }}" rel="nofollow">{{ 'Any Date'|trans }}</a>
+        </li>
+        <li class="list-group-item {{ today.isSelected ? "active" }}">
+            <a href="{{ today.searchPageUrl }}" rel="nofollow">{{ 'Today'|trans }}</a>
+        </li>
+        <li class="list-group-item {{ thisWeek.isSelected ? "active" }}">
+            <a href="{{ thisWeek.searchPageUrl }}" rel="nofollow">{{ 'This week'|trans }}</a>
+        </li>
+        <li class="list-group-item {{ thisWeekend.isSelected ? "active" }}">
+            <a href="{{ thisWeekend.searchPageUrl }}" rel="nofollow">{{ 'This weekend'|trans }}</a>
+        </li>
+        <li class="list-group-item {{ thisMonth.isSelected ? "active" }}">
+            <a href="{{ thisMonth.searchPageUrl }}" rel="nofollow">{{ 'This month'|trans }}</a>
+        </li>
+        <li class="list-unstyled box-content">
+            <div class="form-group">
+                <label>{{ 'Custom Date'|trans }}</label>
+
+                <div id="dateFilterRangeInput" class="input-daterange input-group input-group-md">
+                    <input type="text" class="form-control" name="start"/>
+                    <span class="input-group-addon">{{ 'to'|trans }}</span>
+                    <input type="text" class="form-control" name="end"/>
+                </div>
+                <button id="dateFilterRefreshButton" class="btn btn-block btn-sm btn-success" data-urlformat="{{ customDate.searchPageUrl }}">{{ 'Refresh search'|trans }}</button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{{ addJSFile("assets/js/lib/datepicker/bootstrap-datepicker.min.js") }}
+{% if dateFilter.bootstrapDatepickerLanguage != "en" %}
+    {{ addJSFile("assets/js/lib/datepicker/locales/bootstrap-datepicker."~ dateFilter.bootstrapDatepickerLanguage ~".min.js") }}
+{% endif %}
+{{ addJSFile("assets/js/search/filters/date.js") }}
+{{ addJSTwigParameter("Search.Filters.dateFilter", dateFilter) }}
+{{ addJSTwig("::js/filters/date.js.twig") }}

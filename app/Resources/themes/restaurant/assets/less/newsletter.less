@@ -1,0 +1,54 @@
+//
+// Newsletter
+// --------------------------------------------------
+
+
+.newsletter {
+	.newsletter-box {
+		padding: @grid-gutter-width/2 0;
+		legend {
+			font-size: @font-size-large*2;
+			line-height: 1.5;
+			margin: @grid-gutter-width 0 0;
+			font-weight: 300;
+			border-bottom: 0;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		p {
+			text-align: center;
+			font-size: @font-size-large;
+			font-weight: 300;
+			margin:  0 0 @grid-gutter-width 0;
+		}
+	}
+}
+
+.newsletter-rest {
+	h3 {
+		color: white;
+		font-weight: 300;
+	    font-size: @font-size-large*2;
+	    text-shadow: 0 1px 1px #353535;
+	    @media ( min-width: @screen-md) {
+			max-width: 80%;
+			margin-bottom: @grid-gutter-width;
+	    }
+	}
+	p {
+	    color: white;
+	    font-size: @font-size-large;
+	    text-shadow: 0 1px 1px #353535;
+	    margin-bottom: @grid-gutter-width;
+	    @media ( min-width: @screen-md) {
+			max-width: 80%;
+			margin-bottom: 0;
+	    }
+	}
+	form {
+		@media ( min-width: @screen-md) {
+			max-width: 80%;
+			margin: 0 auto;
+	    }
+	}
+}

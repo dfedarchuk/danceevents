@@ -1,0 +1,156 @@
+// Tab Content for Plans
+.plans-content {
+  border: 1px solid @nav-tabs-justified-link-border-color;
+  border-top: 0;
+  padding: @grid-gutter-width/3;
+}
+
+#advertisePlans {
+  .nav-tabs.nav-justified {
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+      background-color: transparent;
+    }
+
+    @media (min-width: @screen-sm-min) {
+      > .active > a,
+      > .active > a:hover,
+      > .active > a:focus {
+        border-bottom-color: @nav-tabs-justified-active-link-border-color;
+      }
+    }
+  }
+}
+
+//Banner Preview
+.preview-banner {
+  border: 2px solid @gray;
+}
+// Plans Wrapper
+
+@media (min-width: @screen-md) {
+  .plans-container {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-flow: row nowrap; /* Safari */
+    flex-flow:         row nowrap;
+    -webkit-justify-content: center; /* Safari */
+    justify-content:         center;  
+    align-items: flex-start;
+  }
+  .plan-box {    
+    margin: 0 @grid-gutter-width/3;
+    flex-basis: 270px;
+    -webkit-flex-basis: 270px;
+  }
+}
+
+@media (max-width: @screen-sm-max) and (min-width:@screen-xs) {
+  .plans-container {
+      display: flex;
+      display: -webkit-flex;
+      -webkit-flex-flow: row wrap; /* Safari */
+      flex-flow:         row wrap;
+  }
+  .plan-box {
+    flex-basis: 300px;
+    -webkit-flex-basis: 300px;
+    margin: @grid-gutter-width/2;
+  }
+}
+
+@media (max-width: @screen-xs-max) {
+  .plans-container {
+    display: block;
+  }
+  .plan-box {
+    display: block;
+    margin-bottom: @grid-gutter-width;
+  }
+}
+
+// Plan Boxes
+.plan-box {
+  border: 1px solid lighten(@gray-light, 5%);
+  text-align: center;
+  background-color: white;
+
+  .plan-title {
+    background-color: @plan-bg;
+    border-bottom: 1px solid white;
+    text-transform: uppercase;
+    color: contrast(@brand-primary, @gray-darker, white, 43%);
+    padding: @grid-gutter-width/2;
+  }
+
+  .plan-info {
+    background-color: lighten(@brand-primary, 5%);
+    text-transform: uppercase;
+    color: white;
+    padding: @grid-gutter-width/2 0;
+    mark {
+      display: block;
+      background-color: transparent;
+      font-size: 4em;
+      line-height: 1;
+      padding: 2px 0;
+      color: white;
+      small {
+        font-size: 40%;
+        color: white;
+      }
+    }
+    small {
+      color: white;
+      text-transform: none;
+    }
+  }
+
+  .plan-desc {
+    padding:@grid-gutter-width/2;
+    ul {
+      list-style: none;
+      padding:@grid-gutter-width/2 0;
+      li {
+        line-height: 1.8;
+        &.text-striketrough {
+          color: @gray-light;
+        }
+      }
+    }
+  }
+
+  .btn-highlight {
+    background-color: @brand-primary;
+    color: contrast(@brand-primary, @gray-darker, white, 43%);
+    border-color: @brand-primary;
+      &:hover, &:focus {
+        background-color: darken(@brand-primary, 10%)
+      }
+  }
+
+  &.plan-popular {
+    .plan-title {
+      background-color: lighten(@brand-highlight, 5%);;
+      color: contrast(@brand-highlight, @gray-darker, white, 43%);
+    }
+    .plan-info {
+      background-color: lighten(@brand-highlight, 15%);
+      color: white;
+    }
+    .popular-tag  {
+      line-height: 1;
+      padding-bottom: @grid-gutter-width/4;
+    }
+    .btn-highlight {
+      background-color: @brand-highlight;
+      color: contrast(@brand-highlight, @gray-darker, white, 43%);
+      border-color: @brand-highlight;
+        &:hover, &:focus {
+          background-color: darken(@brand-highlight, 10%)
+        }
+    }
+
+  }
+}

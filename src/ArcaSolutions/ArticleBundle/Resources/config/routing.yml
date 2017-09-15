@@ -1,0 +1,27 @@
+article_homepage:
+    path:     /
+    defaults: { _controller: ArticleBundle:Default:index }
+
+article_allcategories:
+    path:     /%alias_article_allcategories_url_divisor%
+    defaults: { _controller: ArticleBundle:Default:allcategories }
+
+article_sample:
+    path:     /{friendlyUrl}-{level}.{_format}
+    defaults: { _controller: ArticleBundle:Default:sampleDetail }
+    requirements:
+        friendlyUrl: "sample"
+        level: \d+
+        _format:  html
+
+article_detail:
+    path:     /{friendlyUrl}.{_format}
+    defaults: { _controller: ArticleBundle:Default:detail }
+    requirements:
+        _format:  html
+
+article_review:
+    path:     /reviews/{friendlyUrl}/{page}
+    defaults: { _controller: ArticleBundle:Default:review, page: "p:1" }
+    requirements:
+        page: "p:\d+"

@@ -1,0 +1,27 @@
+<!-- Featured Listings -->
+{% set featured_listing = featuredListing(2, 'featured-2', 'featured-small') -%}
+{% if featured_listing is not empty -%}
+    <section class="block featured fiv-listing">
+        <div class="container">
+            <h2 class="theme-title"
+                data-trans="{{ 'Featured Listings'|trans({},'widgets') }}">{{ content.labelFeaturedListings|trans({}, 'widgets') }}
+                <a href="{{ path("listing_homepage") }}" class="view-more"
+                   data-trans="{{ 'View more featured Listings'|trans({},'widgets') }}">{{ content.labelViewMore|trans({}, 'widgets') }}</a>
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    {{ featured_listing|raw }}
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    {% set featured_listing = featuredListing(1, 'featured-full', 'featured') -%}
+                    {{ featured_listing|raw }}
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    {% set featured_listing = featuredListing(2, 'featured-2', 'featured-small') -%}
+                    {{ featured_listing|raw }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif -%}

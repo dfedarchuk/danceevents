@@ -1,0 +1,102 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               #}
+{# This page renders the Event summary block which appears during searches         #}
+
+{#      Resources:                                                                 #}
+
+{# item \Elastica\Result                                                           #}
+{#      The elastica result object                                                 #}
+
+{# levelFeatures \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures     #}
+{#      Contains information about every level of a certain module                 #}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# itemLevelInfo \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['event'][data.level] -%}
+
+{% set detailURL      = url('event_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "event" -%}
+<section id="{{ sectionAnchor }}" class="summary-box summary-event">
+    <div class="summary-content">
+
+         {{ bookmarkLink(item, 'event') }}
+
+        {% if itemLevelInfo.imageCount > 0 and data.thumbnail is not empty -%}
+
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+            {% else -%}
+                {{ Utility.image( data.thumbnail, data.title ) }}
+            {% endif -%}
+                
+        {% endif -%}
+
+        <h3>
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}">{{ data.title }}</a>
+            {% else -%}
+                {{ data.title }}
+            {% endif -%}
+            {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+        </h3>
+
+        {% if data.date.start is not null -%}
+            <div class="date">
+
+                <small>{{ "When"|trans }} </small>
+
+                {% if data.recurring.enabled -%}
+                    <mark class="recurring">{{ recurringPhraseByFriendlyUrl(data.friendlyUrl) }}</mark>
+                {% else -%}
+
+                    {% set start_date = date(data.date.start) -%}
+
+                    <mark class="text-uppercase">
+                        {% if date() >= start_date %}
+                            {{ "Today"|trans }}
+                        {% else %}
+                            {{ start_date|localized_date('EEE') }}
+                        {% endif %}
+
+                    </mark>
+
+                    {{ data.date.start|date(getDateFormat()) }}
+
+                    {% if data.date.end is not null %}
+
+                        - {{ data.date.end|date(getDateFormat()) }}
+
+                    {% endif %}
+
+                {% endif %}
+
+                {% if itemLevelInfo.hasEventTime %}
+
+                    {% if data.time.start or data.time.end %}
+                        <em>
+                            <strong>
+                                {{ data.time.start|date(getTimeFormat()) }}
+                                {% if data.time.end is not null -%}
+                                    {{ " - "|trans }}
+                                    {{ data.time.end|date(getTimeFormat()) }}
+                                {% endif -%}
+                            </strong>
+                        </em>
+                    {% endif %}
+
+                {% endif -%}
+            </div>
+
+        {% endif -%}
+
+        {{ Utility.address( null, data.address.location, data.address.street, null, data.address.zipcode, itemLocations, pageLocations ) }}
+
+    </div>
+</section>
+

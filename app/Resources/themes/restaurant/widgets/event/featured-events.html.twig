@@ -1,0 +1,20 @@
+{# Upcoming -#}
+{% set featuredEventVertical = featuredEvent(1, 'col-md-5 col-sm-6', 'vertical') %}
+{% set featuredEventHorizontal = featuredEvent(3, 'col-md-7 col-sm-6', 'horizontal-xs') %}
+
+{% if featuredEventVertical or featuredEventHorizontal %}
+    <section class="block featured event">
+        <div class="container">
+
+            <h2 class="theme-title"
+                data-trans="{{ 'Featured Events'|trans({}, 'widgets') }}">{{ content.labelFeaturedEvents|trans({}, 'widgets') }}
+            </h2>
+
+            <div class="row">
+                {{ featuredEventVertical|raw }}
+                {{ featuredEventHorizontal|raw }}
+            </div>
+
+        </div>
+    </section>
+{% endif %}

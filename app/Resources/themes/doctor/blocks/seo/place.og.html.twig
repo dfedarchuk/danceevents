@@ -1,0 +1,10 @@
+{% extends "::blocks/seo/base.og.html.twig" %}
+
+{% block metaOG %}
+
+    {{ parent() }}
+
+    <meta property="place:location:latitude" content="{{ og.place.locationLatitude }}"/>
+    <meta property="place:location:longitude" content="{{ og.place.locationLongitude }}"/>
+
+{% endblock %}

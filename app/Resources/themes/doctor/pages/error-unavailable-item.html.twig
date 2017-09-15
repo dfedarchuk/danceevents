@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' -%}
+
+{% block title -%}{{ 'Unavailable Item'|trans }}{% endblock -%}
+
+{# override description page -#}
+{% block description -%}{{ description }}{% endblock -%}
+
+{# override keyword page -#}
+{% block keywords -%}{{ keywords }}{% endblock -%}
+
+{% block topbanner -%} {# No banners for this page -#} {% endblock -%}
+
+{% block bottombanners -%} {# No banners for this page -#} {% endblock -%}
+
+{% block body -%}
+    <main>
+        <div class="container well well-light">
+            <div class="col-sm-12 search-toolbar">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <h1 class="panel-title small">{{ "Sorry, this item isn't currently available."|trans }}</h1>
+
+                        <hr>
+                        <br>
+                        <h4>{{ "This item was either temporarily suspended or deleted. Here are some suggestions to help you"|trans }}:</h4>
+                        <ul>
+                            <li>{{ 'Start a new search to seek for similar items'|trans }}</li>
+                            <li>{{ 'Come back soon to check this page'|trans }}</li>
+                            <li>{{ 'Is this item yours? %link_start%Contact us%link_end% for more information about it.' | trans({'%link_start%' : '<a href="'~path('web_contactus')~'">', '%link_end%' : '</a>'}, 'account') | raw }}</li>
+                        </ul>
+                        <br><br>
+
+                    </div>
+                    <div class="panel-footer">
+
+                        {{ 'Try a search or send %link_start%enquiry%link_end% to request information' | trans({'%link_start%' : '<a href="'~path('web_contactus')~'">', '%link_end%' : '</a>'}, 'account') | raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock -%}

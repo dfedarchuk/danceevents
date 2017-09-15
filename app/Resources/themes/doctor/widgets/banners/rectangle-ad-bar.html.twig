@@ -1,0 +1,21 @@
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% set module = getModuleBanner() %}
+{% set largeMobileBanner1 = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module) %}
+{% set largeMobileBanner2 = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module) %}
+{% set largeMobileBanner3 = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module) %}
+
+{% if largeMobileBanner1 or largeMobileBanner2 or largeMobileBanner3 %}
+    <section class="ad-banners">
+        <div class="container">
+            <h6 class="sr-only">{{ "Advertisement"|trans }} </h6>
+
+            <div class="row">
+                {{ largeMobileBanner1|raw }}
+                {{ largeMobileBanner2|raw }}
+                {{ largeMobileBanner3|raw }}
+            </div>
+        </div>
+    </section>
+{% endif %}

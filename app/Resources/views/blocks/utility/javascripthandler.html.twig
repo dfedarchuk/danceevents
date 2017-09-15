@@ -1,0 +1,11 @@
+{# handler \ArcaSolutions\CoreBundle\Services\JavaScriptHandler -#}
+
+{% autoescape false -%}
+    {% for file in handler.externalFiles -%}
+        <script src="{{ asset(file) }}"></script>
+    {% endfor -%}
+
+    {% for block in handler.blocks -%}
+        {% include block with handler.twigParameters -%}
+    {% endfor -%}
+{% endautoescape -%}

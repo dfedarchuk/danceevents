@@ -1,0 +1,59 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{# item \Elastica\Result                                                           #}
+{# levelFeatures \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{% set itemLevelInfo  = levelFeatures['listing'][data.level] -%}
+
+{% set detailURL      = url('listing_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+<div class="summary-box summary-map">
+    <div class="summary-content">
+    <h3>
+        <a href="{{ detailURL }}">{{ data.title }}</a>
+
+        {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+    </h3>
+
+    {% if itemLevelInfo.hasReview and getSetting("review_listing_enabled") -%}
+        <div class="row">
+            <div class="col-sm-12">
+                <span class="stars-rating"><span class="rate-{{ data.averageReview }}"></span></span>
+            </div>
+        </div>
+
+        <hr>
+    {% endif -%}
+
+    <div class="row">
+        {% if data.thumbnail is not empty %}
+        <div class="col-md-8">
+        {% else %}
+        <div class="col-sm-12">
+        {% endif %}
+            {% if itemLevelInfo.hasSummaryDescription -%}
+                <p class="summary-desc">{{ (data.description[:100]|striptags) }}... <a href="{{ detailURL }}">{{ "(Read More)"|trans }}</a></p>
+            {% endif -%}
+
+            <div class="row">
+                <div class="col-sm-6">
+                    {{ Utility.address( null, null, data.address.street, data.address.complement, data.address.zipcode, itemLocations, pageLocations ) }}
+                </div>
+                <div class="col-sm-6">
+                    {{ Utility.contactInfoSimple( item, data, detailURL, itemLevelInfo, "listing" ) }}
+                </div>
+            </div>
+        </div>
+        {% if data.thumbnail is not empty %}
+
+        <div class="col-md-4 hidden-sm">
+            {{ Utility.image( data.thumbnail, data.title ) }}
+        </div>
+        {% endif %}
+    </div>
+    </div>
+</div>

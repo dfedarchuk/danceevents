@@ -1,0 +1,28 @@
+{# Featured Listings Reviews -#}
+{% set recent_reviews = reviewListing(6) -%}
+{% if recent_reviews is not empty -%}
+
+    {% set skyScraperBanner = include('::widgets/banners/skyscraper-ad.html.twig') -%}
+    {% set colClass = 'col-md-12' -%}
+    {% if skyScraperBanner is not empty -%}
+        {% set colClass =  'col-md-9' -%}
+        {% set skyScraperBanner = '<div class="col-md-3"><br>'~skyScraperBanner~'</div>' -%}
+    {% endif %}
+
+    <section class="block">
+        <div class="container">
+            <div class="theme-title">
+                <h2 data-trans="{{ 'Recent Reviews'|trans({}, 'widgets') }}"> {{ content.labelRecentReviews|trans({}, 'widgets') }} </h2>
+                <p><a href="/profile" class="view-more"
+                      data-trans="{{ "Create your profile today and write a review. It’s free!"|trans({}, 'widgets') }}">{{ content.labelCreateYourProfile|trans({}, 'widgets') }}</a>
+                </p>
+            </div>
+            <div class="row">
+                <div class="{{ colClass }}">
+                    {{ recent_reviews|raw }}
+                </div>
+                {{ skyScraperBanner|raw }}
+            </div>
+        </div>
+    </section>
+{% endif -%}

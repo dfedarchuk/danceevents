@@ -1,0 +1,43 @@
+<script>
+    $(document).on("click", "a.more-info", function(e){
+        e.preventDefault();
+
+        getLocations($(this), $(this).data("itemid"), $(this).data("level"), $(this).data("friendlyurl"), "{{ routing }}");
+        $(this).removeClass("more-info");
+    });
+
+    function getLocations(element, id, level, friendlyUrl, routing){
+
+        $.post( "{{ path(getModule() ~ "_locations")|raw }}", {id: id, level: level, routing: routing}, "json")
+            .done( function (locations) {
+                $("#" + id  + "-" + level).append('<li class="list-columns-4"><a href="' + friendlyUrl + '">{{ "View All"|trans }}</a></li>');
+
+                if( locations ) {
+                    $.each(locations, function(i, location){
+                        if (location.children) {
+                            href = '#' + location.item.id + '-' + location.level;
+                            collapse = 'data-itemId="' + location.item.id + '" data-level="' + location.level + '"  data-friendlyUrl="' + location.item.friendlyUrl + '" data-toggle="collapse" data-parent='+ id + '-' + level;
+                            childrenUl = '<ul id="' + location.item.id + '-' + location.level + '" class="collapse panel-body"></ul>'
+                            classInfo = "class=more-info";
+                        } else {
+                            href = location.item.friendlyUrl ?  location.item.friendlyUrl : '#';
+                            collapse = '';
+                            childrenUl = '';
+                            classInfo = '';
+                        }
+
+                        $("#" + id  + "-" + level).append("<li class=\"list-columns-4\">"
+                        + "<a "  + classInfo + " " +  collapse + " href=\"" + href + "\">"
+                        + location.item.name
+                        + "</a> "
+                        + childrenUl
+                        + "</li>");
+
+                    });
+                }
+            }
+        );
+
+    }
+
+</script>

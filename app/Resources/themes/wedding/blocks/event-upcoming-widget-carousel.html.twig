@@ -1,0 +1,65 @@
+{#<button type="button" class="btn calendar-control left" id="calendarControlLeft">-#}
+    {#<span class="fa fa-angle-left"></span>-#}
+{#</button>-#}
+<div class="calendar-carousel">
+    <div class="calendar-dates">
+        {% for day in days -%}
+            <button type="button" class="date-item item"
+                    data-day="{{ day|date('Y-m-d') }}">
+                <mark>
+                    {{ day|localized_date('EEE') }}
+                </mark>
+                <em>
+                    {{ day|localized_date('MMM') }}
+                    <br>
+                    <span>{{ day|localized_date('dd') }}</span>
+                </em>
+            </button>
+        {% endfor -%}
+    </div>
+</div>
+{#<button type="button" class="btn calendar-control right" id="calendarControlRight">-#}
+    {#<span class="fa fa-angle-right"></span>-#}
+{#</button>-#}
+<div class="block-container">{# Events here -#}</div>
+
+{# Event block that is rendered below -#}
+<script id="upcoming-event-caroulse" type="text/x-jsrender">
+{# for js render -#}
+<div class="upcoming-event-block" id="<%:id%>">
+    <%for group%>
+    <div class="row">
+        <%if category.name.length > 0 %>
+        <div class="col-sm-3 col-sm-offset-1">
+            <div class="theme-title-large">
+                <h3>{{ 'In'|trans }}<br> <a href="<%:category.link%>"><%:category.name%></a></h3>
+                <a href="<%:category.link%>" class="view-more">{{ 'See all events'|trans }}</a>
+            </div>
+        </div>
+        <%/if%>
+        <div class="col-sm-7 <%if category.name.length == 0 %> col-sm-offset-3 <%/if%>">
+            {# for js render -#}
+            <%for events%>
+            <div class="theme-box">
+                <div class="theme-box-content">
+                    <div class="media">
+                        <div class="media-left media-left-sm media-middle">
+                            <a href="<%:link%>"><img src="<%:image%>" alt="<%:title%>" class="media-object"></a>
+                        </div>
+                        <div class="media-body">
+                            <h4><a href="<%:link%>"><%:title%></a></h4>
+                            <p><%:description%>... <a class="text-success" href="<%:link%>">({{ 'read more'|trans }})</a></p>
+                            <%if location %>
+                                 <p><b>{{ 'at'|trans }}</b> <%:location%></p>
+                            <%/if%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%/for%>
+        </div>
+    </div>
+    <%/for%>
+</div>
+
+</script>

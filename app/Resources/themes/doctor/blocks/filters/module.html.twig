@@ -1,0 +1,29 @@
+{#      Description:                                                      -#}
+{# This page represents the Module Filter HTML on Search pages            -#}
+
+{#      Resources:                                                        -#}
+
+{# availableModules \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{# selectedModules array                                                  -#}
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#collapseModule" aria-expanded="true" aria-controls="collapseModule">
+    <span class="fa fa-caret pull-right"></span>{{ "Type"|trans }}
+    {% if selectedModules -%}
+        <span class="selected-info">
+            <span class="badge badge-default">{{ selectedModules|length }}</span>
+        </span>
+    {% endif -%}
+</h4>
+<div id="collapseModule" class="panel-collapse collapse in" role="tabpanel">
+    <ul class="list-group list-categorytree">
+        {% for module in availableModules -%}
+            <li class="list-group-item {{ module.isSelected ? "active" }}">
+                <a href="{{ module.searchPageUrl }}" rel="nofollow">{{ module.title|capitalize }}
+                    {% if module.resultCount > 0 -%}
+                        <span class="badge pull-right"> {{ module.resultCount }} </span>
+                    {% endif -%}
+                </a>
+            </li>
+        {% endfor -%}
+    </ul>
+</div>

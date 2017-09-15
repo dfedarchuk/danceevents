@@ -1,0 +1,13 @@
+{% spaceless %}
+    {% set class = marked ? 'fa-bookmark' : 'fa-bookmark-o' %}
+    <span class="bookmark-tag text-info" data-id="{{ id }}" data-module="{{ module }}">
+            <span class="fa {{ class }} text-success"> </span>
+        <a href="javascript:void(0);" rel="nofollow" class="bookmark-tag-text text-info">
+            {% if marked %}
+                {{ 'Bookmarked'|trans }}
+            {% else %}
+                {{ 'Bookmark this'|trans }}
+            {% endif %}
+        </a>
+    </span>
+{% endspaceless %}

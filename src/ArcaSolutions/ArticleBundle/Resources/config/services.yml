@@ -1,0 +1,36 @@
+parameters:
+    article.search.configuration.class: ArcaSolutions\ArticleBundle\Search\ArticleConfiguration
+    article.blocks.twig.extension.class: ArcaSolutions\ArticleBundle\Twig\Extension\BlocksExtension
+    article.synchronization.configuration.class: ArcaSolutions\ArticleBundle\Services\Synchronization\ArticleSynchronizable
+    article.category.synchronization.configuration.class: ArcaSolutions\ArticleBundle\Services\Synchronization\ArticleCategorySynchronizable
+    article.seo.twig.extension.class: ArcaSolutions\ArticleBundle\Twig\Extension\SeoExtension
+
+services:
+    article.search:
+        class: %article.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    article.synchronization:
+        class: %article.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    article.category.synchronization:
+        class: %article.category.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    article.blocks:
+        class: %article.blocks.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    seo.article:
+        class: %article.seo.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }

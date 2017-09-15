@@ -1,0 +1,40 @@
+{% set flags = 0 %}
+
+{% set flags = 0 +
+( facebook ? 64  : 0 ) +
+( linkedin ? 128 : 0 ) +
+( twitter  ? 256 : 0 ) +
+( instagram ? 512 : 0 ) +
+( googleplus ? 1024 : 0 ) +
+( pinterest  ? 2048 : 0 ) %}
+
+{% if content.datainfoContactAddress or content.datainfoContactPhone %}
+    <div class="col-sm-3 col-xs-6">
+        <h5 data-trans="{{ 'Contact Us'|trans({}, 'widgets') }}">{{ content.labelContactUs|trans({}, 'widgets') }} </h5>
+
+        <address class="contact-address">
+            {% if content.datainfoContactAddress %}
+                <span class="fa fa-map-marker"></span>
+                    {{ content.datainfoContactAddress }}
+                <br>
+            {% endif %}
+            {% if content.datainfoContactPhone %}
+                <span class="fa fa-phone"></span>
+                <span>{{ content.datainfoContactPhone }}</span>
+            {% endif %}
+        </address>
+    </div>
+{% endif %}
+{% if flags b-and 4032 %}
+    <div class="col-sm-3 col-xs-6">
+        <h5 data-trans="{{ 'Follow Us'|trans({}, 'widgets') }}">{{ content.labelFollowUs|trans({}, 'widgets') }} </h5>
+        <ul class="list-unstyled">
+            {% if flags b-and 64 -%}<li><a target="_blank" href="{{ facebook }}" class="social-links"><span class="fa fa-facebook"></span> Facebook </a></li>{%- endif %}
+            {% if flags b-and 128 -%}<li><a target="_blank" href="{{ linkedin }}" class="social-links"><span class="fa fa-linkedin"></span> Linkedin </a></li>{%- endif %}
+            {% if flags b-and 256 -%}<li><a target="_blank" href="{{ twitter }}" class="social-links"><span class="fa fa-twitter"></span> Twitter </a></li>{%- endif %}
+            {% if flags b-and 512 -%}<li><a target="_blank" href="{{ instagram }}" class="social-links"><span class="fa fa-instagram"></span> Instagram </a></li>{%- endif %}
+            {% if flags b-and 1024 -%}<li><a target="_blank" href="{{ googleplus }}" class="social-links"><span class="fa fa-google"></span> Google Plus </a></li>{%- endif %}
+            {% if flags b-and 2048 -%}<li><a target="_blank" href="{{ pinterest }}" class="social-links"><span class="fa fa-pinterest"></span> Pinterest </a></li>{%- endif %}
+        </ul>
+    </div>
+{% endif %}

@@ -1,0 +1,57 @@
+{#  Newsletter Block -#}
+{% set newsletter = getSetting('arcamailer_enable_list') -%}
+
+{% if newsletter -%}
+    {{ addJSFile("assets/js/newsletter/newsletter.js") -}}
+
+    <section class="block block-bg-newsletter">
+        <h6 class="sr-only">{{ "Newsletter"|trans({}, 'widgets') }} </h6>
+
+        {# General Background Image -#}
+        {{ include("::blocks/background-image-newsletter.html.twig") }}
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="well well-lg well-translucid">
+                    {# Newsletter Begin -#}
+                    <div id="formNewsletter" class="newsletter">
+                        <div class="newsletter-box">
+                            <form class="form">
+                                <fieldset>
+                                    <legend
+                                        data-trans="{{ 'Sign up for our newsletter'|trans({}, 'widgets') }}">{{ content.labelSignupFor|trans({}, 'widgets') }}
+                                    </legend>
+                                <p data-trans="{{ 'Sign up for our monthly newsletter. No spams, just product updates.'|trans({}, 'widgets') }}">{{ content.labelNewsletterDesc|trans({}, 'widgets') }}</p>
+                                    <div class="row">
+                                        <span class="showmessage col-md-10 col-md-offset-1"></span>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control"
+                                                       placeholder="{{ 'Your Name'|trans }}" name="name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control"
+                                                       placeholder="{{ 'Your e-mail'|trans }}"
+                                                       name="email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button data-loading-text="{{ 'Please, wait...'|trans }}"
+                                                    class="btn btn-success action-save btn-lg btn-block">{{ "Sign Up"|trans }}
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endif -%}

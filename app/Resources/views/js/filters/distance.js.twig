@@ -1,0 +1,92 @@
+<script>
+
+    if (typeof filters == 'undefined') {
+        var filters = {};
+    }
+
+    filters["distance"] = {
+        containers:            {
+            permissionButton: $("#distanceFilterPermissionBox"),
+            error:            $("#distanceFilterErrorBox"),
+            filterControls:   $("#distanceFilterControlsBox")
+        },
+        permissionButton:      $("#distanceFilterPermissionButton"),
+        button:                $("#distanceFilterButton"),
+        slider:                $("#distanceFilterSlider"),
+        label:                 $("#distanceFilterLabel"),
+        enabled:               ($("#distanceFilterBox").length > 0),
+        updateInfo:            function () {
+            docCookies.setItem("{{ distanceCookieName }}", filters.distance.slider.val());
+            filters.distance.label.html(filters.distance.slider.val());
+        },
+        setGeoLocation:        function (position) {
+            docCookies.setItem("{{ geoLocationCookieName }}", position.coords.latitude + "," + position.coords.longitude);
+            filters.distance.showFilter();
+        },
+        showFilter:            function () {
+            var distance = parseInt(docCookies.getItem("{{ distanceCookieName }}"));
+
+            if (!distance) {
+                distance = 1;
+            }
+
+            filters.distance.label.html( distance );
+            filters.distance.slider.slider(
+                    {
+                        min:   1,
+                        max:   1000,
+                        scale: 'logarithmic',
+                        step:  2,
+                        value: distance
+                    }
+            );
+
+            filters.distance.slider.on('slide', filters.distance.updateInfo);
+
+            filters.distance.containers.permissionButton.fadeOut();
+            filters.distance.containers.filterControls.fadeIn();
+        },
+        handleError:           function (error) {
+            filters.distance.containers.permissionButton.fadeOut();
+
+            switch (error.code) {
+                case error.PERMISSION_DENIED: /*"User denied the request for Geolocation."*/
+                    filters.distance.containers.error.html("{{ "You have chosen not to provide your location."|trans|raw }}");
+                    break;
+                case error.POSITION_UNAVAILABLE: /*"Location information is unavailable."*/
+                case error.TIMEOUT:                /*"The request to get user location timed out."*/
+                case error.UNKNOWN_ERR: /*"An unknown error occurred."*/
+                default :
+                    filters.distance.containers.error.html("{{ "We were not able to retrieve your location. Please try again later"|trans|raw }}");
+                    break;
+            }
+
+            filters.distance.containers.error.fadeIn();
+        },
+        permissionButtonClick: function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(filters.distance.setGeoLocation, filters.distance.handleError);
+            } else {
+                filters.distance.containers.permissionButton.fadeOut();
+                filters.distance.containers.error.html("{{ "Your browser does not support GeoLocation features. In order to use this feature, please consider updating your browser."|trans|raw }}");
+                filters.distance.containers.error.fadeIn();
+            }
+        },
+        initialize:            function () {
+            if (docCookies.getItem("{{ geoLocationCookieName }}")) {
+                this.showFilter();
+            } else {
+                this.containers.permissionButton.show();
+                this.permissionButton.click(this.permissionButtonClick);
+            }
+        }
+    };
+
+    $(document).ready(
+            function () {
+                if (filters.distance.enabled) {
+                    filters.distance.initialize();
+                }
+            }
+    );
+</script>

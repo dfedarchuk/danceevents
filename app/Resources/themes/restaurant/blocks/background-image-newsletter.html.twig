@@ -1,0 +1,11 @@
+<!-- Background image -->
+<span class="bg-image">
+    <span class="cover-bg-image" style="
+    {% if file_exists(getDomainParameter('path') ~ 'content_files/background_image_newsletter.jpg') -%}
+        background-image: url({{ asset(getDomainParameter('path') ~ 'content_files/background_image_newsletter.jpg?t=' ~ date().timestamp) }});
+    {% else -%}
+        background-image: url({{ asset('assets/images/bg-image.jpg') }});
+    {% endif -%}
+    "></span>
+</span>
+<!-- End  Background image -->

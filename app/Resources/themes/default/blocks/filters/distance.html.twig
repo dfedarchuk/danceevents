@@ -1,0 +1,58 @@
+{#      Description:                                         -#}
+{# This page represents the Deal Filter HTML on Search pages -#}
+
+{#      Resources:                                           -#}
+
+{# isSelected bool                                           -#}
+{#      Whether or not this filter is selected               -#}
+
+{# searchPageUrl string                                      -#}
+{#      The url to toggle the filter                         -#}
+
+{# unit string                                               -#}
+{#      The unit used in the distance filter                 -#}
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#distanceFilterBox" aria-expanded="true" aria-controls="distanceFilterBox">
+    <span class="fa fa-caret pull-right"></span>{{ "Distance"|trans }}
+</h4>
+
+<div id="distanceFilterBox" class="panel-collapse collapse in" role="tabpanel">
+    <ul class="list-group list-categorytree">
+        <li id="distanceFilterErrorBox" class="list-group-item" style="display:none;">
+        </li>
+        <li id="distanceFilterPermissionBox" class="list-unstyled slider-content" style="display:none;">
+            <button id="distanceFilterPermissionButton" class="btn btn-lg btn-default btn-block" type="button"><i class="fa fa-map-marker"></i> {{ "Get Location"|trans }}</button>
+        </li>
+        <li id="distanceFilterControlsBox" class="list-unstyled slider-content" style="display:none;">
+            <div class="row ">
+                <div class="col-sm-12 text-center">
+                    <label for="distanceFilterSlider" class="text-muted">
+                        {{ "Range"|trans }}: <span id="distanceFilterLabel">1</span> {{ unit|trans }}
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input id="distanceFilterSlider" type="text"/>
+                </div>
+                <div class="col-sm-12">
+                    <br>
+                    {% if isSelected -%}
+                        <div class="btn-group btn-block" role="group">
+                            <a class="btn btn-xs btn-block btn-primary" href="{{ app.request.uri }}" rel="nofollow">
+                                <i class="fa fa-refresh"></i>{{ " Refresh Results"|trans }}
+                            </a>
+                            <a id="distanceFilterButton" class="btn btn-xs btn-block btn-default" href="{{ searchPageUrl }}" rel="nofollow">
+                                <i class="fa fa-times"></i> {{ "Remove filter"|trans }}
+                            </a>
+                        </div>
+                    {% else -%}
+                        <a id="distanceFilterButton" class="btn btn-block btn-xs btn-success" href="{{ searchPageUrl }}" rel="nofollow">
+                            {{ " Refine Search"|trans }}
+                        </a>
+                    {% endif -%}
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

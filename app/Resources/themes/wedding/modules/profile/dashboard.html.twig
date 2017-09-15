@@ -1,0 +1,105 @@
+{% extends '::base.html.twig' -%}
+
+{% block body -%}
+    <!-- Profile Page -->
+    <div id="profilePage" class="block">
+
+        <div class="row">
+            <div class="col-sm-4">
+                    <div class="theme-box theme-box-primary">
+                        <h2 class="theme-box-title">About Me <a href="#" class="view-more">Edit My Profile</a></h2>
+                        <div class="theme-box-content">
+                            <div class="text-center">
+
+                                <img class="img-profile big" src="http://placehold.it/140x140&amp;text=Profile_Image" alt="Profile Image">
+                                <h4>Profile Name</h4>
+                                <p><a href="#">@twittername</a></p>
+                            </div>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni illo veritatis nostrum harum quam, nihil.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, doloribus. Quo vero possimus quidem, veniam deleniti dolor illo unde beatae error quibusdam facilis. Ab unde soluta dignissimos distinctio illum natus!</p>
+                            <p class="text-center">
+                                <button type="button" class="btn btn-facebook btn-sm btn-block"><span class="fa fa-facebook"></span> Link with my facebook account</button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="theme-box theme-box-primary">
+                        <h2 class="theme-box-title">Favorites</h2>
+                        <div class="theme-box-content lighter">
+                            <span>Listing</span>
+                            <a class="pull-right" rel="nofollow" href="#" data-toggle="tooltip" title="Remove from favorites"><span class="fa fa-times"></span></a>
+                            <h5 class="review-for"><b><a href="#" title="Listing Detail">Girard Realtor </a></b><span class="pull-right"><span class="stars-rating"><span class="rate-4"></span></span></span></h5>
+                            <p>102 Cushman St , Waterbury, Connecticut 06704 <br>United States</p>
+                            <p><b>Phone</b> (14) 5656-8989</p>
+                            <div class="action-links">
+                                <a rel="nofollow" href="#" data-toggle="tooltip" title="Share on facebook"><span class="fa fa-facebook-square"></span></a>
+                                <a rel="nofollow" href="#" data-toggle="tooltip" title="Share on Twitter"><span class="fa fa-twitter-square"></span></a>
+                                <a rel="nofollow" href="#" data-toggle="tooltip" title="Send to Phone"><span class="fa fa-phone-square"></span></a>
+                            </div>
+                        </div>
+                        <div class="theme-box-content lighter">
+                            <span>Listing</span>
+                            <a class="pull-right" rel="nofollow" href="#" data-toggle="tooltip" title="Remove from favorites"><span class="fa fa-times"></span></a>
+                            <h5 class="review-for"><b><a href="#" title="Listing Detail">Girard Realtor </a></b><span class="pull-right"><span class="stars-rating"><span class="rate-4"></span></span></span></h5>
+                            <p>102 Cushman St , Waterbury, Connecticut 06704 <br>United States</p>
+                            <p><b>Phone</b> (14) 5656-8989</p>
+                            <div class="action-links">
+                                <a rel="nofollow" href="#" data-toggle="tooltip" title="Share on facebook"><span class="fa fa-facebook-square"></span></a>
+                                <a rel="nofollow" href="#" data-toggle="tooltip" title="Share on Twitter"><span class="fa fa-twitter-square"></span></a>
+                                <a rel="nofollow" href="#" data-toggle="tooltip" title="Send to Phone"><span class="fa fa-phone-square"></span></a>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="col-sm-8">
+                <!-- Recent Activity -->
+                <div class="theme-box theme-box-primary">
+                    <h3 class="theme-box-title">
+                        Recent Activity
+                    </h3>
+                    <div class="theme-box-content">
+                        <h3>Wellcome, You!</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, deleniti rerum quae architecto? Non provident in delectus voluptatem rem esse neque tempora ut quaerat, placeat fuga odit praesentium. Molestiae, alias.</p>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Redeemed deal <b>Golf lessons</b> for $25.00 on Apr 30th
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <p>Deal: <a href="#">Golf Lessons</a></p>
+                                        <p class="mark">$25.00, 30% OFF <span class="pull-right"><a href="#">Print</a></span></p>
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Redeemed deal <b>Mexican Food</b> Food for $25.00 on Apr 30th
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <p>Deal: <a href="#">Mexican Food</a></p>
+                                        <p class="mark">$25.00, 30% OFF <span class="pull-right"><a href="#">Print</a></span></p>
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock -%}

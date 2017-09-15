@@ -1,0 +1,82 @@
+// Mixins
+// --------------------------------------------------
+
+// Utilities
+@import "mixins/hide-text.less";
+@import "mixins/opacity.less";
+@import "mixins/image.less";
+@import "mixins/labels.less";
+@import "mixins/reset-filter.less";
+@import "mixins/resize.less";
+@import "mixins/responsive-visibility.less";
+@import "mixins/size.less";
+@import "mixins/tab-focus.less";
+@import "mixins/text-emphasis.less";
+@import "mixins/text-overflow.less";
+@import "mixins/vendor-prefixes.less";
+
+// Components
+@import "mixins/alerts.less";
+@import "mixins/buttons.less";
+@import "mixins/panels.less";
+@import "mixins/pagination.less";
+@import "mixins/list-group.less";
+@import "mixins/nav-divider.less";
+@import "mixins/forms.less";
+@import "mixins/progress-bar.less";
+@import "mixins/table-row.less";
+
+// Skins
+@import "mixins/background-variant.less";
+@import "mixins/border-radius.less";
+@import "mixins/gradients.less";
+
+// Layout
+@import "mixins/clearfix.less";
+@import "mixins/center-block.less";
+@import "mixins/nav-vertical-align.less";
+@import "mixins/grid-framework.less";
+@import "mixins/grid.less";
+
+.maxsize(@mw:100px; @mh:@mw) {
+  max-width: @mw;
+  max-height: @mh;
+}
+
+.msize(@w:100px; @h:@w;) {
+  width: @w;
+  height: @h;
+}
+
+.gridoverflow() {
+  height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.keyframes-fade-out(@a: fade-out) {
+	@-webkit-keyframes @a {
+	  0%   { opacity: 1; }
+	  100% { opacity: 0; z-index:-3;}
+	}
+	@-moz-keyframes @a {
+	  0%   { opacity: 1; }
+	  100% { opacity: 0; z-index:-3;}
+	}
+	@-o-keyframes @a {
+	  0%   { opacity: 1; }
+	  100% { opacity: 0; z-index:-3;}
+	}
+	@keyframes @a {
+	  0%   { opacity: 1; }
+	  100% { opacity: 0; z-index:-3;}
+	}
+}
+
+
+.animation(@a){
+	-webkit-animation: @a; /* Safari 4+ */
+	-moz-animation:    @a; /* Fx 5+ */
+	-o-animation:      @a; /* Opera 12+ */
+	animation:         @a; /* IE 10+, Fx 29+ */
+}

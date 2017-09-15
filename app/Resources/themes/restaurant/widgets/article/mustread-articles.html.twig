@@ -1,0 +1,16 @@
+{# Must Read Articles -#}
+{# popular -#}
+<section class="block featured">
+    <div class="container">
+        {% set must_read = mustReadArticle(3, 'col-sm-4', 'vertical') %}
+        {% if must_read is not empty %}
+            <h2 class="theme-title"
+                data-trans="{{ 'Must Read Articles'|trans({}, 'widgets') }}">{{ content.labelMustReadArticles|trans({}, 'widgets') }}
+            </h2>
+
+            <div class="row">
+                {{ must_read|raw }}
+            </div>
+        {% endif %}
+    </div>
+</section>

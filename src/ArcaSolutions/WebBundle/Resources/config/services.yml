@@ -1,0 +1,303 @@
+parameters:
+    # services
+    leadhandler.service.class: ArcaSolutions\WebBundle\Services\LeadHandler
+    timelinehandler.service.class: ArcaSolutions\WebBundle\Services\TimelineHandler
+    customtexthandler.service.class: ArcaSolutions\WebBundle\Services\CustomTextHandler
+    email.notification.service.class: ArcaSolutions\WebBundle\Services\EmailNotificationService
+    subscription.mailer.service.class: ArcaSolutions\WebBundle\Services\SubscriptionMailer
+    user.bookmark.service.class: ArcaSolutions\WebBundle\Services\UserBookmark
+    profile.image.service.class: ArcaSolutions\WebBundle\Services\ProfileImage
+    navigationhandler.service.class: ArcaSolutions\WebBundle\Services\NavigationHandler
+    user.login.service.class: ArcaSolutions\WebBundle\Services\UserLogin
+    review.handler.service.class: ArcaSolutions\WebBundle\Services\ReviewHandler
+    advertise.handler.service.class: ArcaSolutions\WebBundle\Services\AdvertiseHandler
+    nearby.handler.service.class: ArcaSolutions\WebBundle\Services\NearbyHandler
+
+    # twig extensions
+    browsebycategory.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\BrowseByCategoryExtension
+    browsebylocation.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\BrowseByLocationExtension
+    modulesbrowsebylocation.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\BrowseByLocationExtension
+    contactus.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\ContactUsFooterExtension
+    copyright.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\CopyrightExtension
+    customtexthandler.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\CustomTextExtension
+    demobar.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\DemoBarExtension
+    facebookcomment.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\FacebookCommentsExtension
+    facebookfanpage.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\FacebookFanPageExtension
+    get.directions.link.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\GetDirectionsLinkExtension
+    getparameters.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\ParametersExtension
+    googletags.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\GoogleTagsExtension
+    iealert.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\IEAlertExtension
+    navigation.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\NavigationExtension
+    newsletter.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\NewsletterExtension
+    pinterest.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\PinterestButtonExtension
+    slider.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\SliderExtension
+    smartbanner.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\SmartBannerExtension
+    user.bookmark.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\BookmarkExtension
+    login.navbar.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\UserExtension
+    advertise.twig.extension.class: ArcaSolutions\WebBundle\Twig\Extension\AdvertiseExtension
+
+services:
+    #services
+    subscription.mailer.service:
+        class: '%subscription.mailer.service.class%'
+        arguments:
+            - '@settings'
+
+    email.notification.service:
+        class: '%email.notification.service.class%'
+        arguments:
+            - '@mailer'
+            - '@doctrine'
+            - '@settings'
+            - '@request_stack'
+            - '@user'
+            - '@multi_domain.information'
+            - '@router'
+            - '@twig'
+            - '@logger'
+            - '%alias_members_module%'
+
+    user.bookmark.service:
+        class: '%user.bookmark.service.class%'
+        arguments:
+            - '@service_container'
+            - '@request_stack'
+
+    profile.image.service:
+        class: '%profile.image.service.class%'
+        arguments:
+            - '@service_container'
+
+    leadhandler:
+        class: '%leadhandler.service.class%'
+        arguments: ["@service_container"]
+
+    timelinehandler:
+        class: '%timelinehandler.service.class%'
+        arguments: ["@service_container"]
+
+    customtexthandler:
+        class: '%customtexthandler.service.class%'
+        arguments: ["@service_container"]
+
+    navigation.handler:
+        class: '%navigationhandler.service.class%'
+        arguments:
+            - '@multi_domain.information'
+            - '@doctrine'
+            - '@service_container'
+            - '@modules'
+
+    user:
+        class: '%user.login.service.class%'
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+
+    review.handler:
+        class: '%review.handler.service.class%'
+        arguments:
+            - '@doctrine'
+            - '@request_stack'
+            - '@translator'
+            - '@timelinehandler'
+            - '@settings'
+            - '@email.notification.service'
+            - '@multi_domain.information'
+            - '@helper.module'
+            - '@mailer'
+            - '@logger'
+
+    quicklist.handler:
+        class: 'ArcaSolutions\WebBundle\Services\QuicklistHandler'
+        arguments:
+            - '@doctrine'
+            - '@helper.module'
+
+    sendmail.module:
+        class: 'ArcaSolutions\WebBundle\Services\SendMailService'
+        arguments:
+            - '@doctrine'
+            - '@email.notification.service'
+            - '@reporthandler'
+            - '@translator'
+            - '@leadhandler'
+            - '@timelinehandler'
+
+    advertise.handler:
+        class: '%advertise.handler.service.class%'
+        arguments:
+            - '@doctrine'
+            - '@modules'
+            - '@helper.module'
+            - '@settings'
+
+    nearby.handler:
+        class: "%nearby.handler.service.class%"
+        arguments:
+            - '@service_container'
+
+    # twig extensions
+    customtexthandler.twig_extension:
+        class: '%customtexthandler.twig.extension.class%'
+        public: false
+        arguments: ['@service_container']
+        tags: [{ name: twig.extension }]
+
+    iealert.twig_extension:
+        class: '%iealert.twig.extension.class%'
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    googletags.twig_extension:
+        class: '%googletags.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+            - '@settings'
+        tags:
+            - { name: twig.extension }
+
+    demobar.twig_extension:
+        class: '%demobar.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    smartbanner.twig_extension:
+        class: '%smartbanner.twig.extension.class%'
+        public: false
+        arguments:
+            - '@settings'
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    contactus.twig_extension:
+        class: '%contactus.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    copyright.twig_extension:
+        class: '%copyright.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    pinterest_button.twig_extension:
+        class: '%pinterest.twig.extension.class%'
+        public: false
+        arguments:
+            - '@settings'
+        tags:
+            - { name: twig.extension }
+
+    navigation.twig_extension:
+        class: '%navigation.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    slider.twig_extension:
+        class: '%slider.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    newsletter.twig_extension:
+        class: '%newsletter.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    browsebycategory.twig_extension:
+        class: '%browsebycategory.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    browsebylocation.twig_extension:
+        class: '%browsebylocation.twig.extension.class%'
+        public: false
+        arguments:
+            - '@doctrine'
+            - '@search.engine'
+            - '@doctrine.orm.main_entity_manager'
+        tags:
+            - { name: twig.extension }
+
+    web.parameters.twig_extension:
+        class: '%getparameters.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+            - '@settings'
+        tags:
+            - { name: twig.extension }
+
+    facebookcomment.twig_extension:
+        class: '%facebookcomment.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    facebookfanpage.twig_extension:
+        class: '%facebookfanpage.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    user.bookmark.twig_extension:
+        class: '%user.bookmark.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    get.directions.link.twig_extension:
+        class: '%get.directions.link.twig.extension.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    login.navbar.twig_extension:
+        class: '%login.navbar.twig.extension.class%'
+        public: false
+        arguments:
+            - '@request_stack'
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    advertise.twig_extension:
+        class: '%advertise.twig.extension.class%'
+        public: false
+        arguments:
+            - '@advertise.handler'
+            - '@currencyhandler'
+            - '@translator'
+        tags:
+            - { name: twig.extension }

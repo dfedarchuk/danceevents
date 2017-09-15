@@ -1,0 +1,94 @@
+<div class="container well well-light">
+    <div class="row">
+        {% if pagination.totalItemCount > 0 -%}
+        <div class="col-sm-3">
+            {# Filters -#}
+            <div class="sidebar">
+                <div class="block search-filter collapse" id="searchFilter">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-info">
+                            {% for filter in searchEvent.filters -%}
+                                {{ filter.filterView|raw }}
+                            {% endfor -%}
+                        </div>
+                    </div>
+                </div>
+
+                {% include "::widgets/banners/skyscraper-ad.html.twig" %}
+            </div>
+
+        </div>
+
+        {% set activeViewMode = app.request.cookies.get("edirectory_results_viewmode", "item") -%}
+
+        {% if activeViewMode == "map" and (pagination.totalItemCount >= 1000 or not map ) -%}
+            {% set activeViewMode = "item" -%}
+        {% endif -%}
+
+        <div class="col-sm-9" role="tabpanel">
+
+            <div class="tab-content results-page results-page-grid">
+
+                <div role="tabpanel" class="tab-pane {{ activeViewMode == "item" ? "active" }}" id="resultsList">
+
+                    {% set pageCategories = pagination.customParameter('pageCategories') -%}
+                    {% set pageLocations  = pagination.customParameter('pageLocations') -%}
+                    {% set pageBadges     = pagination.customParameter('pageBadges') -%}
+
+                    {% for result in pagination -%}
+                        {{ include('::modules/' ~ result.getType() ~ '/summary-grid-view.html.twig', { 'item': result, 'pageCategories' : pageCategories, 'pageLocations' : pageLocations, 'pageBadges' : pageBadges, 'levelFeatures' : levels }) }}
+                    {% endfor -%}
+
+                    <div class="navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+
+                </div>
+
+                {% if map -%}
+                    <div role="tabpanel" class="tab-pane {{ activeViewMode == "map" ? "active" }}" id="resultsMap">
+                        {{ google_map(map) }}
+                        <div id="mapMarkerSummaryBox"></div>
+                    </div>
+                {% endif -%}
+            </div>
+
+        </div>
+        {% else -%}
+            <div class="col-sm-12 search-toolbar">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <h1 class="panel-title small">{{ "No results containing all your search terms were found"|trans }}</h1>
+                        <hr>
+                        <br>
+                        <h4>{{ "Suggestions"|trans }}:</h4>
+                        <ul>
+                            <li>{{ "Try different and more general keywords"|trans }}</li>
+                            <li>{{ "Try removing filters to broaden your search"|trans }}</li>
+                            <li>{{ "Try browsing by section"|trans }}</li>
+                        </ul>
+                        <br><br>
+
+                    </div>
+                    <div class="panel-footer">
+
+                        {{ 'Try another search or send %link_start%enquiry%link_end% to request information' | trans({'%link_start%' : '<a href="'~path('web_contactus')~'">', '%link_end%' : '</a>'}, 'account') | raw }}
+                    </div>
+                </div>
+            </div>
+        {% endif -%}
+    </div>
+</div>
+
+{% include '::blocks/modals/modal-bootstrap-template.html.twig' with {id: 'modalLogin'} -%}
+
+    {{ addJSFile('assets/js/lib/js.cookie.js') }}
+    {{ addJSFile("assets/js/utility/geolocation.js") }}
+    {{ addJSFile("assets/js/utility/modal.js") }}
+    {{ addJSFile("assets/js/search/sorter.js") }}
+    {{ addJSFile("assets/js/search/suggest.js") }}
+    {{ addJSFile("assets/js/modal/send.email.js") }}
+    {{ addJSFile("assets/js/search/report.click.js") }}
+    {{ addJSTwig("::js/summary/results.js.twig") }}
+    {{ addJSTwig("::js/reviews.js.twig") }}

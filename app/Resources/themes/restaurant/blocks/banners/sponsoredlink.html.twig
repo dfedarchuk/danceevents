@@ -1,0 +1,11 @@
+{# banner \ArcaSolutions\BannersBundle\Entity\Banner #}
+<div class="{{ classes|join(" ") }}">
+    <div class="sponsored-ads">
+        <a href="{{ url }}" target="_blank" class="sponsored" style="cursor: pointer;">
+            <span class="title">{{ banner.caption }}</span>
+            {% if banner.contentLine1 %}<span class="text">{{ banner.contentLine1 }}</span>{% endif %}
+            {% if banner.contentLine2 %}<span class="text">{{ banner.contentLine2 }}</span>{% endif %}
+            <span class="url">{{ displayUrl }}</span>
+        </a>
+    </div>
+</div>

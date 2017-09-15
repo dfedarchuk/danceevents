@@ -1,0 +1,33 @@
+{#      Description:                    -#}
+{# This macro renders the profile image -#}
+
+{# profile Object                       -#}
+{#      Accountprofilecontact           -#}
+
+{% macro photo(profile) %}
+    {% if profile and profile.imageId != 0 -%}
+        <img
+            src="{{ asset(imageProfile(profile), 'profile_images') }}"
+            alt="{{ profile.firstName }} {{ profile.lastName }}"
+            class="img-circle img-profile">
+    {% elseif profile.imageId == 0 and profile.facebookImage != "" -%}
+        <img
+                src="{{ profile.facebookImage }}"
+                alt="{{ profile.firstName }} {{ profile.lastName }}"
+                class="img-circle img-profile">
+    {% else -%}
+        <img src="{{ asset('assets/images/user-image.png') }}" alt="{{ title }}" class="img-circle img-profile">
+    {% endif -%}
+{% endmacro %}
+
+{#      Description:                  -#}
+{# This macro renders the profile url -#}
+
+{# profile Object                     -#}
+{#      Accountprofilecontact         -#}
+
+{% macro friendlyUrl(profile) %}
+    {% if profile %}
+        {{ absolute_url('/profile/') ~ profile.friendlyUrl }}
+    {% endif %}
+{% endmacro %}

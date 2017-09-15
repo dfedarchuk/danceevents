@@ -1,0 +1,74 @@
+<!-- Reviews Modal -->
+
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+<form role="form" class="addReview" action="{{ path('web_add_review') }}" method="POST" {{ form_enctype(form) }}
+      data-info="{{ encrypt({module: module, 'id': id}) }}">
+
+    {{ form_errors(form) }}
+
+    {# Token CSRF -#}
+    {{ form_widget(form._token) }}
+
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <fieldset>
+                <legend class="text-center">{{ "Rate It"|trans }} </legend>
+                {{ form_widget(form.rating, {id: 'formRating'}) }}
+                <div class="rate select-rating">
+                    {% for rate in range(-5,-1) %}
+                        <span data-rating="{{ -rate }}"
+                              class="{{ form.rating.vars.value == -rate ? 'active' : '' }}"></span>
+                    {% endfor %}
+                </div>
+            </fieldset>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                {{ form_label(form.name) }}
+                {{ form_widget(form.name, { 'attr': { 'class': 'form-control'} }) }}
+                {{ form_errors(form.name) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.title) }}
+                {{ form_widget(form.title, { 'attr': { 'class': 'form-control'} }) }}
+                {{ form_errors(form.title) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email, { 'attr': { 'class': 'form-control'} }) }}
+                {{ form_errors(form.email) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.location) }}
+                {{ form_widget(form.location, { 'attr': { 'class': 'form-control'} }) }}
+                {{ form_errors(form.location) }}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                {{ form_label(form.message) }}
+                {{ form_widget(form.message, { 'attr': { 'class': 'form-control'} }) }}
+                {{ form_errors(form.message) }}
+            </div>
+        </div>
+        {% if form.captcha is defined %}
+            <div class="form-group col-sm-6 col-sm-offset-3 text-center captcha">
+                {% block edirectory_captcha_widget -%}
+                    {% spaceless -%}
+                        {{ form_widget(form.captcha) }}
+                        {{ form_errors(form.captcha) }}
+                    {% endspaceless -%}
+                {% endblock -%}
+            </div>
+        {% endif %}
+        <div class="col-sm-6 col-sm-offset-3 text-center">
+            <p class="text-center">
+                <button type="submit" data-loading-text="{{ 'Please, wait...'|trans }}"
+                        class="btn action-save btn-success">{{ "Submit Review"|trans }} </button>
+            </p>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,101 @@
+{% stylesheets
+    filter='cssrewrite'
+    output='assets/css/demobar.css'
+    '%kernel.root_dir%/Resources/views/assets/css/demobar/*'
+-%}
+    <link href="{{ asset_url }}" rel="stylesheet" />
+{% endstylesheets -%}
+
+<div id="livebar">
+
+    <div class="live-topbar">
+        <div class="live-container">
+            <div class="live-options">
+                <div class="live-list live-themes">
+                    <a href="javascript:void(0)" class="drop-options">
+                        <i class="live-icon-theme"></i>
+                        <span>{{ 'Themes'|trans }}</span>
+                        <i class="arrow"></i>
+                    </a>
+                    <ul class="list-options">
+                        <li><a href="{{ default_url }}">{{ 'eDirectory Default'|trans }}</a></li>
+                        <li><a href="{{ contractors_url }}">{{ 'Real Estate'|trans }}</a></li>
+                        <li><a href="{{ diningguide_url }}">{{ 'Dining Guide'|trans }}</a></li>
+                        <li><a href="{{ realestate_url }}">{{ 'Contractors'|trans }}</a></li>
+                        <li><a target="_blank" href="{{ custom_theme_url }}">{{ 'Custom Theme'|trans }}</a></li>
+                    </ul>
+                </div>
+                <div class="live-list live-users">
+
+                    <a href="javascript:void(0)" class="drop-options">
+                        <i class="live-icon-users"></i>
+                        <span>{{ 'Website Role'|trans }}</span>
+                        <i class="arrow"></i>
+                    </a>
+
+                    <ul class="list-options">
+                        {# It's hardcoded for every language -#}
+                        <li><a href="/sitemgr">{{ 'Site Manager'|trans }}</a></li>
+                        <li><a href="/sponsors">{{ 'Advertiser'|trans }}</a></li>
+                        <li><a href="/profile/login.php">{{ 'Visitor'|trans }}</a></li>
+                    </ul>
+
+                </div>
+                <div class="live-list live-lang">
+                    <a target="_blank" href="http://www.edirectory.com/language-center-edirectory-97/" >
+                        <i class="live-icon-globe"></i>
+                        <span>{{ 'Multi Language'|trans }}</span>
+                    </a>
+                </div>
+                <div class="live-list live-mobile">
+                    <a target="_blank" href="{{ iphone_android_url }}" >
+                    <i class="live-icon-mobile"></i>
+                    <span>iPhone / Android Apps</span>
+                    </a>
+                </div>
+                <div class="live-list live-mobile">
+                    <a target="_blank" href="{{ guided_demo_url }}" >
+                    <i class="live-icon-guided"></i>
+                    <span>{{ 'Request a Guided Demo'|trans }}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="live-info">
+
+                <div class="live-tollfree">
+                    <i class="live-icon-headphone"></i>
+                        <span>{{ 'Toll Free'|trans|upper }}
+                            <br>
+                            <em>{{ phone_number }}</em>
+                        </span>
+                </div>
+
+                <div class="live-order">
+                    <a href="{{ order_url }}" target="_blank">
+                    <span>{{ 'Order eDirectory'|trans }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OPEN/CLOSE MENU -->
+<script>
+    $(document).ready(function () {
+        $(".drop-options").click(function() {
+            $(this).children("i").toggleClass("down");
+            $(this).next().toggleClass("open");
+        });
+    });
+
+    // chat
+    var __lc = {};
+    __lc.license = '{{ live_chat_key }}';
+
+    (function() {
+        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+    })();
+</script>

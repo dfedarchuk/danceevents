@@ -1,0 +1,44 @@
+parameters:
+    classified.search.configuration.class: ArcaSolutions\ClassifiedBundle\Search\ClassifiedConfiguration
+    classified.blocks.twig.extension.class: ArcaSolutions\ClassifiedBundle\Twig\Extension\BlocksExtension
+    classified.synchronization.configuration.class: ArcaSolutions\ClassifiedBundle\Services\Synchronization\ClassifiedSynchronizable
+    classified.category.synchronization.configuration.class: ArcaSolutions\ClassifiedBundle\Services\Synchronization\ClassifiedCategorySynchronizable
+    classified.seo.twig.extension.class: ArcaSolutions\ClassifiedBundle\Twig\Extension\SeoExtension
+    classified.handler.class: ArcaSolutions\ClassifiedBundle\Services\ClassifiedHandler
+
+services:
+    classified.search:
+        class: %classified.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    classified.blocks:
+        class: %classified.blocks.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    classified.listing:
+        class: %classified.seo.twig.extension.class%
+        arguments:
+            - @service_container
+            - @settings
+        tags:
+            - { name: twig.extension }
+
+    classified.synchronization:
+        class: %classified.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    classified.category.synchronization:
+        class: %classified.category.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    classified.handler:
+        class: "%classified.handler.class%"
+        arguments:
+            - "@doctrine"
+            - "@settings"

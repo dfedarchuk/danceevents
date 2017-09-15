@@ -1,0 +1,81 @@
+{% extends "::base.html.twig" -%}
+
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{% import "::blocks/social-login.html.twig" as login -%}
+
+
+{%  block subheader -%}
+<section class="top-search">
+
+    {{ include("::blocks/background-image.html.twig") }}
+
+    <div class="well well-translucid">
+        <div class="container">
+            <br>
+            <h1>{{ 'Log in to the Profile Area'|trans }}</h1>
+            <br>
+        </div>
+    </div>
+</section>
+{% endblock -%}
+
+{% block body -%}
+<main>
+<div class="container well well-light">
+
+
+    <!-- Login Form -->
+    <div class="row">
+        <div class="col-md-6 col-sm-offset-3">
+            <div class="panel panel-theme">
+                <div class="panel-heading">
+                    <h2>{{ 'Log in to the Profile Area'|trans }}</h2>
+                </div>
+
+                {% if error -%}
+                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif -%}
+
+                <div class="panel-body">
+
+                    {{ login.socialLogin(settings) }}
+
+                    <form role="form" action="{{ path('profile_check') }}" method="post" {{ form_enctype(form) }}>
+                        {{ form_widget(form._token) }}
+                        <div class="form-group">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, { 'attr': { 'class': 'form-control'} }) }}
+                            {{ form_errors(form.email) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_label(form.password) }}
+                            {{ form_widget(form.password, { 'attr': { 'class': 'form-control'} }) }}
+                            {{ form_errors(form.password) }}
+                        </div>
+
+                        <div class="labelcheckbox">
+                            {{ form_label(form.automatic_login) }}
+                            {{ form_widget(form.automatic_login) }}
+                        </div>
+
+                        <a href="{{ path('profile_forgot') }}">{{ 'Forgot your password?'|trans }}</a>
+
+                        <button type="submit" class="btn btn-lg btn-block btn-primary">{{ "Log in"|trans }}</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="custom-content">
+
+            </div>
+        </div>
+    </div>
+
+
+</div><!-- containe well well-light-->
+</main>
+{% endblock -%}

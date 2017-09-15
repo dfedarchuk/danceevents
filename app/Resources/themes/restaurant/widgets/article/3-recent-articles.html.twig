@@ -1,0 +1,17 @@
+{% set recent_article = recentArticle(3, 'col-sm-4') -%}
+
+{% if recent_article is not empty -%}
+    <section class="block block-inverse featured">
+        <div class="container">
+            <br />
+            <h2 class="theme-title theme-title-inverse"
+            data-trans="{{ 'Recent Articles'|trans({}, 'widgets') }}">{{ content.labelRecentArticles|trans({}, 'widgets') }}
+                <a href="{{ path("article_homepage") }}" class="view-more" data-trans="{{ 'more articles'|trans({}, 'widgets') }}">{{ content.labelMoreArticles|trans({}, 'widgets') }}</a>
+            </h2>
+
+            <div class="row">
+                {{ recent_article|raw }}
+            </div>
+        </div>
+    </section>
+{% endif -%}

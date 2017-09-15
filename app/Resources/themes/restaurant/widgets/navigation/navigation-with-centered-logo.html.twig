@@ -1,0 +1,46 @@
+<!-- Header and navbar with Responsive features -->
+<header class="navbar navbar-static-top navbar-centered-logo">
+    <div id="navbarMenu" class="navbar-default">
+        <div class="header-brand">
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <div class="navbar-brand">
+                        {# eDirectory Logo -#}
+                        <a href="{{ path('web_homepage') }}" target="_parent" title="{{ title }}">
+                            <img class="brand-logo" alt="{{ title }}"
+                                 src="{{ utility_getLogoImage()|imagine_filter('logo_large') }}">
+                        </a>
+                        {# End Logo -#}
+                    </div>
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#main-navbar">
+                            <span class="sr-only">{{ "Main navigation"|trans }} </span>
+                            <span class="navbar-label">{{ "Menu"|trans }} </span>
+                        </button>
+                        <button type="button" class="navbar-toggle search-toggle" data-toggle="collapse"
+                                data-target="#search-responsive" id="open-search-responsive" style="display: none;">
+                            <span class="sr-only">{{ "Open Search"|trans }} </span>
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </div>
+
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        {{ navigationHeader(content, '-login') }}
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+{# JS Twigs #}
+{{ addJSTwig("::js/searchbutton.js.twig") -}}

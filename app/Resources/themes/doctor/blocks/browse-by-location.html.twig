@@ -1,0 +1,16 @@
+{% if locations|length > 0 %}
+    <div class="list-columns">
+        <div class="list-title">
+            <h3 data-trans="{{ 'Browse by location'|trans({},'widgets') }}">{{ content.labelBrowseByLocation|trans({},'widgets')|laststrong }}</h3>
+            <a href="{{ url(route) }}" data-trans="{{ 'Explore all locations'|trans({}, 'widgets') }}">{{ content.labelExploreAllLocations|trans({}, 'widgets') }}</a>
+        </div>
+        <ul class="list-unstyled">
+            {% for location in locations -%}
+                {% set link = utility_generateSearchUrl(null, null, null, location.friendlyUrl) -%}
+                <li>
+                    <a href="{{ link }}">{{ location.name }}</a>
+                </li>
+            {% endfor -%}
+        </ul>
+    </div>
+{% endif %}

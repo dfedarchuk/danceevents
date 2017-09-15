@@ -1,0 +1,61 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               -#}
+{# This page renders the Deal summary block which appears during searches          -#}
+
+{#      Resources:                                                                 -#}
+
+{# item \Elastica\Result                                                           -#}
+{#      The elastica result object                                                 -#}
+
+{# levelFeatures \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{#      Contains information about every level of a certain module                 -#}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{% set itemLevelInfo  = levelFeatures['listing'][data.level] -%}
+
+{% set detailURL      = url('deal_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+{% set listingURL     = url('listing_detail', {'friendlyUrl': data.listing.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+<section class="summary-box summary-deal">
+    <div class="summary-content">
+
+        {% if data.thumbnail is not empty -%}
+            <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+        {% endif -%}
+
+        <h3>
+            <a href="{{ detailURL }}">{{ data.title }}</a>
+            {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+        </h3>
+
+        <div class="deal-details">
+            <em>
+                {% set priceFlags = 0  %}
+                {% if data.value.real > 0 %}{% set priceFlags = priceFlags + 1 %}{% endif %}
+                {% if data.value.deal > 0 %}{% set priceFlags = priceFlags + 2 %}{% endif %}
+
+                {% if priceFlags == 0 %}
+                    <span class="text-highlight large">{{ "Free"|trans }}</span>
+                {% else %}
+                    {% if priceFlags b-and 1 %}<span class="text-striketrough">{{ data.value.real|localized_currency }}</span>{% endif %}
+                    {% if priceFlags b-and 2 %}
+                        <span class="text-highlight large">{{ data.value.deal|localized_currency }}</span>
+                    {% else %}
+                        <span class="text-highlight large">{{ "Free"|trans }}</span>
+                    {% endif %}
+                {% endif %}
+            </em>
+        </div>
+
+        <p class="summary-desc">
+            {{ data.description }}
+        </p>
+
+    </div>
+</section>

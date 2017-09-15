@@ -1,0 +1,12 @@
+{# All Posts -#}
+<section class="block featured blog">
+    <div class="container">
+        {% set recent_post = recentPost(6, 'col-sm-3', 'col-sm-9', 'horizontal-xs') %}
+        {% if recent_post is not empty %}
+            <h2 class="theme-title"
+                data-trans="{{ 'Recent Posts'|trans({}, 'widgets') }}">{{ content.labelRecentPosts|trans({}, 'widgets') }}
+            </h2>
+            {{ recent_post|raw }}
+        {% endif %}
+    </div>
+</section>

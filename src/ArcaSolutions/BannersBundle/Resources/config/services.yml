@@ -1,0 +1,12 @@
+parameters:
+    twig_extension.class: 'ArcaSolutions\BannersBundle\Twig\Extension\BannersExtension'
+
+services:
+    banners.twig_extension:
+        class: %twig_extension.class%
+        public: false
+        arguments:
+            - @service_container
+            - @settings
+        tags:
+            - { name: twig.extension }

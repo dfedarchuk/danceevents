@@ -1,0 +1,53 @@
+event_homepage:
+    path:     /
+    defaults: { _controller: EventBundle:Default:index }
+
+event_allcategories:
+    path:     /%alias_event_allcategories_url_divisor%
+    defaults: { _controller: EventBundle:Default:allcategories }
+
+event_alllocations:
+    path:     /%alias_alllocations_url_divisor%
+    defaults: { _controller: EventBundle:Default:alllocations }
+
+event_locations:
+    path:     /getlocations/
+    defaults: { _controller: EventBundle:Default:locations }
+
+event_sample:
+    path:     /{friendlyUrl}-{level}.{_format}
+    defaults: { _controller: EventBundle:Default:sampleDetail }
+    requirements:
+        friendlyUrl: "sample"
+        level: \d+
+        _format:  html
+
+event_detail:
+    path:     /{friendlyUrl}.{_format}
+    defaults: { _controller: EventBundle:Default:detail }
+    requirements:
+        _format:  html
+
+event_upcoming:
+    path:     /upcoming/{day}/{month}/{year}
+    defaults: { _controller: EventBundle:Upcoming:upcoming }
+    condition: "request.isXmlHttpRequest()"
+    requirements:
+        day:    \d+
+        month:  \d+
+        year:   \d+
+    options:
+        expose: true
+
+event_calendar:
+    path:     /calendar/
+    defaults: { _controller: EventBundle:Calendar:events }
+    condition: "request.isXmlHttpRequest()"
+    options:
+        expose: true
+
+event_sendmail:
+    path:     /sendmail/{id}
+    defaults: { _controller: WebBundle:SendMail:index, module: event }
+    requirements:
+            id: \d+

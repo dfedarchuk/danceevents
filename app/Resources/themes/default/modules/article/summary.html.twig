@@ -1,0 +1,56 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            -#}
+{# This page renders the Article summary block which appears during searches    -#}
+
+{#      Resources:                                                              -#}
+
+{# item \Elastica\Result                                                        -#}
+{#      The elastica result object                                              -#}
+
+{# levelFeatures array                                                          -#}
+{#      Contains information about every level of a certain module              -#}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{% set detailURL      = path('article_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+
+<section class="summary-box summary-article">
+    <div class="summary-content">
+        <div class="media">
+            <div class="media-left media-top">
+                <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+            </div>
+
+            <div class="media-body">
+                <h3>
+                    <a href="{{ detailURL }}">{{ data.title }}</a>
+                </h3>
+
+                <p class="small">
+                    {% if data.author.url and data.author.name -%}
+                        <strong>{{"by"|trans}} </strong>
+                        {% if data.author.url -%}
+                            <a href="{{ data.author.url }}">{{ data.author.name ? data.author.name : "View author's website"|trans }}</a>
+                        {% elseif data.author.name -%}
+                            {{ data.author.name }}
+                        {% endif -%}
+                    {% endif -%}
+                    <strong> {{ 'on'|trans }} </strong>
+                    <time datetime="{{ data.publicationDate|date("Y-m-d H:i:s") }}">{{ date(data.publicationDate)|localized_date('MMMM dd, yyyy') }}</time>
+                </p>
+
+                {% if getSetting("review_article_enabled") %}
+                    <a href="{{ detailURL }}" class="stars-rating"><span class="rate-{{ data.averageReview }}"></span></a>
+                {% endif %}
+
+                <p class="summary-desc">
+                     {{data.abstract}}... <a class="text-primary" href="{{ detailURL }}">{{"Read full article"|trans}}</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,16 @@
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail %}
+
+<div class="block-container first block-bg-image">
+    {# General Background Image -#}
+    {{ UtilityDetail.coverImage() }}
+
+    <div class="container">
+        <div class="space-content">
+            <div class="well well-translucid">
+                <h1 data-trans="{{ 'Sign up today - It\'s quick and simple!'|trans({}, 'widgets') }}">{{ content.labelSignUpToday|trans({}, 'widgets') }}</h1>
+                <p data-trans="{{ 'Demo Directory is proud to announce its new directory service which is now available online to visitors and new suppliers. It boasts endless amounts of new features for customers and suppliers.'|trans({}, 'widgets') }}">{{ content.labelDemoDirectory|trans({}, 'widgets') }}</p>
+                <p data-trans="{{ 'Your directory items are also controlled entirely by you. We have a members interface where you can log in and change any details, add special promotions for Demo Directory customers and much more!'|trans({}, 'widgets') }}">{{ content.labelYourDirectory|trans({}, 'widgets') }}</p>
+            </div>
+        </div>
+    </div>
+</div>

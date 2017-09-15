@@ -1,0 +1,4 @@
+parameters:
+    google.ad.channel: ''
+    google.ad.width: 320
+    google.ad.height: 100

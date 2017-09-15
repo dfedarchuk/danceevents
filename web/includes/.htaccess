@@ -1,0 +1,1 @@
+RedirectMatch (.*)\.inc$ /index.php

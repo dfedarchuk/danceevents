@@ -1,0 +1,58 @@
+{# Login -#}
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center">{{ "Log in"|trans }}  </h4>
+            </div>
+            <div class="modal-body">
+                <div class="space-content">
+                     <div class="panel panel-theme">
+                        <div class="panel-body">
+                            <form role="form" class="form">
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-block"><i class="fa fa-facebook"></i> {{ "Log in with Facebook"|trans }} </button>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-info btn-block"><i class="fa fa-google"></i> {{ "Log in with Google"|trans }} </button>
+                                </div>
+
+                                <hr>
+
+                                <div class="form-group">
+                                    <label for="ca-email">{{ "E-mail"|trans }} </label>
+                                    <input type="email" class="form-control" id="ca-email" placeholder="username@company.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ca-password">{{ "Password"|trans }} </label>
+                                    <input type="password" class="form-control" id="ca-password" >
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox">
+                                        {{ "Remember my login"|trans }}
+                                    </label>
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-success btn-block">{{ "Log in"|trans }} </button>
+
+                                <p class="text-center">
+                                    <br>
+                                    <a href="#">{{ "Forgot your password?"|trans }} </a><br>
+                                    <small>{{ "Test Password:"|trans }}  <b>abc123</b></small>
+                                    <span class="break-sm"></span>
+                                </p>
+
+                            </form>
+                        </div>
+
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

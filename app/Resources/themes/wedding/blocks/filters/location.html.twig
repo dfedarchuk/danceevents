@@ -1,0 +1,92 @@
+{#      Description:                                                                                  -#}
+{# Macro for location menu generation during searches                                                 -#}
+
+{#      Resources:                                                                                    -#}
+
+{# location \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                     -#}
+{#      An instance of the FilterMenuTreeNode class containing data for a specific location           -#}
+{#      {                                                                                             -#}
+{#          parent        :(FilterMenuTreeNode) The Parent node                                       -#}
+{#          parentId      :(string) The Parent node Id                                                -#}
+{#          children      :(FilterMenuTreeNode[]) An array of children                                -#}
+{#          childrenId    :(string[]) An array of all children Ids                                    -#}
+{#          title         :(string) The location title                                                -#}
+{#          friendlyUrl   :(string) The location friendly url token                                   -#}
+{#          module        :(string) The module name                                                   -#}
+{#          id            :(string) The location Id                                                   -#}
+{#          isSelected    :(bool) Whether or not this location was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                            -#}
+{#          resultCount   :(int) The amount of results within this location                           -#}
+{#      }                                                                                             -#}
+
+{% macro createLocationMenuEntry(location, level) -%}
+    {% set subCategoryCount = location.children|length -%}
+    {% set locationClass = location.isSelected ? "active" : "" -%}
+
+    {% if subCategoryCount == 0 -%}
+        <li class="list-group-item {{ locationClass }}">
+            <a href="{{ location.searchPageUrl }}" rel="nofollow">
+                {{ location.title }}
+                {% if location.resultCount > 0 -%}
+                    <span class="badge pull-right"> {{location.resultCount}} </span>
+                {% endif -%}
+            </a>
+        </li>
+    {% else -%}
+        <li class="list-group-item {{ locationClass }}">
+            <button class="btn btn-filter pull-left" type="button" data-toggle="collapse" data-target="#{{ location.friendlyUrl }}LocationTree" {{ location.isParentOfSelected or location.isSelected ? 'aria-expanded="true"' }}>
+                <span class="fa fa-caret pull-right"></span>
+            </button>
+            <a href="{{ location.searchPageUrl }}" rel="nofollow">
+                {{ location.title }}
+                {% if location.resultCount > 0 -%}
+                    <span class="badge pull-right"> {{location.resultCount}} </span>
+                {% endif -%}
+            </a>
+        </li>
+        <li class="collapse {{ location.isParentOfSelected or location.isSelected ? 'in' }}" id="{{ location.friendlyUrl }}LocationTree" {{ location.isParentOfSelected or location.isSelected ? 'aria-expanded="true"' }}>
+            <ul class="list-group list-categorytree">
+                {% for subLocation in location.children -%}
+                    {{ _self.createLocationMenuEntry(subLocation, level + 1) }}
+                {% endfor -%}
+            </ul>
+        </li>
+    {% endif -%}
+{% endmacro -%}
+
+
+{#      Description:                                                                                  -#}
+{# This page represents the Location Filter HTML on Search pages                                      -#}
+
+{#      Resources:                                                                                    -#}
+
+{# locationTree \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                 -#}
+{#      An array containing FilterMenuTreeNode items                                                  -#}
+{#      {                                                                                             -#}
+{#          parent        :(FilterMenuTreeNode) The Parent node                                       -#}
+{#          parentId      :(string) The Parent node Id                                                -#}
+{#          children      :(FilterMenuTreeNode[]) An array of children                                -#}
+{#          childrenId    :(string[]) An array of all children Ids                                    -#}
+{#          title         :(string) The location title                                                -#}
+{#          friendlyUrl   :(string) The location friendly url token                                   -#}
+{#          module        :(string) The module name                                                   -#}
+{#          id            :(string) The location Id                                                   -#}
+{#          isSelected    :(bool) Whether or not this location was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                            -#}
+{#          resultCount   :(int) The amount of results within this location                           -#}
+{#      }                                                                                             -#}
+
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#collapseLocation" aria-expanded="true" aria-controls="collapseLocation">
+    <span class="fa fa-caret pull-right"></span>{{ "Locations"|trans }}
+    <span class="selected-info">
+        <span class="badge badge-default">{{ selected|length }}</span>
+    </span>
+</h4>
+<div id="collapseLocation" class="panel-collapse collapse in" role="tabpanel" >
+    <ul class="list-group list-categorytree">
+        {% for location in locationTree -%}
+            {{  _self.createLocationMenuEntry(location, 1) }}
+        {% endfor -%}
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+parameters:
+    # Extended Classes
+    jms_serializer.doctrine_proxy_subscriber.class: ArcaSolutions\ApiBundle\Events\Subscriber\DoctrineProxySubscriber
+
+services:
+    # Security
+    api.security.api_user_provider:
+        class: ArcaSolutions\ApiBundle\Security\ApiKeyUserProvider
+        arguments: ['@kernel', '%api_tokens%', '%api_pin%']
+
+    api.security.apikey_authenticator:
+        class: ArcaSolutions\ApiBundle\Security\ApiKeyAuthenticator
+        public: true

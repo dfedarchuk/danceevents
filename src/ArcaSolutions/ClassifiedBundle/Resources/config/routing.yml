@@ -1,0 +1,35 @@
+classified_homepage:
+    path:     /
+    defaults: { _controller: ClassifiedBundle:Default:index }
+
+classified_allcategories:
+    path:     /%alias_classified_allcategories_url_divisor%
+    defaults: { _controller: ClassifiedBundle:Default:allcategories }
+
+classified_alllocations:
+    path:     /%alias_alllocations_url_divisor%
+    defaults: { _controller: ClassifiedBundle:Default:alllocations }
+
+classified_locations:
+    path:     /getlocations/
+    defaults: { _controller: ClassifiedBundle:Default:locations }
+
+classified_sample:
+    path:     /{friendlyUrl}-{level}.{_format}
+    defaults: { _controller: ClassifiedBundle:Default:sampleDetail }
+    requirements:
+        friendlyUrl: "sample"
+        level: \d+
+        _format:  html
+
+classified_detail:
+    path:     /{friendlyUrl}.{_format}
+    defaults: { _controller: ClassifiedBundle:Default:detail }
+    requirements:
+        _format: html
+
+classified_sendmail:
+    path:     /sendmail/{id}
+    defaults: { _controller: WebBundle:SendMail:index, module: classified }
+    requirements:
+            id: \d+

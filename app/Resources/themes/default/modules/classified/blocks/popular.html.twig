@@ -1,0 +1,28 @@
+{% for item in items -%}
+    {# @var category \ArcaSolutions\ClassifiedBundle\Entity\Classifiedcategory -#}
+    {% set category = item.category -%}
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="theme-title-large">
+                <h3> {{ 'In'|trans }} <br>
+                    <a href="{{ utility_generateSearchUrl(null, "classified", category.friendlyUrl) }}">{{ category.title }}</a>
+                </h3>
+                <a href="{{ utility_generateSearchUrl(null, "classified", category.friendlyUrl) }}"
+                   class="view-more">{{ 'See more'|trans }} {{ category.title }}</a>
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="row">
+                {% for popular in item.items -%}
+                    <div class="{{ class }}">
+                        {{ include('::blocks/themebox/' ~ grid ~ '.html.twig', {'item': popular, 'module': 'classified'}) }}
+                    </div>
+                {% endfor -%}
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <br>
+{% endfor -%}

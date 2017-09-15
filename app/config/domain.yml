@@ -1,0 +1,16 @@
+# MultiDomain Configuration
+parameters:
+    api_tokens:
+    api_pin:
+
+multi_domain:
+    hosts:
+        automation.arcasolutions.com:
+            id: 1
+            path: custom/domain_1/
+            template: default
+            locale: LOCALE
+            database: DB_DOMAIN_NAME
+            elastic: ELASTIC_INDEX
+            title: eDirectory
+            branded: on

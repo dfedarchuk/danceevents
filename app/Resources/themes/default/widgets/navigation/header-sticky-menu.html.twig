@@ -1,0 +1,117 @@
+<header class="navbar navbar-static-top navbar-stiky">
+    {# @var user \ArcaSolutions\WebBundle\Entity\Accountprofilecontact #}
+    {% set user = getUser() -%}
+    <div id="navbarLogin" class="navbar-inverse">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+
+                    {# Default state #}
+                    {% if user %}
+                        {# When logged #}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"
+                               data-trans="{{ 'Welcome'|trans({},'widgets') }}">{{ content.labelWelcome|trans({},'widgets') }} {{ user.firstName }} {{ user.lastName }}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% if user.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                                    <li><a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}">{{ content.labelProfile|trans({},'widgets') }}</a></li>
+                                    <li><a href="{{ path("web_faq") }}" data-trans="{{ 'Faq'|trans({},'widgets') }}">{{ content.labelFaq|trans({},'widgets') }}</a></li>
+                                    <li><a href="/profile/edit.php" data-trans="{{ 'Account Preferences'|trans({},'widgets') }}">{{ content.labelAccountPref|trans({},'widgets') }}</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/profile/logout.php" data-trans="{{ 'Log Off'|trans({},'widgets') }}">{{ content.labelLogOff|trans({},'widgets') }}</a></li>
+                                {% else %}
+                                    <li><a href="{{ getParameter('alias_members_module') ~ "/faq.php" }}" data-trans="{{ 'Faq'|trans({},'widgets') }}">{{ content.labelFaq|trans({},'widgets') }}</a></li>
+                                    <li><a href="{{ getParameter('alias_members_module') ~ "/account/" }}" data-trans="{{ 'Account Preferences'|trans({},'widgets') }}">{{ content.labelAccountPref|trans({},'widgets') }}</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ getParameter('alias_members_module') ~ "/logout.php" }}" data-trans="{{ 'Log Off'|trans({},'widgets') }}">{{ content.labelLogOff|trans({},'widgets') }}</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% elseif getSetting('socialnetwork_feature') == 'on' %}
+                        <li><a href="/profile/add.php" data-trans="{{ 'Sign Up'|trans({},'widgets') }}">{{ content.labelSignUp|trans({},'widgets') }}</a></li>
+                        <li><a href="/profile/login.php" data-trans="{{ 'Log in'|trans({},'widgets') }}">{{ content.labelLogin|trans({},'widgets') }}</a></li>
+                    {% endif %}
+
+                    <li><a href="/sponsors" class="btn btn-success" data-trans="{{ 'Sponsor Area'|trans({},'widgets') }}">{{ content.labelSponsorArea|trans({},'widgets') }}</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header and navbar with Responsive features -->
+    <div id="navbarMenu" class="navbar-default">
+        <div class="header-brand">
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <div class="navbar-brand">
+                        {# eDirectory Logo -#}
+                        <a href="{{ path('web_homepage') }}" target="_parent" title="{{ title }}">
+                            <img class="brand-logo" alt="{{ title }}"
+                                 src="{{ utility_getLogoImage()|imagine_filter('logo') }}">
+                        </a>
+                        {# End Logo -#}
+                    </div>
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#main-navbar">
+                            <span class="sr-only">{{ 'Main navigation'|trans({},'widgets') }}</span>
+                            <span class="navbar-label" data-trans="{{ 'Menu'|trans({},'widgets') }}">{{ content.labelMenu|trans({},'widgets')}} </span>
+                        </button>
+                        <button type="button" class="navbar-toggle search-toggle" data-toggle="collapse"
+                                data-target="#search-responsive" id="open-search-responsive" style="display: none;">
+                            <span class="sr-only" >{{ 'Open Search'|trans({},'widgets') }}</span>
+                            <span class="fa fa-search"></span>
+                        </button>
+                        </div>
+
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        {{ navigationHeader() }}
+
+                        <ul class="nav navbar-nav navbar-login">
+
+                            {% set user = getUser() %}
+                            {% if user %}
+                                {# @var user \ArcaSolutions\WebBundle\Entity\Accountprofilecontact #}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false"
+                                    data-trans="{{ 'Welcome'|trans({},'widgets') }}">{{ content.labelWelcome|trans({},'widgets') }} {{ user.firstName }} {{ user.lastName }}
+                                        <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}">{{ content.labelProfile|trans({},'widgets') }}</a></li>
+                                        <li><a href="{{ path("web_faq") }}" data-trans="{{ 'Faq'|trans({},'widgets') }}">{{ content.labelFaq|trans({},'widgets') }}</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/profile/edit.php" data-trans="{{ 'Account Preferences'|trans({},'widgets') }}">{{ content.labelAccountPref|trans({},'widgets') }}</a></li>
+                                        <li><a href="/profile/logout.php" data-trans="{{ 'Log Off'|trans({},'widgets') }}">{{ content.labelLogOff|trans({},'widgets') }}</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li><a href="/profile/add.php" data-trans="{{ 'Sign Up'|trans({},'widgets') }}">{{ content.labelSignUp|trans({},'widgets') }}</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/profile/login.php" data-trans="{{ 'Log in'|trans({},'widgets') }}">{{ content.labelLogin|trans({},'widgets') }}</a></li>
+                            {% endif %}
+
+                            <li><a href="/sponsors" data-trans="{{ 'Sponsor Area'|trans({},'widgets') }}">{{ content.labelSponsorArea|trans({},'widgets') }}</a></li>
+
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+{# JS Twigs #}
+{{ addJSTwig("::js/searchbutton.js.twig") -}}

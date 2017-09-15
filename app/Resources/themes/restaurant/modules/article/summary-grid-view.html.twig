@@ -1,0 +1,34 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            -#}
+{# This page renders the Article summary block which appears during searches    -#}
+
+{#      Resources:                                                              -#}
+
+{# item \Elastica\Result                                                        -#}
+{#      The elastica result object                                              -#}
+
+{# levelFeatures array                                                          -#}
+{#      Contains information about every level of a certain module              -#}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{% set detailURL      = path('article_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+
+<section class="summary-box summary-article">
+    <div class="summary-content">
+
+        <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+
+        <h3>
+            <a href="{{ detailURL }}">{{ data.title }}</a>
+        </h3>
+
+        <p class="summary-desc">
+             {{data.abstract}}... <a class="text-primary" href="{{ detailURL }}">{{"Read full article"|trans}}</a>
+        </p>
+
+    </div>
+</section>

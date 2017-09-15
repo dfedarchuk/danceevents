@@ -1,0 +1,30 @@
+<!-- Featured Event -->
+{% set featured_events_vertical = featuredEvent(1,'col-sm-12', 'vertical') -%}
+{% set featured_events = featuredEvent(3,'col-sm-12', 'horizontal-xs') -%}
+{% if featured_events is not empty or featured_events_vertical is not empty -%}
+    <section class="block featured event">
+        <div class="container">
+            <h2 class="theme-title"
+                data-trans="{{ 'Featured Events'|trans({}, 'widgets') }}">{{ content.labelFeaturedEvents|trans({}, 'widgets') }}
+            </h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        {{ featured_events_vertical|raw }}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        {{ featured_events|raw }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="{{ path("event_homepage") }}" class="btn btn-success btn-long" data-trans="{{ 'more events'|trans({}, 'widgets') }}">{{ content.labelMoreEvents|trans({}, 'widgets') }}</a>
+            </div>
+
+        </div>
+    </section>
+{% endif -%}

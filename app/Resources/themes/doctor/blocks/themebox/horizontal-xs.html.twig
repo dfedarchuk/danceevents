@@ -1,0 +1,131 @@
+{# @var item \ArcaSolutions\DealBundle\Entity\Promotion -#}
+
+{# workaround to solve the problem of the lack of pattern in columns table -#}
+{% set title = item.name ?: item.title -%}
+{% set link = path(module~'_detail', {friendlyUrl: item.friendlyUrl, _format: 'html'}) -%}
+<div class="theme-box theme-box-horizontal">
+    <div class="theme-box-content">
+        <div class="media">
+            <div class="media-left media-middle media-left-xs">
+
+                {# Image -#}
+                <a href="{{ link }}">
+                    {% if item.imageId != 0 -%}
+                        {# date from DB -#}
+                        {% set image = item.mainImage ?:item.image %}
+                        <img src="{{ asset(imagePath(image), 'domain_images') | imagine_filter('small') }}"
+                             alt="{{ title }}" class="media-object">
+                    {% elseif item.thumbnail is defined and item.thumbnail is not empty -%}
+                        {# data from elasticsearch -#}
+                        <img src="{{ asset(item.thumbnail, 'domain_images') | imagine_filter('small') }}"
+                             alt="{{ title }}" class="media-object">
+                    {% else -%}
+                        {{ utility_getNoImage(title) }}
+                    {% endif -%}
+                </a>
+            </div>
+            <div class="media-body media-middle">
+
+                {% if module == 'event' and item.recurring.enabled == 0 -%}
+                    <div class="date pull-left">
+                        {% set start_date = date(item.date.start) -%}
+                        {{ start_date|localized_date('EEE') }}
+                        <em>{{ start_date|localized_date('dd') }}</em>
+                        {{ start_date|localized_date('MMM') }}
+                    </div>
+                {% endif -%}
+
+                {# event categories here -#}
+                {% if module == 'event' -%}
+                    <span class="categories">
+                        {% if item.categories -%}
+                            {{ 'in'|trans }}
+                            {% for category in item.categories -%}
+                            <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">
+                                {{ category.title }}
+                                </a>{% if not loop.last and loop.length > 1 -%},{% endif -%}
+                            {% endfor -%}
+                        {% endif -%}
+                    </span>
+                {% endif -%}
+
+                {# title item -#}
+                <h4><a href="{{ link }}">{{ title|length > 60 ? title|slice(0,60) ~ '...' : title }}</a></h4>
+
+                {# article date -#}
+                {% if module == 'article' -%}
+                    <span class="time">{{ date(item.publicationDate)|localized_date('MMMM d, yyyy') }}</span>
+                {% endif -%}
+
+                {% if module == 'classified' -%}
+                    <span class="text-price text-bigger"><strong>
+                            {% set value = item.price == 0 ? 'Free'|trans : item.price|localized_currency %}
+                            {{ value|raw }}
+                        </strong></span>
+                {% endif -%}
+
+                {% if module == 'blog' -%}
+                    {% if item.categories -%}
+                        <span class="text-limited">
+                        {{ 'in'|trans }}
+                            {% for category in item.categories -%}
+                            <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">
+                                {{ category.title }}
+                                </a>{% if not loop.last and loop.length > 1 -%},{% endif -%}
+                            {% endfor -%}
+                        </span>
+                    {% endif -%}
+                {% endif -%}
+
+                {# Prices -#}
+                {% if module == 'deal' -%}
+                    <span class="text-price">
+                        {# if realvalue or dealvalue does not exist the data it from elasticsearch -#}
+                        <span class="text-striketrough">{{ item.realvalue ?: item.value.real }}</span>
+                       |
+                       <span class="text-highlight">{{ item.dealvalue ?: item.value.deal }}</span>
+                    </span>
+                {% endif -%}
+
+
+                {# description -#}
+                {% if not options.notShowDescription -%}
+                    {% set description = item.longDescription -%}
+
+                    {% if item.description is not empty -%}
+                        {% set description = item.description -%}
+                    {% endif -%}
+
+                    {#&#123;&#35; article -&#35;&#125;#}
+                    {#{% if item.abstract is not empty -%}#}
+                    {#{% set description = item.abstract -%}#}
+                    {#{% endif -%}#}
+
+                    {% if description is not empty -%}
+                        <p class="p-description">{{ description|length > 60 ? description|slice(0,60) ~ '...' : description }}</p>
+                    {% endif -%}
+                {% endif -%}
+
+
+                {% if module == 'event' and item.address.location is not empty -%}
+                    <p>
+                        {{ 'at'|trans }}
+                        <b>{{ item.address.location }}</b>
+                    </p>
+                {% endif -%}
+
+                {# shows recurring phrase -#}
+                {% if module == 'event' and item.recurring.enabled == 1 -%}
+                    <p><b>{{ recurringPhrase(item.event) }}</b></p>
+                {% endif -%}
+
+                {% if options.seeDetail -%}
+                    <a href="{{ link }}" class="text-uppercase">{{ 'See details'|trans }} <span
+                            class="fa fa-arrow-right"></span></a>
+                {% endif -%}
+            </div>
+        </div>
+
+
+    </div>
+</div>

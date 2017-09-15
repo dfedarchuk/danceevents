@@ -1,0 +1,31 @@
+{# Adding requirements -#}
+{{ addJSFile('assets/js/lib/jquery.magnific-popup.min.js') }}
+{{ addJSTwig("::js/detailpopup.js.twig") }}
+
+<div class="container well well-light">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <!-- Detail Begin -->
+            <div class="detail blog-detail">
+
+                <div id="overview">
+                    <div>{{ item.content|raw }}</div>
+                </div>
+
+                <div id="blog-tags" class="post-tags">
+                    {% for category in categories if 'y' == category.enabled -%}
+                        <a class="badge" href="{{ utility_generateSearchUrl(null, "blog", category.friendlyUrl) }}">
+                            <span>{{ category.title }}</span>
+                        </a>
+                    {% endfor -%}
+                </div>
+                {{ banners.detail("blog", bannerCategories) }}
+                <div id="blog-comments">
+                    {# 500px -#}
+                    {{ facebookComments(740) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

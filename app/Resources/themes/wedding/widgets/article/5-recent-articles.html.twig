@@ -1,0 +1,30 @@
+<!-- Recent Articles -->
+{% set recent_article = recentArticle(1, 'col-md-12') -%}
+{% if recent_article is not empty -%}
+    <section class="block featured article">
+        <div class="container">
+            <h2 class="theme-title"
+                data-trans="{{ 'Recent Articles'|trans({},'widgets') }}">{{ content.labelRecentArticles|trans({}, 'widgets') }}
+            </h2>
+
+            <div class="row">
+                <div class="col-md-5 col-sm-6">
+                    <div class="row">
+                        {{ recent_article|raw }}
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                    <div class="row">
+                        {% set recent_article = recentArticle(4, 'col-sm-12', 'horizontal-xs') -%}
+                        {{ recent_article|raw }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="{{ path("article_homepage") }}" class="btn btn-success btn-long" data-trans="{{ 'more articles'|trans({}, 'widgets') }}">{{ content.labelMoreArticles|trans({}, 'widgets') }}</a>
+            </div>
+
+        </div>
+    </section>
+{% endif -%}

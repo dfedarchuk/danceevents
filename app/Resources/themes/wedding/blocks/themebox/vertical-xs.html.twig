@@ -1,0 +1,229 @@
+{# @var item \ArcaSolutions\DealBundle\Entity\Promotion #}
+{# @var item \ArcaSolutions\EventBundle\Entity\Event #}
+
+{% import '::blocks/utility/utility.html.twig' as Utility %}
+{% import '::blocks/utility/review.html.twig' as Review %}
+
+{# workaround to solve the problem of the lack of pattern in columns table -#}
+{% set title = item.name ?: item.title -%}
+{% if isSample %}
+    {% set link = 'javascript:void(0);' -%}
+{% else %}
+    {% set link = path(module~'_detail', {friendlyUrl: item.friendlyUrl, _format: 'html'}) -%}
+{% endif %}
+<div class="theme-box theme-box-vertical">
+    <div class="theme-box-content">
+
+        {# shows date bagde -#}
+        {% if module == 'event' and item.recurring.enabled == 0 -%}
+            {% if not options.smallDate -%}
+
+                <div class="date float-date">
+                    {% set start_date = date(item.date.start) -%}
+                    {{ start_date|localized_date('EEE') }}
+                    <em>{{ start_date|localized_date('dd') }}</em>
+                    {{ start_date|localized_date('MMM') }}
+                </div>
+
+            {% else -%}
+
+                <div class="date float-date-sm">
+                    {% set start_date = date(item.date.start) -%}
+                    {{ start_date|localized_date('EEE') }}
+                    <em>{{ start_date|localized_date('MMM') }}
+                        <span>{{ start_date|localized_date('dd') }}</span></em>
+                </div>
+
+            {% endif -%}
+
+        {% endif -%}
+
+        {# Images -#}
+        <a href="{{ link }}">
+            {% if item.imageId != 0 -%}
+                {# date from DB -#}
+                {% set image = item.mainImage ?:item.image %}
+                <img src="{{ asset(imagePath(image), 'domain_images') | imagine_filter('small') }}"
+                     alt="{{ title }}" class="media-object">
+            {% elseif item.thumbnail is defined and item.thumbnail is not empty -%}
+                {# data from elasticsearch -#}
+                <img src="{{ asset(item.thumbnail, 'domain_images') | imagine_filter('small') }}" alt="{{ title }}"
+                     class="media-object">
+            {% else -%}
+                {{ utility_getNoImage(title) }}
+            {% endif -%}
+        </a>
+
+        {# shows deal mark in listing -#}
+        {% if module == 'listing' and hasDeal(item.id) -%}
+            <div class="deal-tag">{{ 'Offers deals'|trans }}</div>
+        {% endif -%}
+
+        {% if module == 'classified' and item.price != 0 -%}
+            <span class="text-price text-bigger">
+                <strong>
+                    {% set value = item.price|localized_currency %}
+                    {{ value|raw }}
+                </strong>
+            </span>
+        {% endif -%}
+
+        {# Title -#}
+        <h3><a href="{{ link }}">{{ title }}</a></h3>
+
+        {% if not options.notShowCategories -%}
+            {% if item.categories -%}
+                <p>
+                    {{ 'in'|trans }}
+                    {% for category in item.categories -%}
+                        <a
+                        href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">{{ category.title }}</a>{%- if not loop.last and loop.length > 1 -%},{%- endif %}
+                    {% endfor -%}
+                </p>
+            {% endif -%}
+        {% endif -%}
+
+
+        {# Prices -#}
+        {% if module == 'deal' -%}
+            {% spaceless %}
+                {# if realvalue or dealvalue does not exist the data is from elasticsearch -#}
+                {% if item.realvalue is defined and item.dealvalue is defined %}
+                    {% set dealvalue = item.dealvalue %}
+                    {% set realvalue = item.realvalue %}
+                {% else %}
+                    {% set dealvalue = item.value.deal %}
+                    {% set realvalue = item.value.real %}
+                {% endif %}
+
+                {% set priceFlags = 0 %}
+                {% if realvalue > 0 %}{% set priceFlags = priceFlags + 1 %}{% endif %}
+                {% if dealvalue > 0 %}{% set priceFlags = priceFlags + 2 %}{% endif %}
+
+                <span class="text-price">
+                    {% if priceFlags == 0 %}
+                        <span class="text-highlight">{{ "Free"|trans }}</span>
+                    {% else %}
+                        {% if priceFlags b-and 1 %}<span
+                            class="text-striketrough">{{ realvalue|localized_currency }}</span>&nbsp;|&nbsp;{% endif %}
+                        {% if priceFlags b-and 2 %}<span
+                            class="text-highlight">{{ dealvalue|localized_currency }}</span>{% else %}
+                            <span class="text-highlight">{{ "Free"|trans }}</span>
+                        {% endif %}
+                    {% endif %}
+                </span>
+            {% endspaceless %}
+        {% endif -%}
+
+        {# shows until date -#}
+        {% if module == 'deal' -%}
+            {# if endDate does not exist the data it from elasticsearch -#}
+            {% if item.endDate is defined %}
+                {% set endDate = item.endDate %}
+            {% else %}
+                {% set endDate = date(item.date.end) %}
+            {% endif %}
+
+            {# workaround to fix edirectory behavior #}
+            {% set newEndDate = endDate|date_modify('+1 day') %}
+            {% set interval = newEndDate.diff(date('now')) -%}
+            {% if interval.days <= 30 -%}
+                <p>
+                    <b>
+                        {{ '{0} Less than one day|{1} One day left|]1,Inf] %count% Days left'|transchoice(interval.days) }}
+                    </b>
+                </p>
+            {% else -%}
+                <p>
+                    <b>{{ "Valid Until"|trans }} </b>{{ newEndDate|localized_date('MMMM dd, yyyy') }}
+                </p>
+            {% endif -%}
+        {% endif -%}
+
+        {# description -#}
+        {% if not options.notShowDescription -%}
+            {% set description = item.longDescription -%}
+
+            {% if item.description is not empty -%}
+                {% set description = item.description -%}
+            {% endif -%}
+
+            {# article -#}
+            {% if item.abstract is not empty -%}
+                {% set description = item.abstract -%}
+            {% endif -%}
+
+            {% if description is not empty -%}
+                <p>{{ description|length > 120 ? description|slice(0,120) ~ '...' : description }}</p>
+            {% endif -%}
+        {% endif -%}
+
+        {% if ( module == 'listing' and getSetting("review_listing_enabled") ) or ( module == 'article' and getSetting("review_article_enabled") ) %}
+            {# stars rating w/ total of review -#}
+            {% if module != 'article' and item.reviewTotal != 0 -%}
+                {% if item.averageReview is defined -%}
+                    <div class="special-review">
+                    <span class="stars-rating">
+                        <span class="rate-{{ item.averageReview }}"></span>
+                    </span>
+                        <span>{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(item.reviewTotal, {"%count%":item.reviewTotal}) }}</span>
+                    </div>
+                {% endif -%}
+            {% elseif module != 'article' and item.averageReview is defined -%}
+                <span class="stars-rating">
+                <span class="rate-{{ item.averageReview }}"></span>
+            </span>
+            {% endif -%}
+        {% endif -%}
+
+
+
+        {# shows review listing -#}
+        {% if module == 'listing' and options.showReview == 1 and item.review is not empty -%}
+            <blockquote>
+                {{ Review.bestOf(item.review) }}
+            </blockquote>
+        {% endif -%}
+
+        {% if module == 'event' and item.address.location is not empty -%}
+            <p>
+                {{ 'at'|trans }}
+                <b>{{ item.address.location }}</b>
+            </p>
+        {% endif -%}
+
+        {# shows recurring phrase -#}
+        {% if module == 'event' and item.recurring.enabled == 1 -%}
+            <p><b>{{ recurringPhrase(item.event) }}</b></p>
+        {% endif -%}
+
+        {# button see detials -#}
+        {% if options.seeDetail -%}
+
+            {# article author -#}
+            {% if module == 'article' -%}
+                <p class="p-block">
+                    <span class="time text-capitalize">
+                        {{ date(item.publicationDate)|localized_date('MMMM d, yyyy') }}
+                    </span>
+                    <span class="pull-right text-right">
+                        {% if item.author.name -%}
+                            {{ Utility.authorLink(item) }}
+                        {% elseif item.profile is defined -%}
+                            {{ Utility.accountLink(item.profile) }}
+                        {% endif -%}
+                    </span>
+                </p>
+            {% endif -%}
+
+            {% if module != 'article' -%}
+                <p class="text-right">
+                    <a href="{{ link }}" class="text-uppercase">{{ 'See details'|trans }}
+                        <span class="fa fa-arrow-right"></span>
+                    </a>
+                </p>
+            {% endif -%}
+
+        {% endif -%}
+    </div>
+</div>

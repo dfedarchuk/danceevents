@@ -1,0 +1,78 @@
+/*
+* # Admin Panel for eDirectory
+* @copyright Copyright 2014 Arca Solutions, Inc.
+* @author Basecode - Arca Solutions, Inc.
+*/
+
+.tree {
+	> li:first-child {
+		border-top:none;
+	}
+	.content-item-noview {
+		border: none;
+		padding-left: 0;
+		padding-right: 0;
+		padding:0;
+		.item {
+			margin-left:50px;
+		}
+		&:nth-child(2n+1) {
+		}
+	}
+	ul {
+		list-style: none;
+		padding:0;
+	}
+	.tree-content {
+		border: 1px solid @gray-light;
+		padding:6px 10px;
+		&.selected {
+			background-color: lighten(@gray-light,4%);
+			opacity: .8;
+		}		
+		.btn-group {
+			margin: -15px 0 0;
+		    position: absolute;
+		    right: 10px;
+		    opacity: 0;
+		    .transition(ease opacity 0.4s 0s);
+		}
+		&:hover {		
+			background-color: lighten(@gray-light,6%);			
+			.btn-group {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.tree-control {
+	float: left;
+	margin: 8px 10px 0 8px;
+	.icon-folder57 {
+		display: none;
+	}
+	.icon-folder56 {
+		display: block;
+	}	
+	.btn {
+		padding:5px 4px 8px;
+		margin: 8px 0 0 -3px;
+		i {
+			font-size: 24px;
+		    line-height: 19px;
+		}
+	}
+}
+
+.tree-child {
+	overflow: hidden;
+	height: 0;
+	display: none;
+	margin: -1px 0 0 50px;
+	&.open {
+		overflow: auto;
+		height: auto;
+		display: block;
+	}
+}

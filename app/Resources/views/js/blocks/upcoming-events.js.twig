@@ -1,0 +1,19 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+{% set dateFilter = UpcomingEvents.dateFilter %}
+
+<script>
+    $(document).ready(function () {
+        var calendarButton = $("#upcomingEventsCalendarButton");
+        var datePickerOptions = {
+            language:       "{{ dateFilter.bootstrapDatepickerLanguage }}",
+            autoclose:      true,
+            todayHighlight: true,
+            format:         "{{ dateFilter.bootstrapDatepickerDateFormat|raw }}"
+        };
+
+        var urlDateFormat = "{{ dateFilter.bootstrapDatepickerUrlDateFormat|raw  }}";
+
+        var upcomingEvents = new eDirectory.Search.UpcomingEvents(calendarButton, datePickerOptions, urlDateFormat)
+        upcomingEvents.initialize();
+    });
+</script>

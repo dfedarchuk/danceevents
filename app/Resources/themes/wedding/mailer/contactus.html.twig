@@ -1,0 +1,20 @@
+{% extends "::mailer/layout.html.twig" -%}
+
+{% block title -%} {{ "New Contact"|trans }} {% endblock -%}
+
+{% block paragraph -%}
+    {{ "Site manager"|trans ~ "," }}<br/><br/>
+    {{ "You received a new lead through the contact form."|trans }}<br/>
+{% endblock -%}
+
+{% block secondparagraph -%}
+    {{ "From: "|trans }} {{ firstname }} {{ lastname }}<br/>
+    {{ "Email: "|trans }} {{ email }}<br/>
+    {{ "Phone: "|trans }} {{ phone }}<br/>
+    {{ "Message: "|trans }} <br/>
+    {{ message }}<br/><br/>
+
+    {{ "To view the lead, follow the link below."|trans }}<br/>
+    {% set lead_url = absolute_url('sitemgr/activity/leads/index.php?item_type=general') %}
+    <a href="{{ lead_url }}">{{ lead_url }}</a>
+{% endblock -%}

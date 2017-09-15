@@ -1,0 +1,100 @@
+// Orders Style
+// Advertise and claim pages
+
+.isVisible {
+  display: block;
+  visibility: visible;
+}
+.isHidden {
+  display: none;
+  visibility: hidden;
+}
+.orderTotalAmount {
+  font-size: 1.5em;
+}
+
+//Multiple Categories Tree
+.multiple-categories {
+  padding: @grid-gutter-width/2;
+  background-color: @gray-lighter;
+  border: 1px solid @gray-light;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+      ul:not(.opened)  {
+          height: 0;
+          overflow: hidden;
+          visibility: hidden;
+          opacity: 0;
+      }
+    li {
+      line-height: 2;
+      &.no-child {
+        margin-left: 28px;
+        span {
+          color: contrast(@brand-success, @gray-lighter, @gray-darker, 43%);
+          cursor: pointer;
+          padding: 2px 8px;
+          border-radius:10px;
+          background: @brand-success;
+          &:hover {
+            opacity: .8;
+          }
+          &.selected {
+            color: contrast(@gray-light, @gray-lighter, @gray-darker, 43%);
+            background: @gray-light;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+    ul {
+      margin-left: 15px;
+    }
+  }
+}
+
+//Category List Icons
+.ionicons, .icon-edit38, .icon-ion-ios7-trash-outline, .icon-ion-ios7-close-empty  {
+  &:before {
+    .fa-icon();
+  }
+  &.ion-ios7-minus-outline:before ,
+  &.ion-ios7-plus-outline:before {
+    content: @fa-var-plus-circle;
+    color: @brand-success;
+  }
+}
+
+//Images Upload
+.icon-edit38:before {
+    content: @fa-var-pencil;
+}
+.icon-ion-ios7-trash-outline:before {
+  content: @fa-var-trash;
+}
+.icon-ion-ios7-close-empty:before {
+  content: @fa-var-close;
+}
+.item-gallery {
+  > img.img-responsive {
+    max-width: 100%;
+  }
+}
+
+//Main Image
+.item-gallery {
+  position: relative;
+  cursor: pointer;
+  &.image-default {
+    &:before {
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 4px;
+      background-color: @brand-highlight;
+    }
+  }
+}

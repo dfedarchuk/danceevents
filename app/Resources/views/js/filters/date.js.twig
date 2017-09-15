@@ -1,0 +1,21 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+{% set dateFilter = Search.Filters.dateFilter %}
+<script>
+    $(document).ready(function () {
+        var input = $("#dateFilterRangeInput");
+        var refreshButton = $("#dateFilterRefreshButton");
+        var datePickerOptions = {
+            language:       "{{ dateFilter.bootstrapDatepickerLanguage }}",
+            autoclose:      true,
+            todayHighlight: true,
+            format:         "{{ dateFilter.bootstrapDatepickerDateFormat|raw }}"
+        };
+
+        var urlDateFormat = "{{ dateFilter.bootstrapDatepickerUrlDateFormat|raw  }}";
+
+        var initialValues = ["{{ dateFilter.startDateString|raw }}", "{{ dateFilter.endDateString|raw }}"];
+
+        var dateFilter = new eDirectory.Search.Filters.DateFilter(input, refreshButton, datePickerOptions, urlDateFormat, initialValues);
+        dateFilter.initialize();
+    });
+</script>

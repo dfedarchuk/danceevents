@@ -1,0 +1,14 @@
+{# Must Read Articles -#}
+<section class="block featured">
+    <div class="container">
+        <br />
+        {% set special_deal = specialsDeal(3, 'col-sm-4') %}
+        {% if special_deal is not empty %}
+            <h2 class="theme-title" data-trans="{{ 'Specials Deals'|trans({}, 'widgets') }}">{{ content.labelSpecialDeals|trans({},'widgets') }}</h2>
+            <div class="row">
+                {{ special_deal|raw }}
+            </div>
+        {% endif %}
+
+    </div>
+</section>

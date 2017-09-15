@@ -1,0 +1,156 @@
+{
+    "name": "arcasolutions/edirectory",
+    "license": "proprietary",
+    "homepage": "http://www.demodirectory.com",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Fernando Nascimento",
+            "email": "fernando.nascimento@arcasolutions.com",
+            "role": "Scrum Master"
+        },
+        {
+            "name": "Lucas Trentim",
+            "email": "lucas.trentim@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Matheus Faustino",
+            "email": "matheus.faustino@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Marcos Sartori",
+            "email": "marcos.sartori@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Diego Mosela",
+            "email": "diego.mosela@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Hugo Carrara",
+            "email": "hugo.carrara@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Melina Rodrigues",
+            "email": "melina.rodrigues@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Diego de Biagi",
+            "email": "diego.biagi@arcasolutions.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Nathalia Cabral",
+            "email": "nathalia.cabral@arcasolutions.com",
+            "role": "Designer"
+        },
+        {
+            "name": "Caroline Guilherme",
+            "email": "caroline.guilherme@arcasolutions.com",
+            "role": "Designer"
+        },
+        {
+            "name": "Ruth Cará",
+            "email": "ruth.cara@arcasolutions.com",
+            "role": "Designer"
+        },
+        {
+            "name": "Fernando Antiqueira",
+            "email": "fernando.antiqueira@arcasolutions.com",
+            "role": "Designer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ArcaSolutions\\": "src/ArcaSolutions/"
+        },
+        "classmap": [
+            "app/AppKernel.php",
+            "app/AppCache.php"
+        ]
+    },
+    "require": {
+        "php": ">=5.6.0,<7.0",
+        "ext-exif": "*",
+        "ext-gd": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
+        "ext-mcrypt": "*",
+
+        "symfony/symfony": "2.8.*",
+        "twig/twig": "1.25.*",
+        "doctrine/orm": "^2.4.8",
+        "doctrine/dbal": "<2.5",
+        "doctrine/doctrine-bundle": "~1.4",
+        "twig/extensions": "1.2.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "ruflin/elastica": "~3.1",
+        "liip/theme-bundle": "1.2.*",
+        "oyejorge/less.php": "~1.5",
+        "knplabs/knp-paginator-bundle": "2.4.*",
+        "guzzlehttp/guzzle": "5.3.0",
+        "friendsofsymfony/jsrouting-bundle": "^1.5",
+        "beberlei/DoctrineExtensions": "^1.0",
+        "tplaner/when": "2.*",
+        "liip/imagine-bundle": "1.3.*",
+        "arcasolutions/google-map-bundle": "~1.0",
+        "gregwar/captcha-bundle": "1.1",
+        "jms/translation-bundle": "1.3.1",
+        "twilio/sdk": "4.3.0",
+        "excelwebzone/recaptcha-bundle": "1.4.1",
+        "friendsofsymfony/rest-bundle": "~1.7",
+        "jms/serializer-bundle": "1.0",
+        "doctrine/doctrine-migrations-bundle": "^1.0",
+        "nelmio/api-doc-bundle": "^2.12",
+        "friendsofsymfony/oauth-server-bundle": "1.5.*",
+        "stripe/stripe-php": "^3.13",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "facebook/graph-sdk": "^5.4"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~3.0",
+        "jms/di-extra-bundle": "1.8.*",
+        "symfony/phpunit-bridge": "~2.7",
+        "phpunit/phpunit": "5.3.*"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        }
+    }
+}

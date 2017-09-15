@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>title_address</source>
+                <target>Title/Address</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>hasDetail</source>
+                <target>Detail View</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>hasReview</source>
+                <target>Ratings and Reviews</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>hasBacklink</source>
+                <target>Backlink</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>hasEmail</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>hasURL</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>hasPhone</source>
+                <target>Phone</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>hasFax</source>
+                <target>Fax Number</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>hasVideo</source>
+                <target>Video</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>hasAdditionalFiles</source>
+                <target>Additional Uploads</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>hasSummaryDescription</source>
+                <target>Summary Description</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>hasLongDescription</source>
+                <target>Detail Description</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>hasHoursOfWork</source>
+                <target>Hours</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>hasLocationReference</source>
+                <target>Location reference</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>hasBadges</source>
+                <target>Badges</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>hasSocialNetworking</source>
+                <target>Social Networking Pages</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>hasFeatureInformation</source>
+                <target>Features</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>hasClickToCall</source>
+                <target>Click to Call</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>imageCount</source>
+                <target>Photo Gallery</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>dealCount</source>
+                <target>{0} Deal|{1} %count% Deal|]1,Inf] %count% Deals</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>classifiedQuantityAssociation</source>
+                <target>{0} Classified|{1} %count% Classified|]1,Inf] %count% Classifieds</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>hasContactName</source>
+                <target>Contact Name</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>hasEventTime</source>
+                <target>Event Time</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>hasFacebookPage</source>
+                <target>Facebook Social Plugin</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>hasContactPhone</source>
+                <target>Contact Phone</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>hasContactEmail</source>
+                <target>Contact E-mail</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>hasClassifiedPrice</source>
+                <target>Price</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>hasPublicationDate</source>
+                <target>Publication Date</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>hasAuthor</source>
+                <target>Author</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>hasAbstract</source>
+                <target>Abstract</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>content</source>
+                <target>Content</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

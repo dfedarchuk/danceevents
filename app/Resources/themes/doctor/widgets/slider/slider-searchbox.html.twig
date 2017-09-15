@@ -1,0 +1,44 @@
+{% extends "::widgets/slider/slider.html.twig" %}
+
+{% block searchbox %}
+    {# Main Search -#}
+    <div class="search-header" id="mainSearch">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 search-well">
+                    <div class="panel panel-info">
+                        <div class="panel-heading text-center">
+                            <h1 data-trans="{{ 'Start your search here'|trans({}, 'widgets') }}">{{ content.labelStartYourSearch|trans({}, 'widgets') }}</h1>
+                            <p data-trans="{{ 'What are you looking for?'|trans({}, 'widgets') }}">{{ content.labelWhatLookingFor|trans({}, 'widgets') }}</p>
+                        </div>
+                        <div class="panel-body">
+                            <form id="headerSearchForm" class="form">
+                                <div class="form-group flex-3">
+                                    <label for="searchKeyword">{{ "Keyword for search"|trans }}</label>
+                                    <input data-prefill="0" id="searchKeyword" type="text" class="form-control input-lg" placeholder="{{ "Search anything..."|trans }}">
+                                </div>
+                                <div class="form-group flex-2">
+                                    <label for="searchLocation">{{ "where"|trans }} </label>
+                                    <input data-prefill="0" id="searchLocation" type="text" class="form-control input-md" placeholder="{{ "Location"|trans }}">
+                                </div>
+                                <button id="headerSearchButton" type="submit" class="btn btn-success btn-block">
+                                    <span class="visible-sm"><i class="fa fa-search"></i></span><span class="hidden-sm">{{ "Search"|trans }} </span>
+                                </button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Adding requirements -#}
+    {{ addJSFile('assets/js/lib/js.cookie.js') }}
+    {{ addJSFile("assets/js/lib/typeahead.bundle.min.js") }}
+    {{ addJSFile("assets/js/search/utility.js") }}
+    {{ addJSFile("assets/js/search/suggest.js") }}
+    {{ addJSTwig("::js/blocks/searchbox.js.twig") }}
+
+{% endblock %}
+

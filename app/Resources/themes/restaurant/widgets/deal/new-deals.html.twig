@@ -1,0 +1,14 @@
+{# Popular Deals -#}
+<!-- Popular Deals -->
+<section class="block featured deal">
+    <div class="container">
+        {% set new_deal = newDeal(4, 'col-sm-6', 'horizontal') %}
+        {% if new_deal is not empty %}
+            <h2 class="theme-title" data-trans="{{ 'New Deals'|trans({}, 'widgets') }}">{{ content.labelNewDeals|trans({},'widgets') }}</h2>
+
+            <div class="row">
+                {{ new_deal|raw }}
+            </div>
+        {% endif %}
+    </div>
+</section>

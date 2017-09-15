@@ -1,0 +1,39 @@
+<section class="block block-bg-image">
+    {# Default Image to responsive layout #}
+    <div class="visible-xs">
+        {{ include("::blocks/background-image.html.twig") }}
+    </div>
+
+    <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+        {# Render slider images #}
+        <div class="carousel-inner hidden-xs" role="listbox">
+            <div class="item item-expanded active"
+
+                {% if file_exists(getDomainParameter('path') ~ 'content_files/background_image.jpg') -%}
+                    style="background-image:url({{ asset(getDomainParameter('path') ~ 'content_files/background_image.jpg?t=' ~ date().timestamp) }});"
+                {% else -%}
+                    style="background-image:url({{ asset('assets/images/bg-image.jpg') }});"
+                {% endif -%}
+            >
+            </div>
+        </div>
+
+        {# Main Search -#}
+        <div class="search-header" id="mainSearch">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <div class="hero-text">
+                            <h1 data-trans="{{ 'Start your search here'|trans({}, 'widgets') }}">{{ content.labelStartYourSearch|trans({}, 'widgets') }}</h1>
+                            <p data-trans="{{ 'What are you looking for?'|trans({}, 'widgets') }}">{{ content.labelWhatLookingFor|trans({}, 'widgets') }}</p>
+                        </div>
+
+                        <div class="well well-translucid form-inline text-center">
+                            {{ include("::blocks/search/search-fields.html.twig") }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

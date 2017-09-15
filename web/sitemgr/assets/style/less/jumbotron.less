@@ -1,0 +1,78 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+
+.jumbotron {
+  padding: @jumbotron-padding;
+  margin-bottom: @jumbotron-padding;
+  color: @jumbotron-color;
+  background-color: @jumbotron-bg;
+  font-size: @jumbotron-font-size;
+  border: 1px solid @gray;
+  h1,
+  .h1 {
+    font-size: 2.6em;
+    margin: 0.4em 0 0;
+    color: @jumbotron-heading-color;
+  }
+  h2 {
+    margin: 15px 0 7px 0;
+    line-height: 1;
+    font-size: 1.4em;
+  }
+  p {
+    margin-bottom: (@jumbotron-padding / 2);
+    font-size: 0.9em;
+    font-weight: 200;
+  }
+  > hr {
+    border-top-color: @gray;
+    margin: 50px 0 30px;
+  }
+
+  @media screen and (min-width: @screen-md-min) {   
+    .btn {
+      margin-top:20px;
+    }
+    .col-md-4 p {
+      min-height: 70px;
+    }
+  }
+
+  @media screen and (max-width: @screen-sm-min) {
+    padding: 10px 1em;
+    h1 {
+      font-size:1.8em;
+    }
+    h2 {
+      font-size:1.3em;
+      margin-top:20px;
+    }
+    > hr {
+      border-top-color: @gray;
+      margin: 50px 0 20px;
+    }
+    .col-sm-4 > .btn {
+      margin-bottom:20px;
+    }
+  }
+
+  .container & {
+    border-radius: @border-radius-large; // Only round corners at higher resolutions if contained in a container
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  @media screen and (min-width: @screen-sm-min) {
+    padding-top:    (@jumbotron-padding * 0.8);
+    padding-bottom: (@jumbotron-padding * 1.4);
+
+    .container & {
+      padding-left:  (@jumbotron-padding * 2);
+      padding-right: (@jumbotron-padding * 2);
+    }
+  }
+}

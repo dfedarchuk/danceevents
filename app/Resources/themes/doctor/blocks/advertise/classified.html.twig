@@ -1,0 +1,67 @@
+{# @var plan \ArcaSolutions\ClassifiedBundle\Entity\Internal\ClassifiedLevelFeatures #}
+{% for plan in plans %}
+    {% set pricing = advertisePrice(plan) %}
+    <div class="plan-box {{ plan.isPopular ? 'plan-popular':'' }}" xmlns="http://www.w3.org/1999/html">
+        {# Plans Name #}
+        <div class="plan-title">
+            {{ plan.name }}
+        </div>
+
+        {# Plans Info #}
+        <div class="plan-info">
+            {% if plan.isPopular %}
+                <span class="popular-tag">{{ 'Most Popular'|trans }}</span>
+            {% endif %}
+            <mark>
+                {% if plan.trial > 0 %}
+                    <small class="trial">{{ plan.trial }} {{ 'Days free trial'|trans }}!</small>
+                {% else %}
+                    <small>{{ pricing.main.value > 0 ? pricing.main.symbol : '' }}</small> {{ pricing.main.value }}
+                    <small>{{ pricing.main_renewal ? '/ ' ~ pricing.main_renewal : '' }}</small>
+                {% endif %}
+            </mark>
+
+            {% if plan.trial > 0 %}
+                {{ 'After'|trans }}
+                {% if pricing.main.value > 0 %}
+                    {{ pricing.main.symbol ~ pricing.main.value }}
+                    {{ pricing.main.decimal > 0 ? pricin.main.decimal : '' }}
+                    <small>/ {{ pricing.main_renewal }}</small>
+                {% else %}
+                    {{ pricing.main.value }}
+                {% endif %}
+                <br>
+            {% endif %}
+
+            {% if pricing.renewal %}
+                {{ 'or'|trans }}
+                {{ pricing.yearly.symbol ~ pricing.yearly.value }}
+                {{ pricing.yearly.decimal > 0 ? pricin.yearly.decimal : '' }}
+                <small>/ {{ pricing.renewal_label }}</small>
+                <br>
+            {% endif %}
+        </div>
+
+        <div class="plan-desc">
+            {# SAMPLE BUTTON #}
+            {% if plan.hasDetail %}
+                <a href="{{ url('classified_sample', {'friendlyUrl': 'sample', 'level': plan.level, '_format': 'html'}) }}"
+                   target="_blank" rel="nofollow" class="btn btn-default btn-block">{{ 'View Sample'|trans }}</a>
+            {% endif %}
+
+            {# SINGUP BUTTON #}
+            <a class="btn btn-highlight btn-block" rel="nofollow"
+               href="/advertise/classified/{{ plan.level }}">{{ 'Sign Up'|trans }}</a>
+
+            <ul>
+                <li>{{ 'title_address'|trans([], 'advertise') }}</li>
+                {% for feature, value in plan|cast_to_array %}
+                    {% if feature not in nonFeatures %}
+                        <li {{ value ?:'class=text-striketrough' }}>{{ feature|transchoice(value, [], 'advertise') }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,55 @@
+{# form  #}
+
+{# The content of this view will be loaded inside of bootstrap's modal structure -#}
+{# p.s: This content will always be written inside the .modal-content div -#}
+
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{# Don't remove this div, jquery wont work without it -#}
+<form {{ form_enctype(form) }} class="send-email"
+                               action="{{ path(app.request.attributes.get('_route'), {id: item.id}) }}" method="post">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name, { 'attr': { 'class': 'form-control'} }) }}
+                    {{ form_errors(form.name) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email, { 'attr': { 'class': 'form-control'} }) }}
+                    {{ form_errors(form.email) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.subject) }}
+                    {{ form_widget(form.subject, { 'attr': { 'class': 'form-control'} }) }}
+                    {{ form_errors(form.subject) }}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    {{ form_label(form.text) }}
+                    {{ form_widget(form.text, { 'attr': { 'class': 'form-control', 'rows': 11} }) }}
+                    {{ form_errors(form.text) }}
+                </div>
+            </div>
+            {% if form.captcha is defined %}
+                <div class="form-group col-sm-6 col-sm-offset-3 text-center captcha">
+                    {% block edirectory_captcha_widget -%}
+                        {% spaceless -%}
+                            {{ form_widget(form.captcha) }}
+                            {{ form_errors(form.captcha) }}
+                        {% endspaceless -%}
+                    {% endblock -%}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="modal-footer">
+        <p class="text-center">
+            <button type="submit" class="btn btn-success">{{ "Send E-mail"|trans }} </button>
+        </p>
+    </div>
+    {{ form_widget(form._token) }}
+</form>

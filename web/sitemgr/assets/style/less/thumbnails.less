@@ -1,0 +1,81 @@
+//
+// Thumbnails
+// --------------------------------------------------
+
+
+// Mixin and adjust the regular image class
+.thumbnail {
+  display: block;
+  padding: @thumbnail-padding;
+  margin-bottom: @line-height-computed;
+  line-height: @line-height-base;
+  background-color: @thumbnail-bg;
+  border: 1px solid @thumbnail-border;
+  border-radius: @thumbnail-border-radius;
+  .transition(all .2s ease-in-out);
+
+  > img,
+  a > img {
+    &:extend(.img-responsive);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // Add a hover state for linked versions only
+  a&:hover,
+  a&:focus,
+  a&.active {
+    border-color: @link-color;
+  }
+
+  // Image captions
+  .caption {
+    padding: @thumbnail-caption-padding;
+    color: @thumbnail-caption-color;
+  }
+}
+
+.form-thumbnails {
+  a.thumbnail {
+    &:hover, &.active, &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+  .thumbnail {    
+    h6 {
+      line-height: 1.5;
+    }
+    &.add-new {
+      border-style: dashed;
+      padding-top: 10px;
+      &:hover {
+        border-style: solid;
+      }
+      [class*="icon-"] {
+        color: @gray;
+        font-size: 28px;
+        line-height: 1;
+      }  
+      .caption {
+        padding:0 10px;
+        min-height: 28px;
+      }   
+      h6 {
+        color: @gray;
+        font-size: 14px;
+        line-height: 1;
+        margin: 7px 0 0;
+      }
+    }
+
+  }
+  .ui-sortable-handle{
+    cursor: move;
+    &:hover{
+      .thumbnail{
+        border: 1px solid @brand-primary;
+      }
+    }
+  }
+ 
+}

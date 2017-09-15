@@ -1,0 +1,73 @@
+parameters:
+    event.search.configuration.class: ArcaSolutions\EventBundle\Search\EventConfiguration
+    event.recurring.service.class: ArcaSolutions\EventBundle\Services\Recurring
+    whenextended.service.class: ArcaSolutions\EventBundle\Services\WhenExtended
+    event.api.service.class: ArcaSolutions\EventBundle\Services\EventApi
+
+    # twig extension
+    upcoming.event.twig.extension.class: ArcaSolutions\EventBundle\Twig\Extension\UpcomingEventsExtension
+    event.recurring.twig.extension.class: ArcaSolutions\EventBundle\Twig\Extension\RecurringExtension
+    event.blocks.twig.extension.class: ArcaSolutions\EventBundle\Twig\Extension\BlocksExtension
+    event.seo.twig.extension.class: ArcaSolutions\EventBundle\Twig\Extension\SeoExtension
+
+    event.synchronization.configuration.class: ArcaSolutions\EventBundle\Services\Synchronization\EventSynchronizable
+    event.category.synchronization.configuration.class: ArcaSolutions\EventBundle\Services\Synchronization\EventCategorySynchronizable
+
+services:
+    event.search:
+        class: %event.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    event.recurring.service:
+        class: '%event.recurring.service.class%'
+        arguments:
+            - "@doctrine"
+            - "@service_container"
+
+    whenextended.service:
+        class: %whenextended.service.class%
+
+    event.api.service:
+        class: %event.api.service.class%
+        arguments: ["@service_container", %search.config%]
+
+    upcoming.event.twig_extension:
+        class: %upcoming.event.twig.extension.class%
+        public: false
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    event.recurring.twig_extension:
+        class: '%event.recurring.twig.extension.class%'
+        public: false
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    event.blocks.twig_extension:
+        class: %event.blocks.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    seo.event:
+        class: %event.seo.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    event.synchronization:
+        class: %event.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    event.category.synchronization:
+        class: %event.category.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]

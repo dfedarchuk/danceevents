@@ -1,0 +1,58 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            #}
+{# This page renders the Classified summary block which appears during searches #}
+
+{#      Resources:                                                              #}
+
+{# item \Elastica\Result                                                        #}
+{#      The elastica result object                                              #}
+
+{# levelFeatures array                                                          #}
+{#      Contains information about every level of a certain module              #}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# itemLevelInfo \ArcaSolutions\ClassifiedBundle\Entity\Internal\ClassifiedLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['classified'][data.level] -%}
+
+{% set detailURL      = url('classified_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "classified" -%}
+<section id="{{ sectionAnchor }}" class="summary-box summary-classified">
+    <div class="summary-content">
+
+        {{ bookmarkLink(item, 'classified') }}
+
+        {% if itemLevelInfo.imageCount > 0 and data.thumbnail is not empty -%}
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+            {% else -%}
+                {{ Utility.image( data.thumbnail, data.title ) }}
+            {% endif -%}
+        {% endif -%}
+
+        <h3>
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}">{{ data.title }}</a>
+            {% else -%}
+                {{ data.title }}
+            {% endif -%}
+            {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+        </h3>
+
+        {% if itemLevelInfo.hasClassifiedPrice and data.price -%}
+            <strong class="large">
+                {% if data.price %}
+                    {{ data.price|localized_currency }}
+                {% endif %}
+            </strong>
+        {% endif -%}
+
+        {{ Utility.address( null, null, data.address.street, data.address.complement, null, itemLocations, pageLocations ) }}
+
+    </div>
+</section>

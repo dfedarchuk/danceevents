@@ -1,0 +1,16 @@
+{% spaceless %}
+    {% set class = marked ? 'fa-bookmark' : 'fa-bookmark-o' %}
+    <a href="javascript:void(0);" rel="nofollow" class="btn btn-primary btn-social bookmark-tag" data-toggle="tooltip"
+       title="{{ 'Add this item to favorites'|trans }}"
+       data-id="{{ id }}"
+       data-module="{{ module }}">
+        <span class="fa {{ class }}"></span>
+        <span class="bookmark-tag-text">
+            {% if marked %}
+                {{ 'Bookmarked'|trans }}
+            {% else %}
+                {{ 'Bookmark this'|trans }}
+            {% endif %}
+        </span>
+    </a>
+{% endspaceless %}

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>title_address</source>
+                <target>Titel/Adresse</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>hasDetail</source>
+                <target>Detailansicht</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>hasReview</source>
+                <target>Bewertungen und Beurteilungen</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>hasBacklink</source>
+                <target>Backlink</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>hasEmail</source>
+                <target>E-mail</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>hasURL</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>hasPhone</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>hasFax</source>
+                <target>Faxnummer</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>hasVideo</source>
+                <target>Video</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>hasAdditionalFiles</source>
+                <target>Zusätzliche Uploads</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>hasSummaryDescription</source>
+                <target>Zusammenfassende Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>hasLongDescription</source>
+                <target>Detailbeschreibung</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>hasHoursOfWork</source>
+                <target>Stunden</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>hasLocationReference</source>
+                <target>Standortverweis</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>hasBadges</source>
+                <target>Abzeichen</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>hasSocialNetworking</source>
+                <target>Social Networking Seiten</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>hasFeatureInformation</source>
+                <target>Eigenschaften</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>hasClickToCall</source>
+                <target>Klicke um anzurufen</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>imageCount</source>
+                <target>Fotogallerie</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>dealCount</source>
+                <target>{0} Deal|{1} %count% Deal|]1,Inf] %count% Angebote</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>classifiedQuantityAssociation</source>
+                <target>{0} klassifiziert|{1} %count% klassifiziert|]1,Inf] %count% Kleinanzeigen</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>hasContactName</source>
+                <target>Kontaktname</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>hasEventTime</source>
+                <target>Ereigniszeit</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>hasFacebookPage</source>
+                <target>Datenschutzerklärung</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>hasContactPhone</source>
+                <target>Kontakt-Telefon</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>hasContactEmail</source>
+                <target>Kontakt E-mail</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>hasClassifiedPrice</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>hasPublicationDate</source>
+                <target>Veröffentlichungsdatum</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>hasAuthor</source>
+                <target>Autor</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>hasAbstract</source>
+                <target>Abstrakt</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>content</source>
+                <target>Inhalt</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

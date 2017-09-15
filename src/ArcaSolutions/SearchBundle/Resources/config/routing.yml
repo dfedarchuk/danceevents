@@ -1,0 +1,72 @@
+search_map_summary:
+    path:     /search/map/summary
+    defaults: { _controller: SearchBundle:Default:mapSummary }
+
+search_build_url:
+    path:     /search/build
+    defaults: { _controller: SearchBundle:Default:buildUrl }
+
+search_advanced_category:
+    path:     /search/suggest/advanced/category
+    defaults: { _controller: SearchBundle:Default:advancedCategory }
+
+search_advanced_location:
+    path:     /search/suggest/advanced/location
+    defaults: { _controller: SearchBundle:Default:advancedLocation }
+
+search_suggest_what:
+    path:     /search/suggest/what
+    defaults: { _controller: SearchBundle:Default:suggestWhat }
+
+search_suggest_where:
+    path:     /search/suggest/where
+    defaults: { _controller: SearchBundle:Default:suggestWhere }
+
+global_homepage:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        route: web_homepage
+        permanent: true
+
+global_search_1:
+    path:     /{a0}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+global_search_2:
+    path:     /{a0}/{a1}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+global_search_3:
+    path:     /{a0}/{a1}/{a2}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+global_search_4:
+    path:     /{a0}/{a1}/{a2}/{a3}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+global_search_5:
+    path:     /{a0}/{a1}/{a2}/{a3}/{a4}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+global_search_6:
+    path:     /{a0}/{a1}/{a2}/{a3}/{a4}/{a5}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+global_search_7:
+    path:     /{a0}/{a1}/{a2}/{a3}/{a4}/{a5}/{a6}/{page}
+    defaults: { _controller: SearchBundle:Default:search, page: "p:1" }
+    requirements:
+        page: "p:\d+"

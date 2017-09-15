@@ -1,0 +1,9 @@
+<div id="calendar-event" class="theme-box-content lighter expanded">
+    {{
+    render(controller(
+        'EventBundle:Calendar:calendar',
+        { 'month': 'now'|date('m'), 'year': 'now'|date('Y') }
+    ))
+    }}
+</div>
+

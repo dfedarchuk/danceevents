@@ -1,0 +1,24 @@
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{# categories array                                                        -#}
+{#      An array containing the categories whose banners should be fetched -#}
+
+{% set module = getModuleBanner() %}
+{% set largeMobileBanner = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module, bannerCategories) %}
+{% set googleBanner      = bannerGoogle(["banner-ads", "col-md-4", "col-sm-6", "text-center"]) %}
+{% set sponsoredLinks    = bannerSponsoredLinks(["banner-sponsored", "col-md-4", "col-sm-6"], module, bannerCategories) %}
+
+{% if largeMobileBanner or googleBanner or sponsoredLinks %}
+    <section class="ad-banners">
+        <div class="container">
+            <h6 class="sr-only">{{ "Advertisement"|trans }} </h6>
+
+            <div class="row">
+                {{ largeMobileBanner|raw }}
+                {{ googleBanner|raw }}
+                {{ sponsoredLinks|raw }}
+            </div>
+        </div>
+    </section>
+{% endif %}

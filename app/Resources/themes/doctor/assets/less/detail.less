@@ -1,0 +1,341 @@
+//
+// Detail
+// --------------------------------------------------
+
+
+// Detail Items
+// -------------------------
+.detail {
+	position: relative;
+  &.blog-detail {
+    margin-top: @grid-gutter-width/2;
+    @media (max-width: @screen-sm-max){
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+	section {
+		border-bottom: 1px solid @gray-light;
+		margin-bottom: @grid-gutter-width/3;
+		padding: @grid-gutter-width/2 0;
+		&:last-child {
+			border-bottom: none;
+		}
+		&.related-feature {
+			.row {
+				.col-sm-4 {
+					&:nth-child(3n+1) {
+						clear: left;
+					}
+				}
+			}
+		}
+	}
+	h1 {
+		margin-top: 0;
+		font-size: 3em;
+		color: @gray-darker;
+		line-height: 1;
+	}
+	h2 {
+		font-weight: 400;
+		font-size: 1.5em;
+		margin-top: 0;
+	}
+	h4 {
+		font-weight: 400;
+		font-size: 1em;
+		margin-top: 0;
+	}
+	hr {
+		border-top-color: @gray-light;
+	}
+	a, .hidden-info {
+		text-decoration: underline;
+	}
+	.contactinfo-detail {
+		span {
+			display: block;
+			margin-bottom: @grid-gutter-width/3;
+		}
+		mark {
+			background-color: transparent;
+			margin-bottom: @grid-gutter-width/4;
+		}
+    .captcha .input-group-addon {
+      margin: 0;
+      display:table-cell;
+    }
+	}
+	.description {
+		padding: @grid-gutter-width/2;
+	}
+	.main-image {
+		margin-bottom: @grid-gutter-width;
+	}
+	.image-gallery {
+		margin-top: @grid-gutter-width;
+	}
+    .theme-box-content {
+        h3 {
+            font-size: 1.3em;
+        }
+    }
+	.see-all {
+		margin-top: 10px;
+	}
+  	#deal{
+		.deal-tag{
+			display: none;
+
+		  	@media (max-width: @screen-xs){
+				display: block;
+		  	}
+		}
+  	}
+}
+// Images Gallery
+.image-link {
+	&:hover, &:focus {
+		outline: none;
+	}
+}
+
+// Sidebar
+.details-sidebar {
+	.rate {
+		text-align: center;
+		p {
+			margin: @grid-gutter-width/2 0;
+			&.min-p {
+				margin: @grid-gutter-width/5 0 @grid-gutter-width/2;
+			}
+		}
+	}
+	.info {
+		color: @gray-dark;
+		text-align: center;
+		font-weight: 300;
+		padding-bottom: @grid-gutter-width/2;
+		line-height: 1.1;
+		font-size:1.6em;
+		margin: 0 -10%;
+		@media (max-width: @screen-md) {
+			margin: 0;
+		}
+		mark {
+			font-size: 2.7em;
+			display: block;
+			padding: 0;
+			background-color: transparent;
+			font-weight: 500;
+			color: @gray-darker;
+			word-wrap: break-word;
+			&.small {
+				font-size: 2em;
+			}
+			> small {
+				font-weight: 300;
+				font-size: 60%;
+				line-height: 140%;
+			}
+			> em {
+				font-size: 40%;
+				margin-left: -28px;
+				text-align: right;
+				width: 30px;
+				display: inline-block;
+			}
+		}
+		.small-price {
+			&, > mark {
+				font-size: 90%;
+				> em {
+					font-size: 90%;
+					margin-left: -31px;
+					position: absolute;
+					margin-top: 1px;
+					text-align: right;
+					width: 30px;
+				}
+			}
+		}
+		> em {
+			display:block;
+			font-size:1em;
+			margin-bottom: 20px;
+		}
+		em {
+			font-style: normal;
+			font-weight: 400;
+		}
+    .large {
+      font-size: 120%;
+      font-weight: 400;
+      margin-top: @grid-gutter-width/2;
+    }
+		small {
+			font-weight: 600;
+			font-size: 0.8em;
+		}
+		address {
+			line-height: 1.2;
+			font-size:80%;
+			padding-top: 10px;
+			margin-bottom: 0;
+		}
+		.img-circle {
+			margin: 20px 0;
+		}
+        &.info-author {
+            .pull-right {
+                float:none !important;
+            }
+        }
+	}
+	.tag-cloud {
+		.badge {
+			background-color: @brand-highlight;
+			color: contrast(@brand-highlight, @gray-lighter, @gray-darker, 43%);
+		}
+	}
+	.well {
+    @media (min-width: @screen-md) {
+      padding: @grid-gutter-width @grid-gutter-width*1.4;
+    }
+		hr {
+			border-top-color: @gray-light;
+			margin: @grid-gutter-width/1.2 0;
+		}
+	}
+	@media (max-width: @screen-sm) {
+		.map {
+			width: 100%;
+			img {
+				width:100%;
+			}
+		}
+	}
+	.map {
+			#map_canvas {
+					height: 255px !important;
+			}
+	}
+	.well {
+		margin-bottom: @grid-gutter-width/2;
+	}
+	.fb_iframe_widget, 
+	.fb_iframe_widget span, 
+	.fb_iframe_widget span iframe[style], 
+	.fb-comments span, 
+	.fb-comments iframe {
+	    width: 100% !important;
+	}
+}
+
+// Clock
+.clock {
+	display: -webkit-flex; /* Safari */
+    -webkit-flex-flow: row nowrap; /* Safari 6.1+ */
+    -webkit-align-content: space-around; /* Safari 7.0+ */
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: space-around;
+    margin: 30px 0 30px 0;
+	.clock-item, span {
+		-webkit-flex: 1; /* Safari 6.1+ */
+	    -ms-flex: 1; /* IE 10 */
+	    flex: 1;
+	    font-size: 1.1em;
+	    color: @gray-darker;
+	    border-left: 1px solid @gray-light;
+	    &:first-child {
+	    	border-left: none;
+	    }
+	    em {
+	    	text-transform: uppercase;
+	    	font-size: 60%;
+	    	color: @gray;
+	    	display:block;
+	    	clear: both;
+	    	font-style: normal;
+	    }
+	}
+}
+
+// List Badges
+.list-badges {
+	> ul {
+		margin-top: @grid-gutter-width;
+		margin-left: -@grid-gutter-width/2;
+		> li {
+			display:inline-block;
+			margin: 1px @grid-gutter-width/2 @grid-gutter-width/2 @grid-gutter-width/2;
+		}
+	}
+}
+
+// Gallery
+.image-gallery {
+	.img-responsive {
+		margin-bottom: @grid-gutter-width;
+	}
+}
+
+// Sharing Space
+.social-sharing {
+	@media(max-width: @screen-xs-max) {
+        margin: @grid-gutter-width/3 -10px;
+    }
+}
+
+//Blog Header
+.top-blog.top-search.top-coverimage{
+	height:auto;
+	min-height:45vh;
+	.bg-image + .well-translucid {
+		min-height: initial;
+	}
+	h1 {
+		margin: @grid-gutter-width/2 auto @grid-gutter-width/4;
+	}
+	.large {
+		font-size: 180%;
+		font-style: italic;
+		font-weight: 300;
+	}
+	.space-content {
+		margin: 5% auto;
+    color: white;
+    text-shadow: 0 1px 1px @gray-darker;
+    position: relative;
+    z-index:1;
+	}
+}
+
+//Tags
+.post-tags {
+  margin: @grid-gutter-width/2 0;
+  padding-bottom: @grid-gutter-width/2;
+	.badge {
+		padding: @grid-gutter-width/4  @grid-gutter-width/2;
+		text-decoration: none;
+		background-color: @brand-highlight;
+		color: white;
+		&:hover, &:focus {
+			opacity: 0.8;
+		}
+	}
+}
+
+
+// Images Cropping - Responsive
+
+.image-gallery {
+	.img-responsive {
+		width: 160px;
+	    height: 120px;
+	    object-fit: cover;
+	}
+}

@@ -1,0 +1,32 @@
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+<section class="top-blog top-search top-coverimage">
+    {# General Background Image -#}
+    {{ UtilityDetail.coverImage(item.coverImage) }}
+
+    <div class="well well-translucid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-4 col-sm-12 text-center-sm">
+                    <span class="search-title" data-trans="{{ 'Explore our Blog'|trans({}, 'widgets') }}">{{ content.labelExploreModule|trans({}, 'widgets') }}</span>
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-12">
+                    <div id="search-responsive" class="search-collapse collapse">
+                        <div class="well well-translucid form-inline text-center">
+                            {{ include("::blocks/search/search-fields-small.html.twig") }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container space-content">
+        <div class="well well-translucid text-center">
+            <h1>{{ item.title }}</h1>
+            <p class="large">{{ item.entered|localized_date('dd MMM yyyy') }}</p>
+
+            {% include "::blocks/sociallikes.html.twig" %}
+        </div>
+    </div>
+</section>

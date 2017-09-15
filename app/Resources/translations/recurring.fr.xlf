@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-05-03T11:06:04Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="34a725ed38d5742a3b38a6874ddfafacd0310291" resname="businessday">
+        <source>businessday</source>
+        <target>jour ouvrable</target>
+      </trans-unit>
+      <trans-unit id="a2620cbc10f5198dd03e3f5a1569eb5dcf9a6a87" resname="day">
+        <source>day</source>
+        <target>{1}jour|]1,Inf[jours</target>
+      </trans-unit>
+      <trans-unit id="5873f666d03fb3fb39d0db9c71b5e1f769334088" resname="every">
+        <source>every</source>
+        <target>Chaque %s</target>
+      </trans-unit>
+      <trans-unit id="a3fd743ac14709d5f919e146bf1c6a6fed3bf1b7" resname="every day">
+        <source>every day</source>
+        <target>du quotidien</target>
+      </trans-unit>
+      <trans-unit id="1289b10607dcf81733063d4c7b7789a90a96eb24" resname="month.days">
+        <source>month.days</source>
+        <target>Le %day%ème jour de chaque mois</target>
+      </trans-unit>
+      <trans-unit id="52d5acb4c94a087b1b6d6a7d11477d87e9c5fbd5" resname="month.week.days">
+        <source>month.week.days</source>
+        <target>Chaque %week% %day% du mois</target>
+      </trans-unit>
+      <trans-unit id="c0ee32d825d6ddb4025ab74af0609969ecc419c8" resname="week">
+        <source>week</source>
+        <target>{1}semaine|]1,Inf[semaines</target>
+      </trans-unit>
+      <trans-unit id="505eabdfb8082f91ed4a2fbaff9ecb5408d27baa" resname="weekend">
+        <source>weekend</source>
+        <target>fin de semaine</target>
+      </trans-unit>
+      <trans-unit id="4ff0b1538469338a0073e2cdaab6a517801b6ab4" resname="year">
+        <source>year</source>
+        <target>{1}ans|]1,Inf[ans</target>
+      </trans-unit>
+      <trans-unit id="4ed973842ecf981ab1f36ec989468fdef741c65d" resname="year.month.days">
+        <source>year.month.days</source>
+        <target>Chaque année, le %day% %month%</target>
+      </trans-unit>
+      <trans-unit id="faaa9c973f3a70a8dcac31b498780d4425ab5749" resname="year.month.week.days">
+        <source>year.month.week.days</source>
+        <target>Chaque année, le %week% %day% %month%</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

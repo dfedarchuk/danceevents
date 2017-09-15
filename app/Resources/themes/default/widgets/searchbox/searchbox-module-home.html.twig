@@ -1,0 +1,43 @@
+{% set module = getModule() -%}
+
+{# Top Search -#}
+<section class="top-search ">
+
+    {# General Background Image -#}
+    {{ include("::blocks/background-image.html.twig") }}
+
+    <div class="well well-translucid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-4 col-sm-12 text-center-sm">
+                    <br>
+
+                    <h1 data-trans="{{ 'Explore and find Listings'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore and find Events'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore and find Classifieds'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore and find Articles'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore and find Deals'|trans({}, 'widgets') }}"
+                        data-trans="{{ 'Explore and find Blog'|trans({}, 'widgets') }}">{{ content.labelExploreAndFind|trans({}, 'widgets') }} </h1>
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-12">
+                    <div id="search-responsive" class="search-collapse collapse">
+                        <div class="well well-translucid form-inline text-center">
+
+                            {{ addJSTwigParameter("searchBoxModule", module) }}
+
+                            {% if module == "event" -%}
+                                {% set dateFilter = getDateFilter() %}
+                                {{ include("::blocks/search/search-fields-date.html.twig", { 'dateFilter' : dateFilter }) }}
+                            {% elseif module == "article" or module == "blog" -%}
+                                {{ include("::blocks/search/search-fields-small.html.twig") }}
+                            {% else -%}
+                                {{ include("::blocks/search/search-fields.html.twig") }}
+                            {% endif -%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

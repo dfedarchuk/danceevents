@@ -1,0 +1,314 @@
+{#      Description:                                                         #}
+{# This macro renders the badges on item summaries during search             #}
+
+{#      Resources:                                                           #}
+
+{# itemBadges array                                                          #}
+{#      An array containing the badges of a given item                       #}
+
+{# pageBadges array                                                          #}
+{#      An array containing information about all badges of the current page #}
+
+{# imagesURL string                                                          #}
+{#      A string containing the path to the image files folder               #}
+
+{% macro badges( itemBadges, pageBadges ) -%}
+    {% if itemBadges is not empty -%}
+        <div class="summary-badges">
+            {% for badgeId in itemBadges -%}
+                {% if pageBadges[badgeId] is defined -%}
+                    {% set badgeInfo = pageBadges[badgeId] -%}
+
+                    <img src="{{ asset(badgeInfo.image, 'domain_images') }}" alt="{{ "Badge"|trans }}"
+                         data-toggle="tooltip" title="{{ badgeInfo.name }}" data-original-title="{{ badgeInfo.name }}">
+                {% endif -%}
+            {% endfor -%}
+        </div>
+    {% endif -%}
+{% endmacro -%}
+
+{#      Description:                                                         #}
+{# This macro renders the title on summary during search                     #}
+
+{#      Resources:                                                           #}
+
+{# summaryTitle \ArcaSolutions\SearchBundle\Entity\Summary\SummaryTitle      #}
+{#      An instance of the SummaryTitle class                                #}
+
+{% macro generateSummaryTitle( summaryTitle ) -%}
+    {% if summaryTitle -%}
+        <h1 class="panel-title">
+            {# The second parameter of the function below is the tag which should surround the title #}
+            {{ _self.generateSummaryTitleString( summaryTitle, "q" )|raw }}
+        </h1>
+
+        {% if summaryTitle.content %}{{ summaryTitle.content|raw }}{% endif %}
+    {% endif -%}
+{% endmacro -%}
+
+{#      Description:                                                         #}
+{# This macro renders the title on summary during search                     #}
+
+{#      Resources:                                                           #}
+
+{# summaryTitle \ArcaSolutions\SearchBundle\Entity\Summary\SummaryTitle      #}
+{#      An instance of the SummaryTitle class                                #}
+
+{% macro generateSummaryTitleString( summaryTitle, quoteKeyword ) -%}
+    {% if summaryTitle -%}
+        {{ summaryTitle.titleString( quoteKeyword )|raw }}
+    {% endif -%}
+{% endmacro -%}
+
+{#      Description:                                                             #}
+{# This macro renders the category information on item summaries during search   #}
+
+{#      Resources:                                                               #}
+
+{# itemCategories array                                                          #}
+{#      An array containing the categories of a given item                       #}
+
+{# pageCategories array                                                          #}
+{#      An array containing information about all categories of the current page #}
+
+{# module string                                                                 #}
+{#      The name of the current module                                           #}
+
+{% macro categories( itemCategories, pageCategories, module ) -%}
+    {% spaceless -%}
+        {% if itemCategories is not empty -%}
+            {% for categoryId in itemCategories -%}
+                {% if pageCategories[categoryId] is defined -%}
+                    {% set categoryInfo = pageCategories[categoryId] -%}
+
+                    <a href="{{ utility_generateSearchUrl(null, module, categoryInfo.friendlyUrl) }}"
+                       title="{{ "Explore Category"|trans }} '{{ categoryInfo.title }}'">{{ categoryInfo.title }}</a>
+                    {#- the (-) below is not a typo.
+                     # It concatenates the comma with the above <a> without any spaces -#}
+                    {%- if not loop.last -%}, {% endif -%}
+                {% endif -%}
+            {% endfor -%}
+        {% endif -%}
+    {% endspaceless -%}
+{% endmacro -%}
+
+
+{#      Description:                                                             #}
+{# This macro renders the image information on item summaries during search      #}
+
+{#      Resources:                                                               #}
+
+{# data array                                                                    #}
+{#      An array containing data of a given item                                 #}
+
+{% macro image( image, title, classes ) -%}
+    {% if image is not empty -%}
+        <img src="{{ asset(image, 'domain_images') | imagine_filter('small') }}"
+             alt="{{ title }}" {{ classes ? ' class='~classes~'' }}>
+    {% endif -%}
+{% endmacro -%}
+
+
+{#      Description:                                                             #}
+{# This macro renders the address information on item summaries during search    #}
+
+{#      Resources:                                                               #}
+
+{# street string                                                                 #}
+{# complement string                                                             #}
+{# zipcode string                                                                #}
+
+{# itemLocations array                                                           #}
+{#      An array containing the categories of a given item                       #}
+
+{# pageLocations array                                                           #}
+{#      An array containing information about all categories of the current page #}
+
+{% macro address( label, place, street, complement, zipcode, itemLocations, pageLocations ) -%}
+    <address>
+
+        {% if place is not empty -%}
+            {% if label is not empty -%}
+                <strong>{{ label }}</strong>
+            {% endif -%}
+
+            <p>{{ place|raw }}</p>
+        {% endif -%}
+
+        <p>
+            {# Builds the address information #}
+            {% if street is not empty -%}{{ street }}<br>{% endif -%}
+            {% if complement is not empty -%}{{ complement }}<br>{% endif -%}
+
+            {% if itemLocations is not empty -%}
+                {% set locationLabels = [] -%}
+                {% set country = null -%}
+                {% set locationsLevel = getLocationLevel() %}
+
+                {# For each one of the listing locations #}
+                {% for locationId in itemLocations -%}
+
+                    {# If we have information about it coming from the database #}
+                    {% if pageLocations[locationId] is defined -%}
+
+                        {# Lets set it to a variable for easier access #}
+                        {% set locationInfo = pageLocations[locationId] -%}
+
+                        {% if locationInfo.level in locationsLevel|keys -%}
+
+                            {# normalization #}
+                            {% set name = locationInfo.title is defined ? locationInfo.title : locationInfo.name %}
+
+                            {# If it's a level 1 location, set as country #}
+                            {% if locationInfo.level == 1 -%}
+                                {% set country = name %}
+                            {% else -%}
+                                {# Otherwise, let's add it to a list which will be printed on the same line #}
+                                {% set locationLabels = locationLabels|merge([name]) %}
+                            {% endif -%}
+                        {% endif -%}
+
+                    {% endif -%}
+                {% endfor -%}
+
+                {# First, lets print the list of sublocations joined by commas and spaces #}
+                {{ locationLabels is not empty ? locationLabels|join(', ') }}
+
+                {# Do we have a zip code? Print it #}
+                {% if zipcode -%} {{ zipcode }} {% endif -%}
+
+                {# Do we have a country set? Print it on the next line #}
+                {% if country is not empty -%} <br> {{ country }} {% endif -%}
+
+            {% elseif zipcode -%}
+                {# No location info exists. Print zipcode #}
+                <br>{{ zipcode }}
+            {% endif -%}
+        </p>
+    </address>
+{% endmacro -%}
+
+
+{#      Description:                                                                     #}
+{# This macro renders the phone, fax and URL information on item summaries during search #}
+
+{#      Resources:                                                                       #}
+
+{# data array                                                                            #}
+{#      An array containing data of a given item                                         #}
+
+{# detailURL string                                                                      #}
+{#      The url of the current item detail                                               #}
+
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures       #}
+{#                                                                                       #}
+
+{# labels array #}
+{#      Array of labels #}
+
+{% macro contactInfo( item, data, detailURL, itemLevelInfo, module, labels) -%}
+    {% set flags = 0 -%}
+
+    {% if itemLevelInfo.hasURL   and data.url   is defined and data.url   is not empty -%} {% set flags = flags + 1 -%} {% endif -%}
+    {% if itemLevelInfo.hasPhone and data.phone is defined and data.phone is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+    {% if itemLevelInfo.hasFax   and data.fax   is defined and data.fax   is not empty -%} {% set flags = flags + 4 -%} {% endif -%}
+
+    {# If any of the above information is set #}
+    {% if flags -%}
+        <p>
+            {# If Phone (2) or Fax (4) are set #}
+            {% if flags b-and 6 -%}
+                {% set phonesViewed = app.session.get( module ~ "PhoneViewed") -%}
+                {% set faxesViewed  = app.session.get( module ~ "FaxViewed") -%}
+
+                {# If Phone (2) is set #}
+                {% if flags b-and 2 -%}
+                    {% if phonesViewed[ item.id ] is defined -%}
+                        {{ labels['phone']|trans }}
+                        <span>{{ data.phone }}</span>
+                    {% else -%}
+                        {{ labels['phone']|trans }}
+                        <span class="hidden-info {{ module }}ContactButton" data-item="{{ item.id }}" data-type="phone"
+                              title="{{ "Click to see the phone number"|trans }}">{{ "view phone"|trans }}</span>
+                    {% endif -%}
+                {% endif -%}
+
+                {# If Fax (4) is set #}
+                {% if flags b-and 4 -%}
+                    {% if faxesViewed[ item.id ] is defined -%}
+                        {{ labels['fax']|trans }}
+                        <span>{{ data.fax }}</span>
+                    {% else -%}
+                        {{ labels['fax']|trans }}
+                        <span class="hidden-info {{ module }}ContactButton" data-item="{{ item.id }}" data-type="fax"
+                              title="{{ "Click to see the fax number"|trans }}">{{ "view fax"|trans }}</span>
+                    {% endif -%}
+                {% endif -%}
+
+            {% endif -%}
+
+            {# If URL (1) is set #}
+            {% if flags b-and 1 -%}
+                {% set urlViewed = app.session.get( module ~ "UrlViewed") -%}
+                {% if urlViewed[ item.id ] is defined -%}
+                    {{ labels['website']|trans }}
+                    <a class="visit-website"
+                       data-info="{{ encrypt( {friendlyUrl: item.friendlyUrl} ) }}"
+                       target="_blank"
+                       href="{{ data.url }}"
+                       rel="nofollow">{{ "Visit Website"|trans }} </a>
+                {% else -%}
+                    {{ labels['website']|trans }}
+                    <a class="visit-website"
+                       data-info="{{ encrypt( {friendlyUrl: item.friendlyUrl} ) }}"
+                       target="_blank"
+                       href="{{ data.url }}"
+                       class="{{ module }}ContactButton"
+                       data-item="{{ item.id }}" data-type="url"
+                       rel="nofollow">{{ "Visit Website"|trans }} </a>
+                {% endif -%}
+            {% endif -%}
+        </p>
+    {% endif -%}
+{% endmacro -%}
+
+
+
+{% macro contactInfoSimple( item, data, detailURL, itemLevelInfo, module, labels) -%}
+    {% set flags = 0 -%}
+
+    {% if itemLevelInfo.hasURL   and data.url   is defined and data.url   is not empty -%} {% set flags = flags + 1 -%} {% endif -%}
+    {% if itemLevelInfo.hasPhone and data.phone is defined and data.phone is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+    {% if itemLevelInfo.hasFax   and data.fax   is defined and data.fax   is not empty -%} {% set flags = flags + 4 -%} {% endif -%}
+
+    {# If any of the above information is set #}
+    {% if flags -%}
+
+        {# If Phone (2) or Fax (4) are set #}
+        {% if flags b-and 6 -%}
+            <p class="contact-info">
+                {# If Phone (2) is set #}
+                {% if flags b-and 2 -%}
+                    <mark><a href="tel:{{ data.phone|regexFilter('/[^\\d+]/') }}">{{ data.phone }}</a></mark>
+                {% endif -%}
+
+                {# If Fax (4) is set #}
+                {% if flags b-and 4 -%}
+                    <br><strong>{{ 'Fax'|trans }}: </strong><span>{{ data.fax }}</span>
+                {% endif -%}
+
+            </p>
+        {% endif -%}
+
+        {# If URL (1) is set #}
+        {% if flags b-and 1 -%}
+            <p><a class="visit-website"
+                  target="_blank"
+                  data-info="{{ encrypt( {friendlyUrl: item.friendlyUrl} ) }}"
+                  href="{{ data.url }}"
+                  rel="nofollow">{{ "Visit Website"|trans }} </a></p>
+        {% endif -%}
+
+    {% endif -%}
+
+{% endmacro -%}

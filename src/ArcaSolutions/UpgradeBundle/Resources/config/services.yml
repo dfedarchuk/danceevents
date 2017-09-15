@@ -1,0 +1,7 @@
+parameters:
+    upgrade.main.class: ArcaSolutions\UpgradeBundle\Services\Upgrade
+
+services:
+    upgrade:
+        class: %upgrade.main.class%
+        arguments: ["@service_container"]

@@ -1,0 +1,95 @@
+/**
+* eDirectory - Invoice Style
+*
+* This style sheet describes the style for the invoice popup
+* that appears on Member and Site Manager
+*
+* @package		layout
+* @author			Arca Solutions
+* @copyright	Copyright (c) 2009, Arca Solutions Inc.
+*/
+
+/**
+* Global Definitions
+*
+* @section		invoice
+* @subsection	global
+*/
+
+.invoice-body
+{ text-align: center; }
+
+/**
+* Invoice Structure
+*
+* @section		invoice
+* @subsection	structure
+*/
+
+.base-invoice
+{ background: #FFF; border: 1px solid #CCC; color: #333; font: 11px/15px Arial, Helvetica, sans-serif; margin: 0 auto; padding: 5px; }
+
+.base-invoice td
+{ padding: 10px; }
+
+.base-invoice p, .base-invoice table
+{ font: 11px/15px Arial, Helvetica, sans-serif; margin: 0; padding: 0; }
+
+.base-invoice p, .base-invoice table img {
+	max-width: 180px;
+	width: auto !important;
+	height:auto !important;
+	max-height: 100%;
+}
+.base-invoice h1, .base-invoice table h1
+{ color: #333; font: bold 15pt/15px Arial, Helvetica, sans-serif; text-align: right; }
+
+.base-invoice div
+{ font-weight: bold; }
+
+.base-invoice th
+{ text-align: left; }
+
+.base-invoice h2
+{ font-size: 10pt; text-align: center; }
+
+/**
+* Invoice Bill
+*
+* @section		invoice
+* @subsection	bill
+*/
+
+.invoice-bill
+{ background-color: #F7F7F7; border: 1px solid #EEE; padding: 5px; width: auto; }
+
+.invoice-bill p
+{ font-weight: normal; margin: 0; }
+
+/**
+* Invoice Content
+*
+* @section		invoice
+* @subsection	content
+*/
+
+.invoice-content
+{ background-color: #F7F7F7; font: 11px/15px Arial, Helvetica, sans-serif; width: 100%; }
+
+.invoice-content th
+{ background-color: #FFF; border-bottom: 1px solid #CCC; color: #333; padding: 5px; text-align: left; }
+
+.invoice-content td.invoice-detailbelow
+{ background: #FFF; border-top: none; border-bottom: none; padding: 0; padding-top: 5px; }
+
+.invoice-content td span.itemNote
+{ display: block; color: #999; padding-left: 45px; }
+
+.invoice-content th.invoice-total
+{ background-color: #F2F2F2; padding: 0; padding-left: 10px; }
+
+.invoice-content th.invoice-total span
+{ font-weight: normal; }
+
+.invoice-content td
+{ border: none; border-bottom: 1px solid #CCC; }

@@ -1,0 +1,14 @@
+parameters:
+    android.screen.image.path: ''
+    domain.favicon: ''
+    domain.header.image: '/assets/images/img-logo.png'
+    domain.noimage: ''
+    facebook.comments.width: 350
+    mailer_encryption: ssl
+    mailer_host: ''
+    mailer_password: ''
+    mailer_port: 465
+    mailer_transport: 'smtp'
+    mailer_user: ''
+    modules.available: 'listing,article,banner,blog,classified,event,deal'
+    navigation.options.fixed: 'listing,article,banner,blog,classified,event,deal'

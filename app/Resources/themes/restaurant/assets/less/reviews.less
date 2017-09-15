@@ -1,0 +1,220 @@
+//
+// Reviews
+// --------------------------------------------------
+
+// Reviews Stars
+// -------------------------
+.stars-rating {
+	display: inline-block;
+	//height: 16px;
+	vertical-align: baseline;
+	//line-height: 1;
+	[class*="rate-"]:after {
+		.fa-icon();
+		color: @brand-success;
+		font-size: 22px;
+		vertical-align: baseline;
+	}
+	.rate-0:after {
+		content: @fa-var-star-o @fa-var-star-o @fa-var-star-o @fa-var-star-o @fa-var-star-o;
+	}
+	.rate-1:after {
+		content: @fa-var-star @fa-var-star-o @fa-var-star-o @fa-var-star-o @fa-var-star-o;
+	}
+	.rate-2:after {
+		content: @fa-var-star @fa-var-star @fa-var-star-o @fa-var-star-o @fa-var-star-o;
+	}
+	.rate-3:after {
+		content: @fa-var-star @fa-var-star @fa-var-star @fa-var-star-o @fa-var-star-o;
+	}
+	.rate-4:after {
+		content: @fa-var-star @fa-var-star @fa-var-star @fa-var-star @fa-var-star-o;
+	}
+	.rate-5:after {
+		content: @fa-var-star @fa-var-star @fa-var-star @fa-var-star @fa-var-star;
+	}
+	&.large {
+		height: 25px;
+		[class*="rate-"]:after {
+				font-size: 30px;
+			}
+	}
+
+}
+
+// Button review (Open Modal)
+// -------------------------
+button.star-rating {
+	display: inline-block;
+	touch-action: manipulation;
+	padding: 0;
+	cursor: pointer;
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	border-radius: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	.stars-rating {
+		.rate > span:after {
+			font-size: 16px;
+		}
+		&.large {
+			height: 50px;
+			[class*="rate-"]:after {
+				font-size: 40px;
+			}
+		}
+
+	}
+
+}
+
+
+// Button review (Select Rating)
+// -------------------------
+div.select-rating {
+    display: inline-block;
+    touch-action: manipulation;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    &:focus, &:active {
+        outline: none;
+    }
+    > span {
+        display: inline-block;
+        height: 50px;
+        float: right;
+        &:after,
+        &:after {
+            .fa-icon();
+            content: @fa-var-star-o;
+            color: @brand-success;
+            vertical-align: middle;
+            font-size: 40px;
+        }
+        &:hover:after,
+				&:hover ~ span:after,
+				&.active:after,
+				&.active ~ span:after,
+        &:focus:after,
+        &:focus ~ span:after {
+            content: @fa-var-star;
+        }
+    }
+
+}
+
+// View all reviews buttons
+// ---------------------------
+.rate {
+	> a.rating-count {
+		 vertical-align: sub;
+	}
+}
+
+
+// Review Box
+// -----------------------
+.review-box {
+	margin: @grid-gutter-width 0 @grid-gutter-width/2 0;
+	border-bottom: 1px solid @gray-light;
+	font-size: .9em;
+	&:first-child {
+		margin-top: @grid-gutter-width;
+	}
+	.stars-rating {
+	  height: 30px;
+	  [class*="rate-"]:after {
+	  	font-size: 17px;
+	  }
+	}
+	.review-top {
+		.media-left {
+			font-size:90%;
+			line-height: 1.2;
+			padding-right: @grid-gutter-width/1.2;
+			img {
+				margin-bottom: 1em;
+			}
+		}
+		a {
+			color: @brand-primary;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		h5 {
+			margin-top: 0;
+			margin-bottom: 0;
+			font-weight: 500;
+			color: @gray-darker;
+			font-size: 1.1em;
+		}
+		p {
+			color: @gray;
+		}
+		q {
+			color: @gray-dark;
+			font-size: 1.1em;
+			&::before {
+				content: "\201C";
+			}
+			&::after {
+				content: "\201D";
+			}
+		}
+	}
+	.review-bottom {
+		text-align: right;
+		padding-bottom: @grid-gutter-width/2;
+		p {
+			margin-bottom: 0;
+			color: @gray;
+			font-size: 400;
+		}
+	}
+	.count {
+		padding: 10px @grid-gutter-width/4 0 @grid-gutter-width/4;
+		color: @gray-dark;
+		font-size: 1.2em;
+		vertical-align: middle;
+	}
+  //Reply
+  .reply {
+    font-size: @font-size-base;
+    &:before {
+      content: " ";
+      display: inline-block;
+      width: 15px;
+      height: 2em;
+      margin-right: 10px;
+      border-left: 1px solid @gray-light;
+      border-bottom: 1px solid @gray-light;
+    }
+  }
+}
+
+
+
+// Checkins
+.checkin-box {
+	display:inline-block;
+	text-align: center;
+	margin-bottom: 20px;
+	p > a {
+		color: @brand-primary;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+}

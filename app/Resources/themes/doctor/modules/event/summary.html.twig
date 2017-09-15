@@ -1,0 +1,180 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               #}
+{# This page renders the Event summary block which appears during searches         #}
+
+{#      Resources:                                                                 #}
+
+{# item \Elastica\Result                                                           #}
+{#      The elastica result object                                                 #}
+
+{# levelFeatures \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures     #}
+{#      Contains information about every level of a certain module                 #}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# itemLevelInfo \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['event'][data.level] -%}
+
+{% set detailURL      = url('event_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "event" -%}
+<section id="{{ sectionAnchor }}" class="summary-box summary-event">
+    <div class="summary-content">
+        <div class="media">
+            <div class="media-body media-top">
+                <h3>
+                    {% if itemLevelInfo.hasDetail -%}
+                        <a href="{{ detailURL }}">{{ data.title }}</a>
+                    {% else -%}
+                        {{ data.title }}
+                    {% endif -%}
+                    {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+                </h3>
+
+                {% if data.categoryId is not empty %}
+                    <p class="categories-list">
+                        {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "event" ) }}
+                    </p>
+                {% endif %}
+
+                <div class="media">
+
+                    {% if itemLevelInfo.imageCount > 0 and data.thumbnail is not empty -%}
+                        <div class="media-left media-top extended">
+
+                            {% if itemLevelInfo.hasDetail -%}
+                                <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+                            {% else -%}
+                                {{ Utility.image( data.thumbnail, data.title ) }}
+                            {% endif -%}
+
+                        </div>
+                    {% endif -%}
+
+                    <div class="media-body">
+
+                        {% if itemLevelInfo.hasSummaryDescription -%}
+
+                            <p class="summary-desc">{{ data.description }}</p>
+
+                        {% endif -%}
+
+                        {{ Utility.address( null, data.address.location, data.address.street, null, data.address.zipcode, itemLocations, pageLocations ) }}
+
+                        {% if itemLevelInfo.hasDetail == false -%}
+
+                            <div class="contactinfo-detail">
+                                {% if itemLevelInfo.hasPhone and data.phone is not empty -%}
+                                    <span>
+                                    <a href="tel:{{ data.phone|regexFilter('/[^\\d]/') }}" class="text-primary">{{ data.phone }}</a>
+                                </span>
+                                {% endif -%}
+
+                                {% if itemLevelInfo.hasURL and data.url is not empty -%}
+                                    <span>
+                                    <a href="{{ data.url }}" target="_blank"
+                                       rel="nofollow">{{ 'Visit Website' | trans}}</a>
+                                </span>
+                                {% endif -%}
+
+                            </div>
+                            <br>
+
+                        {% endif -%}
+
+                        <p>
+                            {{ bookmarkLink(item, 'event') }}
+
+                            {% if itemLevelInfo.hasEmail and data.email is not empty -%}
+                                <span class="divisor">|</span>
+                                <a class="text-info sendEmailButton" data-action="{{ path('event_sendmail',{id: item.id}) }}">
+                                    <span class="fa fa-envelope-o text-success"></span>{{"Send E-mail"|trans }}
+                                </a>
+                            {% endif -%}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="media-right text-center media-top">
+                {% if data.date.start is not null -%}
+                    <div class="date">
+
+                        <small>{{ "When"|trans }} </small>
+
+                        {% if data.recurring.enabled -%}
+                            <mark class="recurring">{{ recurringPhraseByFriendlyUrl(data.friendlyUrl) }}</mark>
+                        {% else -%}
+
+                            {% set start_date = date(data.date.start) -%}
+
+                            <mark class="text-uppercase">
+                                {% if date() >= start_date %}
+                                    {{ "Today"|trans }}
+                                {% else %}
+                                    {{ start_date|localized_date('EEE') }}
+                                {% endif %}
+
+                            </mark>
+
+                            {{ data.date.start|date(getDateFormat()) }}
+
+                            {% if data.date.end is not null %}
+
+                                - {{ data.date.end|date(getDateFormat()) }}
+
+                            {% endif %}
+
+                        {% endif %}
+
+                        {% if itemLevelInfo.hasEventTime %}
+
+                            {% if data.time.start or data.time.end %}
+                                <em>
+                                    <strong>
+                                        {{ data.time.start|date(getTimeFormat()) }}
+                                        {% if data.time.end is not null -%}
+                                            {{ " - "|trans }}
+                                            {{ data.time.end|date(getTimeFormat()) }}
+                                        {% endif -%}
+                                    </strong>
+                                </em>
+                            {% endif %}
+
+                        {% endif -%}
+
+                    </div>
+                {% endif -%}
+
+                <!-- START Social Share Buttons -->
+
+                <div class="social-share">
+
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="http://www.facebook.com/sharer/sharer.php?u={{ ( detailURL ?: app.request.uri ~ "#" ~ sectionAnchor)|url_encode }}">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                    </div>
+
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="http://twitter.com/?status={{ ( detailURL ?: app.request.uri ~ "#" ~ sectionAnchor)|url_encode }}">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                    </div>
+
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="https://plus.google.com/share?url={{ ( detailURL ?: app.request.uri ~ "#" ~ sectionAnchor)|url_encode }}">
+                            <span class="fa fa-google"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- END Social Share Buttons -->
+            </div>
+        </div>
+    </div>
+</section>
+

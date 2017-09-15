@@ -1,0 +1,54 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+
+<form id="headerSearchForm" class="form">
+    <div class="form-group flex-3">
+        <label class="sr-only" for="searchKeyword">{{ "Keyword for search"|trans }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon" aria-hidden="true"><span id="searchKeywordIcon" class="fa fa-search"></span></span>
+            <input id="searchKeyword" type="text" class="form-control input-lg" placeholder="{{ "Search anything..."|trans }}">
+        </div>
+    </div>
+    <div class="form-group flex-2">
+        <label class="sr-only" for="searchLocation">{{ "where"|trans }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon" aria-hidden="true"><span id="searchLocationIcon" class="fa fa-map-marker"></span></span>
+            <input id="searchLocation" type="text" class="form-control input-md" placeholder="{{ 'Location'|trans }}">
+        </div>
+    </div>
+    <div class="form-group flex-2">
+        <label class="sr-only" for="searchCalendar">{{ "when"|trans }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon" aria-hidden="true"><span id="searchCalendarIcon" class="fa fa-calendar-o"></span></span>
+            <input id="searchCalendar" type="text" class="form-control input-md input-date" placeholder="{{'Date'|trans }}">
+        </div>
+    </div>
+    <button id="headerSearchButton" type="submit" class="btn btn-success btn-block-sm flex-1">
+        <span class="visible-sm"><i class="fa fa-search"></i></span><span class="hidden-sm">{{ "Search"|trans }} </span>
+    </button>
+</form>
+
+
+{# Adding requirements -#}
+{# Parameters #}
+{{ addJSTwigParameter("Header.dateFilter", dateFilter) }}
+
+{# Files #}
+
+{{ addJSFile('assets/js/lib/js.cookie.js') }}
+{{ addJSFile("assets/js/lib/typeahead.bundle.min.js") }}
+{{ addJSFile("assets/js/search/utility.js") }}
+{{ addJSFile("assets/js/search/suggest.js") }}
+
+{{ addJSFile("assets/js/lib/datepicker/bootstrap-datepicker.min.js") }}
+{% if dateFilter.bootstrapDatepickerLanguage != "en" %}
+    {{ addJSFile("assets/js/lib/datepicker/locales/bootstrap-datepicker."~ dateFilter.bootstrapDatepickerLanguage ~".min.js") }}
+{% endif %}
+
+{{ addJSFile("assets/js/search/filters/date.js") }}
+
+{# JS Twigs #}
+{{ addJSTwig("::js/blocks/searchbox.js.twig") }}
+

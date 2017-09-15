@@ -1,0 +1,97 @@
+<script>
+    $(document).ready(function () {
+        /**
+         * @type {eDirectory.Utility.Modal}
+         */
+        var modal = null;
+        var messageBox = null;
+
+        function openReviewModal(info, elem) {
+            $.post("{{ path('web_add_review')|raw }}", {info: info}).done(function (data) {
+                if (data.content == undefined) {
+                    var dataElement = $(data);
+                    Cookies.set("review_info", info);
+
+                    modal = new eDirectory.Utility.Modal(
+                            "modalReview",
+                            dataElement.find('.modal-title').html(),
+                            dataElement.find('.panel-body').html()
+                    );
+                } else {
+
+                    modal = new eDirectory.Utility.Modal(
+                            "modalReview",
+                            elem.data('title'),
+                            data.content
+                    );
+                }
+
+                modal.show();
+            });
+        }
+
+        $(".reviewButtonTrigger").click(function () {
+            openReviewModal($(this).data("info"), $(this));
+        });
+
+        $('body').on('submit', 'form.addReview', function () {
+            var form = $(this);
+            var content = form.serializeArray();
+
+            content.push({
+                name:  "info",
+                value: form.data("info")
+            });
+
+            messageBox = null;
+
+            //shows "please wait" on submit button
+            form.find('button[type="submit"]').button('loading');
+
+            $.post(form.attr('action'), $.param(content)).done(function (data) {
+                if (messageBox == null) {
+                    messageBox = $('<div>');
+                    modal.element.find(".modal-body").prepend(messageBox);
+                }
+
+                if (data.status) {
+                    form.fadeOut();
+                    messageBox.fadeOut(400, function () {
+                        messageBox.removeClass().addClass('alert alert-success').html(data.content).fadeIn();
+                    });
+                } else {
+                    if (data.content != undefined) {
+                        modal.setContent(data.content);
+                    } else {
+                        form.html($(data).find('.addReview').html());
+                    }
+                }
+                //reset the submit button
+                form.find('button[type="submit"]').button('reset');
+            });
+
+            return false;
+        });
+
+        $(document).on('click', 'div.select-rating > span', function () {
+            $('div.select-rating > span').removeClass('active');
+            $('#formRating').val($(this).data('rating'));
+            $(this).addClass('active');
+        });
+
+//        modal.element.on('hide.bs.modal', function () {
+//            $(this).removeData('bs.modal');
+//        });
+
+
+        {% if openModal -%}
+        var info = Cookies.get("review_info");
+
+        if (info) {
+            Cookies.remove("review_info");
+            openReviewModal(info, $(".reviewButtonTrigger"));
+        }
+        {% endif -%}
+    });
+</script>
+

@@ -1,0 +1,30 @@
+{#      Description:                                         -#}
+{# This page represents the Deal Filter HTML on Search pages -#}
+
+{#      Resources:                                           -#}
+
+{# isSelected bool                                           -#}
+{#      Whether or not this filter is selected               -#}
+
+{# searchPageUrl string                                      -#}
+{#      The url to toggle the filter                         -#}
+
+{# resultCount int                                           -#}
+{#      The number of listings with deals                    -#}
+
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#collapseDeal" aria-expanded="true" aria-controls="collapseDeal">
+    <span class="fa fa-caret pull-right"></span>{{ "Deal"|trans }}
+</h4>
+<div id="collapseDeal" class="panel-collapse collapse in" role="tabpanel">
+    <ul class="list-group list-categorytree">
+        <li class="list-group-item {{ isSelected ? "active" : "" }}">
+            <a href="{{ searchPageUrl }}" rel="nofollow">
+                {{ "Only items with deals"|trans }}
+                {% if resultCount > 0 -%}
+                    <span class="badge pull-right">{{ resultCount }}</span>
+                {% endif -%}
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,33 @@
+{# @var user \ArcaSolutions\WebBundle\Entity\Accountprofilecontact #}
+{% set user = getUser() -%}
+
+{# Default state #}
+{% if user %}
+    {# When logged #}
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+           aria-expanded="false"
+           data-trans="{{ 'Welcome'|trans({},'widgets') }}">{{ content.labelWelcome|trans({},'widgets') }} {{ user.firstName }} {{ user.lastName }}
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            {% if user.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                <li><a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}">{{ content.labelProfile|trans({},'widgets') }}</a></li>
+                <li><a href="{{ path("web_faq") }}" data-trans="{{ 'Faq'|trans({},'widgets') }}">{{ content.labelFaq|trans({},'widgets') }}</a></li>
+                <li><a href="/profile/edit.php" data-trans="{{ 'Account Preferences'|trans({},'widgets') }}">{{ content.labelAccountPref|trans({},'widgets') }}</a></li>
+                <li class="divider"></li>
+                <li><a href="/profile/logout.php" data-trans="{{ 'Log Off'|trans({},'widgets') }}">{{ content.labelLogOff|trans({},'widgets') }}</a></li>
+            {% else %}
+                <li><a href="{{ getParameter('alias_members_module') ~ "/faq.php" }}" data-trans="{{ 'Faq'|trans({},'widgets') }}">{{ content.labelFaq|trans({},'widgets') }}</a></li>
+                <li><a href="{{ getParameter('alias_members_module') ~ "/account/" }}" data-trans="{{ 'Account Preferences'|trans({},'widgets') }}">{{ content.labelAccountPref|trans({},'widgets') }}</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ getParameter('alias_members_module') ~ "/logout.php" }}" data-trans="{{ 'Log Off'|trans({},'widgets') }}">{{ content.labelLogOff|trans({},'widgets') }}</a></li>
+            {% endif %}
+        </ul>
+    </li>
+{% elseif getSetting('socialnetwork_feature') == 'on' %}
+    <li><a href="/profile/add.php" data-trans="{{ 'Sign Up'|trans({},'widgets') }}">{{ content.labelSignUp|trans({},'widgets') }}</a></li>
+    <li><a href="/profile/login.php" data-trans="{{ 'Log in'|trans({},'widgets') }}">{{ content.labelLogin|trans({},'widgets') }}</a></li>
+{% endif %}
+
+<li><a href="/sponsors" class="btn btn-success" data-trans="{{ 'Sponsor Area'|trans({},'widgets') }}">{{ content.labelSponsorArea|trans({},'widgets') }}</a></li>

@@ -1,0 +1,38 @@
+{% if locations|length > 0 %}
+    {% set skyScraperBanner = include('::widgets/banners/skyscraper-ad.html.twig') -%}
+    {% set colClass = 'col-sm-offset-1 col-sm-10' -%}
+    {% set listClass = 'list-columns' -%}
+    {% if skyScraperBanner is not empty -%}
+        {% set colClass = 'col-md-9 col-sm-8' -%}
+        {% set listClass = 'list-columns-4' -%}
+        {% set banner = '<div class="col-md-3 col-sm-4">'~skyScraperBanner~'</div>' -%}
+    {% endif %}
+    <section class="block-background-map">
+        <div class="container">
+            <h2 class="theme-title theme-title-centered">{{ 'Explore more places'|trans }}</h2>
+            <div class="row">
+                <div class="{{ colClass }}">
+                    <div class="theme-box theme-box-bg">
+                        <div class="theme-box-content">
+                            <div class="{{ listClass }}">
+                                <ul class="list-unstyled">
+                                    {% for location in locations -%}
+                                        {% set link = utility_generateSearchUrl(null, null, null, location.friendlyUrl) -%}
+                                        <li>
+                                            <a href="{{ link }}">{{ location.title }} ({{ location.count }})</a>
+                                        </li>
+                                    {% endfor -%}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ banner|raw }}
+            </div>
+            <div class="text-center">
+                <br>
+                <a href="{{ url(route) }}" class="btn btn-success btn-long">{{ 'more locations'|trans }}</a>
+            </div>
+        </div>
+    </section>
+{% endif %}

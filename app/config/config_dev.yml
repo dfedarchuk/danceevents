@@ -1,0 +1,41 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+monolog:
+    handlers:
+        main:
+            type:  rotating_file
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: error
+            max_files: 7
+        firephp:
+            type:  firephp
+            level: info
+        chromephp:
+            type:  chromephp
+            level: info
+            channels: [app, doctrine]
+
+assetic:
+    use_controller: true
+
+jms_translation:
+    locales: [de, en, es, fr, it, pt, tr]
+    configs:
+        app:
+            dirs: ["%kernel.root_dir%/Resources/themes", "%kernel.root_dir%/Resources/views", "%kernel.root_dir%/../src", "%kernel.root_dir%/../web/sitemgr/design/page-editor", "%kernel.root_dir%/../web/includes/code", "%kernel.root_dir%/../web/includes/forms"]
+            output_dir: "%kernel.root_dir%/Resources/translations"
+            ignored_domains: [routes, units, filters, recurring, advertise]
+            excluded_names: ["*TestCase.php", "*Test.php", "adwords.html.twig", "load_location_location.php", "form-domain.php", "form-payment-pricing.php", "form_billing_*.php", "form_orderpackage.php"]
+            excluded_dirs: [cache, data, logs, Repository]
+            output_format: xliff

@@ -1,0 +1,487 @@
+//
+// Navs
+// --------------------------------------------------
+
+
+// Base class
+// --------------------------------------------------
+
+.nav {
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  &:extend(.clearfix all);
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: @nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: @nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: @nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: @nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: @nav-link-hover-bg;
+      border-color: @link-color;
+    }
+  }
+
+  // Nav dividers (deprecated with v3.0.1)
+  //
+  // This should have been removed in v3 with the dropping of `.nav-list`, but
+  // we missed it. We don't currently support this anywhere, but in the interest
+  // of maintaining backward compatibility in case you use it, it's deprecated.
+  .nav-divider {
+    .nav-divider();
+  }
+
+  // Prevent IE8 from misplacing imgs
+  //
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
+}
+
+
+// Tabs
+// -------------------------
+
+// Give the tabs something to sit on
+.nav-tabs {
+  border-bottom: 1px solid @nav-tabs-border-color;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+
+    // Actual tabs (as links)
+    > a {
+      margin-right: 2px;
+      line-height: @line-height-base;
+      border: 1px solid transparent;
+      border-left:none;
+      border-right: none;
+      border-bottom-color: @nav-tabs-active-link-hover-border-color ;
+      border-radius: @border-radius-base @border-radius-base 0 0;
+      &:hover {
+        border-color: @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-border-color;
+      }
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @nav-tabs-active-link-hover-color;
+        background-color: @nav-tabs-active-link-hover-bg;
+        border: 1px solid @nav-tabs-active-link-hover-border-color;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+    .nav-justified();
+    .nav-tabs-justified();
+  }
+
+}
+
+.panel-form-media {
+  .nav-tabs {
+    li a {
+      color: @gray;
+    }
+    li.active a {
+      background-color:  lighten(@gray-light, 5);
+      color: @brand-primary;
+    }
+  }
+}
+
+.tab-options {
+  .nav.nav-tabs{
+    padding:2em 2em 0 3em;
+    li{
+      > a {
+        color: lighten(@gray-dark, 4%);
+        &:hover {
+          background-color: lighten(@gray-light, 4%);
+        }
+      }
+      &.active > a {
+          color: @brand-primary;
+          background-color: lighten(@gray-light, 8%);
+        }
+      }
+  }
+  .tab-content {
+    padding:2em 2em 3em 2em;
+    background-color: lighten(@gray-light,8%);
+    border-top: 1px solid @nav-tabs-border-color;
+    margin-top:-1px;
+    hr {
+      margin:50px 0;
+      &.small {
+        margin:10px 0;
+      }
+    }
+    legend {
+      margin:20px 0 30px;
+    }
+    @media(max-width: @screen-md-min) {
+      padding: 10px 0;
+    }
+  }
+}
+
+
+//Theme Options
+.theme-options {
+  .nav.nav-tabs{
+    padding:2em 2em 0 3.5em;
+    li.active > a {
+      background-color: lighten(@gray-light, 5%);
+      color: @gray-dark;
+    }
+    @media (max-width: @screen-sm-min) {
+      width: 90% !important;
+    }
+  }
+  .tab-content {
+    background-color: lighten(@gray-light, 5%);
+    padding:2em;
+    h4 {
+      border-bottom: 1px solid @gray-light;
+        font-size: 18px;
+        line-height: 1.8em;
+        margin-bottom: 1.6em;
+    }
+  }
+}
+
+/* Responsive Nav Tabs*/
+.tab-options  .nav.nav-tabs, 
+.theme-options  .nav.nav-tabs {
+  @media (max-width: @screen-sm-min) {
+      border-bottom: medium none;
+      display: table;
+      height: 42px;
+      min-height: 40px;
+      margin: 10px auto 20px;
+      padding: 0;
+      position: relative;
+      width: 100%;
+      .transition(all 0s ease 0.2s);
+      li {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        &.active {
+          height: auto;
+          > a { 
+            pointer-events:none;
+          }
+        }
+        > a {
+            border: 1px solid @gray-light; 
+          }
+      }
+      &:after {
+        content: "\e605";
+        font-family: 'iconsadmin';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        right: 2px;
+        border: 1px solid @gray;
+        background-color:@gray-lighter;
+        top: 0;
+        color: @gray-dark;
+        padding: 13px 14px;
+        text-align: center;  
+        z-index: 12;  
+      }
+      &.open {
+        height:auto;
+        box-shadow: 0 5px 4px #f0f0f0;
+        li {
+          height: 42px;
+          overflow: visible;
+          z-index:10;
+          a {
+              background-color: lighten(@gray-light,8%);
+              &:hover, &:focus  {
+                background-color: lighten(@gray-light,2%);
+              }
+          }
+        }
+      }
+    }
+}
+
+.tab-options > .container {
+  @media (max-width: @screen-md-min) { 
+    width: 100%;
+    > .nav.nav-tabs {
+      padding: 0;
+    }
+    @media (min-width: @screen-sm-min) { 
+      .top-actions {
+          margin-bottom: 16px;
+          margin-right: 20px;
+          margin-top: 20px;
+          position: absolute;
+          right: 0;
+          top: 0;
+      }
+    }
+  }
+}
+// Pills
+// -------------------------
+.nav-pills {
+  margin-bottom: 5px;
+  > li {
+    float: left;
+
+    // Links rendered as pills
+    > a {
+      border-radius: 4px;
+    }
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @nav-pills-active-link-hover-color;
+        background-color: @nav-pills-active-link-hover-bg;
+      }
+    }
+  }
+}
+
+.tab-pane .content-pills {
+  border:none; 
+  padding: 2em 1em 3em;
+}
+
+// Stacked pills
+.nav-stacked {
+  > li {
+    float: none;
+    + li {
+      margin-top: 2px;
+      margin-left: 0; // no need for this gap between nav items
+    }
+  }
+  .tooltip.bottom{
+    max-width: 74px;
+    word-wrap: break-word;
+  }
+}
+
+//Sidebar 
+.main-sidebar, .short-sidebar {
+  .nav-pills.nav-stacked {
+    > li {
+      > a {
+        border-radius:0;
+        color: white;
+        &:hover,
+        &:focus {
+          color: @nav-pills-active-link-hover-color;
+          background-color: @nav-pills-active-link-hover-bg;
+        }
+      }
+      &.active > a{
+        &,
+        &:hover,
+        &:focus {
+          color: @nav-pills-active-link-hover-color;
+          background-color: @nav-pills-active-link-hover-bg;
+        }
+      }
+      &.tour-tour-element {
+        > a {
+            color: @gray-dark;
+            background-color: @gray-light;
+        }
+      }
+    }
+  }
+}
+
+
+
+// Nav variations
+// --------------------------------------------------
+
+// Justified nav links
+// -------------------------
+
+.nav-justified {
+  width: 100%;
+
+  > li {
+    float: none;
+    > a {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+
+  > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+
+
+  @media (min-width: @screen-sm-min) {
+    > li {
+      display: table-cell;
+      width: 1%;
+      > a {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Move borders to anchors instead of bottom of list
+//
+// Mixin for adding on top the shared `.nav-justified` styles for our tabs
+.nav-tabs-justified {
+  border-bottom: 0;
+
+  > li > a {
+    // Override margin from .nav-tabs
+    margin-right: 0;
+    border-radius: @border-radius-base;
+  }
+
+  > .active > a,
+  > .active > a:hover,
+  > .active > a:focus {
+    border: 1px solid @nav-tabs-justified-link-border-color;
+  }
+
+  @media (min-width: @screen-sm-min) {
+    > li > a {
+      border-bottom: 1px solid @nav-tabs-justified-link-border-color;
+      border-radius: @border-radius-base @border-radius-base 0 0;
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+      border-bottom-color: @nav-tabs-justified-active-link-border-color;
+    }
+  }
+}
+
+
+// Tabbable tabs
+// -------------------------
+
+// Hide tabbable panes to start, show them when `.active`
+.tab-content {
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+
+// Dropdowns
+// -------------------------
+
+// Specific dropdowns
+.nav-tabs .dropdown-menu {
+  // make dropdown border overlap tab border
+  margin-top: -1px;
+  // Remove the top rounded corners here since there is a hard edge above the menu
+  .border-top-radius(0);
+}
+
+
+// Geography
+.geography-terms {
+  .tab-options .nav.nav-tabs {
+    padding-top: 0;
+  }
+  section.tab-pane.active {
+    display: inline-block;
+    @media (max-width: 1200px) {
+      display: block;
+    }
+    [class*="content-control"] {
+      position: inherit;
+    }
+    .content-full {
+      position: inherit;
+      @media (max-width: 768px) {
+        display: table;
+        width: 100%;
+        .list-content {
+          left: 2%;
+          right: 2%;
+        }
+      }
+      .content-control-bottom {
+        height: 25px;
+      }
+    }
+  }
+  .view-content-info {
+    .view-item {
+      margin-top: 0;
+    }
+  }
+}
+@media (max-width: 1200px) and (min-width: 769px) {
+  body.branded .wrapper.togglesidebar {
+    padding-left: 0;
+  }
+}
+

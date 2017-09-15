@@ -1,0 +1,17 @@
+{# Recent Posts -#}
+<section class="block featured">
+    <div class="container">
+
+        {% set popular_post = popularPost(3, 'col-sm-4') %}
+        {% if popular_post is not empty %}
+            <h2 class="theme-title"
+                data-trans="{{ 'Popular Posts'|trans({}, 'widgets') }}">{{ content.labelPopularPosts|trans({}, 'widgets') }}
+            </h2>
+
+            <div class="row">
+                {{ popular_post|raw }}
+            </div>
+        {% endif %}
+
+    </div>
+</section>

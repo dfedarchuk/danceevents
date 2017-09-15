@@ -1,0 +1,15 @@
+{# Featured Listings -#}
+{% set featured_listing = featuredListing(3,'col-sm-4') -%}
+{% if featured_listing is not empty -%}
+    <section class="block featured">
+        <div class="container">
+            <h2 class="theme-title"
+                data-trans="{{ "Featured listings"|trans({}, 'widgets') }}">{{ content.labelFeaturedListings|trans({}, 'widgets') }}
+            </h2>
+            <div class="row">
+                {{ featured_listing|raw }}
+            </div>
+            <hr>
+        </div>
+    </section>
+{% endif -%}

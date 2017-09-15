@@ -1,0 +1,61 @@
+{% set paginationCount = pagination.totalItemCount -%}
+{% set isTabLayout = pagination.totalItemCount < 1000 and map %}
+
+{% if paginationCount > 0 -%}
+<div class="container">
+    {# Results Title Bar -#}
+    {% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+    <div class="search-toolbar">
+
+        <div class="row">
+            <div class="col-sm-12 text-center-xs">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{ Utility.generateSummaryTitle( summaryTitle ) }}
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-7 text-center-xs">
+                                <p class="info">
+                                    {# pagination \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination -#}
+                                    {{ "Showing %pageCount% of %totalCount% results"|trans({'%totalCount%': pagination.totalItemCount, '%pageCount%': pagination.count }) }}
+                                </p>
+                            </div>
+                            <div class="col-sm-5 text-right text-center-xs">
+                                <div class="btn-group btn-group-sm" role="tablist">
+                                    {% set activeViewMode = app.request.cookies.get("edirectory_results_viewmode", "item") -%}
+
+                                    {% if activeViewMode == "map" and (pagination.totalItemCount >= 1000 or not map ) -%}
+                                        {% set activeViewMode = "item" -%}
+                                    {% endif -%}
+
+                                    <a href="#" class="btn btn-default summaryViewModeButton {{ activeViewMode == "item" ? "active" }} {{ isTabLayout ?: "hidden" }}" data-viewmode="item" role="tab" data-target="#resultsList" data-toggle="tab"><span class="fa fa-list"></span> <span class="hidden-xs">{{ 'List'|trans}}</span></a>
+                                    {% if pagination.totalItemCount < 1000 and map -%}
+                                        <a id="summaryViewMapButton" href="#" class="btn btn-default summaryViewModeButton {{ activeViewMode == "map" ? "active" }}" data-viewmode="map" role="tab" data-target="#resultsMap" data-toggle="tab">
+                                            <span class="fa fa-street-view"></span> <span class="hidden-xs">{{ "Map View"|trans }}</span>
+                                        </a>
+                                    {% endif -%}
+                                    <select name="order" id="searchSorter" class="btn btn-default btn-xs input-sm ">
+                                        {# sorter \ArcaSolutions\SearchBundle\Entity\Sorters\BaseSorter -#}
+                                        {% for sorter in searchEvent.sorters -%}
+                                            <option {{ sorter.selected ? "selected" }} data-needsgeolocation="{{ sorter.needsGeoLocation ? "1" : "0" }}" value="{{ sorter.getSearchPageUrl( ((searchEvent.defaultSorter.name is defined) and (searchEvent.defaultSorter.translatedName == sorter.translatedName)) ) }}">{{ sorter.translatedName|capitalize }}</option>
+                                        {% endfor -%}
+                                    </select>
+                                    <span class="pull-right visible-xs">
+                                        <a href="#" class="btn btn-sm btn-default" data-toggle="collapse"
+                                           data-target="#searchFilter" aria-expanded="false">{{ "Refine"|trans }}</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endif %}

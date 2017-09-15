@@ -1,0 +1,12 @@
+<div class="container well well-light">
+    <section id="alllocations">
+        <h1 class="theme-title theme-title-centered"
+        data-trans="{{ 'Explore All Classifieds Locations'|trans({}, 'widgets') }}"
+        data-trans="{{ 'Explore All Listings Locations'|trans({}, 'widgets') }}"
+        data-trans="{{ 'Explore All Events Locations'|trans({}, 'widgets') }}"
+        data-trans="{{ 'Explore All Deal Locations'|trans({}, 'widgets') }}">{{ content.labelExploreAllLocations|trans({},'widgets') }}</h1>
+
+        {% include "::blocks/all-locations.html.twig" -%}
+        {{ addJSTwig("::js/blocks/all-locations.js.twig") }}
+    </section>
+</div>

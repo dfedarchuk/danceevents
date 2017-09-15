@@ -1,0 +1,23 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+{# summaryTitle \ArcaSolutions\SearchBundle\Entity\Summary\SummaryTitle #}
+
+{% extends "::base.html.twig" -%}
+
+{% block SEO %}
+    {{ summaryTitle.seoInformation|raw }}
+{% endblock -%}
+
+{% block head -%}
+    {{ parent() }}
+
+    <link rel="canonical" href="{{ absolute_url(canonical) }}">
+
+    {% if previousPage -%}<link rel="prev" href="{{ absolute_url(previousPage) }}">{% endif -%}
+    {% if nextPage -%}<link rel="next" href="{{ absolute_url(nextPage) }}">{% endif -%}
+{% endblock -%}
+
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}
+
+

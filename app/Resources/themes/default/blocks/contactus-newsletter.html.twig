@@ -1,0 +1,16 @@
+{% if content.datainfoContactAddress or content.datainfoContactPhone %}
+    <div class="col-sm-2 col-xs-6">
+        <h5 data-trans="{{ 'Contact us'|trans({}, 'widgets') }}"> {{ content.labelContactUs|trans({}, 'widgets') }} </h5>
+
+        <address class="contact-address">
+            {% if content.datainfoContactAddress %}
+                {{ content.datainfoContactAddress }}
+                <br>
+            {% endif %}
+            {% if content.datainfoContactPhone %}
+                <br>
+                <span><b>{{ content.datainfoContactPhone }}</b></span>
+            {% endif %}
+        </address>
+    </div>
+{% endif %}

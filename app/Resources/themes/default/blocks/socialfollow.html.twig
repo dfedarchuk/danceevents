@@ -1,0 +1,5 @@
+<div class="text-center social-follow">
+    {% for name, url in item.socialNetwork %}
+        <a href="{{ url }}" target="_blank" class="{{ name }}"></a>
+    {% endfor %}
+</div>

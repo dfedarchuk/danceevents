@@ -1,0 +1,16 @@
+{# Branded Copy of eDirectory -#}
+<div class="footer-bottom">
+    {% if branded == 'on' -%}
+        <p>
+            {{ 'Powered by'|trans }}
+            <a href="{{ url_edirectory }}" target="_blank" rel="nofollow">{{ 'eDirectory Cloud Service'|trans }}</a>&trade;
+        </p>
+    {% endif -%}
+
+    {% if content.labelCopyrightText -%}
+        <p>
+            {# Custom text for copyrights -#}
+            {{ content.labelCopyrightText }}
+        </p>
+    {% endif -%}
+</div>

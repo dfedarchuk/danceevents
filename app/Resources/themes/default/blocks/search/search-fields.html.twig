@@ -1,0 +1,28 @@
+<form id="headerSearchForm" class="form">
+    <div class="form-group flex-3">
+        <label class="sr-only" for="searchKeyword">{{ "Keyword for search"|trans }}</label>
+
+        <div class="input-group">
+            <span class="input-group-addon" aria-hidden="true"><span id="searchKeywordIcon" class="fa fa-search"></span></span>
+            <input data-prefill="0" id="searchKeyword" type="text" class="form-control input-lg" placeholder="{{ "Search anything..."|trans }}">
+        </div>
+    </div>
+    <div class="form-group flex-2">
+        <label class="sr-only" for="searchLocation">{{ "where"|trans }} </label>
+
+        <div class="input-group">
+            <span class="input-group-addon" aria-hidden="true"><span id="searchLocationIcon" class="fa fa-map-marker"></span></span>
+            <input data-prefill="0" id="searchLocation" type="text" class="form-control input-md" placeholder="{{ "Location"|trans }}">
+        </div>
+    </div>
+    <button id="headerSearchButton" type="submit" class="btn btn-success btn-block-sm flex-1">
+        <span class="visible-sm"><i class="fa fa-search"></i></span><span class="hidden-sm">{{ "Search"|trans }} </span>
+    </button>
+</form>
+
+{# Adding requirements -#}
+{{ addJSFile('assets/js/lib/js.cookie.js') }}
+{{ addJSFile("assets/js/lib/typeahead.bundle.min.js") }}
+{{ addJSFile("assets/js/search/utility.js") }}
+{{ addJSFile("assets/js/search/suggest.js") }}
+{{ addJSTwig("::js/blocks/searchbox.js.twig") }}

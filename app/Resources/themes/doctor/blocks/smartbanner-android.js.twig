@@ -1,0 +1,20 @@
+<script>
+    $(document).ready(function() {
+        $.smartbanner({
+            title: '{{ android_popup_title|raw }}', // What the title of the app should be in the banner (defaults to <title>)
+            author: '', // What the author of the app should be in the banner (defaults to <meta name=\"author\"> or hostname)
+            price: '{{ android_price|raw }}', // Price of the app
+            appStoreLanguage: 'us', // Language code for App Store
+            inGooglePlay: '{{ android_tagline|raw }}', // Text of price for Android
+            icon: '{{ android_screen_image_path|raw }}', // The URL of the icon (defaults to <link>)
+            iconGloss: null, // Force gloss effect for iOS even for precomposed (true or false)
+            button: '{{ 'View'|trans }}', // Text on the install button
+            scale: 'auto', // Scale based on viewport size (set to 1 to disable)
+            speedIn: 300, // Show animation speed of the banner
+            speedOut: 400, // Close animation speed of the banner
+            daysHidden: 7, // Duration to hide the banner after being closed (0 = always show banner)
+            daysReminder: 7, // Duration to hide the banner after \"VIEW\" is clicked (0 = always show banner)
+            // force: 'android' // Choose 'ios' or 'android'. Don't do a browser check, just always show this banner
+        });
+    });
+</script>

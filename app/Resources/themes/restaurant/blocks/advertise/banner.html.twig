@@ -1,0 +1,79 @@
+{# @var plan \ArcaSolutions\BannersBundle\Entity\Internal\BannerLevelFeatures #}
+{% for plan in plans %}
+    {% set pricing = advertisePrice(plan) %}
+    <div class="plan-box {{ plan.isPopular ? 'plan-popular':'' }}" xmlns="http://www.w3.org/1999/html">
+        {# Plans Name #}
+        <div class="plan-title">
+            {{ plan.name }}
+            <br>
+            <small>{{ 'size'|trans }}: {{ plan.width }} X {{ plan.height }}</small>
+        </div>
+
+        {# Plans Info #}
+        <div class="plan-info">
+            <mark>
+                {% if plan.trial > 0 %}
+                    <small class="trial">{{ plan.trial }} {{ 'Days free trial'|trans }}!</small>
+                {% else %}
+                    <small>{{ pricing.main.value > 0 ? pricing.main.symbol : '' }}</small> {{ pricing.main.value }}
+                    <small>{{ pricing.main_renewal ? '/ ' ~ pricing.main_renewal : '' }}</small>
+                {% endif %}
+            </mark>
+
+            {% if plan.trial > 0 %}
+                {{ 'After'|trans }}
+                {% if pricing.main.value > 0 %}
+                    {{ pricing.main.symbol ~ pricing.main.value }}
+                    {{ pricing.main.decimal > 0 ? pricin.main.decimal : '' }}
+                    <small>/ {{ pricing.main_renewal }}</small>
+                {% else %}
+                    {{ pricing.main.value }}
+                {% endif %}
+                <br>
+            {% endif %}
+
+            <hr>
+
+            <em><span>{{ 'or'|trans }}</span></em>
+
+            <mark>
+                <small>{{ pricing.impression.value > 0 ? pricing.impression.symbol : '' }}</small> {{ pricing.impression.value }}
+                <small>{{ pricing.impression.decimal ? '. ' ~ pricing.impression.decimal : '' }}</small>
+            </mark>
+
+            <p>{{ 'Per'|trans }} {{ plan.block_impressions }} {{ 'impressions'|trans }}</p>
+        </div>
+
+        <div class="plan-desc">
+            {# SAMPLE BUTTON #}
+            {% set bannerName = plan.name|capitalize|lower|replace({' ': ''}) %}
+            <a href="#banner-{{ bannerName }}" data-toggle="modal"
+               class="btn btn-default btn-block">{{ 'View Sample'|trans }}</a>
+
+            {# SINGUP BUTTON #}
+            <a class="btn btn-highlight btn-block" rel="nofollow"
+               href="/advertise/banner/{{ plan.level }}">{{ 'Sign Up'|trans }}</a>
+
+        </div>
+    </div>
+
+    {# Modal #}
+    <div id="banner-{{ bannerName }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    {{ 'Banner Preview'| trans }}
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <img class="center-block preview-banner"
+                         src="{{ asset('assets/images/preview-banner-'~ plan.level ~'.png') }}">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

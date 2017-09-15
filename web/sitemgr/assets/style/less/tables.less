@@ -1,0 +1,312 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+table {
+  background-color: @table-bg;
+}
+th {
+  text-align: left;
+}
+
+
+// Baseline styles
+
+.table, .email-content table, .standard-table{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: @line-height-computed;
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-cell-padding;
+        line-height: @line-height-base;
+        vertical-align: top;
+        border-top: 1px solid @table-border-color;
+        &:first-letter {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 2px solid @table-border-color;
+    font-weight: normal;
+    color: black;
+  }
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid @table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: @body-bg;
+  }
+  //Fix for form inside table = reviews table and forms for aprove and edit reviews
+  form {
+    display: initial;
+    display: unset;
+  }
+}
+
+
+// Condensed table w/ half padding
+
+.table-condensed, .email-content table , .standard-table {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: @table-condensed-cell-padding;
+      }
+    }
+  }
+}
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered, .email-content table  {
+  border: 1px solid @table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid @table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  > tbody > tr:nth-child(odd) {
+    > td,
+    > th {
+      background-color: @table-bg-accent;
+    }
+  }
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover {
+    > td,
+    > th {
+      background-color: @table-bg-hover;
+    }
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9/10 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+
+// Table Reports for Activity/reports
+.table.table-reports {
+  margin-bottom: 0;
+  tbody > tr > td {
+    padding:12px;
+  }
+  tr {
+    border-bottom:1px solid @table-border-color;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  tfoot {
+    font-size: 13px;
+    background-color: @table-bg-hover;
+  }
+}
+[class*="chart-color-"]:before {
+  content:"";
+  display:inline-block;
+  width: 10px;
+  height: 10px;
+  margin:2px 10px 3px 0;
+  vertical-align: middle;
+}
+.chart-color-1:before {background-color: #336699;}
+.chart-color-2:before {background-color: #6699CC;}
+.chart-color-3:before {background-color: #339933;}
+.chart-color-4:before{background-color: #00CC00;}
+.chart-color-5:before {background-color: #CC3300;}
+.chart-color-6:before {background-color: #FF6600;}
+.chart-color-7:before {background-color: #FF9933;}
+.chart-color-8:before {background-color: #CC9966;}
+.chart-color-9:before {background-color: #999999;}
+.chart-color-10:before {background-color: #996699;}
+.chart-color-11:before {background-color: #9999FF;}
+.chart-color-12:before {background-color: #339999;}
+.chart-color-13:before {background-color: #A5A469;}
+.chart-color-14:before {background-color: #000000;}
+.chart-color-15:before {background-color: #666666;}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+.table-row-variant(active; @table-bg-active);
+.table-row-variant(success; @state-success-bg);
+.table-row-variant(info; @state-info-bg);
+.table-row-variant(warning; @state-warning-bg);
+.table-row-variant(danger; @state-danger-bg);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table-responsive {
+  @media screen and (max-width: @screen-xs-max) {
+    width: 100%;
+    margin-bottom: (@line-height-computed * 0.75);
+    overflow-y: hidden;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid @table-border-color;
+    -webkit-overflow-scrolling: touch;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.content-table {
+  max-width: 100%;
+  width: 100%;
+  overflow: auto;
+  max-height: 300px;
+}
+
+/* For Tables inside Tables in View Mode - Only For Reviews, Comments and Leads*/
+.table-in-content {
+  blockquote {
+    background-color: lighten(@gray-light, 8%);
+    border-color:@gray-light;
+    margin-top:10px;
+    h4 {
+       margin: 0 0 10px;
+    }
+  }
+  .row .well > hr {
+      margin:13px 0 10px;
+    }
+  div.view-lead-action {
+    > hr {
+      margin:11px 0 10px;
+    }
+  }
+}

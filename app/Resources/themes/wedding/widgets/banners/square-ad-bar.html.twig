@@ -1,0 +1,14 @@
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+{% set module = getModuleBanner() -%}
+
+{# categories array                                                        -#}
+{#      An array containing the categories whose banners should be fetched -#}
+
+{% set squareBanner = bannerSquare(["col-md-12", "col-sm-12"], module, bannerCategories) -%}
+
+{% if squareBanner -%}
+    <div class="banner-detail">
+        {{ squareBanner|raw -}}
+    </div>
+{% endif -%}

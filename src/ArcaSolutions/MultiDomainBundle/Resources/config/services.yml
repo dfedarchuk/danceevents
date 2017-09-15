@@ -1,0 +1,24 @@
+parameters:
+    doctrine.class: ArcaSolutions\MultiDomainBundle\Doctrine\DoctrineRegistry
+    domain.listener.class: ArcaSolutions\MultiDomainBundle\EventListener\DomainListener
+    domain.information.class: ArcaSolutions\MultiDomainBundle\Services\Settings
+    domain.database.class: ArcaSolutions\MultiDomainBundle\EventListener\DatabaseListener
+
+services:
+    multi_domain.domain_listener:
+        class: "%domain.listener.class%"
+        arguments: ["@multi_domain.information", "@liip_theme.active_theme"]
+        public: true
+        tags:
+            - {name: kernel.event_listener, event: kernel.controller, method: onKernelController, priority: 1000 }
+
+    database.domain_listener:
+        class: "%domain.database.class%"
+        arguments: ["@multi_domain.information", "@doctrine.dbal.domain_connection", "@translator", "@logger"]
+        scope: request
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    multi_domain.information:
+        class: "%domain.information.class%"
+        arguments: ["@kernel", "%multi_domain.config%", "@logger"]

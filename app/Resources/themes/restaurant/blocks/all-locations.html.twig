@@ -1,0 +1,24 @@
+{% if locations -%}
+    <ul class="list-sitemap panel-group panel-locations" id="location">
+        {% for id, location in locations -%}
+            <li class="panel panel-info">
+                <span class="panel-heading">
+                    <span class="pull-right">
+                        {% if location.children -%}<br>{% endif -%}
+                        <a href="{{ location.item.friendlyUrl }}">{{ 'Search'|trans }}</a>
+                    </span>
+
+                    <span class="h4">{{ location.item.name }}
+                    </span>
+                    {% if location.children -%}
+                        <br><a class="text-info more-info" data-toggle="collapse" data-parent="location" data-itemId="{{ location.item.id }}" data-level="{{ location.level }}"  data-friendlyUrl="{{ location.item.friendlyUrl }}" href="#{{ location.item.id ~ '-' ~ location.level }}">{{ 'Explore all locations'|trans }}</a>
+                    {% endif -%}
+                </span>
+                {% if location.children -%}
+                    <ul id="{{ location.item.id ~ '-' ~ location.level }}" class="collapse panel-body">
+                    </ul>
+                {% endif -%}
+            </li>
+        {% endfor -%}
+    </ul>
+{% endif -%}

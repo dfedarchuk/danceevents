@@ -1,0 +1,13 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+
+blog_allcategories:
+    path:     /%alias_blog_allcategories_url_divisor%
+    defaults: { _controller: BlogBundle:Default:allcategories }
+
+blog_detail:
+    path:     /{friendlyUrl}.{_format}
+    defaults: { _controller: BlogBundle:Default:detail }
+    requirements:
+        _format:  html

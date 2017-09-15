@@ -1,0 +1,25 @@
+parameters:
+    twig_extension.image.class: 'ArcaSolutions\ImageBundle\Twig\Extension\ImageExtension'
+    image.handler.class: 'ArcaSolutions\ImageBundle\Services\ImageHandler'
+    image.uploader.class: 'ArcaSolutions\ImageBundle\ImageUploader'
+
+services:
+    image.twig_extension:
+        class: '%twig_extension.image.class%'
+        public: false
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }
+
+    imagehandler:
+        class: '%image.handler.class%'
+        arguments:
+            - '@multi_domain.information'
+            - '@doctrine'
+            - '%kernel.root_dir%'
+
+    imageuploader:
+        class: '%image.uploader.class%'
+        arguments:
+            - '@service_container'

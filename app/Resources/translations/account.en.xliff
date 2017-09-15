@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-06-22T15:11:28Z" source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="87e6b2748289e6f2df63d1688ecfafe69e35a0c3" resname="Is this item yours? %link_start%Contact us%link_end% for more information about it.">
+        <source>Is this item yours? %link_start%Contact us%link_end% for more information about it.</source>
+        <target>Is this item yours? %link_start%Contact us%link_end% for more information about it.</target>
+        <jms:reference-file line="2733">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/default/pages/error-unavailable-item.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/doctor/pages/error-unavailable-item.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/restaurant/pages/error-unavailable-item.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/wedding/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d57fe61955683971644b58cbfeb6f6e2d3c7be12" resname="Try a search or send %link_start%enquiry%link_end% to request information">
+        <source>Try a search or send %link_start%enquiry%link_end% to request information</source>
+        <target>Try a search or send %link_start%enquiry%link_end% to request information</target>
+        <jms:reference-file line="2742">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/default/pages/error-unavailable-item.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/doctor/pages/error-unavailable-item.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/restaurant/pages/error-unavailable-item.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/wedding/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e6da2a0b09a58cf6587afe93928837a1496d40b4" resname="Try another search or send %link_start%enquiry%link_end% to request information">
+        <source>Try another search or send %link_start%enquiry%link_end% to request information</source>
+        <target>Try another search or send %link_start%enquiry%link_end% to request information</target>
+        <jms:reference-file line="76">/Resources/themes/default/widgets/results/results-with-left-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/default/widgets/results/results-with-left-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/default/widgets/results/results-with-right-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/default/widgets/results/results-with-right-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/doctor/widgets/results/results-with-left-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/doctor/widgets/results/results-with-left-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/doctor/widgets/results/results-with-right-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/doctor/widgets/results/results-with-right-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/restaurant/widgets/results/results-with-left-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/restaurant/widgets/results/results-with-left-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/restaurant/widgets/results/results-with-right-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/restaurant/widgets/results/results-with-right-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/wedding/widgets/results/results-with-left-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/themes/wedding/widgets/results/results-with-left-filters-and-grid-view.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/wedding/widgets/results/results-with-right-filter.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/themes/wedding/widgets/results/results-with-right-filters-and-grid-view.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

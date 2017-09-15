@@ -1,0 +1,1 @@
+<script type="text/javascript" src="<?= DEFAULT_URL ?>/scripts/pages.js"></script>

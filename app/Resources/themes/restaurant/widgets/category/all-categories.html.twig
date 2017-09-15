@@ -1,0 +1,16 @@
+<div class="container well well-light">
+    <section id="allcategories">
+        <br>
+
+        <h1 class="theme-title theme-title-centered"
+            data-trans="{{ 'Explore All Listings Categories'|trans({}, 'widgets') }}"
+            data-trans="{{ 'Explore All Articles Categories'|trans({}, 'widgets') }}"
+            data-trans="{{ 'Explore All Events Categories'|trans({}, 'widgets') }}"
+            data-trans="{{ 'Explore All Classifieds Categories'|trans({}, 'widgets') }}"
+            data-trans="{{ 'Explore All Deals Categories'|trans({}, 'widgets') }}"
+            data-trans="{{ 'Explore All Blog Categories'|trans({}, 'widgets') }}"
+        >{{ content.labelExploreAllCategories|trans({}, 'widgets') }}</h1>
+
+        {% include "::blocks/all-categories.html.twig" -%}
+    </section>
+</div>

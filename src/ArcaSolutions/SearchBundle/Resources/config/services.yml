@@ -1,0 +1,140 @@
+parameters:
+    search.engine.configuration.class: ArcaSolutions\SearchBundle\Services\SearchEngine
+    search.parameters.configuration.class: ArcaSolutions\SearchBundle\Services\ParameterHandler
+    search.elastica.subscriber.configuration.class: ArcaSolutions\SearchBundle\Services\ElasticaSearchSubscriber
+
+    search.script.field.nextOccurrence.configuration.class: ArcaSolutions\SearchBundle\Entity\ScriptFields\NextOccurrenceScriptField
+
+    search.filter.module.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\ModuleFilter
+    search.filter.category.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\CategoryFilter
+    search.filter.location.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\LocationFilter
+    search.filter.rating.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\RatingFilter
+    search.filter.deal.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\DealFilter
+    search.filter.distance.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\DistanceFilter
+    search.filter.date.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\DateFilter
+    search.filter.map.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\MapFilter
+    search.filter.bounding.configuration.class: ArcaSolutions\SearchBundle\Entity\Filters\BoundingFilter
+
+    search.sorter.relevancy.configuration.class: ArcaSolutions\SearchBundle\Entity\Sorters\RelevancySorter
+    search.sorter.distance.configuration.class: ArcaSolutions\SearchBundle\Entity\Sorters\DistanceSorter
+    search.sorter.alphabetical.configuration.class: ArcaSolutions\SearchBundle\Entity\Sorters\AlphabeticalSorter
+    search.sorter.view.configuration.class: ArcaSolutions\SearchBundle\Entity\Sorters\ViewSorter
+    search.sorter.publicationdate.configuration.class: ArcaSolutions\SearchBundle\Entity\Sorters\PublicationDateSorter
+    search.sorter.upcoming.configuration.class: ArcaSolutions\SearchBundle\Entity\Sorters\UpcomingSorter
+    search.sorter.review.class: ArcaSolutions\SearchBundle\Entity\Sorters\ReviewSorter
+
+    search.block.class: ArcaSolutions\SearchBundle\Services\SearchBlock
+
+services:
+    search.elastica.subscriber:
+        class: "%search.elastica.subscriber.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    search.engine:
+        class: "%search.engine.configuration.class%"
+        arguments: ["@service_container", "@logger", "%search.config%"]
+
+    search.parameters:
+        class: "%search.parameters.configuration.class%"
+        arguments: ["@service_container"]
+
+    search.block:
+        class: "%search.block.class%"
+        arguments: ["@service_container"]
+
+    search.repository.category:
+        class: ArcaSolutions\SearchBundle\Repository\Elasticsearch\CategoryRepository
+        arguments: ["@search.engine"]
+
+# Subscribers
+
+#   ScriptFields
+    script.field:
+        class: "%search.script.field.nextOccurrence.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+#   Filters
+
+    filter.module:
+        class: "%search.filter.module.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.category:
+        class: "%search.filter.category.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.location:
+        class: "%search.filter.location.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.rating:
+        class: "%search.filter.rating.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.deal:
+        class: "%search.filter.deal.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.distance:
+        class: "%search.filter.distance.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.date:
+        class: "%search.filter.date.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.map:
+        class: "%search.filter.map.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    filter.bounding:
+            class: "%search.filter.bounding.configuration.class%"
+            arguments: ["@service_container"]
+            tags: [{ name: kernel.event_subscriber }]
+
+#   Sorters
+
+    sorter.relevancy:
+        class: "%search.sorter.relevancy.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    sorter.distance:
+        class: "%search.sorter.distance.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    sorter.alphabetical:
+        class: "%search.sorter.alphabetical.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    sorter.view:
+        class: "%search.sorter.view.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    sorter.publicationdate:
+        class: "%search.sorter.publicationdate.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    sorter.upcoming:
+        class: "%search.sorter.upcoming.configuration.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    sorter.review:
+        class: "%search.sorter.review.class%"
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]

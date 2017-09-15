@@ -1,0 +1,15 @@
+{# Popular -#}
+<section class="block featured">
+    <div class="container">
+        <br>
+        {% set featured_classified = featuredClassified(3, 'col-sm-4') %}
+        {% if featured_classified is not empty %}
+            <h2 class="theme-title"
+                data-trans="{{ 'Featured Classifieds'|trans({}, 'widgets') }}">{{ content.labelFeaturedClassifieds|trans({}, 'widgets') }}
+            </h2>
+            <div class="row">
+                {{ featured_classified|raw }}
+            </div>
+        {% endif %}
+    </div>
+</section>

@@ -1,0 +1,12 @@
+{# Page Title and Custom Content -#}
+<div class="block-container first block-bg-image">
+
+    {{ include("::blocks/background-image.html.twig") }}
+
+    <div class="container">
+        <div class="space-content">
+            <h1
+                    data-trans="{{ 'Sitemap'|trans({}, 'widgets') }}">{{ content.labelSitemap|trans({}, 'widgets') }}</h1>
+        </div>
+    </div>
+</div>

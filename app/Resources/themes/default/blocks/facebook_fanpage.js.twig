@@ -1,0 +1,13 @@
+{% set locale = app.request.locale|split('_') %}
+<script type="text/javascript">
+    //<![CDATA[
+    (function(d){
+        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/{{ locale|first ~ '_' ~ locale|last|upper }}/all.js#xfbml=1";
+        d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+
+    document.write('<div class="fb-like-box" data-href="{{ fan_page }}" data-width="{{ width }}" data-show-faces="true" data-stream="true" data-header="true"></div>');
+    //]]>
+</script>

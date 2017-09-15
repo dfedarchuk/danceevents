@@ -1,0 +1,46 @@
+//
+// Newsletter
+// --------------------------------------------------
+
+.newsletter {
+	.newsletter-box {
+		legend {
+			font-size: 1.1em;
+			font-weight: 400;
+			margin-bottom: 0;
+			color: @brand-primary;
+			padding: 0;
+		}
+		p {
+
+		}
+	}
+	.form-group {
+		.form-control {
+			background-color: white;
+		}
+	}
+}
+
+.block-bg-newsletter {
+    position: relative;
+    overflow: hidden;
+    &.block {
+        margin: 0;
+        padding: @grid-gutter-width 0;
+        .newsletter {
+        	text-align: center;
+            .newsletter-box {
+                legend {
+                	font-size: 2em;
+                	color: white;
+                }
+                .form-group {
+                	.form-control {
+                		height: 56px;
+                	}
+                }
+            }
+        }
+    }
+}

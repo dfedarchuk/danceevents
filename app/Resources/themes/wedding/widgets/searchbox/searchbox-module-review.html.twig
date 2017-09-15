@@ -1,0 +1,24 @@
+<section class="top-search  top-mainimage">
+    <div class="block-container first block-bg-image">
+
+        {{ include("::blocks/background-image.html.twig") }}
+
+        <div class="well well-translucid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-4 col-sm-12 text-center-sm">
+                        <h1 class="search-title">{{ review.title }}</h1>
+                    </div>
+                    <div class="col-lg-7 col-md-8 col-sm-12">
+                        <div id="search-responsive" class="search-collapse collapse">
+                            <div class="well well-translucid form-inline text-center">
+                                {{ include("::blocks/search/search-fields.html.twig") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

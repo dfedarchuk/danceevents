@@ -1,0 +1,44 @@
+<!-- Featured Listings -->
+{% set squareBanner1 = include('::widgets/banners/square-ad-bar.html.twig') -%}
+{% set squareBanner2 = include('::widgets/banners/square-ad-bar.html.twig') -%}
+{% set quantityListing = 8 -%}
+{% set colClass = 'col-md-12 col-sm-12' -%}
+{% set listClass = 'col-sm-3' -%}
+
+{% if squareBanner1 is not empty or squareBanner2 is not empty -%}
+    {% set colClass = 'col-md-9 col-sm-8' -%}
+    {% set listClass = 'col-md-4 col-sm-6' -%}
+    {% set quantityListing =  6 -%}
+    {% set squareBanner = '<div class="col-md-3 col-sm-4">'~squareBanner1~'<div class="clearfix"></div>'~squareBanner2~'</div>' -%}
+{% endif %}
+
+{% set featured_listing = featuredListing(quantityListing, listClass, 'vertical-xs') -%}
+
+{% if featured_listing is not empty -%}
+    <section class="block featured listing">
+        <div class="container">
+
+            {% if featured_listing is not empty -%}
+
+                <h2 class="theme-title"
+                    data-trans="{{ 'Featured Listings'|trans({},'widgets') }}">{{ content.labelFeaturedListings|trans({}, 'widgets') }}
+                </h2>
+
+                <div class="row row-fl">
+                    <div class="{{ colClass }}">
+                        <div class="row">
+                            {{ featured_listing|raw }}
+                        </div>
+                    </div>
+                    {{ squareBanner|raw }}
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ path("listing_homepage") }}" class="btn btn-success btn-long"
+                       data-trans="{{ 'more listings'|trans({}, 'widgets') }}">{{ content.labelMoreListings|trans({}, 'widgets') }}</a>
+                </div>
+
+            {% endif -%}
+        </div>
+    </section>
+{% endif -%}

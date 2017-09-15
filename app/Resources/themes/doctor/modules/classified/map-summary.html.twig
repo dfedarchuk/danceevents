@@ -1,0 +1,59 @@
+{# item \Elastica\Result                                                        #}
+{# levelFeatures array                                                          #}
+{# itemLevelInfo \ArcaSolutions\ClassifiedBundle\Entity\Internal\ClassifiedLevelFeatures #}
+
+{% import "::blocks/utility/summary.html.twig" as Utility %}
+
+{% set data           = extractDataFromResult(item) %}
+{% set itemLevelInfo  = levelFeatures['classified'][data.level] %}
+{% set detailURL      = url('classified_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) %}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) %}
+
+<div class="summary-box summary-map">
+    <div class="summary-content">
+    <h3>
+        <a href="{{ detailURL }}">{{ data.title }}</a>
+        {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+
+        {% if itemLevelInfo.hasClassifiedPrice %}
+            <strong class="large pull-right">
+                {% if data.price %}
+                    {{ data.price|localized_currency }}
+                {% else %}
+                    {{ "Free"|trans }}
+                {% endif %}
+            </strong>
+        {% endif %}
+    </h3>
+
+    <div class="row">
+        {% if data.thumbnail is not empty %}
+        <div class="col-md-8">
+        {% else %}
+        <div class="col-sm-12">
+        {% endif %}
+
+            {% if itemLevelInfo.hasSummaryDescription %}
+                <p class="summary-desc">{{ (data.description[:100]|striptags) }}... <a href="{{ detailURL }}">{{ "(Read More)"|trans }}</a></p>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo-detail">
+                        {% if data.contactName %}<span>{{ 'Contact'|trans }}: {{ data.contactName }}</span>{% endif %}
+                        {% if data.phone %}<span> <a href="tel:{{ data.phone|regexFilter('/[^\\d]/') }}" class="text-primary">{{ data.phone }}</a> </span>{% endif %}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    {{ Utility.address( null, null, data.address.street, data.address.complement, null, itemLocations, pageLocations ) }}
+                </div>
+            </div>
+        </div>
+        {% if data.thumbnail is not empty %}
+        <div class="col-md-4 hidden-sm">
+            {{ Utility.image( data.thumbnail, data.title ) }}
+        </div>
+        {% endif %}
+        </div>
+    </div>
+</div>

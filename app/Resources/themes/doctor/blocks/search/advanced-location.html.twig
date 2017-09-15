@@ -1,0 +1,21 @@
+<div class="advanced-search-box hidden-xs">
+    <div class="well well-sm">
+        {% for name, region in locations -%}
+            <div class="list-group">
+                <h5 class="item-group-title">{{ name|trans|capitalize }}</h5>
+
+                {% for location in region -%}
+                    {# item \ArcaSolutions\SearchBundle\Entity\Elasticsearch\Location -#}
+                    {% set item = location.item -%}
+                    {% set documentCount = location.documentCount -%}
+
+                    <a href="#" class="list-group-item whereAdvancedSuggestionOption" data-friendlyurl="{{ item.friendlyUrl }}" data-title="{{ item.title }}">
+                        {% if documentCount -%}<span class="badge">{{ documentCount < 1000 ? documentCount : "999+" }}</span>{% endif -%}
+                        {{ item.title }}
+                    </a>
+                {% endfor -%}
+
+            </div>
+        {% endfor -%}
+    </div>
+</div>

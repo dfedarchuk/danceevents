@@ -1,0 +1,114 @@
+{#      Description:                                                    -#}
+{# This macro renders the banners on the top of the index pages         -#}
+
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% macro top(module) %}
+
+    {% set leaderboardBanner = bannerLeaderboard(["banner-top", "col-sm-12"], module) %}
+
+    {% if leaderboardBanner %}
+        <section class="ad-banners">
+            <div class="container">
+                <h6 class="sr-only">{{ "Advertisement"|trans }} </h6>
+
+                <div class="row">
+                    {{ leaderboardBanner|raw }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endmacro %}
+
+
+{#      Description:                                                    -#}
+{# This macro renders the banners in the middle of the index pages      -#}
+
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% macro middle(module) %}
+
+    {% set largeMobileBanner1 = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module) %}
+    {% set largeMobileBanner2 = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module) %}
+    {% set largeMobileBanner3 = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module) %}
+
+    {% if largeMobileBanner1 or largeMobileBanner2 or largeMobileBanner3 %}
+        <section class="ad-banners">
+            <div class="container">
+                <h6 class="sr-only">{{ "Advertisement"|trans }} </h6>
+
+                <div class="row">
+                    {{ largeMobileBanner1|raw }}
+                    {{ largeMobileBanner2|raw }}
+                    {{ largeMobileBanner3|raw }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endmacro %}
+
+
+{#      Description:                                                    -#}
+{# This macro renders the banners on the bottom of the index pages      -#}
+
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% macro bottom(module, categories) %}
+
+    {% set largeMobileBanner = bannerLargeMobile(["banner-bottom", "col-md-4", "col-sm-12"],module, categories) %}
+    {% set googleBanner      = bannerGoogle(["banner-ads", "col-md-4", "col-sm-6", "text-center"]) %}
+    {% set sponsoredLinks    = bannerSponsoredLinks(["banner-sponsored", "col-md-4", "col-sm-6"], module, categories) %}
+
+    {% if largeMobileBanner or googleBanner or sponsoredLinks %}
+        <section class="ad-banners">
+            <div class="container">
+                <h6 class="sr-only">{{ "Advertisement"|trans }} </h6>
+
+                <div class="row">
+                    {{ largeMobileBanner|raw }}
+                    {{ googleBanner|raw }}
+                    {{ sponsoredLinks|raw }}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endmacro %}
+
+
+{#      Description:                                                    -#}
+{# This macro renders the banners on the result pages                   -#}
+
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% macro results() -%}
+
+    {% set skyScraperBanner = bannerWideSkyscraper(["col-md-12", "col-sm-12"]) -%}
+
+    {% if skyScraperBanner -%}
+        <div class="banner-result">
+            {{ skyScraperBanner|raw -}}
+        </div>
+    {% endif -%}
+{% endmacro -%}
+
+
+{#      Description:                                                    -#}
+{# This macro renders the banners on the detail pages                   -#}
+
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% macro detail(module, categories) -%}
+
+    {% set squareBanner = bannerSquare(["col-md-12", "col-sm-12"], module, categories) -%}
+
+    {% if squareBanner -%}
+        <div class="banner-detail">
+            {{ squareBanner|raw -}}
+        </div>
+    {% endif -%}
+{% endmacro -%}

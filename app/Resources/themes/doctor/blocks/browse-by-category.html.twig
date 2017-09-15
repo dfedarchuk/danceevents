@@ -1,0 +1,15 @@
+{% if categories.regular|length > 0 %}
+    <div class="list-columns">
+        <div class="list-title">
+            <h3 data-trans="{{ 'Browse by category'|trans({}, 'widgets') }}">{{ content.labelBrowseByCategory|trans({}, 'widgets')|laststrong }}</h3>
+            <a href=" {{ url(all) }} " data-trans="{{ 'Explore All Categories'|trans({}, 'widgets') }}">{{ content.labelExploreAllCategories|trans({}, 'widgets') }}</a>
+        </div>
+        <ul class="list-unstyled">
+            {% for category in categories.regular -%}
+                <li>
+                    <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">{{ category.title }} </a>
+                </li>
+            {% endfor -%}
+        </ul>
+    </div>
+{% endif %}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-05-10T08:58:26Z" source-language="en" target-language="pt" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="9dd6a7fe5d79f8d3c453520571ab9e57ed1f3682" resname="classifiedQuantityAssociation">
+        <source>classifiedQuantityAssociation</source>
+        <target>{0} Classificado|{1} %count% Classificado|]1,Inf] %count% Classificados</target>
+      </trans-unit>
+      <trans-unit id="040f06fd774092478d450774f5ba30c5da78acc8" resname="content">
+        <source>content</source>
+        <target>Conteúdo</target>
+      </trans-unit>
+      <trans-unit id="e6c506e0ffd3af773744835a7e09f358f887000a" resname="dealCount">
+        <source>dealCount</source>
+        <target>{0} Oferta|{1} %count% Oferta|]1,Inf] %count% Ofertas</target>
+      </trans-unit>
+      <trans-unit id="5584024bbc40e39f7fb62764ba012a8305b96e9a" resname="hasAbstract">
+        <source>hasAbstract</source>
+        <target>Resumo</target>
+      </trans-unit>
+      <trans-unit id="16aff373b70cca287fbff3ec369c7eccf0f8dcc2" resname="hasAdditionalFiles">
+        <source>hasAdditionalFiles</source>
+        <target>Arquivo adicional</target>
+      </trans-unit>
+      <trans-unit id="185678d6fc9357e1f9dbc272b90babb4a73976f8" resname="hasAuthor">
+        <source>hasAuthor</source>
+        <target>Autor</target>
+      </trans-unit>
+      <trans-unit id="69303840e286de5f1b532b6da50a9841ba748ec1" resname="hasBacklink">
+        <source>hasBacklink</source>
+        <target>Backlink</target>
+      </trans-unit>
+      <trans-unit id="790a97f131d9f4b06a18a76f0cf8bf8f69c6a706" resname="hasBadges">
+        <source>hasBadges</source>
+        <target>Classificações</target>
+      </trans-unit>
+      <trans-unit id="e4141c21fa0e7bade11faf061cfed922897c5fc0" resname="hasClassifiedPrice">
+        <source>hasClassifiedPrice</source>
+        <target>Preço</target>
+      </trans-unit>
+      <trans-unit id="6376125f13741bc5db8bb2b0e68fd4f4adba96d3" resname="hasClickToCall">
+        <source>hasClickToCall</source>
+        <target>Clique para Ligar</target>
+      </trans-unit>
+      <trans-unit id="8206731da792d4c8b1ec3ce9917f3ff8a1e0f3b7" resname="hasContactEmail">
+        <source>hasContactEmail</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="a9dda8e5df471ecfe2af00723e85930e8691ae21" resname="hasContactName">
+        <source>hasContactName</source>
+        <target>Nome do Contato</target>
+      </trans-unit>
+      <trans-unit id="09bc20c0f0b4d1c41ed2cc0fe502425ad159c54a" resname="hasContactPhone">
+        <source>hasContactPhone</source>
+        <target>Telefone</target>
+      </trans-unit>
+      <trans-unit id="7a3d058dc6e1370bfad5e2f429908a53ea6fea76" resname="hasDetail">
+        <source>hasDetail</source>
+        <target>Página de Detalhes</target>
+      </trans-unit>
+      <trans-unit id="4903d59fc66b038e92ee1b89c34f763ac9c2768b" resname="hasEmail">
+        <source>hasEmail</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="2865649c3868f26aa74f2307d0f40ab61d2cd051" resname="hasEventTime">
+        <source>hasEventTime</source>
+        <target>Horário do Evento</target>
+      </trans-unit>
+      <trans-unit id="1e3fc073f30dc449465048744fc06150ff04d379" resname="hasFacebookPage">
+        <source>hasFacebookPage</source>
+        <target>Página do Facebook</target>
+      </trans-unit>
+      <trans-unit id="fa6071f5944c4f9b6511eefaee8ef4b88b185444" resname="hasFax">
+        <source>hasFax</source>
+        <target>Número de Fax</target>
+      </trans-unit>
+      <trans-unit id="0aa71a371f205e0aa287287c50b81fc5202bb363" resname="hasFeatureInformation">
+        <source>hasFeatureInformation</source>
+        <target>Diferenciais</target>
+      </trans-unit>
+      <trans-unit id="804229a65d37438ea8c40b7a33f44c1200fc782a" resname="hasHoursOfWork">
+        <source>hasHoursOfWork</source>
+        <target>Horário de Trabalho</target>
+      </trans-unit>
+      <trans-unit id="d81f41a0e25fc6681cd0961fd4e20bb01f5e61b7" resname="hasLocationReference">
+        <source>hasLocationReference</source>
+        <target>Referência de Localização</target>
+      </trans-unit>
+      <trans-unit id="dbbef56ad4a277b17b4cdd54cee97da621eb20a3" resname="hasLongDescription">
+        <source>hasLongDescription</source>
+        <target>Descrição Detalhada</target>
+      </trans-unit>
+      <trans-unit id="23e5b98a5d0af973e6d44d379d03428a15b77947" resname="hasPhone">
+        <source>hasPhone</source>
+        <target>Phone</target>
+      </trans-unit>
+      <trans-unit id="df06072bb9694a7ca2e9b2bef0be45e7544e4c2b" resname="hasPublicationDate">
+        <source>hasPublicationDate</source>
+        <target>Data de Publicação</target>
+      </trans-unit>
+      <trans-unit id="bc13ac17ae517010538c75001345b01f8753f142" resname="hasReview">
+        <source>hasReview</source>
+        <target>Avaliações e Comentários</target>
+      </trans-unit>
+      <trans-unit id="ba1da53dcfd32a1be8eed71fc2be220c2ea7fd4d" resname="hasSocialNetworking">
+        <source>hasSocialNetworking</source>
+        <target>Páginas de Redes Sociais</target>
+      </trans-unit>
+      <trans-unit id="ee26094b7394d24d3b89c6d2a8078e79ecbdb4f2" resname="hasSummaryDescription">
+        <source>hasSummaryDescription</source>
+        <target>Descrição Resumida</target>
+      </trans-unit>
+      <trans-unit id="4753b67c524b0c30f7c6c2426947348902387bb3" resname="hasURL">
+        <source>hasURL</source>
+        <target>Url</target>
+      </trans-unit>
+      <trans-unit id="2cb983a583a23d2065c5bd437240b6bbcabe076d" resname="hasVideo">
+        <source>hasVideo</source>
+        <target>Vídeo</target>
+      </trans-unit>
+      <trans-unit id="6798074a4a1cfb8a58964fec7713471f004ae306" resname="imageCount">
+        <source>imageCount</source>
+        <target>Galeria de Fotos</target>
+      </trans-unit>
+      <trans-unit id="7aa59313d31ba19653c929f28fc57b24ad6e4452" resname="title_address">
+        <source>title_address</source>
+        <target>Título/Endereço</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

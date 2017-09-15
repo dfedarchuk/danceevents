@@ -1,0 +1,37 @@
+parameters:
+    blog.search.configuration.class: ArcaSolutions\BlogBundle\Search\BlogConfiguration
+    blog.synchronization.configuration.class: ArcaSolutions\BlogBundle\Services\Synchronization\BlogSynchronizable
+    blog.category.synchronization.configuration.class: ArcaSolutions\BlogBundle\Services\Synchronization\BlogCategorySynchronizable
+    blog.blocks.twig.extension.class: ArcaSolutions\BlogBundle\Twig\Extension\BlocksExtension
+    blog.seo.twig.extension.class: ArcaSolutions\BlogBundle\Twig\Extension\SeoExtension
+
+services:
+    blog.search:
+        class: %blog.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    blog.synchronization:
+        class: %blog.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    blog.category.synchronization:
+        class: %blog.category.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    blog.blocks:
+        class: %blog.blocks.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    seo.blog:
+        class: %blog.seo.twig.extension.class%
+        arguments:
+            - @service_container
+            - @settings
+        tags:
+            - { name: twig.extension }

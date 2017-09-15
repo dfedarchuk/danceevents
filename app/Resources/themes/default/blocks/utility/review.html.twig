@@ -1,0 +1,109 @@
+{#      Description:                                         -#}
+{# This macro renders the review on the home listing/article -#}
+
+{# review Object                                             -#}
+{#      Review                                               -#}
+
+{% macro bestOf(review) %}
+    {# @var review \ArcaSolutions\WebBundle\Entity\Review #}
+
+    {% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+    {% if review.profile.accountId != 0 %}
+        {% if review.profile.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+            {% set urlProfile = Profile.friendlyUrl(review.profile) %}
+            <a rel="nofollow" href="{{ urlProfile }}">
+                {{ Profile.photo(review.profile) }}
+            </a>
+        {% else %}
+            {{ Profile.photo(review.profile) }}
+        {% endif %}
+    {% else %}
+        {{ Profile.photo() }}
+    {% endif %}
+
+    <q>{{ review.review|length > 60 ? review.review|slice(0,58) ~ '...' : review.review }}</q>
+
+    <footer class="small">
+        {{ 'by'|trans }}
+
+        {% if review.profile.accountId != 0 %}
+            {% if urlProfile %}
+                <a rel="nofollow"
+                   href="{{ urlProfile }}">{{ review.profile.firstName }} {{ review.profile.lastName }}</a>
+            {% else %}
+                {{ review.profile.firstName }} {{ review.profile.lastName }}
+            {% endif %}
+        {% else %}
+            {{ review.reviewerName }}
+        {% endif %}
+    </footer>
+
+{% endmacro %}
+
+{#      Description:                                                  -#}
+{# This macro renders the review on the detail of the listing/article -#}
+
+{# review Object                                                      -#}
+{#      Review                                                        -#}
+
+{% macro detail(review) %}
+    {# @var review \ArcaSolutions\WebBundle\Entity\Review #}
+
+    {% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+    <div class="review-box">
+        <div class="review-top">
+            <div class="media">
+                <div class="media-left text-center break-sm">
+                    {% if review.profile.accountId != 0 %}
+                        {% if review.profile.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                            <a rel="nofollow" href="{{ Profile.friendlyUrl(review.profile) }}">
+                                {{ Profile.photo(review.profile) }}
+                                {{ review.profile.firstName }} {{ review.profile.lastName }}
+                            </a>
+                        {% else %}
+                            {{ Profile.photo(review.profile) }}
+                            {{ review.profile.firstName }} {{ review.profile.lastName }}
+                        {% endif %}
+                    {% else %}
+                        {{ Profile.photo() }}
+                        {{ review.reviewerName }}
+                    {% endif %}
+                    <br>
+                    {{ review.reviewerLocation }}
+                </div>
+                <div class="media-body">
+                    <span class="rate">
+                        <span class="rate-stars">
+                            <span class="stars-rating">
+                                <span class="rate-{{ review.rating }}"></span>
+                            </span>
+                        </span>
+                    </span>
+
+                    <h5 class="media-title">{{ review.reviewTitle }}</h5>
+                    <p><q>{{ review.review }}</q></p>
+                    <p><span>{{ review.added|localized_date('MMMM yyyy') }}</span></p>
+
+                    {% if review.response -%}
+                        <div class="reply">{{ review.response }}</div>
+                    {% endif -%}
+
+                </div>
+            </div>
+        </div>
+        <div class="review-bottom">
+            <p>{{ 'Did you find this review helpful?'|trans }}</p>
+            <button type="button" class="btn btn-circle" data-type="like" data-id="{{ review.id }}">
+                <i class="fa fa-thumbs-o-up"></i>
+            </button>
+            <span class="count like">{{ review.like }}</span>
+            <button type="button" class="btn btn-circle" data-type="dislike" data-id="{{ review.id }}">
+                <i class="fa fa-thumbs-o-down"></i>
+            </button>
+            <span class="count dislike">{{ review.dislike }}</span>
+        </div>
+    </div>
+
+{% endmacro %}

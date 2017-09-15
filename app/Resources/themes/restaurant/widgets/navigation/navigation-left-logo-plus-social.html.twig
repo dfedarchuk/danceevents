@@ -1,0 +1,84 @@
+<!-- Header and navbar with Responsive features -->
+<header class="navbar navbar-static-top navbar-logo-plus-social">
+    <div id="navbarMenu" class="navbar-default">
+        <div class="header-brand">
+            <div class="container">
+
+                <nav class="navbar">
+
+                    <div class="navbar-brand">
+                        {# eDirectory Logo -#}
+                        <a href="{{ path('web_homepage') }}" target="_parent" title="{{ title }}">
+                            <img class="brand-logo" alt="{{ title }}"
+                                 src="{{ utility_getLogoImage()|imagine_filter('logo_large') }}">
+                        </a>
+                        {# End Logo -#}
+                    </div>
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target=".main-navbar">
+                            <span class="sr-only">{{ "Main navigation"|trans }} </span>
+                            <span class="navbar-label" data-trans="{{ 'Menu'|trans({},'widgets') }}">{{ content.labelMenu|trans({},'widgets')}} </span>
+                        </button>
+                        <button type="button" class="navbar-toggle search-toggle" data-toggle="collapse"
+                                data-target="#search-responsive" id="open-search-responsive" style="display: none;">
+                            <span class="sr-only">{{ "Open Search"|trans }} </span>
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </div>
+
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse main-navbar" id="main-navbar">
+                        <ul class="nav navbar-nav navbar-right hidden-xs">
+                            {{ contactUs(false, content) }}
+                            {{ loginNavBar(content, '-sponsor') }}
+                        </ul>
+                        <div class="visible-xs-block">
+                            {{ navigationHeader() }}
+                        </div>
+                        <ul class="nav navbar-nav navbar-login">
+
+                            {% set user = getUser() %}
+                            {% if user %}
+                                {# @var user \ArcaSolutions\WebBundle\Entity\Accountprofilecontact #}
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-expanded="false"
+                                        data-trans="{{ 'Welcome'|trans({},'widgets') }}">{{ content.labelWelcome|trans({},'widgets') }} {{ user.firstName }} {{ user.lastName }}
+                                        <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}">{{ content.labelProfile|trans({},'widgets') }}</a></li>
+                                        <li><a href="{{ path("web_faq") }}" data-trans="{{ 'Faq'|trans({},'widgets') }}">{{ content.labelFaq|trans({},'widgets') }}</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/profile/edit.php" data-trans="{{ 'Account Preferences'|trans({},'widgets') }}">{{ content.labelAccountPref|trans({},'widgets') }}</a></li>
+                                        <li><a href="/profile/logout.php" data-trans="{{ 'Log Off'|trans({},'widgets') }}">{{ content.labelLogOff|trans({},'widgets') }}</a></li>
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li><a href="/profile/add.php" data-trans="{{ 'Sign Up'|trans({},'widgets') }}">{{ content.labelSignUp|trans({},'widgets') }}</a></li>
+                                <li><a href="/profile/login.php" data-trans="{{ 'Log in'|trans({},'widgets') }}">{{ content.labelLogin|trans({},'widgets') }}</a></li>
+                            {% endif %}
+                            <li><a href="/{{ getParameter('alias_members_module') }}" data-trans="{{ 'Sponsor Area'|trans({},'widgets') }}">{{ content.labelSponsorArea|trans({},'widgets') }}</a></li>
+
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </nav>
+
+            </div>
+        </div>
+    </div>
+    <div class="navbar-inverse hidden-xs">
+        <div class="container">
+            <div class="collapse navbar-collapse main-navbar">
+                {{ navigationHeader() }}
+            </div>
+        </div>
+    </div>
+</header>
+
+{# JS Twigs #}
+{{ addJSTwig("::js/searchbutton.js.twig") -}}

@@ -1,0 +1,23 @@
+<div class="container well well-light">
+    {% for item in contentSitemap if contentSitemap -%}
+        <ul class="list-sitemap">
+            <li>
+                {% if item.routing|slice(0,1) != '/' -%}
+                    <a href="{{ path(item.routing) }}">{{ item.title }}</a>
+                {% else -%}
+                    <a href="{{ item.routing }}">{{ item.title }}</a>
+                {% endif -%}
+
+                {% if item.child -%}
+                    <ul>
+                        {% for category in item.child.categories if item.child.categories -%}
+                            <li class="list-columns-4">
+                                <a href="{{ utility_generateSearchUrl(null, item.child.routing, category.friendlyUrl) }}">{{ category.title }}</a>
+                            </li>
+                        {% endfor -%}
+                    </ul>
+                {% endif -%}
+            </li>
+        </ul>
+    {% endfor -%}
+</div>

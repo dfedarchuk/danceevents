@@ -1,0 +1,32 @@
+<footer class="footer-static-bottom footer-with-logo">
+    <div class="footer-links">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-6">
+                    <p><a href="{{ path('web_homepage') }}" target="_parent" title="{{ title }}">
+                            <img class="brand-logo img-responsive" alt="{{ title }}"
+                                 src="{{ utility_getLogoImage()|imagine_filter('logo_large') }}">
+                        </a>
+                    </p>
+
+                    {# Branded Copy of eDirectory -#}
+                    {% if content.labelCopyrightText -%}
+                        {# Custom text for copyrights -#}
+                        {{ content.labelCopyrightText }}
+                    {% endif -%}
+
+                    {% set url_edirectory = getUrlEdirectory() %}
+                    {% if url_edirectory -%}
+                        <p>
+                            {{ 'Powered by'|trans }}
+                            <a href="{{ url_edirectory }}" target="_blank" rel="nofollow">{{ 'eDirectory Cloud Service'|trans }}</a>&trade;
+                        </p>
+                    {% endif -%}
+                </div>
+                <div class="col-md-5 col-sm-6 text-right text-left-sm">
+                    {{ navigationFooter(content, '-logo') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

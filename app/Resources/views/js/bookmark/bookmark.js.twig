@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('body').on('click', '.bookmark-tag', function () {
+            var id = $(this).data('id');
+            var module = $(this).data('module');
+            var bookmark_target = $(this);
+
+            $.get(Routing.generate('web_bookmark', {id: id, module: module}), function (response) {
+                if ('login' == response.status) {
+                    $('#modalLogin').attr('data-remote', response.url);
+                    $('#modalLogin').modal('show');
+                } else if ('pinned' == response.status) { /* pinned */
+                    bookmark_target.find('span.fa').removeClass('fa-bookmark-o').addClass('fa-bookmark');
+                    bookmark_target.find('.bookmark-tag-text').text('{{ "Bookmarked"|trans }}');
+                } else if ('unpinned' == response.status) { /* unpinned */
+                    bookmark_target.find('span.fa').addClass('fa-bookmark-o').removeClass('fa-bookmark');
+                    bookmark_target.find('.bookmark-tag-text').text('{{ "Bookmark this"|trans }}');
+                }
+            });
+        });
+
+        /*
+         * Workaround to pin a bookmark without login
+         */
+        if (Cookies.get('open_bookmark')) {
+            $('.bookmark-tag[data-id=' + Cookies.get('open_bookmark') + ']').click();
+            Cookies.remove('open_bookmark');
+        }
+
+        $('#modalLogin').on('hidden.bs.modal', function (e) {
+            $(this).removeData('bs.modal');
+        });
+    });
+</script>

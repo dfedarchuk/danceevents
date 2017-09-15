@@ -1,0 +1,22 @@
+parameters:
+    # services
+    wysiwyg.service.class: ArcaSolutions\WysiwygBundle\Services\Wysiwyg
+
+     # twig extensions
+    wysiwyg.twig.extension.class: ArcaSolutions\WysiwygBundle\Twig\Extension\WysiwygExtension
+
+services:
+    # services
+    wysiwyg.service:
+        class: '%wysiwyg.service.class%'
+        arguments:
+            - '@service_container'
+
+    # twig extensions
+    wysiwyg.twig_extension:
+            class: '%wysiwyg.twig.extension.class%'
+            public: false
+            arguments:
+                - '@service_container'
+            tags:
+                - { name: twig.extension }

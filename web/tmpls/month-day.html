@@ -1,0 +1,10 @@
+<div class="cal-month-day <%= cls %>">
+    <span class="<%= events.length > 0 ? ' event-occurs' : '' %>" data-cal-date="<%= data_day %>" data-cal-view="day" data-toggle="tooltip" title="<%= tooltip %>">
+        <% if (events.length > 0) { %>
+            <% var event = _.find(events, function(event){ return event.url; }) %>
+            <a href="<%= event.url %>"><%= day %></a>
+        <% } else { %>
+            <%= day %>
+        <% } %>
+    </span>
+</div>

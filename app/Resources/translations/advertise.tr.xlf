@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="tr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>title_address</source>
+                <target>Başlık/Adres</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>hasDetail</source>
+                <target>Detay Görünümü</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>hasReview</source>
+                <target>Puanlar ve Yorumlar</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>hasBacklink</source>
+                <target>Backlink</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>hasEmail</source>
+                <target>E-posta</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>hasURL</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>hasPhone</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>hasFax</source>
+                <target>Faks numarası</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>hasVideo</source>
+                <target>Video</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>hasAdditionalFiles</source>
+                <target>Ek Yüklemeler</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>hasSummaryDescription</source>
+                <target>Özet Açıklama</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>hasLongDescription</source>
+                <target>detay Açıklama</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>hasHoursOfWork</source>
+                <target>Saatler</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>hasLocationReference</source>
+                <target>Yer referans</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>hasBadges</source>
+                <target>Rozetler</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>hasSocialNetworking</source>
+                <target>Sosyal Ağ Sayfaları</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>hasFeatureInformation</source>
+                <target>Özellikler</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>hasClickToCall</source>
+                <target>Aramak için tıklayın</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>imageCount</source>
+                <target>Fotoğraf Galerisi</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>dealCount</source>
+                <target>{0} Anlaştık mı|{1} %count% Anlaştık mı|]1,Inf] %count% Fırsatlar</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>classifiedQuantityAssociation</source>
+                <target>{0} sınıflandırılmış|{1} %count% sınıflandırılmış|]1,Inf] %count% İlanlar</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>hasContactName</source>
+                <target>CKişi Adı</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>hasEventTime</source>
+                <target>Aktivite zamanı</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>hasFacebookPage</source>
+                <target>Facebook Sosyal Eklentisi</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>hasContactPhone</source>
+                <target>İletişim Telefonu</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>hasContactEmail</source>
+                <target>İletişim E-posta</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>hasClassifiedPrice</source>
+                <target>Fiyat</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>hasPublicationDate</source>
+                <target>Yayın tarihi</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>hasAuthor</source>
+                <target>Yazar</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>hasAbstract</source>
+                <target>soyut</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>content</source>
+                <target>içerik</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

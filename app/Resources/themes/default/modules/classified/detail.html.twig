@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' -%}
+
+{% block SEO %}
+    {{ generateClassifiedSEO( item ) }}
+{% endblock -%}
+
+{# enables autocomplete in phpstorm -#}
+{# @var item \ArcaSolutions\ClassifiedBundle\Entity\Classified -#}
+{# @var level \ArcaSolutions\ClassifiedBundle\Entity\Internal\ClassifiedLevelFeatures -#}
+
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}

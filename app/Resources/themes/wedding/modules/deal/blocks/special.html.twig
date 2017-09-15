@@ -1,0 +1,6 @@
+{% for item in items -%}
+    <div class="{{ class }}">
+        {{ include('::blocks/themebox/' ~ grid ~ '.html.twig', {'item': item, 'module': 'deal'}) }}
+    </div>
+{% endfor -%}
+

@@ -1,0 +1,28 @@
+{% for item in items -%}
+    {# @var category \ArcaSolutions\ListingBundle\Entity\ListingCategory -#}
+    {% set category = item.category -%}
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="theme-title-large">
+                <h3> {{ 'In'|trans({}, 'widgets') }} <br>
+                    <a href="{{  utility_generateSearchUrl(null, "listing", category.friendlyUrl) }}">{{ category.title }}</a>
+                </h3>
+                <a href="{{ utility_generateSearchUrl(null, "listing", category.friendlyUrl) }}"
+                   class="view-more" data-trans="{{ 'See all listings'|trans({}, 'widgets') }}">{{ content.labelSeeAllListings|trans({}, 'widgets') }}</a>
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <div class="row">
+                {% for best in item.items -%}
+                    <div class="{{ class }}">
+                        {{ include('::blocks/themebox/' ~ grid ~ '.html.twig', {'item': best, 'module': 'listing', 'options': {'showReview': 1}}) }}
+                    </div>
+                {% endfor -%}
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <br>
+{% endfor -%}

@@ -1,0 +1,15 @@
+<!-- Modal -->
+<div class="modal fade"
+        {% if id is defined -%} id="{{ id }}" {% endif -%}
+        {% if class is defined -%} class="{{ class }}" {% endif -%}
+        {% if remote is defined -%} data-remote="{{ remote }}" {% endif -%}
+     tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {% block modal_content -%}{{ modalContent }}{% endblock -%}
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

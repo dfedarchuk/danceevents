@@ -1,0 +1,91 @@
+
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               #}
+{# This page renders the Listing summary block which appears during searches       #}
+
+{#      Resources:                                                                 #}
+
+{# item \Elastica\Result                                                           #}
+{#      The elastica result object                                                 #}
+
+{# pagination \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination             #}
+{#      Contains data about the current search page                                #}
+
+{# levelFeatures \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+{#      Contains information about every level of a certain module                 #}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['listing'][data.level] -%}
+
+{% set detailURL      = url('listing_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+{% set itemBadges     = ( data.badgeId is not empty ? data.badgeId|split(" ") : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "listing" -%}
+
+{% set reviewTitle = 'Review'|trans ~ ' %s'|format(data.title) %}
+
+<section id="{{ sectionAnchor }}" class="summary-box {{ itemLevelInfo.hasBacklink and data.backlink == 'true' ? 'summary-backlink' : '' }}">
+    <div class="summary-content">
+
+        {% set flags = 0 -%}
+
+        {% if itemLevelInfo.hasBadges and itemBadges -%} {% set flags = flags + 1 -%} {% endif -%}
+        {% if itemLevelInfo.imageCount > 0 and data.thumbnail is defined and data.thumbnail is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+
+        {% if flags -%}
+
+            {% if flags b-and 2 -%}
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+                {% else -%}
+                    {{ Utility.image( data.thumbnail, data.title ) }}
+                {% endif -%}
+            {% endif -%}
+
+        {% endif -%}
+
+        {{ bookmarkLink(item, 'listing') }}
+
+        <h3>
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}">{{ data.title }}</a>
+            {% else -%}
+                {{ data.title }}
+            {% endif -%}
+            {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+        </h3>
+
+        {{ Utility.contactInfoSimple( item, data, detailURL, itemLevelInfo, "listing" ) }}
+
+        {{ Utility.address( null, null, data.address.street, data.address.complement, data.address.zipcode, itemLocations, pageLocations ) }}
+
+        {% if itemLevelInfo.hasReview and getSetting("review_listing_enabled") -%}
+            <div class="summary-info">
+                <span class="stars-rating"><span class="rate-{{ data.averageReview }}"></span></span>
+                <p>
+                    <span
+                        class="text-primary reviewButtonTrigger"
+                        data-info="{{ encrypt( {module: 'listing', id: item.id} ) }}"
+                        data-title="{{ reviewTitle }}"
+                        title="{{ "Review this"|trans }}">
+                        {{ 'Review this'|trans }}
+                    </span>
+                </p>
+            </div>
+        {% endif -%}
+
+        {% if data.claim -%}
+            {% set claimLabel = getClaimCustomText() %}
+            <p class="small">
+                <a id="claim-listing" href="{{ path("listing_claim", { "friendlyUrl" : data.friendlyUrl }) }}" class="text-info" title="{{ claimLabel ?: "Claim this listing"|trans }}">{{ claimLabel ?: "Is this your listing?"|trans }}</a>
+            </p>
+        {% endif -%}
+
+    </div>
+</section>

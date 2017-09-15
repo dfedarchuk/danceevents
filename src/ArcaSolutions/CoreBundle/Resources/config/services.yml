@@ -1,0 +1,201 @@
+parameters:
+    url.encryption.class: ArcaSolutions\CoreBundle\Encryption\UrlEncryption
+    before.controller.class: ArcaSolutions\CoreBundle\EventListener\BeforeControllerListener
+    after.controller.class: ArcaSolutions\CoreBundle\EventListener\AfterControllerListener
+    javascripthandler.class: ArcaSolutions\CoreBundle\Services\JavaScriptHandler
+    location.service.class: ArcaSolutions\CoreBundle\Services\LocationService
+    category.search.configuration.class: ArcaSolutions\CoreBundle\Search\CategoryConfiguration
+    location.search.configuration.class: ArcaSolutions\CoreBundle\Search\LocationConfiguration
+    location.helper.class: ArcaSolutions\CoreBundle\Helper\LocationHelper
+    module.helper.class: ArcaSolutions\CoreBundle\Helper\ModuleHelper
+    unavailable.item.exception.class: ArcaSolutions\CoreBundle\EventListener\UnavailableItemExceptionListener
+    default.exception.class: ArcaSolutions\CoreBundle\EventListener\DefaultExceptionListener
+    apccache.service.class: ArcaSolutions\CoreBundle\Services\ApcCache
+    settings.service.class: ArcaSolutions\CoreBundle\Services\Settings
+    modules.service.class: ArcaSolutions\CoreBundle\Services\Modules
+    accounthandler.class: ArcaSolutions\CoreBundle\Services\AccountHandler
+    currencthandler.class: ArcaSolutions\CoreBundle\Services\CurrencyHandler
+
+    # twig extension
+    javascripthandler.twig.extension.class: ArcaSolutions\CoreBundle\Twig\Extension\JavaScriptHandlerExtension
+    inflector.twig.extension.class: ArcaSolutions\CoreBundle\Twig\Extension\InflectorExtension
+    localizeddate.twig.extension.class: ArcaSolutions\CoreBundle\Twig\Extension\LocalizedDateExtension
+    localizedcurrency.twig.extension.class: ArcaSolutions\CoreBundle\Twig\Extension\LocalizedCurrencyExtension
+    file.exist.twig.extension.class: ArcaSolutions\CoreBundle\Twig\Extension\FileExistExtension
+    spaceless.twig.extension.class: ArcaSolutions\CoreBundle\Twig\Extension\SpacelessExtension
+    utility.twig.extension.class: ArcaSolutions\CoreBundle\Services\Utility
+    languagehandler.twig.extension.class: ArcaSolutions\CoreBundle\Services\LanguageHandler
+
+    location.synchronization.configuration.class: ArcaSolutions\CoreBundle\Services\Synchronization\LocationSynchronizable
+
+    # Forms Type
+    edirectory.captcha_type.class: ArcaSolutions\CoreBundle\Form\Type\CaptchaType
+    ewz_recaptcha.validator.true.class: ArcaSolutions\CoreBundle\Validator\Constraints\ReCaptchaValidator
+    edirectory.tel_type.class: ArcaSolutions\CoreBundle\Form\Type\TelType
+
+services:
+    before_controller.listener:
+        class: %before.controller.class%
+        arguments:
+            - @service_container
+            - @settings
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    after_controller.listener:
+        class: %after.controller.class%
+        arguments: []
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    url_encryption:
+        class: %url.encryption.class%
+        arguments: [%secret%]
+
+    javascripthandler:
+        class: %javascripthandler.class%
+        arguments: ["@service_container"]
+
+    javascripthandler.twig_extension:
+        class: %javascripthandler.twig.extension.class%
+        public: false
+        arguments: [@service_container]
+        tags: [{ name: twig.extension }]
+
+    location.service:
+        class: %location.service.class%
+        arguments:
+            - @service_container
+
+    apccache.edirectory.service:
+        class: %apccache.service.class%
+        arguments:
+            - @request_stack
+
+    category.search:
+        class: %category.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    location.search:
+        class: %location.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    helper.location:
+        class: %location.helper.class%
+        arguments: [@service_container]
+
+    helper.module:
+        class: %module.helper.class%
+        arguments: [@service_container]
+
+    settings:
+        class: %settings.service.class%
+        arguments:
+            - @doctrine
+
+    modules:
+        class: %modules.service.class%
+        arguments:
+            - @doctrine
+
+    inflector.twig_extension:
+        class: %inflector.twig.extension.class%
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    localizeddate.twig_extension:
+        class: %localizeddate.twig.extension.class%
+        public: false
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    currencyhandler:
+        class: '%currencthandler.class%'
+        arguments:
+            - '@translator'
+            - '@settings'
+
+    localizedcurrency.twig_extension:
+        class: '%localizedcurrency.twig.extension.class%'
+        public: false
+        arguments:
+            - '@currencyhandler'
+        tags:
+            - { name: twig.extension }
+
+    file.exist.twig_extension:
+        class: %file.exist.twig.extension.class%
+        public: false
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    spaceless.twig_extension:
+        class: %spaceless.twig.extension.class%
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    utility:
+        class: %utility.twig.extension.class%
+        arguments: ["@service_container"]
+        tags: [{ name: twig.extension }]
+
+    languagehandler:
+        class: %languagehandler.twig.extension.class%
+        arguments: ["@service_container"]
+        tags: [{ name: twig.extension }]
+
+    location.synchronization:
+        class: %location.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    unavailable.item.exception.listener:
+        class: %unavailable.item.exception.class%
+        arguments:
+            - @service_container
+            - @kernel
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 1 }
+
+    default.exception.exception.listener:
+        class: %default.exception.class%
+        arguments:
+            - @service_container
+            - @kernel
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 0 }
+
+    edirectory_captcha.form.type:
+        class: %edirectory.captcha_type.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: form.type, alias: edirectory_captcha }
+
+    edirectory_phone.form.type:
+        class: '%edirectory.tel_type.class%'
+        tags:
+            - { name: form.type, alias: tel }
+
+    account.handler:
+        class: '%accounthandler.class%'
+        arguments:
+            - '@doctrine.orm.main_entity_manager'
+            - '@doctrine.orm.domain_entity_manager'
+            - '@form.factory'
+            - '@email.notification.service'
+            - '@translator'
+            - '%alias_members_module%'
+            - '@templating.helper.assets'
+            - '@twig'
+            - '@multi_domain.information'
+            - '@swiftmailer.mailer.default'
+            - '@settings'

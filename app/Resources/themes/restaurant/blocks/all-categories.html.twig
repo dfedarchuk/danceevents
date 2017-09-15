@@ -1,0 +1,39 @@
+{% if categories -%}
+    <div class="well">
+        {% for category in categories -%}
+            {% if loop.index0 % 3 == 0 %}<div class="row">{% endif %}
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li>
+                        <b>
+                            <u>
+                                <a class="text-primary"
+                                   href="{{ utility_generateSearchUrl(null, routing, category.friendlyUrl) }}">
+                                    {{ category.title }}
+                                    {% if category.count > 0 %}
+                                        <strong>({{ category.count }})</strong>
+                                    {% endif %}
+                                </a>
+                            </u>
+                        </b>
+                        {% if category.children -%}
+                            <ul>
+                                {% for child in category.children -%}
+                                    <li>
+                                        <a class="text-primary"
+                                           href="{{ utility_generateSearchUrl(null, routing, child.friendlyUrl) }}">
+                                            {{ child.title }}
+                                        </a>
+                                        <span>({{ child.count }})</span>
+                                    </li>
+                                {% endfor -%}
+                            </ul>
+                        {% endif -%}
+                    </li>
+                </ul>
+            </div>
+            {% if loop.index0 % 3 == 2 %}</div>{% endif %}
+
+        {% endfor -%}
+    </div>
+{% endif -%}

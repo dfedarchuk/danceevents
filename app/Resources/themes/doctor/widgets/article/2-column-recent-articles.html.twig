@@ -1,0 +1,27 @@
+{% set recent_article = recentArticle(1, 'col-sm-12', 'horizontal') -%}
+{% if recent_article is not empty -%}
+    <section class="block featured article">
+        <div class="container">
+            <div class="theme-title">
+                <h2 data-trans="{{ 'Recent Articles'|trans({}, 'widgets') }}">{{ content.labelRecentArticles|trans({}, 'widgets') }}</h2>
+                <p><a href="{{ path("article_homepage") }}" class="view-more"
+                      data-trans="{{ 'See more articles'|trans({}, 'widgets') }}">
+                        {{ content.labelSeeMoreArticles|trans({}, 'widgets') }}
+                    </a> | <a href="/{{ getParameter('alias_advertise_url_divisor') }}" class="view-more"
+                            data-trans="{{ 'Write your article'|trans({}, 'widgets') }}">
+                        {{ content.labelWriteYourArticle|trans({}, 'widgets') }}
+                    </a>
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 row">
+                    {{ recent_article|raw }}
+                </div>
+                <div class="col-sm-5 row">
+                    {% set recent_article = recentArticle(2, 'col-sm-12', 'horizontal-xs') -%}
+                    {{ recent_article|raw }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif -%}

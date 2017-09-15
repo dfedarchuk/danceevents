@@ -1,0 +1,44 @@
+{# Events Calendar #}
+
+{% if isEventAvailable() %}
+
+
+    <section class="event-calendar">
+
+        <div class="bg-image">
+            <span class="cover-bg-image" style="
+            {% if file_exists(getDomainParameter('path') ~ 'content_files/background_image_calendar.jpg') -%}
+                    background-image: url({{ asset(getDomainParameter('path') ~ 'content_files/background_image_calendar.jpg?t=' ~ date().timestamp) }});
+            {% else -%}
+                    background-image: url({{ asset('assets/images/bg-image.jpg') }});
+            {% endif -%}"></span>
+        </div>
+
+        <div class="well well-translucid">
+            <div class="container">
+                <h2 class="theme-title"
+                    data-trans="{{ 'Events Calendar'|trans({}, 'widgets') }}">{{ content.labelCalendar|trans({}, 'widgets') }}
+                </h2>
+                <div class="row event-header-navigation">
+                    <button class="event-prev-year" data-calendar-nav-year="prev"></button>
+                    <button class="event-view-year" data-calendar-view="year" ></button>
+                    <button class="event-next-year" data-calendar-nav-year="next"></button>
+                </div>
+                <div class="row event-navigation">
+                    <button class="prev" data-calendar-nav="prev">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <button class="next" data-calendar-nav="next">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                    <div id="event-calendar"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{ addJSFile("assets/js/lib/underscore-min.js") -}}
+    {{ addJSFile("assets/js/lib/calendar/calendar.min.js") -}}
+    {{ addJSFile("assets/js/modules/event/calendar/event.calendar.js") -}}
+
+{% endif %}

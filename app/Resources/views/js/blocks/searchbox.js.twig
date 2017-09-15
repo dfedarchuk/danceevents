@@ -1,0 +1,266 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+{% set dateFilter = Header.dateFilter %}
+
+<script>
+    {% set module = "null" %}
+    {% if searchBoxModule is defined %}
+        {% set module = searchBoxModule is iterable ? '"'~searchBoxModule[0]~'"' : '"'~searchBoxModule~'"'  -%}
+    {% endif %}
+
+    $(document).ready(function () {
+        var searchKeywordInput = $("#searchKeyword");
+        var searchLocationInput = $("#searchLocation");
+        var searchDateInput = $("#searchCalendar");
+
+        if (searchLocationInput.val(Cookies.get(eDirectory.Search.whereCookieName + "_typed"))){
+            Cookies.remove(eDirectory.Search.whereCookieName + "_typed")
+        }
+
+        if (searchKeywordInput.val(Cookies.get(eDirectory.Search.whatCookieName + "_typed")) ){
+            Cookies.remove(eDirectory.Search.whatCookieName + "_typed")
+        }
+
+        var targetcookieValue  = Cookies.get(eDirectory.Search.targetCookieName);
+
+        if( window.location.pathname.indexOf(targetcookieValue) < 0){
+            searchKeywordInput.length > 0 && searchKeywordInput.data("prefill", 0);
+            searchLocationInput.length > 0 && searchLocationInput.data("prefill", 0);
+            searchDateInput.length > 0 && searchDateInput.data("prefill", 0);
+        }
+
+        var whatSuggester = null;
+        var whereSuggester = null;
+        var dateSuggester = null;
+
+        var inputConfigs = {
+            highlight:  true,
+            hint:       false,
+            minLength:  2,
+            tabAutocomplete:  false,
+            classNames: {
+                input:      "tt-input",
+                hint:       "tt-hint",
+                menu:       "tt-menu",
+                dataset:    "tt-dataset",
+                suggestion: "tt-suggestion",
+                empty:      "tt-empty",
+                open:       "tt-open",
+                cursor:     "tt-cursor",
+                highlight:  "tt-highlight"
+            }
+        };
+
+        var urlProvider = "{{ path("search_build_url")|raw }}";
+
+        if (searchKeywordInput.length > 0) {
+            var whatDatasetConfigs = {
+                source:     eDirectory.Search.Utility.createBloodhound("{{ path("search_suggest_what")|raw }}", {{ module|raw }}),
+                async:      true,
+                name:       "what",
+                displayKey: 'text',
+                limit:      10,
+                templates:  {
+                    suggestion: function (data) {
+
+                        var complement = "";
+                        var payloadParts = data.payload;
+
+
+                        if (payloadParts) {
+                            var payloadType = payloadParts.type;
+                            complement = eDirectory.Search.Utility.getComplementByType(payloadType);
+
+                            var label = "";
+
+                            switch (payloadType) {
+                                case "article" :
+                                    label = "{{ getParameter("alias_article_module")|capitalize }}";
+                                    break;
+                                case "blog" :
+                                    label = "{{ getParameter("alias_blog_module")|capitalize }}";
+                                    break;
+                                case "classified" :
+                                    label = "{{ getParameter("alias_classified_module")|capitalize }}";
+                                    break;
+                                case "event" :
+                                    label = "{{ getParameter("alias_event_module")|capitalize }}";
+                                    break;
+                                case "listing" :
+                                    label = "{{ getParameter("alias_listing_module")|capitalize }}";
+                                    break;
+                                case "promotion" :
+                                    label = "{{ getParameter("alias_promotion_module")|capitalize }}";
+                                    break;
+                                case "articleCategory":
+                                case "blogCategory":
+                                case "classifiedCategory":
+                                case "eventCategory":
+                                case "listingCategory":
+                                    label = "{{ "Category "|trans|capitalize }}";
+                                    break;
+                            }
+
+                            complement = complement.replace('%TEXT%', label);
+                        }
+
+                        return '<div>' + complement + '<span>' + data.text + '</span>' + '</div>';
+                    }
+                }
+            };
+
+            whatSuggester = new eDirectory.Search.Suggest(searchKeywordInput, whatDatasetConfigs, inputConfigs, urlProvider, eDirectory.Search.whatCookieName);
+            whatSuggester.initialize();
+        }
+
+        if (searchLocationInput.length > 0) {
+            var whereDatasetConfigs = {
+                source:     eDirectory.Search.Utility.createBloodhound("{{ path("search_suggest_where")|raw }}", {{ module|raw }}),
+                async:      true,
+                name:       "where",
+                displayKey: 'text',
+                limit:      10
+            };
+
+            whereSuggester = new eDirectory.Search.Suggest(searchLocationInput, whereDatasetConfigs, inputConfigs, urlProvider, eDirectory.Search.whereCookieName);
+            whereSuggester.initialize();
+        }
+
+        {% if getGoogleSetting('geolocation_status') == 'on' %}
+        $(document).on("click", "#searchLocation", function() {
+            var userLocation = Cookies.get("location_geoip");
+            Cookies.set(eDirectory.Search.targetCookieName, "GeoSet");
+            searchLocationInput.data("prefill", 1);
+
+            if (userLocation) {
+
+                if (searchLocationInput.val()) {
+                    return false;
+                }
+
+                Cookies.set(eDirectory.Search.whereCookieName + "_typed", userLocation.replace(/\+/gi, ' '));
+                Cookies.set(eDirectory.Search.whereCookieName + "_internal", JSON.stringify({
+                    setBy: "user",
+                    friendlyUrl: userLocation.toLowerCase(),
+                    itemType: ""
+                }));
+                whereSuggester.initialize();
+            } else {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        Cookies.set("{{ geolocationCookieName }}", position.coords.latitude + "," + position.coords.longitude);
+
+                        $.get("{{ path("web_homepage")|raw }}getGeoIP.php?lat="+position.coords.latitude+"&long="+position.coords.longitude).done(function (response) {
+                            if (response) {
+                                Cookies.set(eDirectory.Search.whereCookieName + "_typed", response);
+                                Cookies.set(eDirectory.Search.whereCookieName + "_internal", JSON.stringify({
+                                    setBy: "user",
+                                    friendlyUrl: response.toLowerCase(),
+                                    itemType: ""
+                                }));
+                            }
+
+                            whereSuggester.initialize();
+                        });
+                    }, function() {});
+                }
+            }
+        })
+        {% endif %}
+
+        if (searchDateInput.length > 0) {
+            searchDateInput.datepicker({
+                language:       "{{ dateFilter.bootstrapDatepickerLanguage }}",
+                autoclose:      true,
+                todayHighlight: true,
+                format:         "{{ dateFilter.bootstrapDatepickerDateFormat|raw }}"
+            });
+
+            dateSuggester = searchDateInput.data('datepicker');
+
+            var targetcookieValue = Cookies.get(eDirectory.Search.targetCookieName);
+            var whenCookieValue = Cookies.get(eDirectory.Search.whenCookieName);
+
+            if (window.location.pathname.indexOf(targetcookieValue) < 0) {
+                Cookies.remove(eDirectory.Search.targetCookieName);
+                Cookies.remove(eDirectory.Search.whenCookieName);
+            } else if (whenCookieValue) {
+                dateSuggester.setDate(whenCookieValue);
+            }
+        }
+
+
+        $("#headerSearchForm").submit(function (event) {
+            event.preventDefault();
+
+            var data = {
+                location: null,
+                category: null,
+                keyword:  null,
+                where:    null,
+                item:     null,
+                type:     null,
+                module: {{ module|raw }}
+            };
+
+            if (whatSuggester) {
+                data.keyword = whatSuggester.field.typeahead('val').trim() || null;
+
+                if (whatSuggester.value.setBy != "user"){
+                    if (whatSuggester.value.friendlyUrl){
+                        data.category = whatSuggester.value.friendlyUrl;
+                        data.keyword = null;
+                    } else {
+                        if (whatSuggester.field.typeahead('val').trim() && Cookies.get(eDirectory.Search.whatCookieName + "_internal")){
+                            var whatCookieObj = JSON.parse(Cookies.get(eDirectory.Search.whatCookieName + "_internal"));
+                            data.category = whatCookieObj.friendlyUrl;
+                            data.keyword = null;
+                        }
+                    }
+                } else {
+                    Cookies.remove(eDirectory.Search.whatCookieName + "_internal");
+                }
+                Cookies.set(eDirectory.Search.whatCookieName + "_typed", whatSuggester.field.typeahead('val').trim());
+                if (whatSuggester.value.friendlyUrl){
+                    Cookies.set(eDirectory.Search.whatCookieName + "_internal", JSON.stringify(whatSuggester.value));
+                }
+            }
+
+            if (whereSuggester) {
+                data.where = whereSuggester.field.typeahead('val').trim() || null;
+
+                if (whereSuggester.value.setBy != "user"){
+                    if (whereSuggester.value.friendlyUrl){
+                        data.location = whereSuggester.value.friendlyUrl;
+                        data.where = null;
+                    } else {
+                        if (whereSuggester.field.typeahead('val').trim() && Cookies.get(eDirectory.Search.whereCookieName + "_internal")){
+                            var whereCookieObj = JSON.parse(Cookies.get(eDirectory.Search.whereCookieName + "_internal"));
+                            data.location = whereCookieObj.friendlyUrl;
+                            data.where = null;
+                        }
+                    }
+                } else {
+                    Cookies.remove(eDirectory.Search.whereCookieName + "_internal");
+                }
+                Cookies.set(eDirectory.Search.whereCookieName + "_typed", whereSuggester.field.typeahead('val').trim());
+                if (whereSuggester.value.friendlyUrl){
+                    Cookies.set(eDirectory.Search.whereCookieName + "_internal", JSON.stringify(whereSuggester.value));
+                }
+            }
+
+            if (dateSuggester) {
+                var dateFormat = "{{ dateFilter.convertToBootstrapDatepickerFormat(dateFilter.urlDateFormat)|raw  }}";
+                data.startDate = dateSuggester.getFormattedDate(dateFormat);
+
+                Cookies.set(eDirectory.Search.whenCookieName, dateSuggester.element.val());
+            }
+
+            $.post(urlProvider, data).done(function (response) {
+                if (response.status) {
+                    Cookies.set(eDirectory.Search.targetCookieName, response.url);
+                    window.location = response.url;
+                }
+            });
+        });
+    });
+</script>

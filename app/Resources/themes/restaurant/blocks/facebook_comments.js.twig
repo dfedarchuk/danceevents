@@ -1,0 +1,18 @@
+{% set locale = app.request.locale|split('_') %}
+<script type="text/javascript">
+    //<![CDATA[
+    (function (d) {
+        var js, id = 'facebook-jssdk';
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement('script');
+        js.id = id;
+        js.async = true;
+        js.src = "//connect.facebook.net/{{ locale|first ~ '_' ~ locale|last|upper }}/all.js#xfbml=1";
+        d.getElementsByTagName('head')[0].appendChild(js);
+    }(document));
+
+    document.write('<div class="fb-comments" data-href="{{ app.request.schemeAndHttpHost~app.request.requestUri }}" data-num-posts="{{ quantity_posts }}" data-width="{{ width }}"></div>');
+    //]]>
+</script>

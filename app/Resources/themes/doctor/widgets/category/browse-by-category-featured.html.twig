@@ -1,0 +1,32 @@
+{% set module = getModule() -%}
+{% set categories = getCategoriesByModule(module, content.limit, 'featured') -%}
+
+{% if categories.featured %}
+    {% set all = module ~ '_allcategories' -%}
+    {% set activeItemsNameField = categories.activeItemsNameField -%}
+
+    <div class="container well well-light">
+        <div class="flex flex-container col-xs-12">
+            {% for category in categories.featured -%}
+                <div class="flex-unit theme-box theme-box-inverse col-sm-3 col-xs-6">
+                    <div class="theme-box-content">
+                        {% if category.thumbnail -%}
+                            <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">
+                                <img class="img-responsive" src="{{ asset(category.thumbnail, 'domain_images') | imagine_filter('small') }}" alt="{{ category.title }}">
+                            </a>
+                        {% else -%}
+                            <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" title="{{ category.title }}">
+                                {{ utility_getNoImage(category.title) }}
+                            </a>
+                        {% endif -%}
+
+                        <p data-trans="{{ 'Find'|trans({}, 'widgets') }}">{{ content.labelFind|trans({}, 'widgets') }}</p>
+                        <h4><a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">{{ category.title }}</a>
+                        </h4>
+
+                    </div>
+                </div>
+            {% endfor -%}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,224 @@
+{# use it to shows address -#}
+{% import "::blocks/utility/utility.html.twig" as Utility %}
+{% import "::blocks/utility/review.html.twig" as Review -%}
+
+{# Adding requirements -#}
+{{ addJSFile('assets/js/lib/jquery.magnific-popup.min.js') }}
+{{ addJSTwig("::js/detailpopup.js.twig") }}
+
+{% set reviewTitle = 'Review'|trans ~ ' %s'|format(item.title) %}
+
+
+<div class="container well well-light">
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <!-- Detail Begin -->
+            <article class="detail">
+                <h1>{{ item.title }}</h1>
+                <ul class="breadcrumb">
+                    {% for category in categories if 'y' == category.enabled -%}
+                        {% if isSample -%}
+                            {% set link = 'javascript:void(0);' -%}
+                        {% else -%}
+                            {% set link = utility_generateSearchUrl(null, "article", category.friendlyUrl) -%}
+                        {% endif -%}
+                        <li>
+                            <a href="{{ link }}">
+                                <span>{{ category.title }}</span>
+                            </a>
+                        </li>
+                    {% endfor -%}
+                </ul>
+
+                {% include "::blocks/sociallikes.html.twig" -%}
+                <div class="clearfix"></div>
+                <hr>
+
+                <!-- Descriptions and Images -->
+                <section id="overview">
+                    <!-- If there is a Main Image and NO cover image -->
+                    {% if gallery is not empty and 'y' == gallery[0].imageDefault and item.coverImage.id == 0 -%}
+                        {% if isSample -%}
+                            {% set url = gallery[0].image.url -%}
+                            {% set url_filtered = url -%}
+                        {% else -%}
+                            {% set url = asset(imagePath(gallery[0].image), 'domain_images') -%}
+                            {% set url_filtered = url | imagine_filter('main_image') -%}
+                        {% endif -%}
+                        <div class="main-image">
+                            <a href="{{ url }}"
+                               class="image-link" title="{{ gallery[0].imageCaption }}">
+                                <img src="{{ url_filtered }}"
+                                     alt="{{ gallery[0].imageCaption }}" class="img-responsive center-block">
+                            </a>
+                        </div>
+                    {% endif -%}
+
+                    <div>{{ item.content|raw }}</div>
+
+                    {% if gallery is not empty -%}
+                        <div class="image-gallery">
+                            <div class="row text-center-sm">
+                                {% if 'y' == gallery[0].imageDefault and item.coverImage.id != 0 -%}
+                                    {% if isSample -%}
+                                        {% set url = gallery[0].image.url -%}
+                                        {% set url_filtered = url -%}
+                                    {% else -%}
+                                        {% set url = asset(imagePath(gallery[0].image), 'domain_images') -%}
+                                        {% set url_filtered = url | imagine_filter('small') -%}
+                                    {% endif -%}
+                                    <div class="col-md-3 col-sm-6">
+                                        <a href="{{ url }}"
+                                           class="image-link" title="{{ gallery[0].imageCaption }}">
+                                            <img src="{{ url_filtered }}"
+                                                 alt="{{ gallery[0].imageCaption }}"
+                                                 class="img-responsive center-block">
+                                        </a>
+                                    </div>
+                                {% endif -%}
+                                {% for photo in gallery if 'n' == photo.imageDefault -%}
+                                    {% if isSample -%}
+                                        {% set url = photo.image.url -%}
+                                        {% set url_filtered = url -%}
+                                    {% else -%}
+                                        {% set url = asset(imagePath(photo.image), 'domain_images') -%}
+                                        {% set url_filtered = url | imagine_filter('small') -%}
+                                    {% endif -%}
+                                    <div class="col-md-3 col-sm-6">
+                                        <a href="{{ url }}"
+                                           class="image-link" title="{{ photo.imageCaption }}">
+                                            <img src="{{ url_filtered }}"
+                                                 alt="{{ photo.imageCaption }}"
+                                                 class="img-responsive center-block">
+                                        </a>
+                                    </div>
+                                {% endfor -%}
+                            </div>
+                        </div>
+                    {% endif -%}
+                </section>
+
+                <!-- Reviews -->
+                {% if reviews_active and reviews is not empty -%}
+                    <section id="reviews">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h4>{{ 'Reviews'|trans }}</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-6 break-sm text-center-sm">
+                                                <span class="rate">
+                                                    <span class="rate-stars">
+                                                        <span class="stars-rating large"><span
+                                                                    class="rate-{{ item.avgReview }}"></span></span>
+                                                    </span>
+                                                </span>
+                                    </div>
+                                    <span class="break-sm"></span>
+
+                                    <div class="col-sm-6 text-right text-center-sm">
+                                        {{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviews_total[1], {"%count%":reviews_total[1]}) }}
+                                    </div>
+                                </div>
+
+                                {% for review in reviews -%}
+                                    {{ Review.detail(review) }}
+                                {% endfor -%}
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button type="button"
+                                                class="btn btn-success btn-block reviewButtonTrigger"
+                                                data-title="{{ reviewTitle }}"
+                                                data-info="{{ encrypt( {module: 'article', id: item.id} ) }}">
+                                            {{ 'Rate it'|trans }}
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-6 text-right text-center-sm">
+                                        {% if isSample -%}
+                                            {% set link = 'javascript:void(0);' -%}
+                                        {% else -%}
+                                            {% set link = path("article_review", {"friendlyUrl" : item.friendlyUrl}) -%}
+                                        {% endif -%}
+                                        <a rel="nofollow" class="see-all break-sm" href="{{ link }}">
+                                            {{ 'See all reviews'|trans }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                {% endif -%}
+            </article>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+
+            <div class="details-sidebar">
+
+                <!-- Article Information -->
+                <div class="well">
+                    {% if reviews_active -%}
+                        <div class="rate">
+                                    <span class="rate-stars">
+                                        <button type="button" class="star-rating reviewButtonTrigger"
+                                                data-info="{{ encrypt( {module: 'article', id: item.id} ) }}">
+                                            <span class="stars-rating large"><span
+                                                        class="rate-{{ item.avgReview }}"></span></span>
+                                        </button>
+                                    </span>
+
+                            <p class="min-p">
+                                {% if reviews_total[1] > 0 -%}
+                                    <a href="#reviews" class="text-success text-underline">
+                                        {{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviews_total[1], {"%count%":reviews_total[1]}) }}
+                                    </a>
+                                {% else -%}
+                                    {{ 'Be the first to review this item!'|trans }}
+                                {% endif -%}
+
+                            </p>
+                            <button class="btn btn-success btn-block reviewButtonTrigger"
+                                    data-title="{{ reviewTitle }}"
+                                    data-info="{{ encrypt( {module: 'article', id: item.id} ) }}">
+                                {{ 'Rate it'|trans }}
+                            </button>
+
+                            <br/>
+                            {{ bookmarkButton(item, 'article') }}
+
+                        </div>
+                        <hr>
+                    {% endif -%}
+                    <div class="info info-author">
+                        <p>{{ item.publicationDate|localized_date('dd MMM yyyy') }}</p><br>
+
+                        {% if item.author is not empty -%}
+                            {{ Utility.authorLink(item, isSample, true) }}
+                        {% elseif item.account.accountId is defined -%}
+                            {{ Utility.accountLink(item.account, isSample, true) }}
+                        {% endif -%}
+                    </div>
+
+                </div>
+
+                {{ facebookComments() }}
+
+                {% import "::blocks/utility/banners.html.twig" as banners %}
+                {{ banners.detail("article", bannerCategories) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include '::blocks/modals/modal-bootstrap-template.html.twig' with {id: 'modalLogin'} -%}
+
+{# Adding requirements #}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}
+{{ addJSFile("assets/js/lib/js.cookie.js") }}
+{% if not isSample -%}
+    {{ addJSFile("assets/js/utility/modal.js") }}
+    {{ addJSFile("assets/js/review/like-deslike.js") }}
+    {{ addJSTwig("::js/reviews.js.twig") -}}
+{% endif -%}

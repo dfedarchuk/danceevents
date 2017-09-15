@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' -%}
+
+{% block SEO %}
+    {{ generateArticleSEO( item ) }}
+{% endblock -%}
+
+{# enables autocomplete in phpstorm -#}
+{# @var item \ArcaSolutions\ArticleBundle\Entity\Article #}
+
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}

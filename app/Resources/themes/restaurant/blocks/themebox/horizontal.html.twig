@@ -1,0 +1,206 @@
+{# @var item \ArcaSolutions\DealBundle\Entity\Promotion -#}
+
+{# workaround to solve the problem of the lack of pattern in columns table -#}
+{% set title = item.name ?: item.title -%}
+{% set link = path(module~'_detail', {friendlyUrl: item.friendlyUrl, _format: 'html'}) -%}
+<div class="theme-box theme-box-horizontal">
+    <div class="theme-box-content">
+        <div class="media">
+            <div class="media-left media-middle">
+
+                {# shows deal mark in listing -#}
+                {% if module == 'listing' and hasDeal(item.id) -%}
+                    <div class="deal-tag">{{ 'Offers deals'|trans }}</div>
+                {% endif -%}
+
+                {# Image -#}
+                <a href="{{ link }}">
+                    {% if item.imageId != 0 -%}
+                        {# date from DB -#}
+                        {% set image = item.mainImage ?:item.image %}
+                        <img src="{{ asset(imagePath(image), 'domain_images') | imagine_filter('small') }}"
+                             alt="{{ title }}" class="media-object">
+                    {% elseif item.thumbnail is defined and item.thumbnail is not empty -%}
+                        {# data from elasticsearch -#}
+                        <img src="{{ asset(item.thumbnail, 'domain_images') | imagine_filter('small') }}"
+                             alt="{{ title }}" class="media-object">
+                    {% else -%}
+                        {{ utility_getNoImage(title) }}
+                    {% endif -%}
+                </a>
+            </div>
+            <div class="media-body media-middle">
+
+                {% if module == 'event' and item.recurring.enabled == 0 -%}
+                    <div class="date pull-left">
+                        {% set start_date = date(item.date.start) -%}
+                        {{ start_date|localized_date('EEE') }}
+                        <em>{{ start_date|localized_date('dd') }}</em>
+                        {{ start_date|localized_date('MMM') }}
+                    </div>
+                {% endif -%}
+
+                {# article date -#}
+                {% if module == 'article' -%}
+                    <span class="time">{{ date(item.publicationDate)|localized_date('MMMM d, yyyy') }}</span>
+                {% endif -%}
+
+                {# event categories here -#}
+                {% if module == 'event' -%}
+                    <span class="categories">
+                        {% if item.categories -%}
+                            {{ 'in'|trans }}
+                            {% for category in item.categories -%}
+                                <a
+                                href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">{{ category.title }}</a>{%- if not loop.last and loop.length > 1 -%},{%- endif %}
+                            {% endfor -%}
+                        {% endif -%}
+                    </span>
+                {% endif -%}
+
+                {# title item -#}
+                <h4><a href="{{ link }}">{{ title|length > 60 ? title|slice(0,60) ~ '...' : title }}</a></h4>
+
+                {# article author -#}
+                {% if module == 'article' -%}
+                    <p class="p-block">
+                        {% if item.author.name -%}
+                            {{ Utility.authorLink(item) }}
+                        {% elseif item.profile is defined -%}
+                            {{ Utility.accountLink(item.profile) }}
+                        {% endif -%}
+                    </p>
+                {% endif -%}
+
+                {# Prices -#}
+                {% if module == 'deal' -%}
+                    {% spaceless %}
+                        {# if realvalue or dealvalue does not exist the data is from elasticsearch -#}
+                        {% if item.realvalue is defined and item.dealvalue is defined %}
+                            {% set dealvalue = item.dealvalue %}
+                            {% set realvalue = item.realvalue %}
+                        {% else %}
+                            {% set dealvalue = item.value.deal %}
+                            {% set realvalue = item.value.real %}
+                        {% endif %}
+
+
+                        {% set priceFlags = 0 %}
+                        {% if realvalue > 0 %}{% set priceFlags = priceFlags + 1 %}{% endif %}
+                        {% if dealvalue > 0 %}{% set priceFlags = priceFlags + 2 %}{% endif %}
+                        <span class="text-price">
+                            {% if priceFlags == 0 %}
+                                <span class="text-highlight">{{ "Free"|trans }}</span>
+                            {% else %}
+                                {% if priceFlags b-and 1 %}<span class="text-striketrough">
+                                    &nbsp;{{ realvalue|localized_currency }}</span> | {% endif %}
+                                {% if priceFlags b-and 2 %}
+                                    <span class="text-highlight">&nbsp;{{ dealvalue|localized_currency }}</span>
+                                {% else %}
+                                    <span class="text-highlight">{{ "Free"|trans }}</span>
+                                {% endif %}
+                            {% endif %}
+                        </span>
+                    {% endspaceless %}
+                {% endif -%}
+
+
+                {# description -#}
+                {% if not options.notShowDescription -%}
+                    {% set description = item.longDescription -%}
+
+                    {% if item.description is not empty -%}
+                        {% set description = item.description -%}
+                    {% endif -%}
+
+                    {# article -#}
+                    {% if item.abstract is not empty -%}
+                        {% set description = item.abstract -%}
+                    {% endif -%}
+
+                    {% if description is not empty -%}
+                        <p class="p-description">{{ description|length > 80 ? description|slice(0,80) ~ '...' : description }}</p>
+                    {% endif -%}
+                {% endif -%}
+
+                {% if module == 'classified' -%}
+                    <span class="text-price">
+                        <strong class="text-bigger">
+                            {% if item.price %}
+                                {{ item.price|localized_currency }}
+                            {% else %}
+                                {{ 'Free'|trans }}
+                            {% endif %}
+                        </strong>
+                    </span>
+                {% endif -%}
+
+                {% if module != 'deal' and module != 'article' and module != 'event' -%}
+                    {% if item.categories -%}
+                        <span class="text-limited">
+                        {{ 'in'|trans }}
+                            {% for category in item.categories -%}
+                            <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">
+                                {{ category.title }}
+                                </a>{% if not loop.last and loop.length > 1 -%},{% endif -%}
+                            {% endfor -%}
+                        </span>
+                    {% endif -%}
+                {% endif -%}
+
+
+                {# Title -#}
+                {% if module == 'deal' -%}
+                    {# if endDate does not exist the data it from elasticsearch -#}
+                    {% if item.endDate is defined %}
+                        {% set endDate = item.endDate %}
+                    {% else %}
+                        {% set endDate = date(item.date.end) %}
+                    {% endif %}
+
+                    {# workaround to fix edirectory behavior #}
+                    {% set newEndDate = endDate|date_modify('+1 day') %}
+                    {% set interval = newEndDate.diff(date('now')) -%}
+                    {% if interval.days <= 30 -%}
+                        <p>
+                            <b>
+                                {{ '{0} Less than one day|{1} One day left|]1,Inf] %count% Days left'|transchoice(interval.days) }}
+                            </b>
+                        </p>
+                    {% else -%}
+                        <p>
+                            <b>{{ "Valid Until"|trans }} </b>{{ newEndDate|localized_date('MMMM dd, yyyy') }}
+                        </p>
+                    {% endif -%}
+                {% endif -%}
+
+                {% if item.averageReview is defined and (( module == 'listing' and getSetting("review_listing_enabled") ) or ( module == 'article' and getSetting("review_article_enabled") )) %}
+                    <span class="stars-rating">
+                        <span class="rate-{{ item.averageReview }}"></span>
+                    </span>
+                    {% if item.reviewTotal != 0 -%}
+                        <span>{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(item.reviewTotal, {"%count%":item.reviewTotal}) }}</span>{% endif -%}
+                {% endif -%}
+
+                {% if module == 'event' and item.address.location is not empty -%}
+                    <p>
+                        {{ 'at'|trans }}
+                        <b>{{ item.address.location }}</b>
+                    </p>
+                {% endif -%}
+
+                {# shows recurring phrase -#}
+                {% if module == 'event' and item.recurring.enabled == 1 -%}
+                    <p><b>{{ recurringPhrase(item.event) }}</b></p>
+                {% endif -%}
+
+                {% if options.seeDetail -%}
+                    <a href="{{ link }}" class="text-uppercase">{{ 'See details'|trans }} <span
+                            class="fa fa-arrow-right"></span></a>
+                {% endif -%}
+            </div>
+        </div>
+
+
+    </div>
+</div>

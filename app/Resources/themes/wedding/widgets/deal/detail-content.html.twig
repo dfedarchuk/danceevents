@@ -1,0 +1,218 @@
+{# use it to shows address -#}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{# enables autocomplete in phpstorm -#}
+{# @var item \ArcaSolutions\DealBundle\Entity\Promotion #}
+{# @var listing \ArcaSolutions\ListingBundle\Entity\Listing #}
+
+{% set listing = item.listing -%}
+
+<div class="container well well-light">
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <!-- Detail Begin -->
+            <article class="detail">
+                <h1>{{ item.name }}</h1>
+
+                {% include "::blocks/sociallikes.html.twig" -%}
+                <div class="clearfix"></div>
+                <hr>
+
+                <!-- Descriptions and Images -->
+                <section id="overview">
+                    <!-- If there is a Main Image and NO cover image -->
+                    {% if item.mainImage is not empty -%}
+                        <div class="main-image">
+                            <a href="{{ asset(imagePath(item.mainImage), 'domain_images') }}" class="image-link"
+                               title="{{ gallery[0].imageCaption }}">
+                                <img src="{{ asset(imagePath(item.mainImage), 'domain_images') | imagine_filter('main_image') }}" alt="{{ item.mainImage.imageCaption }}" class="img-responsive center-block"></a>
+                        </div>
+                    {% endif -%}
+
+                    <button type="button" class="btn btn-primary btn-social hidden-print visible-xs" data-toggle="modal" title="{{ 'Redeem Deal'|trans }}" data-target="#redeem">
+                        <i class="fa fa-bookmark-o"></i> {{ 'Redeem Deal'|trans }}
+                    </button>
+
+                    {% if item.longDescription -%}
+                        <h3>{{ 'About'|trans }}</h3>
+                        <p class="pre-line">{{ item.longDescription }}</p>
+                    {% endif -%}
+
+                    {% if gallery is not empty -%}
+                        <div class="image-gallery">
+                            <div class="row text-center-sm">
+                                {% for photo in gallery if 'n' == photo.imageDefault -%}
+                                    <div class="col-md-3 col-sm-6">
+                                        <a href="{{ asset(imagePath(photo.image), 'domain_images') }}"
+                                           class="image-link" title="{{ gallery[0].imageCaption }}">
+                                            <img src="{{ asset(imagePath(photo.image), 'domain_images') | imagine_filter('small') }}" alt="{{ photo.imageCaption }}" class="img-responsive center-block"> </a>
+                                    </div>
+                                {% endfor -%}
+                            </div>
+                        </div>
+                    {% endif -%}
+                </section>
+
+
+                {% if listing -%}
+                    <!-- Contact Info and Address -->
+                    <section id="where">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h4>{{ 'Offered By'|trans }} </h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <b><a href="{{ path('listing_detail', {friendlyUrl: listing.friendlyUrl, _format: 'html' }) }}">{{ listing.title }}</a></b>
+                                        {{ listing.location }}
+                                        {{ Utility.address( null, null, listing.address, listing.address2, listing.zipCode, locationsIDs, locationsObjs) }}
+                                        {{ getDirectionsLink(listing) }}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="contactinfo-detail">
+                                            {% if listing_level.hasPhone and listing.phone is not empty -%}
+                                                <p>{{ 'Phone'| trans }}:
+                                                    <a href="tel:{{ listing.phone|spaceless }}">{{ listing.phone }}</a>
+                                                </p>
+                                            {% endif -%}
+
+                                            {% if listing_level.hasFax and listing.fax is not empty -%}
+                                                <p>{{ 'Fax'| trans }}: {{ listing.fax }}</p>
+                                            {% endif -%}
+
+                                            {% if listing_level.hasURL and listing.url is not empty -%}
+                                                <p><a href="{{ listing.url }}"
+                                                      rel="nofollow">{{ 'Visit Website'|trans }}</a></p>
+                                            {% endif -%}
+                                        </div>
+
+                                        {% if listing_level.hasEmail and listing.email is not empty -%}
+                                            <p>
+                                                <a class="sendEmailButton" data-action="{{ path('listing_sendmail',{id: listing.id}) }}" rel="nofollow">
+                                                    {{ 'Send e-mail'|trans }}
+                                                </a>
+                                            </p>
+
+                                        {% endif -%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                {% endif -%}
+
+                <!-- Hours -->
+                {% if listing_level.hasHoursOfWork and listing.hoursWork is not empty -%}
+                    <section id="hours">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h4>{{ 'Hours'|trans }}</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="pre-line">{{ listing.hoursWork }}</div>
+                            </div>
+                        </div>
+                    </section>
+                {% endif -%}
+
+                <!-- Contact Info and Address -->
+                {% if item.conditions is not empty -%}
+                    <section id="terms-conditions">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <h4>{{ 'Terms and Conditions'|trans }}</h4>
+                            </div>
+                            <div class="col-sm-10">
+                                <p>
+                                    {{ item.conditions|nl2br }}
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                {% endif -%}
+
+            </article>
+        </div>
+
+        <div class="col-md-4 col-sm-12">
+
+            <div class="details-sidebar">
+                {# Event Information -#}
+                <div class="well">
+                    <div class="info">
+                        {% if percentage %}<p>{{ 'Save'|trans }} {{ percentage }}%</p>{% endif %}
+
+                        {% if item.dealvalue %}
+                            {{ item.dealvalue|localized_currency }}
+                        {% else %}
+                            <mark>{{ 'Free'|trans }}</mark>
+                        {% endif %}
+
+                        {% if item.realvalue %}
+                            <p class="small-price">
+                                {{ 'From %real_value%'|trans({'%real_value%': item.realvalue|localized_currency })|raw }}
+                            </p>
+                        {% endif %}
+                    </div>
+
+                    {% set newEndDate = item.endDate|date_modify('+1 day') %}
+                    {% if item.amount > 0 and newEndDate > date('now') -%}
+                        <button type="button" class="btn btn-primary btn-social hidden-print hidden-xs" data-toggle="modal" title="{{ 'Redeem Deal'|trans }}" data-target="#redeem">
+                            <i class="fa fa-bookmark-o"></i> {{ 'Redeem Deal'|trans }}
+                        </button>
+                        {% include '::blocks/modals/modal-bootstrap-template.html.twig' with {id: 'redeem', remote: path('deal_redeem', {id: item.id})} -%}
+                    {% elseif newEndDate > date('now') and item.amount == 0 -%}
+                        {# sold out #}
+                        <h4 class="text-center">{{ 'Sold Out'|trans }}</h4>
+                    {% else -%}
+                        <h4 class="text-center">{{ 'Expired'|trans }}</h4>
+                    {% endif -%}
+
+                </div>
+
+                {% if item.amount >= 0 and newEndDate > date('now') -%}
+                <div class="well hidden-print">
+                    <div class="info">
+
+                        {% if item.amount > 0 %}
+                            <p>{{ 'Time left to redeem'|trans }}</p>
+                        {% endif %}
+
+                        <div id="countdown" class="clock" data-date="{{ newEndDate|date('Y-m-d') }}"></div>
+
+                        <p>
+                            {% transchoice item.amount with {'%deals%': item.amount} from "messages"  %}{0}SOLD OUT |{1} There is one deal left|]1,Inf[ There are %deals% deals left{% endtranschoice %}
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% import "::blocks/utility/banners.html.twig" as banners %}
+            {{ banners.detail("deal", bannerCategories) }}
+        </div>
+    </div>
+</div>
+
+{% if map is not null -%}
+    <div class="map-location">
+        {{ google_map(map) }}
+    </div>
+{% endif -%}
+
+<script id="countdown-style" type="text/x-jsrender">
+    <div class="clock-item">%-D <em>{{ 'DAY'|trans }}%!D</em></div>
+    <div class="clock-item">%-H <em>{{ 'HRS'|trans }}</em></div>
+    <div class="clock-item">%-M <em>{{ 'MIN'|trans }}</em></div>
+    <div class="clock-item">%-S <em>{{ 'SEC'|trans }}</em></div>
+</script>
+
+{# Adding requirements -#}
+{{ addJSFile('assets/js/lib/jquery.magnific-popup.min.js') }}
+{{ addJSTwig("::js/detailpopup.js.twig") }}
+{{ addJSFile("assets/js/utility/modal.js") }}
+{{ addJSFile("assets/js/modal/send.email.js") }}

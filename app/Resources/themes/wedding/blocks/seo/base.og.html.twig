@@ -1,0 +1,27 @@
+{% extends "::blocks/seo/title.html.twig" %}
+
+{% block metaOG -%}
+
+    {% if og.url %}<meta property="og:url" content="{{ og.url }}"/>{% endif %}
+
+    {% if og.type %}<meta property="og:type" content="{{ og.type }}"/>{% endif %}
+
+    {% if og.title %}<meta property="og:title" content="{{ og.title }}"/>{% endif %}
+
+    {% if og.description %}<meta property="og:description" content="{{ og.description }}"/>{% endif %}
+
+    {% if og.image %}<meta property="og:image" content="{{ og.image }}"/>{% endif %}
+
+{% endblock %}
+
+{% block metaTwitter %}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    {% set twitterAccount = getSetting('twitter_account') %}
+    {%- if twitterAccount %}<meta name="twitter:site" content="@{{ twitterAccount }}" />{% endif %}
+
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description|escape|truncate(150) }}" />
+    {% if og.image %}<meta name="twitter:image" content="{{ og.image }}" />{% endif %}
+
+{% endblock %}

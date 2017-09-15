@@ -1,0 +1,23 @@
+{% set flags = 0 %}
+
+{% set flags = 0 +
+( facebook ? 64  : 0 ) +
+( linkedin ? 128 : 0 ) +
+( twitter  ? 256 : 0 ) +
+( instagram ? 512 : 0 ) +
+( googleplus ? 1024 : 0 ) +
+( pinterest  ? 2048 : 0 ) %}
+
+{% if flags b-and 4032 %}
+    <div class="col-xs-12 text-center">
+        <h4 data-trans="{{ "Follow Us"|trans({}, 'widgets') }}">{{ content.labelFollowUs|trans({}, 'widgets') }} </h4>
+        <div class="center-block text-center">
+            {% if flags b-and 64 -%}<a target="_blank" href="{{ facebook }}" class="social-links"><span class="fa fa-facebook"></span> <span class="sr-only">Facebook </span></a>{%- endif %}
+            {% if flags b-and 128 -%}<a target="_blank" href="{{ linkedin }}" class="social-links"><span class="fa fa-linkedin"></span> <span class="sr-only">Linkedin </span></a>{%- endif %}
+            {% if flags b-and 256 -%}<a target="_blank" href="{{ twitter }}" class="social-links"><span class="fa fa-twitter"></span> <span class="sr-only">Twitter </span></a>{%- endif %}
+            {% if flags b-and 512 -%}<a target="_blank" href="{{ instagram }}" class="social-links"><span class="fa fa-instagram"></span> <span class="sr-only">Instagram </span></a>{%- endif %}
+            {% if flags b-and 1024 -%}<a target="_blank" href="{{ googleplus }}" class="social-links"><span class="fa fa-google"></span> <span class="sr-only">Google Plus </span></a>{%- endif %}
+            {% if flags b-and 2048 -%}<a target="_blank" href="{{ pinterest }}" class="social-links"><span class="fa fa-pinterest"></span> <span class="sr-only">Pinterest </span></a>{%- endif %}
+        </div>
+    </div>
+{% endif %}

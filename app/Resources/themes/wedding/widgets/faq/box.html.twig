@@ -1,0 +1,39 @@
+<div class="container well well-light">
+
+    {# Content Search Box -#}
+    <div class="well well-sm">
+        <form name="faq" action="{{ path('web_faq') }}" method="get" class="form-horizontal">
+            <div class="row">
+                <label for="search" class="col-sm-4 control-label label-lg" data-trans="{{ 'How can we help you?'|trans({}, 'widgets') }}">{{ content.labelHowCanIHelp|trans({}, 'widgets') }}</label>
+
+                <div class="col-sm-5">
+                    <input class="form-control" class="span5" name="keyword" id="keyword" placeholder="{{ 'Enter a question, keyword, topic...'|trans }}" value="{{ keyword }}" type="search">
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">{{ "Search"|trans }} </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {# Results counter -#}
+    <p class="text-right">
+        <a href="{{ path('web_contactus') }}" title="{{ "Contact Us"|trans }} " data-trans="{{ 'Did you not find your answer? Contact us.'|trans({}, 'widgets') }}">{{ content.labelDidYouNotFind|trans({}, 'widgets') }} </a>
+    </p><br>
+
+    <p>
+        {{ '{0}No records found |{1} <b>One</b> record found |]1,Inf]Found <b>%count%</b> records'
+        |transchoice(questions|length, {'%count%': questions|length})
+        |raw }}
+    </p>
+
+    {# Questions -#}
+    {% if questions|length > 0 -%}
+        <dl class="dl-questions">
+            {% for question in questions -%}
+                <dt> {{ question.question }}</dt>
+                <dd>{{ question.answer }}</dd>
+            {% endfor -%}
+        </dl>
+    {% endif -%}
+</div>

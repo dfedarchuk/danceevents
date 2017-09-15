@@ -1,0 +1,6 @@
+<script>
+    $(document).ready(function(){
+        var optionList = $("#collapseCategory").find(">ul>.list-group-item");
+        eDirectory.Search.Utility.filterCollapser(optionList, "{{ "View All"|trans }}");
+    });
+</script>

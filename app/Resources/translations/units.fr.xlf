@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>distance.unit</source>
+                <target>km</target>
+                <note>
+                    The unit used on distance calculations throughout the system.
+                    Default value: 'mi'
+                    Valid distance units are: 'km' and 'mi'
+                </note>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>date.format</source>
+                <target>d/m/Y</target>
+                <note>
+                    The date format used throughout the system
+                    Default value: 'm/d/Y'
+                    The following characters must be used on the construction of the date format:
+                    d => 2 digit numeric representation of the month day,
+                    m => 2 digit representation of the month,
+                    Y => Year 4 digit numeric representation. Must be UPPERCASE (Y). Lowercase (y) characters will cause
+                    errors
+                </note>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>decimal.separator</source>
+                <target>,</target>
+                <note>
+                    The character which separates the decimal part of a number.
+                    Default value: '.'
+                    Example: 12.34
+                </note>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>thousands.separator</source>
+                <target> </target>
+                <note>
+                    The character which separates the thousand parts of a number.
+                    Default value: ','
+                    Example: 123,456,789.01
+                </note>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>monetary.format</source>
+                <target>{symbol} {value}</target>
+                <note>
+                    The monetary format to be used sitewise
+                    Default value: '{symbol} {value}'
+                    Example: $ 123.45
+                </note>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>time.format</source>
+                <target>H \h i</target>
+                <note>
+                    The date format used throughout the system
+                    Default value: 'h:i a'
+                    The following characters must be used on the construction of the date format:
+                    h => 12-hour format of an hour with leading zeros (01 through 12)
+                    H => 24-hour format of an hour with leading zeros (00 through 23)
+                    i => Minutes with leading zeros                   (00 to 59)
+                    s => Seconds, with leading zeros                  (00 through 59)
+                    a => Lowercase Ante meridiem and Post meridiem    (am or pm)
+                </note>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>numbers.ordinal.male</source>
+                <target>{1}premier|{2}seconde|{3}troisième|{4}quatrième|{5}cinquième|{6}sixième|{7}septième|{8}huitième|{9}neuvième|{10}dixième|]10,Inf[%count%e</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>numbers.ordinal.female</source>
+                <target>{1}premier|{2}seconde|{3}troisième|{4}quatrième|{5}cinquième|{6}sixième|{7}septième|{8}huitième|{9}neuvième|{10}dixième|]10,Inf[%count%e</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>numbers.ordinal.simplified.male</source>
+                <target>{1}%count%er|]1,Inf[%count%e</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>numbers.ordinal.simplified.female</source>
+                <target>{1}%count%er|]1,Inf[%count%e</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>week.days</source>
+                <target>{1}Dimanche|{2}Lundi|{3}Mardi|{4}Mercredi|{5}Jeudi|{6}Vendredi|{7}Samedi</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>months</source>
+                <target>{1}Janvier|{2}Février|{3}Mars|{4}Avril|{5}Mai|{6}Juin|{7}Juillet|{8}Août|{9}Septembre|{10}Octobre|{11}Novembre|{12}Décembre</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

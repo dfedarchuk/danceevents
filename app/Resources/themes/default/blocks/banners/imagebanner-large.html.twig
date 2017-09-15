@@ -1,0 +1,28 @@
+{# banner \ArcaSolutions\BannersBundle\Entity\Banner #}
+<div class="{{ classes|join(" ") }}">
+    {% if banner.showType == 1 %}
+        {{ banner.script|raw }}
+    {% elseif banner.status|upper == "A" %}
+        {% if image_type|lower != 'swf' %}
+            <a href="{{ url }}" {{ target }}>
+                <img src="{{ asset(image, 'domain_images') | imagine_filter('largebanner') }}"
+                     alt="{{ banner.caption }}" class="img-responsive center-block">
+            </a>
+        {% else %}
+            <object class="center-block" width="320" height="100" align="middle"
+                    codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
+                <param name="allowFullScreen" value="false">
+                <param name="movie" value="{{ asset(image, 'domain_images', true) }}">
+                <param name="quality" value="high">
+                <param name="scale" value="noscale">
+                <param name="salign" value="lt">
+                <param name="wmode" value="opaque">
+                <param name="allowScriptAccess" value="always">
+                <embed src="{{ asset(image, 'domain_images', true) }}" quality="high" width="320"
+                       height="100" wmode="opaque" align="middle" scale="noscale" salign="LT"
+                       allowfullscreen="false" allowscriptaccess="always" type="application/x-shockwave-flash"
+                       pluginspage="http://www.macromedia.com/go/getflashplayer">
+            </object>
+        {% endif %}
+    {% endif %}
+</div>

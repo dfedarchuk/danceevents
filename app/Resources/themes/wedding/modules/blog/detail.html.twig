@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' -%}
+
+{# use it to shows address -#}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{% block SEO %}
+    {{ generateBlogSEO( item ) }}
+{% endblock -%}
+
+{# enables autocomplete in phpstorm -#}
+{# item \ArcaSolutions\BlogBundle\Entity\Post -#}
+
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}

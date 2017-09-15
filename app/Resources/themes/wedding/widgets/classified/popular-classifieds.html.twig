@@ -1,0 +1,13 @@
+{# Popular Classfieds -#}
+<section class="block bestof">
+    <div class="container">
+        {% set popular = popularClassified(2, 3, 'col-sm-4') %}
+        {% if popular is not empty %}
+            <h2 class="theme-title"
+                data-trans="{{ 'Popular Classifieds'|trans({}, 'widgets') }}">{{ content.labelPopularClassifieds|trans({}, 'widgets') }}
+            </h2>
+            {{ popular|raw }}
+        {% endif %}
+
+    </div>
+</section>

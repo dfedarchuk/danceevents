@@ -1,0 +1,71 @@
+web_homepage:
+    path:     /
+    defaults: { _controller: WebBundle:Default:index }
+
+web_maintenance:
+    path:     /maintenance
+    defaults: { _controller: CoreBundle:Maintenance:index }
+
+web_newsletter:
+    path:     /newsletter
+    defaults: { _controller: WebBundle:Default:newsletter }
+    methods: [POST]
+    condition: "request.isXmlHttpRequest()"
+    options:
+        expose: true
+
+web_bookmark:
+    path:     /bookmark/{module}/{id}
+    defaults: { _controller: WebBundle:Default:bookmark }
+    methods: [GET]
+    condition: "request.isXmlHttpRequest()"
+    requirements:
+        id: \d+
+        module: listing|event|classified|article
+    options:
+        expose: true
+
+web_faq:
+    path:     /%alias_faq_url_divisor%
+    defaults: { _controller: WebBundle:Default:faq }
+
+web_contactus:
+    path: /%alias_contactus_url_divisor%
+    defaults: { _controller: WebBundle:Contactus:index }
+
+web_terms:
+    path: /%alias_terms_url_divisor%
+    defaults: { _controller: WebBundle:Default:terms }
+
+web_privacy:
+    path: /%alias_privacy_url_divisor%
+    defaults: { _controller: WebBundle:Default:privacy }
+
+web_sitemap:
+    path: /%alias_sitemap_url_divisor%
+    defaults: { _controller: WebBundle:Default:sitemap }
+
+web_rate_review:
+    path: /rateReview/{type}/{id}
+    defaults: { _controller: WebBundle:Review:rate }
+    methods: [POST]
+    condition: "request.isXmlHttpRequest()"
+    requirements:
+        id: \d+
+        type: like|dislike
+    options:
+        expose: true
+
+web_add_review:
+    path: /review/add
+    defaults: { _controller: WebBundle:Review:addReview }
+
+web_custom_page:
+    path: /{friendlyUrl}.{_format}
+    defaults: { _controller: WebBundle:CustomPage:index }
+    requirements:
+        _format:  html
+
+web_advertise:
+    path: /%alias_advertise_url_divisor%
+    defaults: { _controller: WebBundle:Advertise:index }

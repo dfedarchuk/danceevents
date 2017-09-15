@@ -1,0 +1,7 @@
+{# Category -#}
+{% set cat = browseByCategoryArticle() %}
+{% if cat is not empty %}
+    <section class="block">
+        {{ cat|raw }}
+    </section>
+{% endif %}

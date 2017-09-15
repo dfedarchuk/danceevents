@@ -1,0 +1,1834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-06-22T13:10:33Z" source-language="en" target-language="it" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="1e85d97e7c0fcd28c15e7822153dc677a3820477" resname="2 Column Recent Articles">
+        <source>2 Column Recent Articles</source>
+        <target>2 Colonna Recenti articoli</target>
+        <jms:reference-file line="1120">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7b3a817abdcf5e017471f67bf51304521a726932" resname="3 Featured Classifieds">
+        <source>3 Featured Classifieds</source>
+        <target>3 annunci in vetrina</target>
+        <jms:reference-file line="1036">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="14ac6c832c6d80f6b4459fe2faed5b1327cd9e94" resname="3 Featured Listings">
+        <source>3 Featured Listings</source>
+        <target>3 Annunci in vetrina</target>
+        <jms:reference-file line="1032">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="363e3d6f255a26c35eb4bc09918c31432a443b89" resname="3 Must Read Articles">
+        <source>3 Must Read Articles</source>
+        <target>3 Deve leggere gli articoli</target>
+        <jms:reference-file line="1038">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1f31aa8df39639b224312d918d84a4016320e9a5" resname="3 Popular Posts">
+        <source>3 Popular Posts</source>
+        <target>3 Post più popolari</target>
+        <jms:reference-file line="1042">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="de24245beca3a139444903ff206681f29f43e0c1" resname="3 Recent Articles">
+        <source>3 Recent Articles</source>
+        <target>3 Articoli recenti</target>
+        <jms:reference-file line="1022">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="97f273b405f13d6673c98f83daef1b6f24dc9876" resname="3 Recent Posts">
+        <source>3 Recent Posts</source>
+        <target>3 messaggi recenti</target>
+        <jms:reference-file line="1155">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="48cd422c8113cf3f170b1f9fdd2d831905229166" resname="3 Special Deals">
+        <source>3 Special Deals</source>
+        <target>3 Offerte speciali</target>
+        <jms:reference-file line="1040">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1622ee5be8093ef02c6002c2bc8af0e1817d10f9" resname="3 rectangle ad bar">
+        <source>3 rectangle ad bar</source>
+        <target>3 rettangolo bar annuncio</target>
+        <jms:reference-file line="1020">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2d7697fba5601f81a9084f1bf648fcef1c4069ba" resname="4 Featured Events">
+        <source>4 Featured Events</source>
+        <target>4 Eventi in primo piano</target>
+        <jms:reference-file line="1154">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="82fdf5c1c00f636c7f173db03c074d5a84764415" resname="4 Featured listings">
+        <source>4 Featured listings</source>
+        <target>4 annunci in vetrina</target>
+        <jms:reference-file line="1018">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a8613ff0ca3301cd2f5f3913460772523458f93b" resname="4 New Deals">
+        <source>4 New Deals</source>
+        <target>4 Nuove Offerte</target>
+        <jms:reference-file line="1041">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8311b91de1a043907f1db31a018efe42ab24e8e6" resname="4 Recent Articles">
+        <source>4 Recent Articles</source>
+        <target>4 Articoli recenti</target>
+        <jms:reference-file line="1039">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="80bd97c6dfe6ccc06942ab11b9dbbd462083b2f9" resname="404 Error">
+        <source>404 Error</source>
+        <target>Errore 404</target>
+        <jms:reference-file line="337">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5dcb70ab955aaa5f4a3689776ddda1366f736a2a" resname="5 Featured Listings">
+        <source>5 Featured Listings</source>
+        <target>5 Villaggio case</target>
+        <jms:reference-file line="1136">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6daa82e7315b3ebe82ea66c29dfb8ff30319466d" resname="5 Recent Articles">
+        <source>5 Recent Articles</source>
+        <target>5 Recenti articoli</target>
+        <jms:reference-file line="1152">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="331529b71f9b31ef0dc22614d558eb94a22ce651" resname="6 Featured Listings plus 2 Square Banners">
+        <source>6 Featured Listings plus 2 Square Banners</source>
+        <target>6 Vicino Alla più 2 Banner quadrati</target>
+        <jms:reference-file line="1153">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3c858fe5ad1e897eff594f3da4cc6e4a9b046b09" resname="Account Preferences">
+        <source>Account Preferences</source>
+        <target>Preferenze del profilo</target>
+        <jms:reference-file line="17">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="94">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="113">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="94">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="113">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="113">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="113">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="110df454e6dbf2546d98c76b48956787736c2dfa" resname="Advertise">
+        <source>Advertise</source>
+        <target>Pubblicizzare</target>
+        <jms:reference-file line="22">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="94bd6477ad05bfc54dce9f20e82a49c4120ddffc" resname="Advertise With Us">
+        <source>Advertise With Us</source>
+        <target>Fai pubblicità con noi</target>
+        <jms:reference-file line="283">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a1329a711dc6d445f13bfb4778c283848d1f8fda" resname="Advertisement">
+        <source>Advertisement</source>
+        <target>Pubblicità</target>
+        <jms:reference-file line="10">/Resources/themes/default/widgets/banners/leaderboard-ad-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/doctor/widgets/banners/leaderboard-ad-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/restaurant/widgets/banners/leaderboard-ad-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/widgets/banners/leaderboard-ad-bar.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1fd266c217d796db7382651498389bb639d8eaa2" resname="All Categories">
+        <source>All Categories</source>
+        <target>Tutte le Categorie</target>
+        <jms:reference-file line="1062">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3094bd38442924587380632ca24e840da494c8b6" resname="All Locations">
+        <source>All Locations</source>
+        <target>Tutte le Sedi</target>
+        <jms:reference-file line="1063">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4dacdf704154dcb2d85fa071c8be80104f1c8ce0" resname="Are you a Sponsor?">
+        <source>Are you a Sponsor?</source>
+        <target>Sei uno sponsor?</target>
+        <jms:reference-file line="50">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b674fe3ebd0e56bc08cfcfc44087010259b9cfec" resname="Article Detail">
+        <source>Article Detail</source>
+        <target>Dettaglio Articolo</target>
+        <jms:reference-file line="184">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1052">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="caa2cfd089713a7f68f94da9b17799bbe5b42a0f" resname="Article Home">
+        <source>Article Home</source>
+        <target>Articolo Home</target>
+        <jms:reference-file line="175">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7098b323e1f729d9a4af259422166e893fb69762" resname="Article Reviews">
+        <source>Article Reviews</source>
+        <target>Articolo Recensioni</target>
+        <jms:reference-file line="193">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a66938e19941941423d879474534dd9c39a7369b" resname="Article View All Categories">
+        <source>Article View All Categories</source>
+        <target>Articolo Vedi tutte le categorie</target>
+        <jms:reference-file line="202">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7c422841b7e3951946583038790545c4ed38481b" resname="Articles">
+        <source>Articles</source>
+        <target>Articoli</target>
+        <jms:reference-file line="48">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e0b820b8dd24144f494d37fa2c6f0e836f888ef1" resname="Available on the Apple Store">
+        <source>Available on the Apple Store</source>
+        <target>Disponibile su Apple Store</target>
+        <jms:reference-file line="18">/Resources/themes/default/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/doctor/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/restaurant/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/wedding/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2cb057f8b46ba34dd5b4b4654bc0b3c355a04434" resname="Available on the Play Store">
+        <source>Available on the Play Store</source>
+        <target>Disponibile sul Play Store</target>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c8d880e123d672415f95a5fc6cdd6bab655516a6" resname="Backgroud image wrong file extension">
+        <source>Backgroud image wrong file extension</source>
+        <target>Immagine backgroud estensione del file sbagliato</target>
+        <jms:reference-file line="140">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="379b197fdd2fa777e291ab5192ba40ca2dda05a7" resname="Banner Large Mobile, one banner Sponsored Links and one Google Ads">
+        <source>Banner Large Mobile, one banner Sponsored Links and one Google Ads</source>
+        <target>Banner Large Mobile, uno striscione Sponsored Links e uno Google Ads</target>
+        <jms:reference-file line="1027">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b64085ed689f2c4b2652377aae67842cf443a750" resname="Banners">
+        <source>Banners</source>
+        <target>Banner</target>
+        <jms:reference-file line="45">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7fc1eff4bb951b2f9b4e6210837da33d23aed02e" resname="Best Of Listings">
+        <source>Best Of Listings</source>
+        <target>Best Of annunci</target>
+        <jms:reference-file line="1033">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c4c060daf178260897a3d70ccc4cfaa5e80db3c5" resname="Best of">
+        <source>Best of</source>
+        <target>Il Meglio </target>
+        <jms:reference-file line="6">/Resources/themes/default/widgets/listing/bestof-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/doctor/widgets/listing/bestof-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/restaurant/widgets/listing/bestof-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/wedding/widgets/listing/bestof-listings.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b9d2b2362bc33581ba11fddcb0cf0590ebd3a7a" resname="Blog">
+        <source>Blog</source>
+        <target>Blog</target>
+        <jms:reference-file line="50">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="39746e259abe95368c91733a671e207d3b06d4c6" resname="Blog Detail">
+        <source>Blog Detail</source>
+        <target>Blog Dettaglio</target>
+        <jms:reference-file line="256">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1054">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="de573864c5b3cd6a8d4cc5659fd373d081489dbe" resname="Blog Home">
+        <source>Blog Home</source>
+        <target>Blog Casa</target>
+        <jms:reference-file line="247">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="582883563d22a8a5aec7330e81031244524fe8a2" resname="Blog View All Categories">
+        <source>Blog View All Categories</source>
+        <target>Blog Vedi tutte le categorie</target>
+        <jms:reference-file line="265">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a5792cc75b4361e7c6d71cd2386b40cea12b1263" resname="Browse by Category and Location with Square banner">
+        <source>Browse by Category and Location with Square banner</source>
+        <target>Sfoglia per categoria e località con la bandiera Piazza</target>
+        <jms:reference-file line="1121">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="934ac08157ea6223014dc4c7ff0dd64e3126efae" resname="Browse by Location with Right Banner (160x600)">
+        <source>Browse by Location with Right Banner (160x600)</source>
+        <target>Cerca per posizione con banner a destra (160x600)</target>
+        <jms:reference-file line="1025">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ed6ba3e1c5bd9d95219e4d6989f4ac9f842d1d75" resname="Browse by Locations plus Square Banners">
+        <source>Browse by Locations plus Square Banners</source>
+        <target>Sfoglia per posizioni più Banner quadrati</target>
+        <jms:reference-file line="1137">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9441edec7142bbb6983b4e88a054e83428bde6ad" resname="Browse by category">
+        <source>Browse by category</source>
+        <target>Sfoglia per categoria</target>
+        <jms:reference-file line="4">/Resources/themes/doctor/blocks/browse-by-category.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9ab6ea5a8fc519bb531885bb72a696ab7736e0aa" resname="Browse by category ">
+        <source>Browse by category </source>
+        <target>Sfoglia per categoria</target>
+        <jms:reference-file line="3">/Resources/themes/default/blocks/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/category/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/category/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/restaurant/blocks/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/category/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/wedding/blocks/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/category/browse-by-category.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="71f51281bd9896290e5701548bf6245b4bfc6936" resname="Browse by category block with images">
+        <source>Browse by category block with images</source>
+        <target>Sfoglia per categoria blocco con immagini</target>
+        <jms:reference-file line="1019">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="475dcca50da22042ab60b20f5ca5d12c94d76919" resname="Browse by location">
+        <source>Browse by location</source>
+        <target>Sfoglia per località</target>
+        <jms:reference-file line="4">/Resources/themes/doctor/blocks/browse-by-location.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/restaurant/widgets/location/browse-by-locations-plus-square-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="474ffd2e86a2aeda1cf65cb117b3a671dead1975" resname="Classified All Locations">
+        <source>Classified All Locations</source>
+        <target>Classificata Tutto</target>
+        <jms:reference-file line="166">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="67440b7e78b8a63c5b3ebf5acc948b2929040362" resname="Classified Detail">
+        <source>Classified Detail</source>
+        <target>Dettaglio annuncio</target>
+        <jms:reference-file line="148">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1051">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ea7dec0039d9f7b26ad3bcc812855d1bef25fc1e" resname="Classified Home">
+        <source>Classified Home</source>
+        <target>Annuncio casa</target>
+        <jms:reference-file line="139">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="16ee954c1bba30e6a560c4727f4d2a8a2a3bfeaf" resname="Classified View All Categories">
+        <source>Classified View All Categories</source>
+        <target>Classificata Vedi Tutte le categorie</target>
+        <jms:reference-file line="157">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d8e74020d85ce27d943b5df45867a2cf38f90114" resname="Classifieds">
+        <source>Classifieds</source>
+        <target>Annunci</target>
+        <jms:reference-file line="51">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a7894e6b8aa7ee8481f4d7ae46cb9fc9445b44ab" resname="Come back soon to check this page">
+        <source>Come back soon to check this page</source>
+        <target>Torna presto a controllare questa pagina</target>
+        <jms:reference-file line="2731">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7de90a65241a6cdbd9ade485d777715d99285a1e" resname="Common">
+        <source>Common</source>
+        <target>Comune</target>
+        <jms:reference-file line="43">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9ad0ccff7c60872356cb74b82694782be79ba338" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>Contattaci</target>
+        <jms:reference-file line="274">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/default/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/default/widgets/contactus/contact-form.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/doctor/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/doctor/widgets/contactus/contact-form.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/restaurant/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/restaurant/widgets/contactus/contact-form.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/wedding/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/wedding/widgets/contactus/contact-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d927866c0f703b98340e34d440bb3842131e8875" resname="Contact form">
+        <source>Contact form</source>
+        <target>Modulo di Contatto</target>
+        <jms:reference-file line="1056">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4832e45812a2724f16a15f9ae87adfc8ae4168cf" resname="Contact us">
+        <source>Contact us</source>
+        <target>Contattaci</target>
+        <jms:reference-file line="3">/Resources/themes/default/blocks/contactus-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/doctor/blocks/contactus-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/restaurant/blocks/contactus-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/wedding/blocks/contactus-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a420abf6e89816696d0724f377c00c6447c28f0a" resname="Copyright">
+        <source>Copyright</source>
+        <target>Testo Diritti d'autore</target>
+        <jms:reference-file line="55">/../web/includes/code/widgetActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a03d57f985198a3692396a238bcf00a1dc0966e7" resname="Create your profile today and write a review. It’s free!">
+        <source>Create your profile today and write a review. It’s free!</source>
+        <target>Crea il tuo profilo oggi e scrivere una recensione. È gratis!</target>
+        <jms:reference-file line="17">/Resources/themes/doctor/widgets/review/recent-reviews-plus-skyscraper-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8d34a35cb7e16170bf51178e944f8e7110cb3503" resname="Custom Content">
+        <source>Custom Content</source>
+        <target>Contenuto personalizzato</target>
+        <jms:reference-file line="1059">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d87f47b47e4d5794d53fe0734c49417bd046cde0" resname="Dashboard">
+        <source>Dashboard</source>
+        <target>Scrivania</target>
+        <jms:reference-file line="24">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7fd9bd91fef7416200864af9dbb5ced7e6e619d6" resname="Deal All Locations">
+        <source>Deal All Locations</source>
+        <target>Deal Tutto</target>
+        <jms:reference-file line="238">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1656791bba6b74e601f477f5f62e7ca158b9d8a5" resname="Deal Detail">
+        <source>Deal Detail</source>
+        <target>Deal Dettaglio</target>
+        <jms:reference-file line="220">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1053">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9e69847a5aa88610e4f3fd8592ae56a2b88ec44b" resname="Deal Home">
+        <source>Deal Home</source>
+        <target>Deal casa</target>
+        <jms:reference-file line="211">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="baf9209ff36d22e5457a72ae17d48106d2323173" resname="Deal View All Categories">
+        <source>Deal View All Categories</source>
+        <target>Distribuisci Vedi Tutte le categorie</target>
+        <jms:reference-file line="229">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2c874671bfe1cf8c56e0b0d4723ff8ed9d2daca8" resname="Deals">
+        <source>Deals</source>
+        <target>Offerte</target>
+        <jms:reference-file line="49">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f1774cce56c0ee3eedfd8767da6eea7179e5dab9" resname="Demo Directory is proud to announce its new directory service which is now available online to visitors and new suppliers. It boasts endless amounts of new features for customers and suppliers.">
+        <source>Demo Directory is proud to announce its new directory service which is now available online to visitors and new suppliers. It boasts endless amounts of new features for customers and suppliers.</source>
+        <target>Demo Directory è orgogliosa di annunciare il suo nuovo servizio di directory, che è ora disponibile on-line per i visitatori e nuovi fornitori. Vanta quantità infinita di nuove funzionalità per i clienti e fornitori.</target>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/advertise/signupbox.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="70f478d590f45b5d6ddfae19c94e8d1b35fabaec" resname="Did you not find your answer? Contact us.">
+        <source>Did you not find your answer? Contact us.</source>
+        <target>Non hai trovato la tua risposta? Contattaci.</target>
+        <jms:reference-file line="21">/Resources/themes/default/widgets/faq/box.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/doctor/widgets/faq/box.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/widgets/faq/box.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/wedding/widgets/faq/box.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7ecca0633d4ea2610e30f5e69e0221ef7c11e6aa" resname="Download our App">
+        <source>Download our App</source>
+        <target>Scarica la nostra applicazione</target>
+        <jms:reference-file line="13">/Resources/themes/default/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/doctor/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/restaurant/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/wedding/widgets/navigation/footer-download-our-apps.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="95ea4f2d7822049de1be2b989155b329fb628623" resname="Download our apps bar">
+        <source>Download our apps bar</source>
+        <target>Scarica la nostra barra di applicazioni</target>
+        <jms:reference-file line="1028">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c9c97afe5a933e0af40a15a9e24fed6c565e49dd" resname="Edit this page">
+        <source>Edit this page</source>
+        <target>Modifica questa pagina</target>
+        <jms:reference-file line="54">/Resources/themes/default/base.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/doctor/base.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/restaurant/base.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/wedding/base.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9d32a92a25f09bf26b2874534a74ec9a8608dd5c" resname="Error uploading image. Please try again.">
+        <source>Error uploading image. Please try again.</source>
+        <target>Immagine Errore durante il caricamento. Riprova.</target>
+        <jms:reference-file line="118">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+        <jms:reference-file line="143">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+        <jms:reference-file line="166">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+        <jms:reference-file line="82">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="370502c4842a5a1b514ed0aa521bfa505c4e58b2" resname="Event All Locations">
+        <source>Event All Locations</source>
+        <target>Evento Tutto</target>
+        <jms:reference-file line="130">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6a8109e11cce0a345656433efb9bfbe6d06683e0" resname="Event Detail">
+        <source>Event Detail</source>
+        <target>Descrizione degli eventi</target>
+        <jms:reference-file line="112">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1050">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="759709164bed10cb51bb5550dcdb39170e21848d" resname="Event Home">
+        <source>Event Home</source>
+        <target>Gara di casa</target>
+        <jms:reference-file line="103">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f39554b1cf8351aa7667b05104b82dca778fcff1" resname="Event View All Categories">
+        <source>Event View All Categories</source>
+        <target>Evento Vedi tutte le categorie</target>
+        <jms:reference-file line="121">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c5497bca58468ae64aed6c0fd921109217988db3" resname="Events">
+        <source>Events</source>
+        <target>Eventi</target>
+        <jms:reference-file line="47">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/default/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/doctor/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/wedding/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="49968e72fa7b36a12726d04bb5dabf528f7da6e5" resname="Events Calendar">
+        <source>Events Calendar</source>
+        <target>Calendario Eventi</target>
+        <jms:reference-file line="1078">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bcc730b6acfac9b20803aa1cc5d1acbb37aa8fde" resname="Explore All Articles Categories">
+        <source>Explore All Articles Categories</source>
+        <target>Vedi tutte le categorie di articoli</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/category/all-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="16b6b5ae712eb7deb3f815c92fe2e3182ff628aa" resname="Explore All Blog Categories">
+        <source>Explore All Blog Categories</source>
+        <target>Esplora Tutte le Categorie del blog</target>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/category/all-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="50ba118781b24d39c9c6e1a3af05f88ef3ab3d3c" resname="Explore All Categories">
+        <source>Explore All Categories</source>
+        <target>Esplora tutte le Categorie</target>
+        <jms:reference-file line="5">/Resources/themes/doctor/blocks/browse-by-category.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d2323f4dd01cf81ee1f4cd04b20582e4d7a14f82" resname="Explore All Classifieds Categories">
+        <source>Explore All Classifieds Categories</source>
+        <target>Vedi tutte le categorie di Annunci</target>
+        <jms:reference-file line="9">/Resources/themes/default/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/doctor/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/restaurant/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/wedding/widgets/category/all-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bb4920b1c2c4614f4c1dfbcd352de0c367edbe02" resname="Explore All Classifieds Locations">
+        <source>Explore All Classifieds Locations</source>
+        <target>Vedi tutte le sedi di Annunci</target>
+        <jms:reference-file line="4">/Resources/themes/default/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="4">/Resources/themes/doctor/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="4">/Resources/themes/restaurant/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="4">/Resources/themes/wedding/widgets/location/all-locations-block.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="db27e0f03888462e36e92a6e3fa2067afbe0e5ed" resname="Explore All Deal Locations">
+        <source>Explore All Deal Locations</source>
+        <target>Esplora Tutte le offerte sedi</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/location/all-locations-block.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="97547965e70f69a3a7dfbcd6a5ebdc04dd4f0626" resname="Explore All Deals Categories">
+        <source>Explore All Deals Categories</source>
+        <target>Vedi tutte le categorie di Annunci</target>
+        <jms:reference-file line="10">/Resources/themes/default/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/doctor/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/restaurant/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/widgets/category/all-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="34034728ddbadd6fea94de03fac3116e8aadcd69" resname="Explore All Events Categories">
+        <source>Explore All Events Categories</source>
+        <target>Vedi tutte le categorie di eventi</target>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/category/all-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="99e6ffa270703be5c4925d56c05bfc5e11f85d06" resname="Explore All Events Locations">
+        <source>Explore All Events Locations</source>
+        <target>Vedi tutte le sedi per eventi</target>
+        <jms:reference-file line="6">/Resources/themes/default/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/doctor/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/restaurant/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/wedding/widgets/location/all-locations-block.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b66e4239f8037f2c9543e82b0ca11f9ef8e35e95" resname="Explore All Listings Categories">
+        <source>Explore All Listings Categories</source>
+        <target>Vedi tutte le categorie</target>
+        <jms:reference-file line="6">/Resources/themes/default/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/doctor/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/restaurant/widgets/category/all-categories.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/wedding/widgets/category/all-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b040238d8fd4eba9d9845a832067cc2507c9eddc" resname="Explore All Listings Locations">
+        <source>Explore All Listings Locations</source>
+        <target>Vedi tutte le sedi</target>
+        <jms:reference-file line="5">/Resources/themes/default/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="5">/Resources/themes/doctor/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="5">/Resources/themes/restaurant/widgets/location/all-locations-block.html.twig</jms:reference-file>
+        <jms:reference-file line="5">/Resources/themes/wedding/widgets/location/all-locations-block.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bab1534f992372bfcbec7d19ed755589b74acdae" resname="Explore Articles">
+        <source>Explore Articles</source>
+        <target>Esplora Articoli</target>
+        <jms:reference-file line="15">/Resources/themes/default/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/doctor/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/wedding/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="30f6d12c6d075eb8ee504a0db8fa621952ddca30" resname="Explore Classifieds">
+        <source>Explore Classifieds</source>
+        <target>Esplorare le Annunci</target>
+        <jms:reference-file line="14">/Resources/themes/default/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/doctor/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/wedding/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e638ce8a31772029d05e5b9561399932a876ac43" resname="Explore Deals">
+        <source>Explore Deals</source>
+        <target>Esplora Offerte</target>
+        <jms:reference-file line="16">/Resources/themes/default/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/doctor/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/wedding/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3c464552f1e4b0bd48e29fd7b9108dc70b4b1a07" resname="Explore Listings">
+        <source>Explore Listings</source>
+        <target>Esplora Listings</target>
+        <jms:reference-file line="12">/Resources/themes/default/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/doctor/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/searchbox/searchbox-module-detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="74dccf1bafbfc4e4a1ce38b68e2636e86585549a" resname="Explore all locations">
+        <source>Explore all locations</source>
+        <target>Vedi tutte le sedi</target>
+        <jms:reference-file line="5">/Resources/themes/doctor/blocks/browse-by-location.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/widgets/location/browse-by-locations-plus-square-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c11c799a65c786b5fff9533c707745c63bf070db" resname="Explore and find Articles">
+        <source>Explore and find Articles</source>
+        <target>Esplorare e trovare gli articoli</target>
+        <jms:reference-file line="18">/Resources/themes/default/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/doctor/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/wedding/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b7ffb3cb29d3c035b4ad985248bfea57bad10755" resname="Explore and find Blog">
+        <source>Explore and find Blog</source>
+        <target>Esplorare e trovare Blog</target>
+        <jms:reference-file line="20">/Resources/themes/default/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/doctor/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/wedding/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5b72505fba77d4f114928a2590a74401c9ca3b61" resname="Explore and find Classifieds">
+        <source>Explore and find Classifieds</source>
+        <target>Esplorare e trovare annunci</target>
+        <jms:reference-file line="17">/Resources/themes/default/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/doctor/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/wedding/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f4edf0d44cd71f236a5719be9692627038b19a36" resname="Explore and find Deals">
+        <source>Explore and find Deals</source>
+        <target>Esplorare e trovare offerte</target>
+        <jms:reference-file line="19">/Resources/themes/default/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/doctor/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/wedding/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="83cced87a4a25e3189dc20fb2f47327f508c71df" resname="Explore and find Events">
+        <source>Explore and find Events</source>
+        <target>Explore and find Events</target>
+        <jms:reference-file line="16">/Resources/themes/default/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/doctor/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/wedding/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7509c7f15df8c02d6f442c2339398a28267e6a27" resname="Explore and find Listings">
+        <source>Explore and find Listings</source>
+        <target>Esplorare e trovare annunci</target>
+        <jms:reference-file line="15">/Resources/themes/default/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/doctor/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/wedding/widgets/searchbox/searchbox-module-home.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c5593488d37b10df95c0a12d26445305f542fd33" resname="Explore more places">
+        <source>Explore more places</source>
+        <target>Esplora più posti</target>
+        <jms:reference-file line="21">/Resources/themes/default/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/doctor/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/wedding/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e84aa29b31bbce13c2527f189e10dbe4c4b558e5" resname="Explore our Blog">
+        <source>Explore our Blog</source>
+        <target>Esplora il nostro Blog</target>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/searchbox/searchbox-module-detail-blog.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/searchbox/searchbox-module-detail-blog.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/searchbox/searchbox-module-detail-blog.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/searchbox/searchbox-module-detail-blog.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f11042a45ba69cc6af5e35117190a1cc05bb7e45" resname="Faq">
+        <source>Faq</source>
+        <target>FAQ</target>
+        <jms:reference-file line="292">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="111">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="111">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="94">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="111">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="111">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="94">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a66249697b87ac5b8140643cb691e0a0056c19fd" resname="Faq box">
+        <source>Faq box</source>
+        <target>Scatola Faq</target>
+        <jms:reference-file line="1057">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eba3e16c76512c412a2c7978381e64058ac15889" resname="Faq header">
+        <source>Faq header</source>
+        <target>Intestazione Faq</target>
+        <jms:reference-file line="1058">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84c8a254bc8da898d3af13b532690b859386a69b" resname="Featured Categories">
+        <source>Featured Categories</source>
+        <target>Categorie in Vetrina</target>
+        <jms:reference-file line="1119">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="15c115f822598a6566780c8cc27b4522aa0ffb4d" resname="Featured Classifieds">
+        <source>Featured Classifieds</source>
+        <target>Annunci in vetrina</target>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/classified/3-featured-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/default/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/classified/3-featured-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/doctor/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/classified/3-featured-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/restaurant/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/classified/3-featured-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/wedding/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c3874b5ac7fc07f986cb758f7792c65a5ae9e3ee" resname="Featured Classifieds with Right banner (230x230)">
+        <source>Featured Classifieds with Right banner (230x230)</source>
+        <target>Annunci in vetrina con banner a destra (230x230)</target>
+        <jms:reference-file line="1026">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="17b3427ace7b21e9c4070e1e9ec194bb8f11bf6e" resname="Featured Events">
+        <source>Featured Events</source>
+        <target>Eventi selezionati</target>
+        <jms:reference-file line="1034">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/default/widgets/event/featured-events.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/doctor/widgets/event/featured-events.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/restaurant/widgets/event/featured-events.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/event/4-featured-events.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/widgets/event/featured-events.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9ce024eacbd17534547390e43c612f030d708313" resname="Featured Listings">
+        <source>Featured Listings</source>
+        <target>Listings in Evidenza</target>
+        <jms:reference-file line="9">/Resources/themes/default/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/listing/5-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/widgets/listing/6-featured-listings-plus-square-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f7ae3354f5d6344c57e9e152ebfe0d44ad5b50d9" resname="Featured listings">
+        <source>Featured listings</source>
+        <target>Listings in Evidenza</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/listing/3-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/listing/3-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/listing/3-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/listing/3-featured-listings.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="df251b06eefdaa932e97b54fbe9a74d3e606fa61" resname="Find">
+        <source>Find</source>
+        <target>Trova</target>
+        <jms:reference-file line="24">/Resources/themes/doctor/widgets/category/browse-by-category-featured.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cca2bfb1727c7ba796bde09db878c883c6ed7264" resname="Follow Us">
+        <source>Follow Us</source>
+        <target>Seguici</target>
+        <jms:reference-file line="13">/Resources/themes/default/blocks/contactus-followus.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/default/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/doctor/blocks/contactus-followus.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/doctor/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/restaurant/blocks/contactus-followus.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/restaurant/blocks/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/wedding/blocks/contactus-followus.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/wedding/blocks/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="26c01e70a337f208f56dae1c3bc18f60c4bff453" resname="Footer">
+        <source>Footer</source>
+        <target>Piè di pagina</target>
+        <jms:reference-file line="1073">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="52">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f5d3a21359384c167ef90f9f590af9c9f890afa9" resname="Footer with Logo">
+        <source>Footer with Logo</source>
+        <target>Piè di pagina con logo</target>
+        <jms:reference-file line="1075">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="042bbdc01e1bb348a5a10d49f5d0e55edccdeb69" resname="Footer with Newsletter">
+        <source>Footer with Newsletter</source>
+        <target>Piè di pagina con Newsletter</target>
+        <jms:reference-file line="1074">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6a7d4e9aefc6c0fe76df1c03a3aa077749699c0e" resname="Footer with Social Media">
+        <source>Footer with Social Media</source>
+        <target>Piè di pagina con i Social Media</target>
+        <jms:reference-file line="1076">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="239f9960cee89e04dff9e151184f8b9f123264ce" resname="Have you tried the search option to easily find what you are looking for?">
+        <source>Have you tried the search option to easily find what you are looking for?</source>
+        <target>Hai provato l'opzione di ricerca per trovare facilmente quello che stai cercando?</target>
+        <jms:reference-file line="2711">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="31341c6f0c7af677ffb8fadcb92038e8ac2b6193" resname="Header">
+        <source>Header</source>
+        <target>Intestazione</target>
+        <jms:reference-file line="1067">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="42">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="66dea0e7eb72ec53a8a8e9e144ac049ccb78a3e1" resname="Header with Contact Phone">
+        <source>Header with Contact Phone</source>
+        <target>Intestazione con Contact Phone</target>
+        <jms:reference-file line="1068">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bf2a3680cabd10d2203c08a1c0e159476bcbb243" resname="Home Page">
+        <source>Home Page</source>
+        <target>Pagina iniziale</target>
+        <jms:reference-file line="40">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="339139a85743fd3ba78316ad7db894e4307b6f0c" resname="How can we help you?">
+        <source>How can we help you?</source>
+        <target>Come possiamo aiutarti?</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/faq/box.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/faq/box.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/faq/box.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/faq/box.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b68d94cb5734272b28d7826f6859a9e115234538" resname="Image logo wrong file extension">
+        <source>Image logo wrong file extension</source>
+        <target>Immagine logo estensione del file sbagliato</target>
+        <jms:reference-file line="115">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="aef36502d67b0520654deb764dd055a7e905cfdd" resname="In">
+        <source>In</source>
+        <target>In</target>
+        <jms:reference-file line="7">/Resources/themes/default/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d6a261f66ab45ae7d1441a1d6702322af2c340a1" resname="Item Unavailable Page">
+        <source>Item Unavailable Page</source>
+        <target>Pagina Articolo non disponibile</target>
+        <jms:reference-file line="346">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c79b0f0f9e83aa66f29a4edb9303e31212f660bb" resname="Leaderboard ad bar (728x90)">
+        <source>Leaderboard ad bar (728x90)</source>
+        <target>Bar ad Leaderboard (728x90)</target>
+        <jms:reference-file line="1017">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="24d948e4bdbe5b8224bbc0dfbab1923fab00b98e" resname="Limit">
+        <source>Limit</source>
+        <target>Limite</target>
+        <jms:reference-file line="59">/../web/includes/code/widgetActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d0517071aa376e797705058bbad4b658954b9930" resname="Link">
+        <source>Link</source>
+        <target>Collegamento</target>
+        <jms:reference-file line="49">/../web/includes/forms/form-slider-info-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8065bba2d1a12410153545982975d59969a19fee" resname="List your business today">
+        <source>List your business today</source>
+        <target>Elencate i vostri affari di oggi</target>
+        <jms:reference-file line="50">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a2e0399ff42557cc8a6cf50ca84cffa92cb39ef9" resname="Listing All Locations">
+        <source>Listing All Locations</source>
+        <target>Tutte le sedi di Listato</target>
+        <jms:reference-file line="94">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6e2e3db74c8fb479226c2d26ae9f9c2f2a567eec" resname="Listing Detail">
+        <source>Listing Detail</source>
+        <target>Dettagli di Listato</target>
+        <jms:reference-file line="67">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1049">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bf01de504f55c8e13c764950a17b26cfe3978726" resname="Listing Home">
+        <source>Listing Home</source>
+        <target>Pagina iniziale di Listato</target>
+        <jms:reference-file line="58">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c8fea708d07d95665c5947e250a113632050671c" resname="Listing Reviews">
+        <source>Listing Reviews</source>
+        <target>Recensioni di Listato</target>
+        <jms:reference-file line="76">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="faddf50839297e65d45054d7f11673ac2c50bdb1" resname="Listing View All Categories">
+        <source>Listing View All Categories</source>
+        <target>View Tutte le categorie di Listato</target>
+        <jms:reference-file line="85">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e539f597db1f90ad18e9093b2b7f1268953063f4" resname="Listings">
+        <source>Listings</source>
+        <target>Listato</target>
+        <jms:reference-file line="46">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2dab1c4d68eda9cd8e5eca3295fc16d1ec8506b2" resname="Log Off">
+        <source>Log Off</source>
+        <target>Disconnettersi</target>
+        <jms:reference-file line="19">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="114">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="57">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="114">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="97">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="57">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="114">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="57">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="114">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="97">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="57">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f7c400ed695f898b8ee9d21664aa17b5bb693828" resname="Log in">
+        <source>Log in</source>
+        <target>Accedi</target>
+        <jms:reference-file line="30">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="120">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="31">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="102">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="120">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="103">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="31">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="102">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="120">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="102">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="31">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="102">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="120">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="103">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="efd197f3fce450112a4bdd0c3db3118a46b8002c" resname="Main navigation">
+        <source>Main navigation</source>
+        <target>Navigazione principale</target>
+        <jms:reference-file line="65">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="94de303bbef8935622224c5db48199c807ab7d71" resname="Maintenance">
+        <source>Maintenance</source>
+        <target>Manutenzione</target>
+        <jms:reference-file line="328">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="57f5f5efbc5990f5230aa95359042338b856707b" resname="Menu">
+        <source>Menu</source>
+        <target>Menu</target>
+        <jms:reference-file line="66">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="68">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="68">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="81daccf873a8ed4abeded585685793e6bef10d81" resname="Must Read Articles">
+        <source>Must Read Articles</source>
+        <target>Deve leggere gli articoli</target>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/article/mustread-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/article/mustread-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/article/mustread-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/article/mustread-articles.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="89c44ddfe2b9b3777024d8e7e790c67228568c42" resname="Navigation with Centered Logo">
+        <source>Navigation with Centered Logo</source>
+        <target>Navigazione con il marchio Centered</target>
+        <jms:reference-file line="1070">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7dd5de924d2e0f676c31384053d0f07356581d2a" resname="Navigation with left Logo plus Social Media">
+        <source>Navigation with left Logo plus Social Media</source>
+        <target>Navigazione con logo più Social Media</target>
+        <jms:reference-file line="1069">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dfa12b1b625829bf85987283116e606ae465b08a" resname="Need help with something? Get in touch with us and we'll do our best to answer your question as soon as possible.">
+        <source>Need help with something? Get in touch with us and we'll do our best to answer your question as soon as possible.</source>
+        <target>Hai bisogno di aiuto? Mettetevi in ​​contatto con noi e noi faremo del nostro meglio per rispondere alla tua domanda il più presto possibile.</target>
+        <jms:reference-file line="28">/Resources/themes/default/widgets/contactus/contact-form.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/doctor/widgets/contactus/contact-form.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/restaurant/widgets/contactus/contact-form.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/wedding/widgets/contactus/contact-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c26cb107b2443238f53baf120df15213d627b638" resname="New Deals">
+        <source>New Deals</source>
+        <target>Nuove offerte</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/deal/new-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/deal/new-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/deal/new-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/deal/new-deals.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="78b819622818ad2619369c9d5ad8d0689abb7d25" resname="New Item">
+        <source>New Item</source>
+        <target>Nuovo oggetto</target>
+        <jms:reference-file line="58">/../web/includes/code/widgetNavigationAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d1e3be3dadafd0e4163beaefd500c65fade669e0" resname="New Page">
+        <source>New Page</source>
+        <target>Nuova pagina</target>
+        <jms:reference-file line="46">/../web/includes/code/pageActionAjax.php</jms:reference-file>
+        <jms:reference-file line="48">/../web/includes/code/pageActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e429d3f19d79b208f390747345e775526833a05e" resname="New Slide">
+        <source>New Slide</source>
+        <target>Nuova diapositiva</target>
+        <jms:reference-file line="43">/../web/includes/code/widgetSliderAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ed05e720ccc3ef269db1b38201da8b873acc895" resname="Newsletter">
+        <source>Newsletter</source>
+        <target>Newsletter</target>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="18a2c3297916478d9a8ff26ae204f07de90b5dac" resname="No widgets available. Widgets of this section can be placed just once in a page. Please check if your page already have a widget of this type">
+        <source>No widgets available. Widgets of this section can be placed just once in a page. Please check if your page already have a widget of this type</source>
+        <target>Nessun widget disponibili. Widgets di questa sezione possono essere posizionati solo una volta in una pagina. Si prega di verificare se la pagina ha già un widget di questo tipo</target>
+        <jms:reference-file line="136">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c8e633f4a5ad8991f348fa8bf85dfec134e2c4dc" resname="Oops">
+        <source>Oops</source>
+        <target>Spiacenti</target>
+        <jms:reference-file line="2705">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a291d5a123fdaca48e54c00eb124ed9a8899c2c9" resname="Open Search">
+        <source>Open Search</source>
+        <target>Apri ricerca</target>
+        <jms:reference-file line="70">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="71">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="72">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="71">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="71">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="71">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="72">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cb4c1f20be31045f9ed9f71207df7d43b33cabd3" resname="Open in a new window">
+        <source>Open in a new window</source>
+        <target>Aprire in una nuova finestra</target>
+        <jms:reference-file line="58">/../web/includes/forms/form-slider-info-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9039a5d576dacb525de9acd30cae9646a6c3b714" resname="Please come back later">
+        <source>Please come back later</source>
+        <target>Per favore ritorna più tardi</target>
+        <jms:reference-file line="2699">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a2b49d5ad545bec8f59da20d65e34413b80103a2" resname="Popular Classifieds">
+        <source>Popular Classifieds</source>
+        <target>Annunci di Popolari</target>
+        <jms:reference-file line="1037">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/classified/popular-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/classified/popular-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/classified/popular-classifieds.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/classified/popular-classifieds.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d67276610e3390c5821607a6b5bbb05fd3298e18" resname="Popular Deals">
+        <source>Popular Deals</source>
+        <target>Offerte Popolari</target>
+        <jms:reference-file line="1024">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/deal/popular-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/deal/popular-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/restaurant/widgets/deal/featured-deals-plus-skyscraper-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/deal/popular-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/deal/popular-deals.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2f023606c6d93e9800117f7f4dde5b939ef11a87" resname="Popular Deals plus Wide Skyscraper banner">
+        <source>Popular Deals plus Wide Skyscraper banner</source>
+        <target>Offerte popolari, più bandiera Skyscraper largo</target>
+        <jms:reference-file line="1138">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fa516ce9106f138aa6c3cb2cd995d1339369aff9" resname="Popular Posts">
+        <source>Popular Posts</source>
+        <target>Post Popolari</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/blog/popular-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/blog/popular-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/blog/popular-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/blog/popular-posts.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="201de4c3c4d6808043952eafc3220a6bd6e3123c" resname="Pricing &amp; Plans">
+        <source><![CDATA[Pricing & Plans]]></source>
+        <target><![CDATA[Prezzi & Piani]]></target>
+        <jms:reference-file line="1061">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9db108ba6b7f6571356060929e37dae65878cfca" resname="Privacy Policy">
+        <source>Privacy Policy</source>
+        <target>Politica sulla riservatezza</target>
+        <jms:reference-file line="310">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ff4fc0276e960c348647b647235f68200887c9d2" resname="Profile">
+        <source>Profile</source>
+        <target>Profilo</target>
+        <jms:reference-file line="15">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="91">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="110">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="91">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="110">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="110">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="110">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b4e09ef96884b7890ad07b554ae1258db37fb1a7" resname="Recent Articles">
+        <source>Recent Articles</source>
+        <target>Recenti articoli</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/article/4-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/themes/doctor/widgets/article/2-column-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/article/4-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/article/4-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/article/4-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/article/5-recent-articles.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1e95ea2970c6510cec9178a3584902da49518238" resname="Recent Posts">
+        <source>Recent Posts</source>
+        <target>Posts Recenti</target>
+        <jms:reference-file line="1043">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/blog/recent-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/doctor/widgets/blog/recent-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/restaurant/widgets/blog/recent-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/blog/3-recent-posts.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/themes/wedding/widgets/blog/recent-posts.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="83c623252bb1bba59c0f26fc6205dd99db323dd1" resname="Recent Reviews">
+        <source>Recent Reviews</source>
+        <target>Recensioni Recenti</target>
+        <jms:reference-file line="15">/Resources/themes/doctor/widgets/review/recent-reviews-plus-skyscraper-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c40d845030dc29e27dfb3b7d99ef9c2ad975efc3" resname="Recent Reviews plus Wide Skyscraper banner">
+        <source>Recent Reviews plus Wide Skyscraper banner</source>
+        <target>Recensioni recenti più bandiera Skyscraper largo</target>
+        <jms:reference-file line="1122">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e963907dac5cd5c017869b4c96c18021c9bd058b" resname="Remove">
+        <source>Remove</source>
+        <target>Rimuovere</target>
+        <jms:reference-file line="14">/../web/includes/forms/form-navigation-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="612e12d29278b5519294bc25cdaddffec6d0f1c6" resname="Results">
+        <source>Results</source>
+        <target>Risultati</target>
+        <jms:reference-file line="49">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="12f6dbf3c6447c3ac9cec8a13b1fe6928008ae52" resname="Results Info">
+        <source>Results Info</source>
+        <target>Info Risultati</target>
+        <jms:reference-file line="1045">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="16f8545dad2f4d77fb2c747aa500f57c7a07c1ba" resname="Results content with left filters">
+        <source>Results content with left filters</source>
+        <target>Risultati contenuti con i filtri a sinistra</target>
+        <jms:reference-file line="1046">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bce90b73b515d2f54f6c28f81288ffbda6a9abff" resname="Results content with left filters and grid view">
+        <source>Results content with left filters and grid view</source>
+        <target>Risultati dei contenuti con filtri sinistro e visualizzazione griglia</target>
+        <jms:reference-file line="1071">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ce3d84c876623cc0abf3f432226ab1930128598f" resname="Results content with right filters">
+        <source>Results content with right filters</source>
+        <target>Risultati contenuti con i filtri giusti</target>
+        <jms:reference-file line="1047">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cac8630900e11a3f898fd1cfa833eed12251abb3" resname="Results content with right filters and grid view">
+        <source>Results content with right filters and grid view</source>
+        <target>Risultati dei contenuti con i filtri giusti e la vista in griglia</target>
+        <jms:reference-file line="1072">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a4cdb0bf880d39191d275a80aa7e5a6816d6efa2" resname="Reviews block">
+        <source>Reviews block</source>
+        <target>Recensioni blocco</target>
+        <jms:reference-file line="1066">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bce06414177f72ab70e6387b6af9f8ceef0d6049" resname="Search">
+        <source>Search</source>
+        <target>Ricerca</target>
+        <jms:reference-file line="44">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ac8c7c7272165aca30a4f684c3560e4c6f57be5c" resname="Search Bar">
+        <source>Search Bar</source>
+        <target>Barra di Ricerca</target>
+        <jms:reference-file line="1031">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cd0b4cf2e3d4287e8b5e69c535eb5b2c0588af09" resname="Search box">
+        <source>Search box</source>
+        <target>Casella di Ricerca</target>
+        <jms:reference-file line="1044">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="15551a487064a2f55b32324acc2e6d680bcd7e10" resname="Search box Blog detail">
+        <source>Search box Blog detail</source>
+        <target>Casella di ricerca Blog dettaglio</target>
+        <jms:reference-file line="1055">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4e619f23457466e2179e9840f7c9740b59a30ad6" resname="Search box for Reviews page">
+        <source>Search box for Reviews page</source>
+        <target>Casella di ricerca per la pagina di recensioni</target>
+        <jms:reference-file line="1065">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1a2da6f553a4e382ac679ae5f1a9d56531371375" resname="Search box module detail">
+        <source>Search box module detail</source>
+        <target>Cerca modulo scatola dettaglio</target>
+        <jms:reference-file line="1048">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b24e890f25e1cbfcc80de5895eefa353984d20eb" resname="Search box with Slider">
+        <source>Search box with Slider</source>
+        <target>Casella di ricerca con Slider</target>
+        <jms:reference-file line="1015">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c7ac5f9dde5192319839a997f58657cb07129b1b" resname="Search box without Slider">
+        <source>Search box without Slider</source>
+        <target>Cerca di dialogo senza Slider</target>
+        <jms:reference-file line="1016">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="16518141548869d4d7000daa5b80db6b6c9a125e" resname="See all listings">
+        <source>See all listings</source>
+        <target>Vedere tutti gli Annunci</target>
+        <jms:reference-file line="11">/Resources/themes/default/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/modules/listing/blocks/bestof.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1618f01711a696b44454cb8adc7685e5f6233962" resname="See more articles">
+        <source>See more articles</source>
+        <target>Vedere più articoli</target>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/article/2-column-recent-articles.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2ba4023df482d96f0966d6c0de681fd0be189927" resname="Sign Up">
+        <source>Sign Up</source>
+        <target>Registrati</target>
+        <jms:reference-file line="29">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="99">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="99">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="100">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="100">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="100">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="100">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="118">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="24c1f3b2c862ab0bd2cb98ccc89184b755abf9a4" resname="Sign Up Text">
+        <source>Sign Up Text</source>
+        <target>Registrati Testo</target>
+        <jms:reference-file line="1060">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ad6fae1a611dfb939595f339e7e9f21c08af5736" resname="Sign up for our monthly newsletter. No spams, just product updates.">
+        <source>Sign up for our monthly newsletter. No spams, just product updates.</source>
+        <target>Iscriviti alla nostra newsletter mensile. No spam, solo gli aggiornamenti del prodotto.</target>
+        <jms:reference-file line="24">/Resources/themes/default/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/default/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/doctor/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/doctor/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/restaurant/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/themes/restaurant/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/themes/wedding/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4948a18962ecd867358c4e088082f418668fe2d4" resname="Sign up for our newsletter">
+        <source>Sign up for our newsletter</source>
+        <target>Iscriviti alla nostra newsletter</target>
+        <jms:reference-file line="22">/Resources/themes/default/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/default/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/doctor/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/doctor/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/restaurant/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="18">/Resources/themes/restaurant/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/wedding/widgets/navigation/footer-with-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/themes/wedding/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d09037460963fe410439bcbae4368c5531832035" resname="Sign up today - It's quick and simple!">
+        <source>Sign up today - It's quick and simple!</source>
+        <target>Iscriviti oggi - E 'semplice e veloce!</target>
+        <jms:reference-file line="10">/Resources/themes/default/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/doctor/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/restaurant/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/widgets/advertise/signupbox.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="76c829b5adaefeea98e67edd292a87632cacaf05" resname="Signup for our newsletter">
+        <source>Signup for our newsletter</source>
+        <target>Iscriviti alla nostra newsletter</target>
+        <jms:reference-file line="1023">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2051088938da71504039b427ff3f01d21326841a" resname="Site Content">
+        <source>Site Content</source>
+        <target>il contenuto del sito</target>
+        <jms:reference-file line="3">/Resources/themes/default/blocks/navigation/footer-navigation-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/default/blocks/navigation/footer-navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/doctor/blocks/navigation/footer-navigation-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/doctor/blocks/navigation/footer-navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/restaurant/blocks/navigation/footer-navigation-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/restaurant/blocks/navigation/footer-navigation.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/wedding/blocks/navigation/footer-navigation-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/wedding/blocks/navigation/footer-navigation.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84ec3e71d2c9d85aaaf417a243c8e7d9f42135fc" resname="Sitemap">
+        <source>Sitemap</source>
+        <target>Mappa del sito</target>
+        <jms:reference-file line="319">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+        <jms:reference-file line="1030">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/default/widgets/sitemap/header.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/doctor/widgets/sitemap/header.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/restaurant/widgets/sitemap/header.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/wedding/widgets/sitemap/header.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4c735493ddda768f0e5be8d859a7f5d4dec7e5cd" resname="Sitemap Header">
+        <source>Sitemap Header</source>
+        <target>Mappa del sito Intestazione</target>
+        <jms:reference-file line="1029">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fb55132304b1702196a81dbd786fd791bbe144bf" resname="Slider image wrong file extension">
+        <source>Slider image wrong file extension</source>
+        <target>Image Slider estensione del file sbagliato</target>
+        <jms:reference-file line="163">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2dc9d374647fd03db9695827560c120c95436268" resname="Something went wrong!">
+        <source>Something went wrong!</source>
+        <target>Qualcosa è andato storto!</target>
+        <jms:reference-file line="527">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="211">/../web/includes/code/widgetActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4869a784faa8c16e97aa38216fa5fce456cc7265" resname="Something wrong">
+        <source>Something wrong</source>
+        <target>Qualcosa non va</target>
+        <jms:reference-file line="127">/../web/includes/code/widgetActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0068fcd8078c77fd4db7112e33f4b38ec72f587c" resname="Sorry, this item isn't currently available.">
+        <source>Sorry, this item isn't currently available.</source>
+        <target>Siamo spiacenti, questa voce non è attualmente disponibile.</target>
+        <jms:reference-file line="2721">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="38bec90f3ce6804049a6d4a37dafcb6af2d8b40d" resname="Special Events">
+        <source>Special Events</source>
+        <target>Eventi Speciali</target>
+        <jms:reference-file line="1064">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/event/special-events.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/event/special-events.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/event/special-events.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/event/special-events.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5020072c2b29b69c0bf052a5f9695d203b889d68" resname="Specials Deals">
+        <source>Specials Deals</source>
+        <target>Offerte Speciali</target>
+        <jms:reference-file line="7">/Resources/themes/default/widgets/deal/special-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/deal/special-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/deal/special-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/deal/special-deals.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d654b27f01fcd2e9f3462d5eb30cdd29ffa60206" resname="Sponsor Area">
+        <source>Sponsor Area</source>
+        <target>Area Sponsor</target>
+        <jms:reference-file line="33">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="104">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="123">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="104">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="64">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="105">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="39">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="123">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="64">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="105">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="39">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="123">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="105">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="64">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="105">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="39">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="123">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="64">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="faf0cac5ff814224230a8bb9f60b36fe25ec457f" resname="Start a new search to seek for similar items">
+        <source>Start a new search to seek for similar items</source>
+        <target>Inizia una nuova ricerca a cercare oggetti simili</target>
+        <jms:reference-file line="2729">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4b39e043f2c090a27c038fab09cb453a2f2b44ac" resname="Start your search here">
+        <source>Start your search here</source>
+        <target>Inizia la tua ricerca qui</target>
+        <jms:reference-file line="27">/Resources/themes/default/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/default/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/doctor/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/themes/restaurant/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/restaurant/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/themes/wedding/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3134f928b0407cc09cd6c0de88e69f2ebe4623cd" resname="Sticky Menu">
+        <source>Sticky Menu</source>
+        <target>Menù Fisso</target>
+        <jms:reference-file line="1077">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b2ea107cc766023e3de65da92c23676f1deb1da7" resname="Summary Description">
+        <source>Summary Description</source>
+        <target>Sommario Descrizione</target>
+        <jms:reference-file line="43">/../web/includes/forms/form-slider-info-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0c8a9a95e21aeb403402ed64338810d787cc5f91" resname="Terms of Service">
+        <source>Terms of Service</source>
+        <target>Termini di servizio</target>
+        <jms:reference-file line="301">/../src/ArcaSolutions/WysiwygBundle/DataFixtures/ORM/Common/LoadPageData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b12c7478d3c592339aa754870ec15074ce739fa1" resname="This item was either temporarily suspended or deleted. Here are some suggestions to help you">
+        <source>This item was either temporarily suspended or deleted. Here are some suggestions to help you</source>
+        <target>Questa voce è stata sia temporaneamente sospesa o cancellata. Ecco alcuni suggerimenti per aiutarti</target>
+        <jms:reference-file line="2726">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="768e0c1c69573fb588f61f1308a015c11468e05f" resname="Title">
+        <source>Title</source>
+        <target>Titolo</target>
+        <jms:reference-file line="37">/../web/includes/forms/form-slider-info-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1d669368227ba228c40d5c1e81700267d7c0bcc0" resname="Upcoming Events">
+        <source>Upcoming Events</source>
+        <target>Prossimi eventi</target>
+        <jms:reference-file line="1021">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/default/widgets/event/upcoming-events-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/default/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/doctor/widgets/event/upcoming-events-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/doctor/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/restaurant/widgets/event/upcoming-events-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/restaurant/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/themes/wedding/widgets/event/upcoming-events-bar.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/themes/wedding/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d3543975651fe738ddc7ce515976c42f0835b976" resname="Upcoming Events Carousel">
+        <source>Upcoming Events Carousel</source>
+        <target>Prossimi Eventi Carosello</target>
+        <jms:reference-file line="1035">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="159031eaeed919231a31e757a438b81530589af3" resname="Upload Image">
+        <source>Upload Image</source>
+        <target>Carica immagine</target>
+        <jms:reference-file line="21">/../web/includes/forms/form-slider-info-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3924a89883a5dbdd88e608a1fc7ef1f711cc0ee8" resname="View more deals">
+        <source>View more deals</source>
+        <target>Più Info</target>
+        <jms:reference-file line="18">/Resources/themes/restaurant/widgets/deal/featured-deals-plus-skyscraper-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0296b1c7b0e66cf84cf68f6208f8d3c0b8ae28df" resname="View more featured Listings">
+        <source>View more featured Listings</source>
+        <target>Visualizza proprietà in lista più gettonati</target>
+        <jms:reference-file line="9">/Resources/themes/restaurant/widgets/listing/5-featured-listings.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="87e029a62a34b0834d00e98f54e1963fbedb7eff" resname="We are under maintenance">
+        <source>We are under maintenance</source>
+        <target>Siamo in manutenzione</target>
+        <jms:reference-file line="2696">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bccac62c3a6b5992868ecb179af8a8cd55758c21" resname="We couldn't find the page you are looking for.">
+        <source>We couldn't find the page you are looking for.</source>
+        <target>Non siamo riusciti a trovare la pagina che stai cercando.</target>
+        <jms:reference-file line="2708">/../src/ArcaSolutions/WysiwygBundle/Services/Wysiwyg.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="499bd9ec3ad3d7dda3628764054b39b67020a8bf" resname="We recommend using an image that is %dimension% px to cover the entire site, and account for larger screen sizes. Please make sure images are at least 1200 pixels wide and keep roughly the same aspect ratio.">
+        <source>We recommend using an image that is %dimension% px to cover the entire site, and account for larger screen sizes. Please make sure images are at least 1200 pixels wide and keep roughly the same aspect ratio.</source>
+        <target>Si consiglia di utilizzare un'immagine che è% dimensione% px per coprire l'intero sito, e rappresentano dimensioni dello schermo più grandi. Si prega di assicurarsi che le immagini sono una larghezza di almeno 1200 pixel e mantenere più o meno le stesse proporzioni.</target>
+        <jms:reference-file line="75">/../web/includes/forms/form-slider-info-structure.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ca4f9dcf204e2037bfe5884867bead98bd9cbaf8" resname="Welcome">
+        <source>Welcome</source>
+        <target>Benvenuto</target>
+        <jms:reference-file line="10">/Resources/themes/default/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/default/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="88">/Resources/themes/default/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/default/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="88">/Resources/themes/default/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/default/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/doctor/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/doctor/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/doctor/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/doctor/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="90">/Resources/themes/doctor/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/doctor/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/restaurant/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/restaurant/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/restaurant/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/restaurant/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/restaurant/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/restaurant/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/blocks/login/navbar-sponsor.html.twig</jms:reference-file>
+        <jms:reference-file line="10">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/wedding/blocks/login/navbar.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/themes/wedding/widgets/navigation/header-sticky-menu.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/themes/wedding/widgets/navigation/header-with-contact-phone.html.twig</jms:reference-file>
+        <jms:reference-file line="16">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="90">/Resources/themes/wedding/widgets/navigation/header.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/themes/wedding/widgets/navigation/navigation-left-logo-plus-social.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ffca59bc5b7dadbd212670e6b6a56cc99bdf495f" resname="What are you looking for?">
+        <source>What are you looking for?</source>
+        <target>Che cosa sta cercando?</target>
+        <jms:reference-file line="28">/Resources/themes/default/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/doctor/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/doctor/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/themes/restaurant/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/restaurant/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/themes/wedding/widgets/searchbox/searchbox-without-slider.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/wedding/widgets/slider/slider-searchbox.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ed223af3ca5dd7687a86e7e599f72570b4bf5e62" resname="Widget successfully deleted.">
+        <source>Widget successfully deleted.</source>
+        <target>Widget ha eliminato con successo</target>
+        <jms:reference-file line="218">/../web/includes/code/widgetActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ffb7ad77503c52199fcd76b0e54ef07fb5a191c1" resname="Widget successfully saved.">
+        <source>Widget successfully saved.</source>
+        <target>Widget salvato con successo</target>
+        <jms:reference-file line="145">/../web/includes/code/widgetActionAjax.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0257a46f2ceb650a7d4a37c8501bae9886cab896" resname="Write your article">
+        <source>Write your article</source>
+        <target>Scrivi il tuo articolo</target>
+        <jms:reference-file line="11">/Resources/themes/doctor/widgets/article/2-column-recent-articles.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a26e91648182371cc1a68fc30af67a514197abc5" resname="You must use &quot;.ico&quot; images for favicon">
+        <source>You must use ".ico" images for favicon</source>
+        <target>È necessario utilizzare immagini "ico" per favicon</target>
+        <jms:reference-file line="79">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ba1d59bd748b0d87a9dd4d86fed1ed2beeee70ab" resname="Your directory items are also controlled entirely by you. We have a members interface where you can log in and change any details, add special promotions for Demo Directory customers and much more!">
+        <source>Your directory items are also controlled entirely by you. We have a members interface where you can log in and change any details, add special promotions for Demo Directory customers and much more!</source>
+        <target>I tuoi articoli di directory sono controllati anche interamente da voi. Abbiamo una interfaccia membri in cui è possibile accedere e modificare qualsiasi dettaglio, aggiungere promozioni speciali per i clienti Demo Directory e molto altro ancora!</target>
+        <jms:reference-file line="12">/Resources/themes/default/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/doctor/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/restaurant/widgets/advertise/signupbox.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/wedding/widgets/advertise/signupbox.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3bc20235c1d4231bc3bc8814b896b2735d1535a2" resname="more articles">
+        <source>more articles</source>
+        <target>altre articoli</target>
+        <jms:reference-file line="8">/Resources/themes/default/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/doctor/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/restaurant/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/themes/wedding/widgets/article/3-recent-articles.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/themes/wedding/widgets/article/5-recent-articles.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="abb89c4ae045c0152569110359474debcddc6528" resname="more categories">
+        <source>more categories</source>
+        <target>altre categorie</target>
+        <jms:reference-file line="3">/Resources/themes/default/blocks/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/default/widgets/category/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/themes/doctor/widgets/category/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/themes/restaurant/blocks/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/themes/restaurant/widgets/category/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/themes/wedding/blocks/browse-by-category.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/themes/wedding/widgets/category/browse-by-category.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0f82bc4288fb6da584971c917495e493840a54dc" resname="more classifieds">
+        <source>more classifieds</source>
+        <target>altre annunci</target>
+        <jms:reference-file line="15">/Resources/themes/default/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/doctor/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/restaurant/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/themes/wedding/widgets/classified/featured-classifieds-with-right-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="487ff8a594ce0e7ee85ea0bd02e26d243ce008cb" resname="more deals">
+        <source>more deals</source>
+        <target>altre offerte</target>
+        <jms:reference-file line="9">/Resources/themes/default/widgets/deal/popular-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/doctor/widgets/deal/popular-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/restaurant/widgets/deal/popular-deals.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/themes/wedding/widgets/deal/popular-deals.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ca0fd305856f526863982e01e230e7b258e23bb2" resname="more events">
+        <source>more events</source>
+        <target>più eventi</target>
+        <jms:reference-file line="14">/Resources/themes/default/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/doctor/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/restaurant/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/themes/wedding/widgets/event/4-featured-events.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/themes/wedding/widgets/event/upcoming-events-carousel.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="445b8e57b5cca8a5989745cea7fdd38580a6098b" resname="more listings">
+        <source>more listings</source>
+        <target>altre listings</target>
+        <jms:reference-file line="10">/Resources/themes/default/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/doctor/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/restaurant/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/themes/wedding/widgets/listing/4-featured-listings.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/themes/wedding/widgets/listing/6-featured-listings-plus-square-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8efd8b13d9e3aafd6b78a9b7efa72a86fcff5d45" resname="more locations">
+        <source>more locations</source>
+        <target>altre località</target>
+        <jms:reference-file line="43">/Resources/themes/default/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/doctor/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/restaurant/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/themes/wedding/widgets/location/location-browse-with-right-banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b0266acb1c5ddf2fabeaedbfe5379bbb38feb87f" resname="more posts">
+        <source>more posts</source>
+        <target>gli altri messaggi</target>
+        <jms:reference-file line="15">/Resources/themes/wedding/widgets/blog/3-recent-posts.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

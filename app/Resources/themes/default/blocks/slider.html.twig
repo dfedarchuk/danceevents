@@ -1,0 +1,60 @@
+{# @var slider \ArcaSolutions\WebBundle\Entity\Slider #}
+{# Slider Carousel -#}
+
+<!-- Wrapper for slides -->
+<div class="carousel-inner hidden-xs" role="listbox">
+
+    {% for slider in sliders -%}
+        <div class="item item-expanded {{ loop.first ? 'active' : '' }}"
+             style="background-image:url({{ asset(imagePath(slider.image), 'domain_images') }})">
+            {% if slider.summary|trim or slider.title|trim %}
+                <div class="carousel-caption">
+                    <div class="text-center">
+                        {% if slider.title|trim %}
+                            <h2>
+                                {% if slider.link %}
+                                    <a href="{{ slider.link }}"
+                                       target="{{ '_%s'|format(slider.target) }}"
+                                    >{{ slider.title|raw }}</a>
+                                {% else %}
+                                    {{ slider.title|raw }}
+                                {% endif %}
+                            </h2>
+                        {% endif %}
+
+                        {% if slider.summary|trim %}
+                            <p>{{ slider.summary|raw }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+    {% endfor -%}
+
+    {#  Indicators  -#}
+    {% if sliders|length > 1 -%}
+        <ol class="carousel-indicators hidden-xs">
+            {% for slider in sliders -%}
+                <li data-target="#carousel-slider"
+                    data-slide-to="{{ loop.index0 }}"
+                    class="{{ loop.first ? 'active' : '' }}">
+                </li>
+            {% endfor -%}
+        </ol>
+    {% endif -%}
+
+    {% if sliders is empty -%}
+        <div class="item item-expanded active"
+
+            {% if file_exists(getDomainParameter('path') ~ 'content_files/background_image.jpg') -%}
+                style="background-image:url({{ asset(getDomainParameter('path') ~ 'content_files/background_image.jpg?t=' ~ date().timestamp) }});"
+            {% else -%}
+                style="background-image:url({{ asset('assets/images/bg-image.jpg') }});"
+            {% endif -%}
+        >
+        </div>
+    {% endif -%}
+
+</div>
+{# Slider End -#}

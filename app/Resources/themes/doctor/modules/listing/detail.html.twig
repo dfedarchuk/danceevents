@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' -%}
+
+{% block SEO -%}
+    {{ generateListingSEO( item ) }}
+{% endblock -%}
+
+{# enables autocomplete in phpstorm -#}
+{# @var item \ArcaSolutions\ListingBundle\Entity\Listing -#}
+{# @var level \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{# @var country \ArcaSolutions\CoreBundle\Entity\Location1 -#}
+{# @var region \ArcaSolutions\CoreBundle\Entity\Location2 -#}
+{# @var state \ArcaSolutions\CoreBundle\Entity\Location3 -#}
+{# @var city \ArcaSolutions\CoreBundle\Entity\Location4 -#}
+{# @var neighborhood \ArcaSolutions\CoreBundle\Entity\Location5 -#}
+{# @var item \ArcaSolutions\ListingBundle\Entity\Listing #}
+{# @var level \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+{% block body -%}
+    {{ renderPage(pageId) }}
+{% endblock -%}

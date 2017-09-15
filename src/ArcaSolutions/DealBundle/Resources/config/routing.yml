@@ -1,0 +1,27 @@
+deal_homepage:
+    path:     /
+    defaults: { _controller: DealBundle:Default:index }
+
+deal_allcategories:
+    path:     /%alias_promotion_allcategories_url_divisor%
+    defaults: { _controller: DealBundle:Default:allcategories }
+
+deal_detail:
+    path:     /{friendlyUrl}.{_format}
+    defaults: { _controller: DealBundle:Default:detail }
+    requirements:
+        _format:  html
+
+deal_alllocations:
+    path:     /%alias_alllocations_url_divisor%
+    defaults: { _controller: DealBundle:Default:alllocations }
+
+deal_locations:
+    path:     /getlocations/
+    defaults: { _controller: DealBundle:Default:locations }
+
+deal_redeem:
+    path:     /redeem/{id}
+    defaults: { _controller: DealBundle:Default:redeem }
+    requirements:
+        id:  \d+

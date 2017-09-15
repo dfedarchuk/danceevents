@@ -1,0 +1,370 @@
+/**
+* eDirectory - Members Section
+*/
+
+/*Menu Notification*/
+.notify {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background-color: @brand-success;
+	color: white;
+	text-align: center;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	right: 0;
+	top: 0;
+	border-radius: 20px;
+	pointer-events: none;
+}
+
+
+/*Alert popup*/
+
+.alert-heading {
+color: @brand-success;
+}
+.alert-error {
+background-color: mix(@brand-danger, white, 15%);
+border: 1px solid mix(@brand-danger, white, 90%);
+}
+.alert-error,  .alert-heading, .alert-error .alert-heading {
+color: @brand-danger;
+}
+.alert-heading {
+color: @brand-info;
+}
+
+/* Dashboard Items */
+
+.webitem {
+	border: 1px solid @gray-light;
+	font-size: 1em;
+	.opacity(0.8);
+	.transition(0.4s);
+	b {
+		font-weight: 600;
+		color: @gray-darker;
+	}
+	.desc {
+		background-color: lighten(@gray-light, 48%);
+		p span {
+			color: @brand-warning;
+			font-style: italic;
+			font-weight: 400;
+		}
+		span.status {
+			position: relative;
+			text-align: center;
+			font-size: 0.8em;
+			> span {
+				font-style: normal;
+				cursor: default;
+				&:before {
+					content: "";
+					display: block;
+					margin: 0 auto;
+					height: 20px;
+					width: 20px;
+					border-radius: 20px;
+					overflow: hidden;
+				}
+				&.status-active {
+					color: @state-success-text;
+					&:before {
+						background-color: @state-success-text;
+					}
+				}
+				&.status-suspended {
+					color: @state-warning-text;
+					&:before {
+						background-color: @state-warning-text;
+					}
+				}
+				&.status-expired {
+					color:  @state-danger-text;
+					&:before {
+						background-color: @state-danger-text;
+					}
+				}
+				&.status-pending {
+					color: @state-info-text;
+					&:before {
+						background-color: @state-info-text;
+					}
+				}
+			}
+		}
+	}
+	.action {
+		background-color: transparent;
+		border-top: 1px solid @gray-lighter;
+		color: @link-color;
+		font-size: 0.9em;
+	}
+	&.active, &.active:hover {
+		border-color: mix(@brand-success, white, 70%);
+		box-shadow: 1px 2px 2px @gray-lighter;
+		.opacity(1);
+		.desc {
+			background: white;
+		}
+	}
+	&:hover {
+		border-color: mix(black, white, 15%);
+		box-shadow: 0 0 2px @gray;
+		.desc {
+			cursor: pointer;
+		}
+	}
+}
+.addcontent {
+	border: 1px solid @gray-light;
+	ul {
+		list-style: none;
+	}
+	> p {
+		line-height: 1em;
+		color: @gray-darker;
+		border-bottom: 1px solid @gray-light;
+	}
+	a {
+		color: @brand-success;
+		&:hover {
+			color: mix(@brand-success, black, 50%)
+		}
+	}
+}
+.alert-new {
+	background-color: @brand-warning;
+	font-style: normal;
+	color: white;
+	border-radius: 10px;
+	line-height: 10px;
+}
+.dashboard {
+	border: 1px solid @gray-light;
+	color: @gray-darker;
+	background-color: white;
+	header {
+		border-bottom: 1px solid @gray-light;;
+		h1 {
+			font-weight: 400;
+			font-size: 1.6em;
+			line-height: 1;
+      margin-top: 0;
+		}
+		.btn {
+			font-weight: 600;
+			font-size: 1em;
+		}
+		p {
+			line-height: 1;
+			margin: 9px 0 5px;
+			b {
+				font-weight: 600;
+			}
+		}
+	}
+	section {
+		h2 {
+			font-weight: 400;
+			font-size: 1.2em;
+			text-transform: uppercase;
+			line-height: 1.2em;
+		}
+		&.stats-summary {
+			.row > div {
+				border-left: 1px solid @gray-lighter;
+				&:first-child {
+					border: none;
+				}
+			}
+			h1 {
+				color: @brand-primary;
+			}
+			h5 {
+				color: @brand-primary;
+			}
+			p {
+				color: @gray;
+			}
+		}
+		&.reviews-list {
+			.head p {
+				color: @gray-dark;
+			}
+			.paging {
+				text-align: right;
+			}
+			.viewmore {
+				text-align: center;
+			}
+		}
+	}
+	.game-completion {
+		background-color: lighten(@gray-light, 48%);
+		border-bottom: 1px solid @gray-light;
+		h5 {
+			font-weight: 600;
+			font-size: 1em;
+			line-height: 1.8;
+		}
+		p {
+			font-weight: 400;
+			color: @gray-dark;
+		}
+		.step {
+			color: @gray;
+			font-size: 13px;
+			&.large-step {
+				text-align: right;
+			}
+			a, a:visited {
+				color: @brand-success;
+				line-height: 1.7em;
+			}
+			a:hover {
+				color: @link-color;
+			}
+		}
+	}
+	.completion-chart {
+		position: relative;
+		span {
+			font-weight: 600;
+		}
+		input {
+			color: #333 !important;
+			font-family: 'Open Sans', sans-serif !important;
+			font-weight: 600 !important;
+		}
+	}
+	.item-review {
+		border: 1px solid @gray-light;
+		background-color: @gray-lighter;
+		.transition(0.3s);
+		.stars-rating [class*="rate-"] {
+			background-color: @gray-lighter;
+		}
+		.review-text, .review-reply {
+			color: @gray;
+		}
+		time {
+			line-height: 2.2em;
+			color: @gray;
+			vertical-align: middle;
+		}
+		.review-summary {
+			span, a {
+				line-height: 2.2em;
+			}
+			b {
+				font-weight: 600;
+			}
+			em {
+				font-weight: 400;
+				color: @gray-darker;
+			}
+			span {
+				color: @brand-success;
+				&.text-muted {
+					color: @gray;
+				}
+				&.text-highlight {
+					color: @brand-success;
+				}
+			}
+			&:hover {
+				cursor: pointer;
+			}
+			&.new {
+				border: 1px solid @brand-success;
+			}
+		}
+		.review-detail {
+			a {
+				text-transform: capitalize;
+			}
+			img {
+				border: 1px solid @gray-light;
+			}
+			em {
+				font-style: normal;
+				color: @gray;
+			}
+			input[type="radio"], label {
+				margin: 5px 10px 5px 0;
+			}
+		}
+		&:hover {
+			border-color: @gray;
+			box-shadow: 0 0 3px @gray-light;
+		}
+	}
+}
+.chart-legends {
+	ul {
+		li {
+			color: @gray;
+			line-height: 25px;
+			cursor: pointer;
+		}
+	}
+	span {
+		color: @gray-darker;
+	}
+	.hidden-legends {
+		ul {
+			list-style:none;
+			margin: 0;
+			padding: 0;
+			background-color: white;
+			box-shadow: 0 0 1px #ddd;
+			.opacity(0);
+			.transition(0.4s);
+			li {
+				border-top: 1px solid @gray-light;
+				&:first-child {
+					border-top: none;
+				}
+				&:hover {
+					background-color: @gray-lighter;
+				}
+			}
+		}
+		&:hover {
+			ul {
+				.opacity(1);
+			}
+		}
+	}
+}
+.ie .chart-legends {
+	.hidden-legends {
+		ul {
+			border: 1px solid @gray-lighter;
+		}
+	}
+}
+.minor-nav {
+	ul {
+		text-align: center;
+		border-bottom: 1px solid lighten(@gray-light, 45%);
+		li {
+			a {
+				background-color: lighten(@gray-light, 48%);
+				line-height: 39px;
+				padding: 10px 30px;
+				&:hover, &.active {
+					background-color: @brand-primary;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+

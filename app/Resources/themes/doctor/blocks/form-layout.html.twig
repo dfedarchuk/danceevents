@@ -1,0 +1,315 @@
+{% use "form_div_layout.html.twig" -%}
+
+{# Widgets -#}
+
+{% block form_widget_simple -%}
+    {% if type is not defined or 'file' != type -%}
+        {%- set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {% endif -%}
+    {{- parent() -}}
+{%- endblock form_widget_simple -%}
+
+{% block textarea_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {{- parent() -}}
+{%- endblock textarea_widget -%}
+
+{% block button_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('btn-default') ~ ' btn')|trim}) -%}
+    {{- parent() -}}
+{%- endblock -%}
+
+{% block money_widget -%}
+    <div class="input-group">
+        {% set prepend = '{{' == money_pattern[0:2] -%}
+        {% if not prepend -%}
+            <span class="input-group-addon">{{ money_pattern|replace({ '{{ widget }}':''}) }}</span>
+        {% endif -%}
+        {{- block('form_widget_simple') -}}
+        {% if prepend -%}
+            <span class="input-group-addon">{{ money_pattern|replace({ '{{ widget }}':''}) }}</span>
+        {% endif -%}
+    </div>
+{%- endblock money_widget -%}
+
+{% block percent_widget -%}
+    <div class="input-group">
+        {{- block('form_widget_simple') -}}
+        <span class="input-group-addon">%</span>
+    </div>
+{%- endblock percent_widget -%}
+
+{% block datetime_widget -%}
+    {% if widget == 'single_text' -%}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        <div {{ block('widget_container_attributes') }}>
+            {{- form_errors(form.date) -}}
+            {{- form_errors(form.time) -}}
+            {{- form_widget(form.date, { datetime: true } ) -}}
+            {{- form_widget(form.time, { datetime: true } ) -}}
+        </div>
+    {%- endif -%}
+{%- endblock datetime_widget -%}
+
+{% block date_widget -%}
+    {% if widget == 'single_text' -%}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        {% if datetime is not defined or not datetime -%}
+            <div {{ block('widget_container_attributes') -}}>
+        {%- endif -%}
+        {{- date_pattern|replace({
+            '{{ year }}': form_widget(form.year),
+            '{{ month }}': form_widget(form.month),
+            '{{ day }}': form_widget(form.day),
+        })|raw -}}
+        {% if datetime is not defined or not datetime -%}
+            </div>
+        {%- endif -%}
+    {% endif -%}
+{%- endblock date_widget -%}
+
+{% block time_widget -%}
+    {% if widget == 'single_text' -%}
+        {{- block('form_widget_simple') -}}
+    {% else -%}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-inline')|trim}) -%}
+        {% if datetime is not defined or false == datetime -%}
+            <div {{ block('widget_container_attributes') -}}>
+        {%- endif -%}
+        {{- form_widget(form.hour) }}
+        :{{ form_widget(form.minute) }}{% if with_seconds -%}:{{ form_widget(form.second) }}{% endif -%}
+        {% if datetime is not defined or false == datetime -%}
+            </div>
+        {%- endif -%}
+    {% endif -%}
+{%- endblock time_widget -%}
+
+{% block choice_widget_collapsed -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) -%}
+    {{- parent() -}}
+{%- endblock -%}
+
+{% block choice_widget_expanded -%}
+    {% if '-inline' in label_attr.class|default('') -%}
+        <div class="control-group">
+            {%- for child in form -%}
+                {{- form_widget(child, {
+                    parent_label_class: label_attr.class|default(''),
+                }) -}}
+            {% endfor -%}
+        </div>
+    {%- else -%}
+        <div {{ block('widget_container_attributes') }}>
+            {%- for child in form -%}
+                {{- form_widget(child, {
+                    parent_label_class: label_attr.class|default(''),
+                }) -}}
+            {% endfor -%}
+        </div>
+    {%- endif -%}
+{%- endblock choice_widget_expanded -%}
+
+{% block checkbox_widget -%}
+    {% set parent_label_class = parent_label_class|default('') -%}
+    {% if 'checkbox-inline' in parent_label_class -%}
+        {{- form_label(form, null, { widget: parent() }) -}}
+    {% else -%}
+        <div class="checkbox">
+            {{- form_label(form, null, { widget: parent() }) -}}
+        </div>
+    {%- endif -%}
+{%- endblock checkbox_widget -%}
+
+{% block radio_widget -%}
+    {%- set parent_label_class = parent_label_class|default('') -%}
+    {% if 'radio-inline' in parent_label_class -%}
+        {{- form_label(form, null, { widget: parent() }) -}}
+    {% else -%}
+        <div class="radio">
+            {{- form_label(form, null, { widget: parent() }) -}}
+        </div>
+    {%- endif -%}
+{%- endblock radio_widget -%}
+
+
+{# Captcha -#}
+{% block edirectory_captcha_widget -%}
+    {% if captcha_type == 'own' %}
+        {% if is_human -%}
+            -
+        {% else -%}
+            {% spaceless -%}
+                <div class="input-group">
+                <span class="input-group-addon bg-info">
+                    <img id="{{ image_id }}" src="{{ captcha_code }}" alt="captcha" title="captcha"
+                         width="{{ captcha_width }}" height="{{ captcha_height }}"/>
+                    {% if reload -%}
+                        <script type="text/javascript">
+                            function reload_{{ image_id }}() {
+                                var img = document.getElementById('{{ image_id }}');
+                                img.src = '{{ captcha_code }}?n=' + (new Date()).getTime();
+                            }
+                        </script>
+                        <a class="captcha_reload"
+                           href="javascript:reload_{{ image_id }}();">{{ 'Renew'|trans({}, 'gregwar_captcha') }}</a>
+                    {% endif -%}
+                </span>
+                    {{- block('form_widget_simple') -}}
+                </div>
+            {% endspaceless -%}
+        {% endif -%}
+    {% else %}
+        {% spaceless %}
+            {% if form.vars.ewz_recaptcha_enabled %}
+                {% if not form.vars.ewz_recaptcha_ajax %}
+                    <script src="{{ form.vars.url_challenge }}" type="text/javascript"></script>
+                    <div class="g-recaptcha" data-theme="{{ attr.options.theme }}" data-type="{{ attr.options.type }}" data-sitekey="{{ form.vars.public_key }}"></div>
+                    <noscript>
+                        <div style="width: 302px; height: 352px;">
+                            <div style="width: 302px; height: 352px; position: relative;">
+                                <div style="width: 302px; height: 352px; position: absolute;">
+                                    <iframe src="https://www.google.com/recaptcha/api/fallback?k={{ form.vars.public_key }}"
+                                            frameborder="0" scrolling="no"
+                                            style="width: 302px; height:352px; border-style: none;"
+                                    >
+                                    </iframe>
+                                </div>
+                                <div style="width: 250px; height: 80px; position: absolute; border-style: none; bottom: 21px; left: 25px; margin: 0px; padding: 0px; right: 25px;">
+                            <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                                      class="g-recaptcha-response"
+                                      style="width: 250px; height: 80px; border: 1px solid #c1c1c1; margin: 0px; padding: 0px; resize: none;"
+                            >
+                            </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </noscript>
+                {% else %}
+                    <div id="ewz_recaptcha_div"></div>
+
+                    <script type="text/javascript">
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.onload = function() {
+                            Recaptcha.create('{{ form.vars.public_key }}', 'ewz_recaptcha_div', {{ attr.options|default({})|json_encode|raw }});
+                        }
+                        script.src = '{{ form.vars.url_api }}';
+                        document.getElementsByTagName('head')[0].appendChild(script);
+                    </script>
+                {% endif %}
+            {% endif %}
+        {% endspaceless %}
+    {% endif %}
+{% endblock -%}
+
+
+
+{# Labels -#}
+
+{% block form_label -%}
+    {%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' control-label')|trim}) -%}
+    {{- parent() -}}
+{%- endblock form_label -%}
+
+{% block choice_label -%}
+    {# remove the checkbox-inline and radio-inline class, it's only useful for embed labels -#}
+    {%- set label_attr = label_attr|merge({class: label_attr.class|default('')|replace({'checkbox-inline': '', 'radio-inline': ''})|trim}) -%}
+    {{- block('form_label') -}}
+{% endblock -%}
+
+{% block checkbox_label -%}
+    {{- block('checkbox_radio_label') -}}
+{%- endblock checkbox_label -%}
+
+{% block radio_label -%}
+    {{- block('checkbox_radio_label') -}}
+{%- endblock radio_label -%}
+
+{% block checkbox_radio_label -%}
+    {# Do no display the label if widget is not defined in order to prevent double label rendering -#}
+    {% if widget is defined -%}
+        {% if required -%}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) -%}
+        {% endif -%}
+        {% if parent_label_class is defined -%}
+            {% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' ' ~ parent_label_class)|trim}) -%}
+        {% endif -%}
+        {% if label is not sameas(false) and label is empty -%}
+            {% set label = name|humanize -%}
+        {% endif -%}
+        <label {% for attrname, attrvalue in label_attr -%} {{ attrname }}="{{ attrvalue }}"{% endfor -%}>
+        {{- widget|raw -}}
+        {{- label is not sameas(false) ? label|trans({}, translation_domain) -}}
+        </label>
+    {% endif -%}
+{% endblock checkbox_radio_label -%}
+
+{# Rows -#}
+
+{% block form_row -%}
+    <div class="form-group{% if (not compound or force_error|default(false)) and not valid -%} has-error{% endif -%}">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock form_row -%}
+
+{% block button_row -%}
+    <div class="form-group">
+        {{- form_widget(form) -}}
+    </div>
+{%- endblock button_row -%}
+
+{% block choice_row -%}
+    {% set force_error = true -%}
+    {{- block('form_row') }}
+{%- endblock choice_row -%}
+
+{% block date_row -%}
+    {% set force_error = true -%}
+    {{- block('form_row') }}
+{%- endblock date_row -%}
+
+{% block time_row -%}
+    {% set force_error = true -%}
+    {{- block('form_row') }}
+{%- endblock time_row -%}
+
+{% block datetime_row -%}
+    {% set force_error = true -%}
+    {{- block('form_row') }}
+{%- endblock datetime_row -%}
+
+{% block checkbox_row -%}
+    <div class="form-group{% if not valid -%} has-error{% endif -%}">
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock checkbox_row -%}
+
+{% block radio_row -%}
+    <div class="form-group{% if not valid -%} has-error{% endif -%}">
+        {{- form_widget(form) -}}
+        {{- form_errors(form) -}}
+    </div>
+{%- endblock radio_row -%}
+
+{# Errors -#}
+
+{% block form_errors -%}
+    {% spaceless %}
+        {% if errors|length > 0 -%}
+            <div class="alert alert-warning">
+                <ul class="list-unstyled">
+                    {%- for error in errors -%}
+                        <li><span class="glyphicon glyphicon-exclamation-sign"></span> {{ error.message }}</li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        {%- endif -%}
+    {% endspaceless %}
+{%- endblock form_errors -%}

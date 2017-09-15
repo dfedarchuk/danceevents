@@ -1,0 +1,206 @@
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+// ==========================================================================
+// Print styles.
+// Inlined to avoid the additional HTTP request: h5bp.com/r
+// ==========================================================================
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        background-image: none !important;
+        filter: none !important;
+        color: #000 !important; // Black prints faster: h5bp.com/s
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    //a[href]:after {
+    //    content: " (" attr(href) ")";
+    //}
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    // Don't show links that are fragment identifiers,
+    // or use the `javascript:` pseudo protocol
+    //a[href^="#"]:after,
+    //a[href^="javascript:"]:after {
+    //    content: "";
+    //}
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; // h5bp.com/t
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    // Bootstrap specific changes start
+    //
+    // Chrome (OSX) fix for https://github.com/twbs/bootstrap/issues/11245
+    // Once fixed, we can just straight up remove this.
+    select {
+        background: #fff !important;
+    }
+
+
+    // Special Class
+
+    .hidden-print {
+      display:none;
+    }
+    // Bootstrap components
+    .navbar .navbar-header, .navbar-collapse {
+        display: none;
+    }
+    .btn,
+    .dropup > .btn {
+        > .caret {
+            border-top-color: #000 !important;
+        }
+    }
+    .label {
+        border: 1px solid #000;
+    }
+
+    .table {
+        border-collapse: collapse !important;
+
+        td,
+        th {
+            background-color: #fff !important;
+        }
+    }
+    .table-bordered {
+        th,
+        td {
+            border: 1px solid #ddd !important;
+        }
+    }
+
+    // Bootstrap specific changes
+
+    // Theme specific
+
+    .bg-image, .main-image, .image-gallery {
+        display:none;
+    }
+    .top-search {
+      display: none;
+    }
+    .flex {
+        .img-responsive {
+            display: none;
+        }
+    }
+    .list-columns {
+        > ul {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            justify-content: center;
+            li {
+                text-align: center;
+                webkit-flex: inherit; /* Safari 6.1+ */
+                -ms-flex: inherit; /* IE 10 */
+                flex: inherit;
+                padding: 6pt;
+            }
+        }
+    }
+  // Modals
+  .modal-open {
+    overflow: auto !important;
+    .modal-backdrop {
+      display:none;
+    }
+    .modal {
+      position: relative;
+      padding: 0 !important;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+  //  Grid
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    clear: both;
+  }
+
+  // Search Header
+  .search-header {
+    .form-inline {
+      display:none;
+    }
+  }
+// Map
+  .map-location {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+//Detail Sidebar
+  .details-sidebar .well {
+    padding: 15pt 5pt !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border:none;
+  }
+
+//  Banners
+  .ad-banners, .block-bg-newsletter, .banner-detail, .banner-results {
+    display: none;
+  }
+
+//  Footer
+  .footer-links {
+    a[href]:after {
+        content: " (" attr(href) ")";
+        white-space: normal;
+        word-wrap: break-word;
+    }
+  }
+
+//  Horizontal row
+  .block .container > hr {
+    page-break-after: always;
+    break-after: always;
+  }
+}

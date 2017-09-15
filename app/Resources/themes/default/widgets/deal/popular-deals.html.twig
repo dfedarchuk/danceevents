@@ -1,0 +1,24 @@
+{% set popular = popularDeal(2,'col-sm-6','horizontal') -%}
+
+{% if popular is not empty -%}
+    <section class="block featured deal">
+        <div class="container">
+            <br>
+            <h2 class="theme-title"
+            data-trans="{{ 'Popular Deals'|trans({}, 'widgets') }}">{{ content.labelPopularDeals|trans({}, 'widgets') }}
+                <a href="{{ path("deal_homepage") }}" class="view-more" data-trans="{{ 'more deals'|trans({}, 'widgets') }}">{{ content.labelMoreDeals|trans }}</a>
+            </h2>
+
+            <div class="row">
+                {{ popular|raw }}
+            </div>
+
+            {% set popular = popularDeal(2,'col-sm-6','horizontal') -%}
+            {% if popular is not empty -%}
+                <div class="row">
+                    {{ popular|raw }}
+                </div>
+            {% endif -%}
+        </div>
+    </section>
+{% endif -%}

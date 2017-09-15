@@ -1,0 +1,31 @@
+<div class="container well well-light">
+    <div id="advertisePlans" class="block">
+        <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                {% for module in modules %}
+                    <li role="presentation" {{ activeTab == module ? 'class="active"': '' }}>
+                        <a href="#{{ module }}" aria-controls="{{ module|capitalize }}" role="tab"
+                           data-listing="{{ "Listing"|trans }}"
+                           data-event="{{ "Event"|trans }}"
+                           data-classified="{{ "Classified"|trans }}"
+                           data-article="{{ "Article"|trans }}"
+                           data-banner="{{ "Banner"|trans }}"
+                           data-toggle="tab">{{ "%module% Options"|trans({"%module%": module|capitalize|trans}) }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content plans-content">
+                {% for module in modules %}
+                    <div role="tabpanel" class="tab-pane {{ activeTab == module ? 'active' : '' }}"
+                         id="{{ module }}">
+                        {{ advertisePlans(module) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>

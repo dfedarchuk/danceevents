@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2016-03-29T09:35:31Z" source-language="en" target-language="pt" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="d6d95e1d199545596e163ff1c78217041b87c3ea" resname="Bad code value">
+        <source>Bad code value</source>
+        <target>Código inválido, digite novamente.</target>
+      </trans-unit>
+      <trans-unit id="bddce1a9200727a7dfc4751241dd5e4726607281" resname="Please enter a valid e-mail address.">
+        <source>Please enter a valid e-mail address.</source>
+        <target>Por favor, insira um endereço de e-mail válido.</target>
+      </trans-unit>
+      <trans-unit id="dab12703c6b8709466bf42a84f5bac2740667325" resname="Please type a subject.">
+        <source>Please type a subject.</source>
+        <target>Por favor, digite um assunto.</target>
+      </trans-unit>
+      <trans-unit id="1aff2070298eb85ee965574a2856ab6bb52167f6" resname="Please type an title for your review.">
+        <source>Please type an title for your review.</source>
+        <target>Por favor, dê um título para sua revisão.</target>
+      </trans-unit>
+      <trans-unit id="6c9ace0dc766abcf48bcbeb90c079a80e79b72ae" resname="Please type the message.">
+        <source>Please type the message.</source>
+        <target>Por favor, escreva a mensagem.</target>
+      </trans-unit>
+      <trans-unit id="c8b340280e39f32641bb2ace85bc5c5e8764aea2" resname="Please type the rating.">
+        <source>Please type the rating.</source>
+        <target>Por favor, dê uma nota.</target>
+      </trans-unit>
+      <trans-unit id="6ea39afddd3872dc8c0ee9a1f6e30e9f86d43c82" resname="Please type the your Email.">
+        <source>Please type the your Email.</source>
+        <target>Por favor, escreva o seu e-mail.</target>
+      </trans-unit>
+      <trans-unit id="c09625c02e00e68ce91815869a67c211609d6ca1" resname="Please type the your First Name.">
+        <source>Please type the your First Name.</source>
+        <target>Por favor, escreva o seu Nome.</target>
+      </trans-unit>
+      <trans-unit id="8291bf76300d049377b37d876d2d5e50f465161e" resname="Please type the your Last Name.">
+        <source>Please type the your Last Name.</source>
+        <target>Por favor, digite o seu sobrenome.</target>
+      </trans-unit>
+      <trans-unit id="38bc2b5cd849065e8949ca8c249f003bc75d2395" resname="Please type the your Password.">
+        <source>Please type the your Password.</source>
+        <target>Por favor, digite a sua senha.</target>
+      </trans-unit>
+      <trans-unit id="7a280ff9f46d469f2ad7dadf6ee046cc02c1007a" resname="Please type your Location.">
+        <source>Please type your Location.</source>
+        <target>Por favor, digite a sua localização.</target>
+      </trans-unit>
+      <trans-unit id="9281dee5271ca099ea04289d1cddf06c71710c62" resname="Please type your Name.">
+        <source>Please type your Name.</source>
+        <target>Por favor, digite seu nome.</target>
+      </trans-unit>
+      <trans-unit id="01514497e5cb6a33e5e743225b558a185d7b7dba" resname="The field is required">
+        <source>The field is required</source>
+        <target>O campo é obrigatório</target>
+      </trans-unit>
+      <trans-unit id="658021e8d0c97f377f9d146220fdcc1296185819" resname="This value is not a valid captcha.">
+        <source>This value is not a valid captcha.</source>
+        <target>Este valor não é um captcha válido.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

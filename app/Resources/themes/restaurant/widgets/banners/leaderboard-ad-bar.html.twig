@@ -1,0 +1,17 @@
+{# module array                                                         -#}
+{#      An array containing the modules whose banners should be fetched -#}
+
+{% set module = getModuleBanner() -%}
+{% set leaderboardBanner = bannerLeaderboard(["banner-top", "col-sm-12"], module) %}
+
+{% if leaderboardBanner %}
+    <section class="ad-banners">
+        <div class="container">
+            <h6 class="sr-only">{{ "Advertisement"|trans({}, 'widgets') }} </h6>
+
+            <div class="row">
+                {{ leaderboardBanner|raw }}
+            </div>
+        </div>
+    </section>
+{% endif %}

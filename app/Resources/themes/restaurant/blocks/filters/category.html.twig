@@ -1,0 +1,95 @@
+{#      Description:                                                                                  -#}
+{# Macro for category menu generation during searches                                                 -#}
+
+{#      Resources:                                                                                    -#}
+
+{# category \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                     -#}
+{#      An instance of the FilterMenuTreeNode class containing data for a specific category           -#}
+{#      {                                                                                             -#}
+{#          parent        :(FilterMenuTreeNode) The Parent node                                       -#}
+{#          parentId      :(string) The Parent node Id                                                -#}
+{#          children      :(FilterMenuTreeNode[]) An array of children                                -#}
+{#          childrenId    :(string[]) An array of all children Ids                                    -#}
+{#          title         :(string) The category title                                                -#}
+{#          friendlyUrl   :(string) The category friendly url token                                   -#}
+{#          module        :(string) The module name                                                   -#}
+{#          id            :(string) The category Id                                                   -#}
+{#          isSelected    :(bool) Whether or not this category was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                            -#}
+{#          resultCount   :(int) The amount of results within this category                           -#}
+{#      }                                                                                             -#}
+
+
+{% macro createCategoryMenuEntry(category) -%}
+    {% set subCategoryCount = category.children|length -%}
+    {% set categoryClass = category.isSelected ? "active" : "" -%}
+
+    {% if subCategoryCount == 0 -%}
+        <li class="list-group-item {{ categoryClass }}">
+            <a href="{{ category.searchPageUrl }}" rel="nofollow">{{ category.title }}
+                {% if category.resultCount > 0 -%}
+                    <span class="badge pull-right"> {{ category.resultCount }} </span>
+                {% endif -%}
+            </a>
+        </li>
+    {% else -%}
+        <li class="list-group-item {{ categoryClass }}">
+            <button class="btn btn-filter pull-left {{ category.isSelected ? "" : "collapsed" }}" type="button" data-toggle="collapse" data-target="#{{ category.friendlyUrl ~ category.module }}categoryTree" aria-expanded="{{ category.isParentOfSelected or category.isSelected ? "true" : "false" }}">
+                <span class="fa fa-caret pull-right"></span>
+            </button>
+            <a href="{{ category.searchPageUrl }}" rel="nofollow">{{ category.title }}
+                {% if category.resultCount > 0 -%}
+                    <span class="pull-right badge"> {{ category.resultCount }} </span>
+                {% endif -%}
+            </a>
+        </li>
+        <li class="collapse {{ category.isParentOfSelected or category.isSelected ? 'in' }}" id="{{ category.friendlyUrl ~ category.module }}categoryTree" aria-expanded="{{ category.isParentOfSelected or category.isSelected ? "true" : "false" }}">
+            <ul class="list-group list-categorytree">
+                {% for subCategory in category.children -%}
+                    {{ _self.createCategoryMenuEntry(subCategory) }}
+                {% endfor -%}
+            </ul>
+        </li>
+    {% endif -%}
+{% endmacro -%}
+
+{#      Description:                                                                                  -#}
+{# This page represents the Category Filter HTML on Search pages                                      -#}
+
+{#      Resources:                                                                                    -#}
+
+{# categoryTree \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                 -#}
+{#      An array containing FilterMenuTreeNode items                                                  -#}
+{#      {                                                                                             -#}
+{#          parent        :(FilterMenuTreeNode) The Parent node                                       -#}
+{#          parentId      :(string) The Parent node Id                                                -#}
+{#          children      :(FilterMenuTreeNode[]) An array of children                                -#}
+{#          childrenId    :(string[]) An array of all children Ids                                    -#}
+{#          title         :(string) The category title                                                -#}
+{#          friendlyUrl   :(string) The category friendly url token                                   -#}
+{#          module        :(string) The module name                                                   -#}
+{#          id            :(string) The category Id                                                   -#}
+{#          isSelected    :(bool) Whether or not this category was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                            -#}
+{#          resultCount   :(int) The amount of results within this category                           -#}
+{#      }                                                                                             -#}
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="true" aria-controls="collapseCategory">
+    <span class="fa fa-caret pull-right"></span>{{ "Categories"|trans }}
+
+    <span class="selected-info">
+        {% if selected|length == 1 %}
+            {% set first = selected|first %}
+            <em>: {{ first.title }}</em>
+        {% else %}
+            <span class="badge badge-default">{{ selected|length }}</span>
+        {% endif %}
+    </span>
+</h4>
+<div id="collapseCategory" class="panel-collapse collapse in" role="tabpanel">
+    <ul class="list-group list-categorytree">
+        {% for category in categoryTree -%}
+            {{ _self.createCategoryMenuEntry(category) }}
+        {% endfor -%}
+    </ul>
+</div>

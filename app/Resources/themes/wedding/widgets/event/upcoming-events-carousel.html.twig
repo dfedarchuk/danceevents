@@ -1,0 +1,19 @@
+<!-- Upcoming Block form EVENTS Homepage -->
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+{% set dateFilter = getDateFilter() -%}
+
+{# thisWeek \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set anyDate = dateFilter.fromTodayFilterOption -%}
+
+{% set carousel = upcomingEventsCarousel(25) %}
+{% if carousel %}
+    <section class="block featured event">
+        <div class="container">
+            <h2 class="theme-title"
+                data-trans="{{ 'Upcoming Events'|trans({}, 'widgets') }}">{{ content.labelUpcomingEvents|trans({}, 'widgets') }}
+                <a href="{{ anyDate.searchPageUrl }}" class="view-more" data-trans="{{ 'more events'|trans({}, 'widgets') }}">{{ content.labelMoreEvents|trans({}, 'widgets') }}</a>
+            </h2>
+            {{ carousel|raw }}
+        </div>
+    </section>
+{% endif %}

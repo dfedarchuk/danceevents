@@ -1,0 +1,7 @@
+{% set skyScraperBanner = bannerWideSkyscraper(["col-md-12", "col-sm-12"]) -%}
+
+{% if skyScraperBanner -%}
+    <div class="banner-result">
+        {{ skyScraperBanner|raw -}}
+    </div>
+{% endif -%}

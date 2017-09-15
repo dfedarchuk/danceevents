@@ -1,0 +1,37 @@
+<div class="container well well-light">
+
+    <h2 class="theme-title" data-trans="{{ 'Browse by category '|trans({}, 'widgets') }}">
+        {{ content.labelBrowseByCat|trans({}, 'widgets') }} 
+    </h2>
+
+    <div class="flex flex-container col-xs-12">
+        {% for category in categories.featured -%}
+            <div class="flex-unit theme-box col-sm-2 col-xs-6">
+                <div class="theme-box-content">
+                    {% if category.thumbnail -%}
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">
+                            <img class="img-responsive" src="{{ asset(category.thumbnail, 'domain_images') | imagine_filter('small') }}" alt="{{ category.title }}">
+                        </a>
+                    {% else -%}
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" title="{{ category.title }}">
+                            {{ utility_getNoImage(category.title) }}
+                        </a>
+                    {% endif -%}
+                    <h5 class="text-center">
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}">{{ category.title }} ({{ category.count }})</a>
+                    </h5>
+                </div>
+            </div>
+        {% endfor -%}
+    </div>
+
+    <div class="row">
+           <div class="col-xs-12">
+               <br>
+               <p class="text-center">
+                   <a class="btn btn-primary" href=" {{ url(all) }} " data-trans="{{ 'more categories'|trans({}, 'widgets') }}">{{ content.labelMoreCat|trans({}, 'widgets') }}</a>
+               </p>
+           </div>
+        </div>
+
+</div>

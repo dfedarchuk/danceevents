@@ -1,0 +1,7 @@
+parameters:
+    reporthandler.configuration.class: ArcaSolutions\ReportsBundle\Services\ReportHandler
+
+services:
+    reporthandler:
+        class: %reporthandler.configuration.class%
+        arguments: [@service_container]

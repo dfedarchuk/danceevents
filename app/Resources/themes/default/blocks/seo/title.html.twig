@@ -1,0 +1,16 @@
+
+    <title>{{ title }}</title>
+
+    <meta name="author" content="{{ author|escape }}"/>
+    <meta name="description" content="{{ description|escape|truncate(150) }}"/>
+    <meta name="keywords" content="{{ keywords|escape }}"/>
+
+    {% block metaOG %} {% endblock %}
+
+    {% block metaTwitter %} {% endblock %}
+
+    {% if schema -%}
+    <script type="application/ld+json">
+        {{ schema|raw }}
+    </script>
+    {% endif %}

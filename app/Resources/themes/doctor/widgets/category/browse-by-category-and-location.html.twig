@@ -1,0 +1,36 @@
+{#      Description:                                                    -#}
+{# This macro renders browser by category and location w/ banner        -#}
+{% set cols = [] -%}
+{% set layout = {'cols': {3: {'offset': 1, 'width': [3,3,5]}, 2: {'width': [6,6]}, 1: {'width': [12]}}} -%}
+
+{% set browseByCategory = browseByCategoryListing(30, 'regular', content) -%}
+{% set browseByLocation = browseByLocationListing(30, content) -%}
+
+{% set squareBanner = include('::widgets/banners/square-ad-bar.html.twig') -%}
+
+{% if browseByCategory is not empty -%} {% set cols = cols|merge([browseByCategory]) -%} {% endif -%}
+{% if browseByLocation is not empty -%} {% set cols = cols|merge([browseByLocation]) -%} {% endif -%}
+{% if squareBanner is not empty -%} {% set cols = cols|merge([squareBanner]) -%} {% endif -%}
+
+{% if cols|length > 0 -%}
+    {% set columns = layout.cols[cols|length] -%}
+    {% if columns.offset is defined %}{% set offset = columns.offset %}{% endif %}
+    {% for col in columns.width -%}
+        {% if loop.first -%}
+            <section class="block block-inverse">
+            <div class="container">
+            <div class="row">
+        {% endif -%}
+
+        <div class="col-md-{{ col }}{{ offset > 0 ? ' col-md-offset-' ~ offset : '' }}">
+            {{ cols[loop.index0]|raw }}
+        </div>
+        {% set offset = 0 %}
+
+        {% if loop.last -%}
+            </div>
+            </div>
+            </section>
+        {% endif -%}
+    {% endfor -%}
+{% endif -%}

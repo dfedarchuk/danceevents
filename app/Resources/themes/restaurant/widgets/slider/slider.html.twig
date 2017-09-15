@@ -1,0 +1,14 @@
+<section class="block block-bg-image">
+    {# Default Image to responsive layout #}
+    <div class="visible-xs">
+        {{ include("::blocks/background-image.html.twig") }}
+    </div>
+
+    <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+        {# Render slider images #}
+        {{ slider() }}
+
+        {# Render the search fields #}
+        {% block searchbox %} {% endblock %}
+    </div>
+</section>

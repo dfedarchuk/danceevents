@@ -1,0 +1,38 @@
+{% extends "::blocks/seo/base.og.html.twig" %}
+
+{% block metaOG %}
+
+    {{ parent() }}
+
+    <meta property="product:is_product_shareable" content="true"/>
+    {% if og.product.category %}<meta property="product:category" content="{{ og.product.category }}"/>{% endif %}
+
+    {% if og.product.priceAmount %}<meta property="product:price:amount" content="{{ og.product.priceAmount }}"/>{% endif %}
+    {% if og.product.priceCurrency %}<meta property="product:price:currency" content="{{ og.product.priceCurrency }}"/>{% endif %}
+
+    {% if og.product.productLink %}<meta property="product:product_link" content="{{ og.product.productLink }}"/>{% endif %}
+
+    {% if og.product.deal -%}
+        {% if og.product.deal.brand %}<meta property="product:brand" content="{{ og.product.deal.brand }}"/>{% endif %}
+        {% if og.product.deal.originalPriceAmount %}<meta property="product:original_price:amount" content="{{ og.product.deal.originalPriceAmount }}"/>{% endif %}
+        {% if og.product.deal.originalPriceCurrency %}<meta property="product:original_price:currency" content="{{ og.product.deal.originalPriceCurrency }}"/>{% endif %}
+        {% if og.product.deal.salePriceAmount %}<meta property="product:sale_price:amount" content="{{ og.product.deal.salePriceAmount }}"/>{% endif %}
+        {% if og.product.deal.salePriceCurrency %}<meta property="product:sale_price:currency" content="{{ og.product.deal.salePriceCurrency }}"/>{% endif %}
+        {% if og.product.deal.salePriceDatesStart %}<meta property="product:sale_price_dates:start" content="{{ og.product.deal.salePriceDatesStart }}"/>{% endif %}
+        {% if og.product.deal.salePriceDatesEnd %}<meta property="product:sale_price_dates:end" content="{{ og.product.deal.salePriceDatesEnd }}"/>{% endif %}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block metaTwitter %}
+
+    <meta name="twitter:card" content="summary" />
+    {% set twitterAccount = getSetting('twitter_account') %}
+    {% if twitterAccount %}<meta name="twitter:site" content="@{{ twitterAccount }}" />{% endif %}
+
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description|escape|truncate(150) }}" />
+    {% if og.image %}<meta name="twitter:image" content="{{ og.image }}" />{% endif %}
+
+{% endblock %}

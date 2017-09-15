@@ -1,0 +1,38 @@
+<script>
+    var geoLocation = eDirectory.Utility.Geolocation.getInstance("{{ geolocationCookieName }}");
+    var sorter = new eDirectory.Search.Sorter($("#searchSorter"), geoLocation, function (error) {
+        var modal = null;
+
+        switch (error.code) {
+            case error.PERMISSION_DENIED: /*"User denied the request for Geolocation."*/
+                modal = new eDirectory.Utility.Modal(
+                    "sorterModal",
+                    "{{ "We were unable to get your location."|trans }}",
+                    "{{ "You have blocked our access to your Location. You may be able to change the permission settings by clicking the page icon in the address bar, or modifying your browser content settings."|trans }}"
+                );
+                break;
+            case error.POSITION_UNAVAILABLE: /*"Location information is unavailable."*/
+            case error.TIMEOUT:                /*"The request to get user location timed out."*/
+            case error.UNKNOWN_ERR: /*"An unknown error occurred."*/
+            default :
+                modal = new eDirectory.Utility.Modal(
+                        "sorterModal",
+                        "{{ "We were unable to get your location."|trans }}",
+                        "{{ "Your browser geolocation features seem to be unavailable right now. Please try again in a few minutes."|trans }}"
+                );
+                break;
+        }
+    });
+
+    $(document).ready(function () {
+        $(".summaryViewModeButton").click(function () {
+            $(".summaryViewModeButton").removeClass("active");
+            var clickedElement = $(this);
+
+            clickedElement.addClass("active");
+            Cookies.set("edirectory_results_viewmode", clickedElement.data("viewmode"));
+        });
+
+        sorter.initialize();
+    });
+</script>

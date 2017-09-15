@@ -1,0 +1,116 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            #}
+{# This page renders the Classified summary block which appears during searches #}
+
+{#      Resources:                                                              #}
+
+{# item \Elastica\Result                                                        #}
+{#      The elastica result object                                              #}
+
+{# levelFeatures array                                                          #}
+{#      Contains information about every level of a certain module              #}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# itemLevelInfo \ArcaSolutions\ClassifiedBundle\Entity\Internal\ClassifiedLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['classified'][data.level] -%}
+
+{% set detailURL      = url('classified_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "classified" -%}
+<section id="{{ sectionAnchor }}" class="summary-box summary-classified">
+    <div class="summary-content">
+        <div class="media">
+
+            {% if itemLevelInfo.imageCount > 0 and data.thumbnail is not empty -%}
+                <div class="media-left media-top">
+                    {% if itemLevelInfo.hasDetail -%}
+                        <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+                    {% else -%}
+                        {{ Utility.image( data.thumbnail, data.title ) }}
+                    {% endif -%}
+                </div>
+            {% endif -%}
+
+            <div class="media-body">
+
+                <h3>
+                    {% if itemLevelInfo.hasDetail -%}
+                        <a href="{{ detailURL }}">{{ data.title }}</a>
+                    {% else -%}
+                        {{ data.title }}
+                    {% endif -%}
+                    {% if data.distance and data.distance < 40000 %}<span>({{ parseDistanceUnit(data.distance) }})</span>{% endif %}
+                </h3>
+
+                <p class="categories-list">
+                    {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "classified" ) }}
+                </p>
+
+                {% if itemLevelInfo.hasSummaryDescription -%}
+                    <p class="summary-desc">{{ data.description }}
+                {% endif -%}
+
+                {% if itemLevelInfo.hasDetail == false and itemLevelInfo.hasContactName and itemLevelInfo.hasContactPhone -%}
+                    <div class="contactinfo-detail">
+                        {% if itemLevelInfo.hasContactName and data.contactName %}<span>{{ 'Contact'|trans }}: {{ data.contactName }}</span>{% endif %}
+                        {% if itemLevelInfo.hasContactPhone and data.phone %}<span> <a href="tel:{{ data.phone|regexFilter('/[^\\d]/') }}" class="text-primary">{{ data.phone }}</a> </span>{% endif %}
+                    </div>
+                    <br>
+                {% endif -%}
+
+                <p>
+                    {{ bookmarkLink(item, 'classified') }}
+                    {% if itemLevelInfo.hasContactEmail and data.email is not empty -%}
+                        <span class="divisor">|</span> <a class="text-info sendEmailButton" data-action="{{ path('classified_sendmail',{id: item.id}) }}">
+                            <span class="fa fa-envelope-o text-success"> </span>
+                            {{"Send E-mail"|trans }}
+                        </a>
+                    {% endif -%}
+                </p>
+
+            </div>
+
+            <div class="media-right text-center">
+
+                {% if itemLevelInfo.hasClassifiedPrice and data.price -%}
+                    <strong class="large">
+                        {% if data.price %}
+                            {{ data.price|localized_currency }}
+                        {% endif %}
+                    </strong>
+                {% endif -%}
+
+                {{ Utility.address( null, null, data.address.street, data.address.complement, null, itemLocations, pageLocations ) }}
+
+                {% if data.distance and data.distance < 40000 %}<span>{{ 'Distance'| trans }}: {{ parseDistanceUnit(data.distance) }}</span>{% endif %}
+
+                <!-- START Social Share -->
+                <div class="social-share">
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="http://www.facebook.com/sharer/sharer.php?u={{ ( detailURL ?: app.request.uri ~ "#" ~ sectionAnchor)|url_encode }}">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                    </div>
+
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="http://twitter.com/?status={{ ( detailURL ?: app.request.uri ~ "#" ~ sectionAnchor)|url_encode }}">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                    </div>
+
+                    <div class="social-button">
+                        <a target="_blank" class="popup btn-info" href="https://plus.google.com/share?url={{ ( detailURL ?: app.request.uri ~ "#" ~ sectionAnchor)|url_encode }}">
+                            <span class="fa fa-google"></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- END Social Share -->
+            </div>
+        </div>
+    </div>
+</section>

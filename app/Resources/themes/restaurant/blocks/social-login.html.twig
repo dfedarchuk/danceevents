@@ -1,0 +1,17 @@
+{% macro socialLogin(settings, fbLabel, goLabel) -%}
+    {% set fbLabel = fbLabel|default(' Log in with Facebook'|trans) -%}
+    {% set goLabel = goLabel|default('Log in with Google'|trans) -%}
+
+    {% if settings.facebook or settings.google -%}
+
+        {% if settings.facebook -%}
+            <a href="#" class="btn btn-facebook btn-block"><span class="fa fa-facebook"> </span> {{ fbLabel }}</a>
+        {% endif -%}
+
+        {% if settings.google -%}
+            <a href="#" class="btn btn-google btn-block"><span class="fa fa-google"> </span> {{ goLabel }}</a>
+        {% endif -%}
+
+        <p>{{ 'or log in using your email address'|trans }}</p>
+    {% endif -%}
+{% endmacro -%}

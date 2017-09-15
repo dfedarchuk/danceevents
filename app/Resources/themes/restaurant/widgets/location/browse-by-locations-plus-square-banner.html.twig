@@ -1,0 +1,40 @@
+{% set squareBanner1 = include('::widgets/banners/square-ad-bar.html.twig') -%}
+{% set squareBanner2 = include('::widgets/banners/square-ad-bar.html.twig') -%}
+{% set colClass = 'col-md-12 col-sm-12' -%}
+{% if squareBanner1 is not empty or squareBanner2 is not empty -%}
+    {% set colClass = 'col-md-9 col-sm-8' -%}
+    {% set banner = '<div class="col-md-3 col-sm-4">'~squareBanner1~'<br><br>'~squareBanner2~'</div>' -%}
+{% endif %}
+
+<section class="block">
+    <div class="container">
+        <div class="row">
+            <div class="{{ colClass }}">
+                <!-- Browse By -->
+                {% set module = getModule() -%}
+                {% set locations = getLocationByModule(module, content.limit) -%}
+                {% set route  = module ~ '_alllocations' -%}
+                {% if locations|length > 0 %}
+                    <h2 class="theme-title"
+                    data-trans="{{ "Browse by location"|trans({}, 'widgets') }}">{{ content.labelBrowseByLocation|trans({},'widgets') }}
+                        <a href="{{ url(route) }}" class="view-more"
+                           data-trans="{{ "Explore all locations"|trans({}, 'widgets') }}">{{ content.labelExploreAllLocations|trans({},'widgets') }}</a>
+                    </h2>
+
+                    <div class="list-columns-4">
+                        <ul class="list-unstyled">
+                            {% for location in locations -%}
+                                {% set link = url("global_search_1", {a0: (location.friendlyUrl)}) -%}
+                                <li>
+                                    <a href="{{ link }}">{{ location.name }} ({{ location.count }})</a>
+                                </li>
+                            {% endfor -%}
+                        </ul>
+                    </div>
+
+                {% endif %}
+            </div>
+            {{ banner|raw }}
+        </div>
+    </div>
+</section>

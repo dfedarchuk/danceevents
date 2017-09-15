@@ -1,0 +1,44 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            -#}
+{# This page renders the Blog summary block which appears during searches       -#}
+
+{#      Resources:                                                              -#}
+
+{# item \Elastica\Result                                                        -#}
+{#      The elastica result object                                              -#}
+
+{# levelFeatures array                                                          -#}
+{#      Contains information about every level of a certain module              -#}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{% set detailURL      = path('blog_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+
+<section class="summary-box summary-post">
+    <div class="summary-content">
+
+
+        <div class="media">
+
+            {% if data.thumbnail is not empty -%}
+                <div class="media-left media-top">
+                    <a href="{{ detailURL }}">{{ Utility.image( data.thumbnail, data.title ) }}</a>
+                </div>
+            {% endif -%}
+
+            <div class="media-body">
+                <h3>
+                    <a href="{{ detailURL }}">{{ data.title|raw }}</a>
+                </h3>
+                <p>{{ date(data.publicationDate)|localized_date('MMMM dd, yyyy') }}</p>
+
+                <p class="summary-desc">
+                    {{ (data.content[:200]|striptags|raw) }}... <a href="{{ detailURL }}">{{ "(more)"|trans }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

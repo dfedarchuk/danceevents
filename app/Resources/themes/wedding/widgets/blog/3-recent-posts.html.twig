@@ -1,0 +1,20 @@
+<!-- Popular Posts -->
+{% set recent_post = recentPost(3, 'col-sm-4') -%}
+{% if recent_post is not empty -%}
+    <section class="block block-inverse featured">
+        <div class="container">
+            <h2 class="theme-title theme-title-inverse"
+                data-trans="{{ 'Recent Posts'|trans({}, 'widgets') }}">{{ content.labelRecentPosts|trans({}, 'widgets') }}
+            </h2>
+
+            <div class="row">
+                {{ recent_post|raw }}
+            </div>
+
+            <div class="text-center">
+                <a href="{{ path("blog_homepage") }}" class="btn btn-success btn-long" data-trans="{{ 'more posts'|trans({}, 'widgets') }}">{{ content.labelMorePosts|trans({}, 'widgets') }}</a>
+            </div>
+
+        </div>
+    </section>
+{% endif -%}

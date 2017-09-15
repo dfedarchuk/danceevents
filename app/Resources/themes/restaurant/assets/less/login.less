@@ -1,0 +1,44 @@
+//
+// Login Forms
+// --------------------------------------------------
+
+.well-translucid {
+	.help-block {
+		margin-top: 10px;
+		color: white;
+		a {
+			color: @gray-lighter;
+		}
+	}
+}
+
+
+
+// Profile Login
+// -------------------------
+.panel-theme {
+	margin: 0 @grid-gutter-width/2;
+	box-shadow: none;
+	background-color: transparent;
+	.panel-heading, p {
+		text-align: center;
+	}
+	.panel-heading > h2 {
+		font-weight: 400;
+		text-transform: uppercase;
+		font-size: 1.6em;
+	}
+	.panel-body {
+		border: 1px solid @gray-light;
+		padding: @grid-gutter-width  @grid-gutter-width  @grid-gutter-width/2  @grid-gutter-width ;
+	}
+	p {
+		margin: @grid-gutter-width/2 0;
+	}
+    @media (max-width:@screen-sm-max) {
+        margin: 0 auto;
+        .panel-body {
+            padding: @grid-gutter-width  @grid-gutter-width/4  @grid-gutter-width/2  @grid-gutter-width/4 ;
+        }
+    }
+}

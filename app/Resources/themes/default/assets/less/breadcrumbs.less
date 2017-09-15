@@ -1,0 +1,108 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.breadcrumb {
+    padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+    margin-bottom: @line-height-computed;
+    list-style: none;
+    background-color: @breadcrumb-bg;
+    border-radius: @border-radius-base;
+
+    > li {
+        display: inline-block;
+
+        + li:before {
+            content: "@{breadcrumb-separator}"; // Unicode space added since inline-block means non-collapsing white-space
+            padding: 0 3px 0 0;
+            margin-left: -2px;
+            color: @breadcrumb-color;
+        }
+        a {
+            color: @brand-success;
+        }
+    }
+
+    > .active {
+        color: @breadcrumb-active-color;
+    }
+}
+
+.breadcrumb-steps {
+
+    @media (max-width: @screen-sm) {
+        &.isVisible {
+            display: none;
+        }
+    }
+
+    > li {
+        background-color: @brand-primary;
+        position: relative;
+        color: contrast(@brand-primary, @gray-darker, @gray-lighter, 43%);
+        font-weight: 300;
+        @media (max-width: @grid-float-breakpoint) {
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        @media (min-width: @grid-float-breakpoint) {
+            padding: @grid-gutter-width/2 @grid-gutter-width/2;
+        }
+        strong {
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-right: 10px;
+            font-size: 130%;
+            line-height: 1;
+        }
+        + li {
+            &:before {
+                display: none;
+            }
+
+            @media (min-width: @grid-float-breakpoint) {
+                margin-left: 30px;
+                &:before {
+                    display: block;
+                    content: " ";
+                    padding: 0;
+                    color: white;
+                    border-width: 26px;
+                    border-style: solid;
+                    border-color: transparent transparent transparent @brand-primary;
+                    position: absolute;
+                    left: -33px;
+                    top: 0;
+                }
+            }
+
+        }
+    }
+    > .active {
+        &, a {
+            color: contrast(@brand-primary, darken(@brand-success, 10%), lighten(@brand-success, 10%), 43%);
+        }
+    }
+
+    &.breadcrumb-steps-inverse {
+        > li {
+            background-color: @brand-success;
+            color: contrast(@brand-success, @gray-darker, @gray-lighter, 43%);
+            + li {
+                &:before {
+                    border-color: transparent transparent transparent @brand-success;
+                }
+            }
+        }
+        > .active {
+            &, a {
+                font-weight: 600;
+                background-color: @gray-lighter;
+                color: contrast(@gray-lighter, @brand-primary, @brand-success, 43%);
+                + li:before {
+                    border-color: transparent transparent transparent @gray-lighter;
+                }
+            }
+        }
+    }
+}

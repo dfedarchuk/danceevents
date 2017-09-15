@@ -1,0 +1,24 @@
+<script>
+    function fetchListingPhone( element ){
+        element.unbind("click");
+
+        $.post( "{{ path("listing_contactinfo")|raw }}", { item: element.data("item"), type: element.data("type")})
+            .done( function (response) {
+                if( response.status ) {
+                    element.html(response.data);
+                    element.removeClass();
+                } else {
+                    {# What should happen in case we cannot fetch the information -#}
+                }
+            }
+        );
+    }
+
+    $('.listingContactButton').click( function () {
+        fetchListingPhone($(this));
+    });
+
+    $('#sendMail').on('hidden.bs.modal', function(e) {
+        $(this).removeData('bs.modal');
+    });
+</script>

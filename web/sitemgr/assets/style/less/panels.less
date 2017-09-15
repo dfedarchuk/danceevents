@@ -1,0 +1,510 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.panel {
+  margin-bottom: 40px;
+  background-color: @panel-bg;
+  border: 1px solid transparent;
+  border-radius: @panel-border-radius;
+  .box-shadow(0 1px 1px rgba(0,0,0,.05));
+
+  .responsive-table {
+    >.table {
+      > tbody > tr > td,
+      > thead > tr > th {
+        border:none;
+      }
+    }
+  }
+
+
+}
+
+// Panel contents
+.panel-body {
+  padding: @panel-body-padding;
+  &:extend(.clearfix all);
+  &.panel-border-bot {
+    border-bottom:1px solid @panel-inner-border;
+  }
+}
+
+// Optional heading
+.panel-heading {
+  padding: @panel-heading-padding;
+  border-bottom: 1px solid transparent;
+  .border-top-radius((@panel-border-radius - 1));
+
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+  + .nav-tabs {
+    li {
+       margin-left: 20px;
+      margin-top: 10px;
+    }
+  }
+  i.icon-uniE605 {
+    margin-right:10px;
+    cursor: move;
+  }
+  .del-button{
+    border: 1px solid @brand-warning;
+    margin-top: -4px;
+    padding: 2px 1px 0;
+    &:hover{
+      text-decoration: none;
+      background-color: white;
+    }
+  }
+  .btn {
+    white-space: normal;
+  }
+
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil((@font-size-base * 1.125));
+  color: inherit;
+
+  > a {
+    color: inherit;
+  }
+}
+
+// Optional footer (stays gray in every modifier class)
+.panel-footer {
+  padding: @panel-footer-padding;
+  background-color: @panel-footer-bg;
+  border-top: 1px solid @panel-inner-border;
+  .border-bottom-radius((@panel-border-radius - 1));
+  &.pager {
+    margin:0;
+    text-align: right;
+  }
+}
+
+
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.panel {
+  > .list-group {
+    margin-bottom: 0;
+
+    .list-group-item {
+      border-width: 1px 0;
+      border-radius: 0;
+    }
+
+    // Add border top radius for first one
+    &:first-child {
+      .list-group-item:first-child {
+        border-top: 0;
+        .border-top-radius((@panel-border-radius - 1));
+      }
+    }
+    // Add border bottom radius for last one
+    &:last-child {
+      .list-group-item:last-child {
+        border-bottom: 0;
+        .border-bottom-radius((@panel-border-radius - 1));
+      }
+    }
+  }
+}
+// Collapse space between when there's no additional content.
+.panel-heading + .list-group {
+  .list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+.list-group + .panel-footer {
+  border-top-width: 0;
+}
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.panel {
+  > .table,
+  > .table-responsive > .table,
+  > .panel-collapse > .table {
+    margin-bottom: 0;
+  }
+  // Add border top radius for first one
+  > .table:first-child,
+  > .table-responsive:first-child > .table:first-child {
+    .border-top-radius((@panel-border-radius - 1));
+
+    > thead:first-child,
+    > tbody:first-child {
+      > tr:first-child {
+        td:first-child,
+        th:first-child {
+          border-top-left-radius: (@panel-border-radius - 1);
+        }
+        td:last-child,
+        th:last-child {
+          border-top-right-radius: (@panel-border-radius - 1);
+        }
+      }
+    }
+  }
+  // Add border bottom radius for last one
+  > .table:last-child,
+  > .table-responsive:last-child > .table:last-child {
+    .border-bottom-radius((@panel-border-radius - 1));
+
+    > tbody:last-child,
+    > tfoot:last-child {
+      > tr:last-child {
+        td:first-child,
+        th:first-child {
+          border-bottom-left-radius: (@panel-border-radius - 1);
+        }
+        td:last-child,
+        th:last-child {
+          border-bottom-right-radius: (@panel-border-radius - 1);
+        }
+      }
+    }
+  }
+  > .panel-body + .table,
+  > .panel-body + .table-responsive {
+    border-top: 1px solid @table-border-color;
+  }
+  > .table > tbody:first-child > tr:first-child th,
+  > .table > tbody:first-child > tr:first-child td {
+    border-top: 0;
+  }
+  > .table-bordered,
+  > .table-responsive > .table-bordered {
+    border: 0;
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  > .table-responsive {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  margin-bottom: @line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .panel {
+    margin-bottom: 0;
+    border-radius: @panel-border-radius;
+    + .panel {
+      margin-top: 5px;
+    }
+  }
+
+  .panel-heading {
+    border-bottom: 0;
+    + .panel-collapse > .panel-body {
+      border-top: 1px solid @panel-inner-border;
+    }
+  }
+  .panel-footer {
+    border-top: 0;
+    + .panel-collapse .panel-body {
+      border-bottom: 1px solid @panel-inner-border;
+    }
+  }
+}
+
+
+// Contextual variations
+
+.panel-default {
+  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+  .panel-footer {
+    text-align: right;
+  }
+}
+.panel-primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.panel-success {
+  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.panel-info {
+  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.panel-warning {
+  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.panel-danger {
+  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}
+
+/*New Panels*/
+
+.panel {
+  &.panel-form {
+    background-color: transparent;
+    border:none;
+    box-shadow: none;
+    .panel-heading {
+      border:none;
+      padding:0;
+      font-size: 1.2em;
+      color: lighten(@gray-dark, 20);
+    }
+    .panel-body {
+      border: 1px solid lighten(@gray-light, 2)
+    }
+    @media (max-width: @screen-xs) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+
+  &.panel-form-media{
+    background-color:  lighten(@gray-light, 5);
+    box-shadow: none;
+    .panel-heading {
+      border:none;
+      border-bottom: 1px solid @gray-light;
+      font-size: 1.2em;
+      color: lighten(@gray-dark, 20);
+      padding:0.7em 1em 0.8em;
+      overflow-y: hidden;
+    }
+    .panel-body {
+      border:none;
+      padding:1.8em 2.2em 1em 2.2em;
+      .center-block {
+        p {
+          font-size: 1.2em;
+        }
+        i {
+          font-size: 4em;
+          color: @gray;
+          margin: 0 0.3em 0.4em;
+          display:block;
+        }
+      }
+    }
+    .panel-footer {
+      border-top: 1px solid @gray-light;
+      background-color:  lighten(@gray-light, 5);
+      p {
+        margin-bottom:0;
+      }
+    }
+  }
+  &.panel-stats {
+    border:none;
+    display: block;
+    font-size: 16px;
+    > .panel-heading {
+      text-transform: uppercase;
+      color: white;
+      border: none;
+      font-size: 1em;
+      @media (max-width:@screen-xs-min) {
+         font-size: 0.8em;
+         overflow:hidden;
+         white-space: nowrap;
+         text-overflow: ellipsis;
+      }
+    }
+    > .panel-body {
+      color: white;
+      font-size: 3.3em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      em {
+        font-style: normal;
+      }
+      i {
+        font-size: 1.3em;
+      }
+      @media (max-width:@screen-md-min) {
+         font-size: 2.6em;
+      }
+      @media (max-width:@screen-xs-min) {
+         font-size: 1.2em;
+         white-space: nowrap;
+      }
+    }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+    @media (max-width:@screen-xs-min) {
+
+    }
+  }
+  &.panel-primary {
+    > .panel-heading {
+      background-color: @brand-primary;
+    }
+    > .panel-body {
+      background-color: lighten(@brand-primary, 10%);
+    }
+  }
+  &.panel-info {
+    > .panel-heading {
+      background-color: @brand-info;
+    }
+    > .panel-body {
+      background-color: lighten(@brand-info, 10%);
+    }
+  }
+}
+
+
+.panel-domain {
+  .panel-variant(@panel-default-border; @panel-default-text; @gray-light; @panel-default-border);
+  background-color: lighten(@gray-light,8%);
+  .table > thead > tr > th {
+      font-weight: normal;
+      border-width: 1px;
+      background-color: lighten(@gray-light,6%);
+  }
+  margin-bottom: 50px;
+  .panel-heading {
+    float: left;
+    width: 100%;
+    margin-bottom:20px ;
+  }
+  .panel-body {
+      min-height: 180px;
+      word-wrap: break-word;
+  }
+}
+
+.panel-dashboard {
+    box-shadow: none;
+    .panel-variant(@panel-default-border; @panel-default-text; lighten(@gray-lighter, 2%); @panel-default-border);
+    font-size: 13px;
+    h1 {
+        font-size: 1.7em;
+        line-height: 1.2;
+        margin: 8px 0 0;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+//Completion well
+.completion-panel {
+  .completion-tip {
+    margin-top:10px;
+    display: block;
+    color: @gray-dark;
+    .pull-right  {
+      width: 80%;
+    }
+    &.checked {
+      span { color:@gray;}
+      a {
+        color: @gray;
+        &:hover {
+          color: @brand-primary;
+        }
+      }
+    }
+    a {
+      color: @gray-dark;
+      &:hover {
+        color: @brand-primary;
+      }
+    }
+  }
+  .tipcomplete {
+      display: inline-block;
+      height: 42px;
+      width: 36px;
+      cursor: pointer;
+      i {
+        font-size: 3.3em;
+        float: left;
+      }
+  }
+  h1 {
+     margin-bottom: -5px;
+     margin-top: 10px;
+  }
+}
+
+/* Special space inside form sections */
+.section-form, .tab-content {
+  .panel.panel-default,
+  .panel.panel-form-media {
+    margin-top:4px;
+  }
+}
+
+
+/* Panel controled by Tabs */
+.panel-tabs {
+  margin-bottom: -5px;
+  > li {
+    > a {
+      color: @gray;
+    }
+    &.active > a{
+      &,  &:hover ,&:focus {
+          color: @brand-primary;
+        }
+      }
+  }
+
+}

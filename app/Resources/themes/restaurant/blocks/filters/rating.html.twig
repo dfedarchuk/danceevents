@@ -1,0 +1,44 @@
+{#      Description:                                                                                -#}
+{# This page represents the Rating Filter HTML on Search pages                                      -#}
+
+{#      Resources:                                                                                  -#}
+
+{# rating \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                     -#}
+{#      An instance of the FilterMenuTreeNode class containing data for a specific rating           -#}
+{#      {                                                                                           -#}
+{#          title         :(string) The rating number (represented in stars)                        -#}
+{#          module        :(string) The module name                                                 -#}
+{#          isSelected    :(bool) Whether or not this rating was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                          -#}
+{#          resultCount   :(int) The amount of results within this rating                           -#}
+{#      }                                                                                           -#}
+
+
+<h4 class="panel-title" data-toggle="collapse" data-target="#collapseRating" aria-expanded="true" aria-controls="collapseRating">
+    <span class="fa fa-caret pull-right"></span>{{ "Rating"|trans }}
+    <span class="selected-info">
+        <span class="badge badge-default">{{ selected|length }}</span>
+    </span>
+</h4>
+
+<div id="collapseRating" class="panel-collapse collapse in" role="tabpanel">
+    <ul class="list-group list-categorytree">
+        {% for rating in menuNodes -%}
+            {% set ratingClass = rating.isSelected ? "active" : "" -%}
+            <li class="list-group-item {{ ratingClass }}">
+                <a href="{{ rating.searchPageUrl }}" rel="nofollow">
+                    {#Will generate stars relative to the rating value.-#}
+                    {#Example: The rate 3 will generate 3 black stars and 2 white -#}
+                    {% for i in 1..5 -%}
+                        {% if i > rating.id -%}
+                            <i class="fa fa-star-o"></i>
+                        {% else -%}
+                            <i class="fa fa-star"></i>
+                        {% endif -%}
+                    {% endfor -%}
+                    <span class="badge pull-right">{{ rating.resultCount }}</span>
+                </a>
+            </li>
+        {% endfor -%}
+    </ul>
+</div>

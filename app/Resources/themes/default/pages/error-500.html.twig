@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <head>
+        <title>Error Page</title>
+        <!-- THEME STYLE -->
+        {% spaceless %}
+            {% block stylesheets %}
+                {% stylesheets
+                filter='cssrewrite'
+                output='assets/css/style.css'
+                '%kernel.root_dir%/Resources/themes/default/assets/less/theme.less'
+                'assets/js/lib/owl-carousel/*.css'
+                '%kernel.root_dir%/Resources/themes/default/css/*.css' %}
+                <link href="{{ asset_url }}" rel="stylesheet"/>
+                {% endstylesheets %}
+            {% endblock -%}
+        {% endspaceless %}
+    </head>
+</head>
+
+<body>
+<!-- Header and navbar with Responsive features -->
+<main>
+    <div class="container">
+        <br><br><br><br>
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                {{ "Oops!"|trans }}
+            </div>
+            <div class="panel-body">
+                <h1>{{ "Something went wrong! We're looking into it"|trans }}!</h1>
+                <p>{{ "The server encountered an internal error or misconfiguration and was unable to complete your request"|trans }}.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+
+</html>

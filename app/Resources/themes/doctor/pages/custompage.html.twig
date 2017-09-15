@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" -%}
+
+{# @var page \ArcaSolutions\WebBundle\Entity\Content #}
+{% block title -%}{{ page.title }}{% endblock -%}
+{% block description -%}{{ page.description }}{% endblock -%}
+{% block keywords -%}{{ page.keywords }}{% endblock -%}
+
+{% block subheader -%}
+    {% include '::blocks/search-header.html.twig' -%}
+{% endblock -%}
+
+{% block body -%}
+
+{% endblock -%}

@@ -1,0 +1,19 @@
+<div  class="{{ classes|join(" ") }}">
+    {% if client %}
+        <script type="text/javascript">
+            google_ad_client = "{{ client }}";
+            google_ad_width = "{{ width }}";
+            google_ad_height = "{{ height }}";
+            google_ad_format = "{{ width ~ 'x' ~ height }}_as";
+            google_ad_type = "{{ type }}";
+            google_ad_channel = "{{ channel }}";
+            google_color_border = "336699";
+            google_color_bg = "FFFFFF";
+            google_color_link = "0000FF";
+            google_color_url = "008000";
+            google_color_text = "000000";
+        </script>
+        <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+    {% endif %}
+    <span class="break-sm"></span>
+</div>

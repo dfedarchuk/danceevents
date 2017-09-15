@@ -1,0 +1,83 @@
+/*
+* # Admin Panel for eDirectory
+* @copyright Copyright 2014 Arca Solutions, Inc.
+* @author Basecode - Arca Solutions, Inc.
+*/
+
+/* Hiding Tutorial text on forms */
+@media(max-width: 1356px) {
+	.text-info.tutorial-text {
+		display: none;
+	}
+}
+
+/*Tutorial Guide*/
+.wrapper.toggletutorial {
+	left: -120px;
+    position: relative;
+    top: 0;
+}
+body.branded {
+	aside.tutorial-tour.toggletutorial {
+		bottom: 27px;
+	}
+}
+
+aside.tutorial-tour {
+	width:240px;
+	display: none;
+	background-color: @gray-dark;
+	&.toggletutorial {
+		display: block;
+	    color: white;
+	    padding: 10px 20px;
+	    position: fixed;
+	    bottom: 0;
+	    right: 0;
+	    top: 65px;
+	    width: 240px;
+	    z-index:1110;
+	}
+	h1 {
+		font-size: 1.6em;
+		margin-bottom: 20px;
+	}
+	ul {
+    	overflow-y: auto;
+    	margin-bottom: 65px;
+	}
+	li {
+		padding:2px 0;
+		span { 
+			&:hover {
+				cursor: pointer;
+				color: @brand-primary;
+				background-color: transparent;
+			}
+			[class*="icon-"] {
+				opacity: 0;
+				visibility: hidden; 
+				font-size: 1.3em;
+				padding: 2px 5px;
+			}
+			&.active {
+				color: @brand-primary;
+				[class*="icon-"] {
+				opacity: 1;
+				visibility: visible;
+				}
+			}
+			&.tour-step-end {
+				display: block;
+			    padding: 20px 0;
+			    &:before {
+			    	content: " > "
+			    }
+			    &:hover {
+			    	color: @gray;
+			    }
+			}
+		}
+	}
+}
+

@@ -1,0 +1,19 @@
+{% extends "::blocks/seo/base.og.html.twig" %}
+
+{% block metaOG %}
+
+    {{ parent() }}
+
+    {% if og.article.author %}<meta property="article:author" content="{{ og.article.author }}"/>{% endif %}
+
+    {% if og.article.expirationTime %}<meta property="article:expiration_time" content="{{ og.article.expirationTime }}"/>{% endif %}
+
+    {% if og.article.modifiedTime %}<meta property="article:modified_time" content="{{ og.article.modifiedTime }}"/>{% endif %}
+
+    {% if og.article.publishedTime %}<meta property="article:published_time" content="{{ og.article.publishedTime }}"/>{% endif %}
+
+    {% if og.article.section %}<meta property="article:section" content="{{ og.article.section }}"/>{% endif %}
+
+    {% if og.article.tag %}<meta property="article:tag" content="{{ og.article.tag }}"/>{% endif %}
+
+{% endblock %}

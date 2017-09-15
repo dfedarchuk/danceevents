@@ -1,0 +1,7 @@
+parameters:
+    synchronization.main.class: ArcaSolutions\ElasticsearchBundle\Services\Synchronization\Synchronization
+
+services:
+    elasticsearch.synchronization:
+        class: %synchronization.main.class%
+        arguments: ["@service_container"]

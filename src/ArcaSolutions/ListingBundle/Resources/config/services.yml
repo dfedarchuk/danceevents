@@ -1,0 +1,52 @@
+parameters:
+    badge.search.configuration.class: ArcaSolutions\ListingBundle\Search\BadgeConfiguration
+    badge.synchronization.configuration.class: ArcaSolutions\ListingBundle\Services\Synchronization\BadgeSynchronizable
+
+    listing.search.configuration.class: ArcaSolutions\ListingBundle\Search\ListingConfiguration
+    listing.synchronization.configuration.class: ArcaSolutions\ListingBundle\Services\Synchronization\ListingSynchronizable
+    listing.category.synchronization.configuration.class: ArcaSolutions\ListingBundle\Services\Synchronization\ListingCategorySynchronizable
+
+    # twig extension
+    listing.blocks.twig.extension.class: ArcaSolutions\ListingBundle\Twig\Extension\BlocksExtension
+    listing.seo.twig.extension.class: ArcaSolutions\ListingBundle\Twig\Extension\SeoExtension
+
+services:
+    badge.search:
+        class: %badge.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    badge.synchronization:
+        class: %badge.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    listing.search:
+        class: %listing.search.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    listing.blocks:
+        class: %listing.blocks.twig.extension.class%
+        arguments:
+            - @service_container
+        tags:
+            - { name: twig.extension }
+
+    seo.listing:
+        class: %listing.seo.twig.extension.class%
+        arguments:
+            - @service_container
+            - @settings
+        tags:
+            - { name: twig.extension }
+
+    listing.synchronization:
+        class: %listing.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]
+
+    listing.category.synchronization:
+        class: %listing.category.synchronization.configuration.class%
+        arguments: ["@service_container"]
+        tags: [{ name: kernel.event_subscriber }]

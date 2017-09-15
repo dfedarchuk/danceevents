@@ -1,0 +1,5 @@
+{% if content.customHtml %}
+    <div{{ content.fullWidth ? '' : ' class="container well well-light"' }}>
+        {{ content.customHtml|raw }}
+    </div>
+{% endif %}

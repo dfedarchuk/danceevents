@@ -1,0 +1,14 @@
+<ul class="nav navbar-nav">
+    {% for item in items -%}
+
+        <li class="{{ item.link ==  app.request.get('_route') ? 'active' :
+                    ( item.custom == 'y'and item.link == app.request.uri ? 'active' : '' ) }}">
+            <a href="{{ item.custom == 'y' ? item.link : path(item.link) }}">
+                {{ item.label }}
+            </a>
+        </li>
+
+    {% endfor -%}
+
+    {{ loginNavBar(content) }}
+</ul>
