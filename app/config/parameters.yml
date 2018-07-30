@@ -1,33 +1,22 @@
-# This file is a "template" of what your parameters.yml file should look like
+# This file is auto-generated during the composer install
 parameters:
-    # MySQL Configuration
-    database_driver:   pdo_mysql
-    database_host:     HOST_DB
-    database_port:     3306
-    database_name:     NAME_DB
-    database_user:     USER_DB
-    database_password: PASS_DB
-    database_charset:  UTF8
-
-    # ElasticSearch Configuration
-    elastic_host:      ES_HOST
-    elastic_port:      ES_PORT
-
-    # Swiftmailer Configuration
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-    mailer_port:       465
+    database_driver: pdo_mysql
+    database_host: db
+    database_port: 3306
+    database_name: dance_main
+    database_user: root
+    database_password: 112233
+    database_charset: UTF8
+    elastic_host: el
+    elastic_port: 9200
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    mailer_port: 465
     mailer_encryption: ssl
-
-    # Internationalization
     locale: en
     charset: UTF-8
-
-    # A secret key that's used to generate certain security-related tokens
-    secret: TOKEN
-
-    # eDirectory key
+    secret: 141624C27879A9F8CD3236C9FF854
     alias_members_module: sponsors
     alias_sitemgr_module: sitemgr

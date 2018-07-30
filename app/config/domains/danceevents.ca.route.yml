@@ -1,0 +1,22 @@
+parameters:
+    alias_advertise_url_divisor: advertise
+    alias_alllocations_url_divisor: locations
+    alias_archive_url_divisor: archive
+    alias_article_allcategories_url_divisor: categories
+    alias_article_module: article
+    alias_blog_allcategories_url_divisor: categories
+    alias_blog_module: blog
+    alias_classified_allcategories_url_divisor: categories
+    alias_classified_module: classified
+    alias_contactus_url_divisor: contactus
+    alias_event_allcategories_url_divisor: categories
+    alias_event_module: event
+    alias_faq_url_divisor: faq
+    alias_listing_allcategories_url_divisor: categories
+    alias_listing_module: listing
+    alias_promotion_allcategories_url_divisor: categories
+    alias_promotion_module: deal
+    alias_review_url_divisor: reviews
+    alias_sitemap_url_divisor: sitemap
+    alias_terms_url_divisor: terms
+    alias_privacy_url_divisor: privacy

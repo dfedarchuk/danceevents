@@ -1,4 +1,4 @@
-setEnv SYMFONY_ENV 'prod'
+setEnv SYMFONY_ENV 'dev'
 
 # eDirectory Rules Start
 ## EXPIRES CACHING ##

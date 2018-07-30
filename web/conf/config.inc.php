@@ -1,5 +1,4 @@
 <?
-
 	/*==================================================================*\
 	######################################################################
 	#                                                                    #
@@ -22,25 +21,25 @@
 		# ----------------------------------------------------------------------------------------------------
 		# EDIRECTORY ADMINISTRATOR EMAIL
 		# ----------------------------------------------------------------------------------------------------
-		define("EDIR_ADMIN_EMAIL", "edirectory_debug@arcasolutions.com");
-		define("EDIR_SUPPORT_EMAIL", "edirectory_debug@arcasolutions.com");
+		define("EDIR_ADMIN_EMAIL", "dimas@qedata.io");
+		define("EDIR_SUPPORT_EMAIL", "dimas@qedata.io");
 
 		# ----------------------------------------------------------------------------------------------------
 		# DATABASE CONNECTION PARAMETERS
 		# ----------------------------------------------------------------------------------------------------
 		define("DEFAULT_DB",         "DIRECTORYDB");
-		define("_DIRECTORYDB_HOST",  "HOST_DB");
-		define("_DIRECTORYDB_USER",  "USER_DB");
-		define("_DIRECTORYDB_PASS",  "PASS_DB");
-		define("_DIRECTORYDB_NAME",  "NAME_DB");
+		define("_DIRECTORYDB_HOST",  "db");
+		define("_DIRECTORYDB_USER",  "root");
+		define("_DIRECTORYDB_PASS",  "112233");
+		define("_DIRECTORYDB_NAME",  "dance_main");
 		define("_DIRECTORYDB_EMAIL", EDIR_ADMIN_EMAIL);
 		if ((defined("DEMO_DEV_MODE") && DEMO_DEV_MODE) || !isset($_SERVER["HTTP_HOST"])) {
 			define("_DIRECTORYDB_DEBUG", "display");
 		} else {
-			define("_DIRECTORYDB_DEBUG", "hide");
+			define("_DIRECTORYDB_DEBUG", "display");
 		}
 
-		define("DB_NAME_PREFIX", "PREFIX_DB");
+		define("DB_NAME_PREFIX", "dance");
 
 		define("MYSQL_TIMEOUT", 10); // Seconds information to each connection of Connection Pool
 	}

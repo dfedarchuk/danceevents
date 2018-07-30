@@ -57,11 +57,11 @@ define("TMP_FOLDER", $_SERVER["DOCUMENT_ROOT"] . EDIRECTORY_FOLDER . "/custom/tm
 # ----------------------------------------------------------------------------------------------------
 # LOGS
 # ----------------------------------------------------------------------------------------------------
-define("ENABLE_LOG", false);
+define("ENABLE_LOG", true);
 define("LOG_PATH", $_SERVER["DOCUMENT_ROOT"] . EDIRECTORY_FOLDER . "/custom/log");
 define("SHOW_REGISTRATION_LOG", true);
-define("ACTIVATION_DEBUG", false);
-define("QUERY_LOG_DB", false); // Save log of queries on DB - SQL_Log
+define("ACTIVATION_DEBUG", true);
+define("QUERY_LOG_DB", true); // Save log of queries on DB - SQL_Log
 define("QUERY_LOG_FILE", true);
 define("LOG_SIZE_ROTATE", 1); // Value in MB
 define("ENABLE_CRON_LOG", true);

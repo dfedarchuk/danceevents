@@ -1,16 +1,14 @@
-# MultiDomain Configuration
 parameters:
-    api_tokens:
-    api_pin:
-
+    api_tokens: null
+    api_pin: null
 multi_domain:
     hosts:
-        automation.arcasolutions.com:
+        danceevents.ca:
             id: 1
-            path: custom/domain_1/
+            path: custom/domain/
             template: default
-            locale: LOCALE
-            database: DB_DOMAIN_NAME
-            elastic: ELASTIC_INDEX
-            title: eDirectory
-            branded: on
+            locale: en-us
+            database: dance_domain1
+            elastic: danceevents
+            title: 'Dance Events'
+            branded: 'on'

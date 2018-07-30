@@ -1,2 +1,2 @@
 <?
-$domainInfo["automation.arcasolutions.com"] = 1;
+$domainInfo["danceevents.ca"] = 1;
