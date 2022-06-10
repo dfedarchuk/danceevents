@@ -98,7 +98,7 @@
         "liip/theme-bundle": "1.2.*",
         "oyejorge/less.php": "~1.5",
         "knplabs/knp-paginator-bundle": "2.4.*",
-        "guzzlehttp/guzzle": "5.3.0",
+        "guzzlehttp/guzzle": "6.5.7",
         "friendsofsymfony/jsrouting-bundle": "^1.5",
         "beberlei/DoctrineExtensions": "^1.0",
         "tplaner/when": "2.*",
